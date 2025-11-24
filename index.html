@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>It's over</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            position: relative;
+            overflow-x: hidden; /* Empêche le défilement horizontal */
+        }
+        .scrolling-banner {
+            position: absolute;
+            top: 45%;
+            left: 0;
+            width: 100%;
+            z-index: 10;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 24px;
+            color: white;
+            text-transform: uppercase;
+            white-space: nowrap;
+            animation: scroll 3000s linear infinite;
+            animation-fill-mode: forwards;
+            transform: translateX(-100%);
+            padding-left: 100%;
+            box-sizing: border-box;
+        }
+        @keyframes scroll {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(-10000%); }
+        }
+        img {
+            max-width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="scrolling-banner" id="banner"></div>
+        <img src="julia-androide.png" alt="Julia Androide">
+    </div>
+    <script>
+        function generateBannerText() {
+            const text = "IT'S OVER ";
+            const banner = document.getElementById('banner');
+            let result = "";
+            for (let i = 0; i < 10000; i++) {
+                result += text;
+            }
+            banner.textContent = result;
+        }
+        
+        // Generate the banner text when the page loads
+        window.addEventListener('load', generateBannerText);
+    </script>
+</body>
+</html>
