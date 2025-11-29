@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,8 +16,10 @@
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
             position: relative;
-            overflow-x: hidden; /* Empêche le défilement horizontal */
+            overflow-x: hidden;
+            /* Empêche le défilement horizontal */
         }
+
         .scrolling-banner {
             position: absolute;
             top: 45%;
@@ -34,19 +37,29 @@
             padding-left: 100%;
             box-sizing: border-box;
         }
+
         @keyframes scroll {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(-10000%); }
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(-10000%);
+            }
         }
+
         img {
             max-width: 300px;
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="scrolling-banner" id="banner"></div>
-        <img src="julia-androide.png" alt="Julia Androide">
+        <a href="https://616793d9-ea17-4650-a069-71513e972c17-00-2hoy4al87a8kc.sisko.replit.dev">
+            <img src="julia-androide.png" alt="Julia Androide">
+        </a>
     </div>
     <script>
         function generateBannerText() {
@@ -58,9 +71,10 @@
             }
             banner.textContent = result;
         }
-        
+
         // Generate the banner text when the page loads
         window.addEventListener('load', generateBannerText);
     </script>
 </body>
+
 </html>
