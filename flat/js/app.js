@@ -72,7 +72,7 @@ lightboxOverlay.addEventListener('click', () => {
 
 document.querySelectorAll('.amenity-photo-grid img, .amenity-photo img').forEach(img => {
     img.addEventListener('click', () => {
-        createLightboxImage(img.src);
+        createLightboxImage(img.dataset.full || img.src);
     });
 });
 
