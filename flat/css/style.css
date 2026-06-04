@@ -392,6 +392,47 @@ section p {
     font-size: 0.9rem;
 }
 
+/* === No Smoking Card === */
+.no-smoking-card {
+    border-color: #c0392b;
+    border-left: 4px solid #c0392b;
+    background: #fdf5f4;
+}
+
+.no-smoking-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.no-smoking-content img {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.no-smoking-text h3 {
+    font-family: var(--font-heading), serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #c0392b;
+    margin: 0 0 0.5rem;
+}
+
+.no-smoking-text p {
+    font-size: 0.95rem;
+    color: var(--color-text);
+    margin: 0;
+}
+
+@media (max-width: 480px) {
+    .no-smoking-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
 /* === Amenity Cards === */
 .amenity-card {
     background: var(--color-surface);
