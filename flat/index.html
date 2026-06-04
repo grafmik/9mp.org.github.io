@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manuel de l'appartement - Apartment guide</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <button class="lang-toggle" id="langToggle" aria-label="Switch language">EN</button>
+
+    <header id="hero">
+        <div class="hero-content">
+            <h1>
+                <span data-fr="Bienvenue !" data-en="Welcome!">Bienvenue !</span>
+            </h1>
+        </div>
+    </header>
+
+    <main>
+        <!-- AMENITIES -->
+        <section id="apartment">
+            <div class="text-block full-width">
+                <p data-fr="L'appartement est équipé d'une connexion fibre optique haut débit."
+                   data-en="The apartment is equipped with high-speed fiber optic internet.">
+                    L'appartement est équipé d'une connexion fibre optique haut débit.
+                </p>
+                <div class="info-box wifi-box">
+                    <div class="info-row">
+                        <span class="info-label" data-fr="Réseau Wi-Fi" data-en="Wi-Fi Network">Réseau Wi-Fi</span>
+                        <span class="info-value wifi-ssid">Salt_2GHz_9AECAE</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label" data-fr="Mot de passe" data-en="Password">Mot de passe</span>
+                        <span class="info-value wifi-password">
+                            <span class="password-text">z5JZMFujLFN5tNKp9s</span>
+                            <button class="copy-btn" data-copy="wifi-password" title="Copy">📋</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Washing Machine -->
+            <div class="amenity-card">
+                <div class="amenity-header">
+                    <h3>
+                        <span data-fr="Machine à laver" data-en="Washing Machine">Machine à laver</span>
+                    </h3>
+                    <div class="amenity-icon">
+                        <i class="fa-solid fa-jug-detergent"></i>
+                    </div>
+                </div>
+                <div class="amenity-body">
+                    <p data-fr="La machine à laver est située dans la salle de bain."
+                        data-en="The washing machine is located in the bathroom.">
+                        La machine à laver est située dans la salle de bain.
+                    </p>
+                    <div class="steps">
+                        <div class="step">
+                            <span class="step-num">1</span>
+                            <span data-fr="Branchez la prise électrique dans la prise près du miroir" data-en="Plug in the power cord near the mirror">Branchez la prise électrique près du miroir</span>
+                        </div>
+                        <div class="step">
+                            <span class="step-num">2</span>
+                            <span data-fr="Utilisez la machine normalement" data-en="Use the machine normally">Utilisez la machine normalement</span>
+                        </div>
+                        <div class="step">
+                            <span class="step-num">3</span>
+                            <span data-fr="Débranchez la prise après utilisation" data-en="Unplug after use">Débranchez la prise après utilisation</span>
+                        </div>
+                    </div>
+                    <figure class="amenity-photo-grid">
+                        <img src="media/machine-a-laver.jpg" alt="Machine à laver">
+                        <img src="media/machine-a-laver-prise.jpg" alt="Prise machine à laver">
+                        <img src="media/machine-a-laver-prise-in.jpg" alt="Prise branchée">
+                        <img src="media/machine-a-laver-prise-out.jpg" alt="Prise débranchée">
+                    </figure>
+                </div>
+            </div>
+
+            <!-- Dryer -->
+            <div class="amenity-card">
+                <div class="amenity-header">
+                    <h3>
+                        <span data-fr="Sèche-linge" data-en="Dryer">Sèche-linge</span>
+                    </h3>
+                    <div class="amenity-icon">
+                        <i class="fa-solid fa-wind"></i>
+                    </div>
+                </div>
+                <div class="amenity-body">
+                    <p data-fr="Le sèche-linge est un modèle sans évacuation. Il nécessite un entretien simple avant chaque usage."
+                        data-en="This is a ventless dryer. It requires simple maintenance before each use.">
+                        Le sèche-linge est un modèle sans évacuation. Il nécessite un entretien simple avant chaque usage.
+                    </p>
+
+                    <h4>
+                        <span data-fr="Filtre à lint (bas)" data-en="Lint Filter (Bottom)">Filtre à lint (bas)</span>
+                    </h4>
+                    <div class="steps">
+                        <div class="step">
+                            <span class="step-num">1</span>
+                            <span data-fr="Ouvrez le petit compartiment en bas du sèche-linge" data-en="Open the small compartment at the bottom of the dryer">Ouvrez le petit compartiment en bas du sèche-linge</span>
+                        </div>
+                        <div class="step">
+                            <span class="step-num">2</span>
+                            <span data-fr="Retirez et nettoyez le filtre" data-en="Remove and clean the filter">Retirez et nettoyez le filtre</span>
+                        </div>
+                        <div class="step">
+                            <span class="step-num">3</span>
+                            <span data-fr="Replacez le filtre et fermez le compartiment" data-en="Replace the filter and close the compartment">Replacez le filtre et fermez le compartiment</span>
+                        </div>
+                    </div>
+                    <figure class="amenity-photo-grid">
+                        <img src="media/seche-linge.jpg" alt="Sèche-linge">
+                        <img src="media/seche-linge-filtre-bas.jpg" alt="Filtre bas">
+                        <img src="media/seche-linge-filtre-bas-open-1.jpg" alt="Filtre ouvert 1">
+                        <img src="media/seche-linge-filtre-bas-open-2.jpg" alt="Filtre ouvert 2">
+                        <img src="media/seche-linge-filtre-bas-out.jpg" alt="Filtre retiré">
+                    </figure>
+
+                    <h4>
+                        <span data-fr="Réceptacle d'eau" data-en="Water Container">Réceptacle d'eau</span>
+                    </h4>
+                    <div class="steps">
+                        <div class="step">
+                            <span class="step-num">1</span>
+                            <span data-fr="Retirez le réceptacle d'eau situé dans le bas du sèche-linge" data-en="Remove the water container from the bottom of the dryer">Retirez le réceptacle d'eau situé dans le bas du sèche-linge</span>
+                        </div>
+                        <div class="step">
+                            <span class="step-num">2</span>
+                            <span data-fr="Videz l'eau dans l'évier" data-en="Empty the water into the sink">Videz l'eau dans l'évier</span>
+                        </div>
+                        <div class="step">
+                            <span class="step-num">3</span>
+                            <span data-fr="Replacez le réceptacle en place" data-en="Place the container back in position">Replacez le réceptacle en place</span>
+                        </div>
+                    </div>
+                    <figure class="amenity-photo-grid">
+                        <img src="media/seche-linge-receptable-eau.jpg" alt="Réceptacle d'eau">
+                        <img src="media/seche-linge-receptable-eau-out.jpg" alt="Réceptacle retiré">
+                        <img src="media/seche-linge-receptable-eau-evier.jpg" alt="Vidage à l'évier">
+                    </figure>
+                </div>
+            </div>
+
+            <!-- Windows -->
+            <div class="amenity-card">
+                <div class="amenity-header">
+                    <h3>
+                        <span data-fr="Fenêtres" data-en="Windows">Fenêtres</span>
+                    </h3>
+                    <div class="amenity-icon">
+                        <i class="fa-brands fa-microsoft"></i>
+                    </div>
+                </div>
+                <div class="amenity-body">
+                    <p data-fr="Les fenêtres s'ouvrent grâce à une manivelle. Tournez la manivelle pour ouvrir ou refermer la fenêtre."
+                        data-en="Windows open using a hand crank. Turn the crank to open or close the window.">
+                        Les fenêtres s'ouvrent grâce à une manivelle. Tournez la manivelle pour ouvrir ou refermer la fenêtre.
+                    </p>
+                    <figure class="amenity-photo-grid">
+                        <img src="media/manivelle-fenetre.jpg" alt="Manivelle fenêtre">
+                        <img src="media/manivelle-fenetre-close-up.jpg" alt="Manivelle gros plan">
+                        <img src="media/manivelle-fenetre-close-up-2.jpg" alt="Manivelle détail 2">
+                        <img src="media/manivelle-fenetre-close-up-3.jpg" alt="Manivelle détail 3">
+                    </figure>
+                </div>
+            </div>
+
+            <!-- Living Room Lamp -->
+            <div class="amenity-card">
+                <div class="amenity-header">
+                    <h3>
+                        <span data-fr="Lampe du salon" data-en="Living Room Lamp">Lampe du salon</span>
+                    </h3>
+                    <div class="amenity-icon">
+                        <i class="fa-solid fa-lightbulb"></i>
+                    </div>
+                </div>
+                <div class="amenity-body">
+                    <p data-fr="Pour allumer la lampe du salon, repérez le <strong>petit interrupteur métallique</strong> placé en haut du pied de la lampe, juste sous l'ampoule. Tournez-le pour allumer ou éteindre."
+                        data-en="To turn on the living room lamp, find the <strong>small metal switch</strong> at the top of the lamp base, just below the bulb. Turn it to turn on or off.">
+                        Pour allumer la lampe du salon, repérez le <strong>petit interrupteur métallique</strong> placé en haut du pied de la lampe, juste sous l'ampoule. Tournez-le pour allumer ou éteindre.
+                    </p>
+                </div>
+            </div>
+            <div class="amenity-card">
+                <div class="amenity-header">
+                    <h3>
+                        <span data-fr="Départ" data-en="Checkout">Départ</span>
+                    </h3>
+                    <div class="amenity-icon">
+                        <i class="fa-solid fa-person-walking-arrow-right"></i>
+                    </div>
+                </div>
+                <div class="amenity-body">
+                    <p data-fr="À la fin de votre séjour, lorsque vous quittez l'appartement définitivement, merci de bien vouloir :"
+                       data-en="At the end of your stay, when leaving the apartment for the last time, please:">
+                        À la fin de votre séjour, lorsque vous quittez l'appartement définitivement, merci de bien vouloir :
+                    </p>
+                    <div class="checklist">
+                        <div class="checklist-item">
+                            <i class="fa-solid fa-check"></i>
+                            <span data-fr="Prendre les clés" data-en="Take the keys">Prendre les clés</span>
+                        </div>
+                        <div class="checklist-item">
+                            <i class="fa-solid fa-check"></i>
+                            <span data-fr="Fermer et verrouiller la porte" data-en="Close and lock the door">Fermer et verrouiller la porte</span>
+                        </div>
+                        <div class="checklist-item">
+                            <i class="fa-solid fa-check"></i>
+                            <span data-fr="Remettre les clés dans le coffre et le verrouiller en mélangeant les numéros" data-en="Return the keys to the safe and lock it by scrambling the dials">Remettre les clés dans le coffre et le verrouiller en mélangeant les numéros</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p data-fr="Contactez-nous sur la messagerie!" data-en="Contact us on messaging!">Contactez-nous sur la messagerie!</p>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
