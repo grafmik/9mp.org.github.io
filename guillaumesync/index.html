@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WorldTimeSync — Planifiez vos réunions internationales</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0f1117;
+      color: #e2e8f0;
+      height: 100vh;
+      display: grid;
+      grid-template-rows: auto 1fr minmax(0, 52vh);
+      overflow: hidden;
+    }
+
+    header {
+      padding: 10px 16px;
+      background: #1a1d27;
+      border-bottom: 1px solid #2d3148;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    header p { font-size: 0.78rem; color: #64748b; }
+
+    /* ── MAP — toujours dans la cellule 1fr, ne peut jamais disparaître ── */
+    #map {
+      cursor: crosshair;
+      min-height: 0;
+    }
+
+    /* ── BOTTOM PANEL — contraint par minmax(0, 52vh) ── */
+    #bottom-panel {
+      overflow-y: auto;
+      background: #1a1d27;
+      border-top: 1px solid #2d3148;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+    }
+
+    #people-section {
+      flex-shrink: 0;
+      padding: 8px 12px 6px;
+      border-bottom: 1px solid #2d3148;
+    }
+
+    .people-label {
+      display: block;
+      font-size: 0.72rem;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 6px;
+    }
+
+    #people-list {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .person-card {
+      min-width: 230px;
+      background: #22263a;
+      border-radius: 10px;
+      padding: 10px 12px;
+      border: 2px solid transparent;
+      transition: border-color .15s;
+    }
+    .person-card.highlighted { border-color: var(--color); }
+
+    .person-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    .person-dot {
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      background: var(--color);
+      flex-shrink: 0;
+    }
+    .person-name {
+      flex: 1;
+      font-size: 0.88rem;
+      font-weight: 600;
+      background: transparent;
+      border: none;
+      color: #e2e8f0;
+      outline: none;
+    }
+    .person-name:focus { border-bottom: 1px solid #7c8dfa; }
+    .person-tz {
+      font-size: 0.7rem;
+      color: #64748b;
+    }
+    .person-time {
+      font-size: 0.82rem;
+      color: var(--color);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .time-range {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 4px;
+    }
+    .time-range label { font-size: 0.7rem; color: #64748b; width: 42px; }
+    .time-range input[type=time] {
+      background: #181b28;
+      border: 1px solid #2d3148;
+      border-radius: 5px;
+      color: #e2e8f0;
+      padding: 2px 6px;
+      font-size: 0.8rem;
+      width: 85px;
+    }
+    .time-range input[type=time]:focus { outline: none; border-color: #7c8dfa; }
+
+    .remove-btn {
+      background: none;
+      border: none;
+      color: #64748b;
+      cursor: pointer;
+      font-size: 1rem;
+      line-height: 1;
+      padding: 0 2px;
+    }
+    .remove-btn:hover { color: #f87171; }
+
+    .empty-hint {
+      color: #2d3148;
+      font-size: 0.82rem;
+      padding: 4px 0;
+      line-height: 1.6;
+    }
+
+    /* ── TIMELINE ── */
+    #timeline-panel {
+      padding: 10px 14px 14px;
+      flex-shrink: 0;
+    }
+    #timeline-panel h2 {
+      font-size: 0.72rem;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 8px;
+    }
+
+    #timeline-container {
+      position: relative;
+    }
+
+    .tl-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      margin-bottom: 6px;
+    }
+    .tl-label {
+      width: 90px;
+      font-size: 0.72rem;
+      color: #94a3b8;
+      text-align: right;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding-top: 2px;
+    }
+    .tl-person-col {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .tl-track {
+      width: 100%;
+      height: 16px;
+      background: #0f1117;
+      border-radius: 4px;
+      position: relative;
+      overflow: hidden;
+    }
+    .tl-local-axis {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 1px;
+      font-size: 0.58rem;
+      opacity: 0.75;
+    }
+    .tl-section-sep {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: #475569;
+      margin-bottom: 6px;
+    }
+    .tl-slot-times {
+      position: relative;
+      height: 14px;
+    }
+    .tl-slot-time {
+      position: absolute;
+      top: 1px;
+      font-size: 0.64rem;
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+    .tl-slot-time-start { transform: translateX(0); }
+    .tl-slot-time-end   { transform: translateX(-100%); }
+    .tl-bar {
+      position: absolute;
+      height: 100%;
+      border-radius: 3px;
+      opacity: .85;
+    }
+
+    #overlap-row {
+      margin-top: 6px;
+      padding-top: 6px;
+      border-top: 1px solid #2d3148;
+    }
+    .tl-overlap-bar {
+      position: absolute;
+      height: 100%;
+      background: #4ade80;
+      border-radius: 3px;
+      opacity: .9;
+    }
+
+    #meeting-hint {
+      margin-top: 8px;
+      font-size: 0.8rem;
+      color: #4ade80;
+      min-height: 18px;
+    }
+
+    .tl-track--ruler {
+      height: 6px;
+      background: transparent;
+      border-bottom: 1px solid #2d3148;
+      overflow: visible;
+    }
+    .tl-tick {
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 1px;
+      background: #2d3148;
+    }
+
+    /* scrollbar */
+    #bottom-panel::-webkit-scrollbar { width: 4px; }
+    #bottom-panel::-webkit-scrollbar-track { background: transparent; }
+    #bottom-panel::-webkit-scrollbar-thumb { background: #2d3148; border-radius: 2px; }
+
+    /* Leaflet popup override */
+    .leaflet-popup-content-wrapper {
+      background: #22263a;
+      color: #e2e8f0;
+      border: 1px solid #2d3148;
+      border-radius: 8px;
+    }
+    .leaflet-popup-tip { background: #22263a; }
+    .leaflet-popup-content { margin: 8px 12px; font-size: 0.82rem; }
+
+    /* responsive */
+    @media (max-width: 680px) {
+      body { grid-template-rows: auto 1fr minmax(0, 60vh); }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <p style="font-size:0.82rem;color:#94a3b8;line-height:1.4">
+    Ajoutez des participants sur la carte, définissez leurs heures de lever et de coucher,
+    et trouvez automatiquement un créneau de réunion commun entre tous les fuseaux horaires.
+  </p>
+</header>
+
+<div id="map"></div>
+
+<div id="bottom-panel">
+  <div id="people-section">
+    <span class="people-label">Participants</span>
+    <div id="people-list">
+      <p class="empty-hint">Cliquez sur la carte pour ajouter un participant à n'importe quel endroit du monde.</p>
+    </div>
+  </div>
+
+  <div id="timeline-panel">
+  <h2>Disponibilités — référentiel UTC commun</h2>
+  <div id="timeline-container">
+    <!-- UTC ruler -->
+    <div class="tl-row" id="tl-utc-header">
+      <div class="tl-label" style="color:#334155;font-size:0.62rem">UTC</div>
+      <div class="tl-person-col">
+        <div class="tl-track tl-track--ruler">
+          <div class="tl-tick" style="left:25%"></div>
+          <div class="tl-tick" style="left:50%"></div>
+          <div class="tl-tick" style="left:75%"></div>
+        </div>
+        <div class="tl-local-axis" style="color:#334155">
+          <span>0h</span><span>6h</span><span>12h</span><span>18h</span><span>24h</span>
+        </div>
+      </div>
+    </div>
+    <div id="tl-rows"></div>
+    <div id="tl-slots-section" style="display:none;margin-top:8px;padding-top:8px;border-top:1px solid #2d3148">
+      <div class="tl-section-sep">Créneaux communs</div>
+      <div id="tl-slots"></div>
+    </div>
+  </div>
+  <div id="meeting-hint"></div>
+</div><!-- /#timeline-panel -->
+</div><!-- /#bottom-panel -->
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script type="module">
+// ─── Supabase config ──────────────────────────────────────────────────
+// Remplacer ces deux valeurs par celles de ton projet Supabase :
+//   Project Settings → API → Project URL  +  anon/public key
+// SQL à exécuter dans Supabase → SQL Editor :
+//
+//   create table public.participants (
+//     id         uuid primary key default gen_random_uuid(),
+//     name       text not null,
+//     lat        float8 not null,
+//     lng        float8 not null,
+//     tz         text not null default '…',
+//     offset_min integer not null default 0,
+//     wake       text not null default '08:00',
+//     sleep      text not null default '22:00',
+//     color      text not null,
+//     created_at timestamptz not null default now()
+//   );
+//   alter table public.participants enable row level security;
+//   create policy "public" on public.participants for all using (true) with check (true);
+//   alter publication supabase_realtime add table public.participants;
+
+const SUPABASE_URL      = 'https://imifawktntlxslsarqys.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_dK89l7567mrNs3DBSRXNXw_wlScP793';
+const db = globalThis.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+// ─── Constantes ───────────────────────────────────────────────────────
+const UTC_TICK_HOURS = [0, 6, 12, 18, 24];
+
+// ─── Palette ──────────────────────────────────────────────────────────
+const COLORS = [
+  '#7c8dfa','#f97316','#4ade80','#f472b6','#facc15',
+  '#38bdf8','#fb923c','#a78bfa','#34d399','#f43f5e'
+];
+
+// ─── State ────────────────────────────────────────────────────────────
+let people = [];          // données synchro depuis Supabase
+const markers = {};       // { uuid: L.Marker }
+
+// ─── Map ──────────────────────────────────────────────────────────────
+const map = L.map('map', {
+  center: [20, 10],
+  zoom: 2,
+  minZoom: 1,
+  worldCopyJump: true,
+  zoomControl: true,
+}).setView([20, 10], 2);
+
+L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+  attribution: '&copy; OpenStreetMap &copy; CARTO',
+  subdomains: 'abcd',
+  maxZoom: 19
+}).addTo(map);
+
+// ─── Timezone lookup via timeapi.io ───────────────────────────────────
+async function getTzInfo(lat, lng) {
+  try {
+    const r = await fetch(`https://timeapi.io/api/timezone/coordinate?latitude=${lat}&longitude=${lng}`);
+    if (!r.ok) throw new Error('tz lookup failed');
+    const d = await r.json();
+    const offsetMin = d.currentUtcOffset ? d.currentUtcOffset.seconds / 60 : 0;
+    return { tz: d.timeZone, offsetMin };
+  } catch {
+    // fallback: rough offset from longitude
+    const offsetMin = Math.round(lng / 15) * 60;
+    return { tz: 'UTC' + (offsetMin >= 0 ? '+' : '') + (offsetMin / 60), offsetMin };
+  }
+}
+
+// ─── Custom marker icon ───────────────────────────────────────────────
+function makeIcon(color) {
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="38" viewBox="0 0 28 38">
+    <path d="M14 0C6.3 0 0 6.3 0 14c0 9.6 14 24 14 24S28 23.6 28 14C28 6.3 21.7 0 14 0z"
+      fill="${color}" stroke="#0f1117" stroke-width="2"/>
+    <circle cx="14" cy="14" r="5" fill="#0f1117" opacity=".6"/>
+  </svg>`;
+  return L.divIcon({
+    html: svg,
+    iconSize: [28, 38],
+    iconAnchor: [14, 38],
+    popupAnchor: [0, -40],
+    className: ''
+  });
+}
+
+function nextPersonName() {
+  const used = new Set(people.map(p => {
+    const m = p.name.match(/^Personne (\d+)$/);
+    return m ? +m[1] : null;
+  }).filter(n => n !== null));
+  let n = 1;
+  while (used.has(n)) n++;
+  return `Personne ${n}`;
+}
+
+// ─── Add person (écrit dans Supabase, l'UI est mise à jour via real-time) ──
+map.on('click', async (e) => {
+  const { lat, lng } = e.latlng;
+  const color = COLORS[people.length % COLORS.length];
+  const name  = nextPersonName();
+
+  const { data: row, error } = await db
+    .from('participants')
+    .insert({ name, lat, lng, tz: '…', offset_min: 0, wake: '08:00', sleep: '22:00', color })
+    .select()
+    .single();
+
+  if (error || !row) { console.error('insert error', error); return; }
+
+  // Fetch TZ et met à jour Supabase (le real-time propagera aux autres)
+  const info = await getTzInfo(lat, lng);
+  await db.from('participants')
+    .update({ tz: info.tz, offset_min: info.offsetMin })
+    .eq('id', row.id);
+});
+
+// ─── Sidebar ──────────────────────────────────────────────────────────
+function renderSidebar() {
+  const list = document.getElementById('people-list');
+  if (people.length === 0) {
+    list.innerHTML = '<p class="empty-hint">Cliquez sur la carte pour ajouter un participant à n\'importe quel endroit du monde.</p>';
+    return;
+  }
+
+  list.innerHTML = people.map(p => `
+    <div class="person-card" id="card-${p.id}" data-person-id="${p.id}" style="--color:${p.color}">
+      <div class="person-header">
+        <div class="person-dot"></div>
+        <input class="person-name" id="name-${p.id}" name="person-name" value="${escHtml(p.name)}" />
+        <button class="remove-btn" title="Retirer">✕</button>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+        <span class="person-tz" id="tz-${p.id}">${p.tz}</span>
+        <span class="person-time" id="clock-${p.id}">--:--</span>
+      </div>
+      <div class="time-range">
+        <label>☀️ Réveil</label>
+        <input type="time" id="wake-${p.id}" name="wake" value="${p.wake}" />
+      </div>
+      <div class="time-range">
+        <label>🌙 Coucher</label>
+        <input type="time" id="sleep-${p.id}" name="sleep" value="${p.sleep}" />
+      </div>
+    </div>
+  `).join('');
+
+  updateClocks();
+}
+
+function escHtml(s) {
+  return s.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
+}
+
+async function renamePerson(id, name) {
+  const p = people.find(x => x.id === id);
+  if (p) p.name = name; // optimistic — évite un reset visuel avant le retour Supabase
+  const { error } = await db.from('participants').update({ name }).eq('id', id);
+  if (error) console.error('rename error', error);
+}
+
+async function removePerson(id) {
+  applyDelete(id);
+  renderSidebar();
+  renderTimeline();
+  const { error } = await db.from('participants').delete().eq('id', id);
+  if (error) console.error('delete error', error);
+}
+
+async function updateTime(id, field, val) {
+  const p = people.find(x => x.id === id);
+  if (p) { p[field] = val; renderTimeline(); }
+  const { error } = await db.from('participants').update({ [field]: val }).eq('id', id);
+  if (error) console.error('updateTime error', error);
+}
+
+// ─── Supabase real-time handlers ──────────────────────────────────────
+function rowToPerson(row) {
+  return {
+    id: row.id, name: row.name, lat: row.lat, lng: row.lng,
+    tz: row.tz, offsetMin: row.offset_min,
+    wake: row.wake, sleep: row.sleep, color: row.color
+  };
+}
+
+// ─── Flag : vrai pendant le chargement initial (batch) ───────────────
+let initializing = true;
+
+function applyInsert(row) {
+  if (people.some(p => p.id === row.id)) return false; // idempotent
+  const p = rowToPerson(row);
+  people.push(p);
+  const marker = L.marker([p.lat, p.lng], { icon: makeIcon(p.color) }).addTo(map);
+  marker.bindPopup(`<b style="color:${p.color}">${p.name}</b><br>${p.tz}`);
+  if (!initializing) marker.openPopup(); // popup uniquement pour les nouvelles insertions live
+  markers[p.id] = marker;
+  return true;
+}
+
+function applyUpdate(row) {
+  const p = people.find(x => x.id === row.id);
+  if (!p) return;
+  Object.assign(p, rowToPerson(row));
+  markers[p.id]?.getPopup()?.setContent(`<b style="color:${p.color}">${p.name}</b><br>${p.tz}`);
+  const tzEl   = document.getElementById(`tz-${p.id}`);
+  if (tzEl) tzEl.textContent = p.tz;
+  const nameEl = document.getElementById(`name-${p.id}`);
+  if (nameEl && document.activeElement !== nameEl) nameEl.value = p.name;
+  const wakeEl = document.getElementById(`wake-${p.id}`);
+  if (wakeEl && document.activeElement !== wakeEl) wakeEl.value = p.wake;
+  const sleepEl = document.getElementById(`sleep-${p.id}`);
+  if (sleepEl && document.activeElement !== sleepEl) sleepEl.value = p.sleep;
+  renderTimeline();
+}
+
+function applyDelete(id) {
+  people = people.filter(p => p.id !== id);
+  if (markers[id]) { markers[id].remove(); delete markers[id]; }
+}
+
+// ─── Délégation d'événements pour la sidebar ─────────────────────────
+document.getElementById('people-list').addEventListener('change', e => {
+  const card = e.target.closest('[data-person-id]');
+  if (!card) return;
+  const id = card.dataset.personId;
+  if (e.target.name === 'person-name') renamePerson(id, e.target.value);
+  if (e.target.name === 'wake')        updateTime(id, 'wake', e.target.value);
+  if (e.target.name === 'sleep')       updateTime(id, 'sleep', e.target.value);
+});
+
+document.getElementById('people-list').addEventListener('click', e => {
+  const btn  = e.target.closest('.remove-btn');
+  const card = btn?.closest('[data-person-id]');
+  if (card) removePerson(card.dataset.personId);
+});
+
+// ─── Souscription real-time (avant le SELECT pour ne rien manquer) ────
+db.channel('participants-sync')
+  .on('postgres_changes', { event: '*', schema: 'public', table: 'participants' },
+    ({ eventType, new: n, old: o }) => {
+      if (eventType === 'INSERT') {
+        const inserted = applyInsert(n);
+        if (inserted && !initializing) { renderSidebar(); renderTimeline(); }
+      }
+      if (eventType === 'UPDATE') applyUpdate(n);
+      if (eventType === 'DELETE') {
+        applyDelete(o.id);
+        if (!initializing) { renderSidebar(); renderTimeline(); }
+      }
+    })
+  .subscribe();
+
+// ─── Chargement initial (batch, un seul render à la fin) ─────────────
+const { data: initialRows } = await db.from('participants').select('*').order('created_at');
+(initialRows || []).forEach(applyInsert);
+initializing = false;
+renderSidebar();
+renderTimeline();
+updateClocks();
+
+// ─── Clocks ───────────────────────────────────────────────────────────
+function updateClocks() {
+  const nowUtc = Date.now();
+  people.forEach(p => {
+    const el = document.getElementById(`clock-${p.id}`);
+    if (!el) return;
+    const local = new Date(nowUtc + p.offsetMin * 60000);
+    el.textContent = local.toUTCString().slice(17, 22); // HH:MM
+  });
+}
+setInterval(updateClocks, 10000);
+
+// ─── Timeline ─────────────────────────────────────────────────────────
+// All times treated as minutes from midnight UTC.
+// Each person's wake/sleep is in their LOCAL time → convert to UTC minutes.
+
+function timeToMin(hhmm) {
+  const [h, m] = hhmm.split(':').map(Number);
+  return h * 60 + m;
+}
+
+function minToHHMM(m) {
+  m = ((m % 1440) + 1440) % 1440;
+  return String(Math.floor(m / 60)).padStart(2,'0') + ':' + String(m % 60).padStart(2,'0');
+}
+
+// Returns an array of [start, end] UTC-minute intervals (0-1440, possibly wrapping)
+function getUtcAvailability(p) {
+  const wakeLocal = timeToMin(p.wake);
+  const sleepLocal = timeToMin(p.sleep);
+  const wakeUtc = ((wakeLocal - p.offsetMin) % 1440 + 1440) % 1440;
+  const sleepUtc = ((sleepLocal - p.offsetMin) % 1440 + 1440) % 1440;
+  return { wakeUtc, sleepUtc };
+}
+
+// Convert a UTC [wake, sleep] interval to bar(s) on the 0-1440 axis
+// Returns array of {left%, width%} objects (may wrap around midnight)
+function toBars(wakeUtc, sleepUtc) {
+  const w = wakeUtc, s = sleepUtc;
+  if (w <= s) {
+    return [{ left: w / 1440 * 100, width: (s - w) / 1440 * 100 }];
+  } else {
+    // wraps midnight
+    return [
+      { left: w / 1440 * 100, width: (1440 - w) / 1440 * 100 },
+      { left: 0, width: s / 1440 * 100 }
+    ];
+  }
+}
+
+// Intersect two sets of availability (each a pair wakeUtc/sleepUtc)
+// Returns array of {start, end} UTC minutes
+function intersect(avs) {
+  if (avs.length === 0) return [];
+
+  // represent each person's availability as a boolean array of minutes (0-1439)
+  function toMask(wakeUtc, sleepUtc) {
+    const mask = new Uint8Array(1440);
+    if (wakeUtc <= sleepUtc) {
+      mask.fill(1, wakeUtc, sleepUtc);
+    } else {
+      mask.fill(1, wakeUtc, 1440);
+      mask.fill(1, 0, sleepUtc);
+    }
+    return mask;
+  }
+
+  let combined = new Uint8Array(1440).fill(1);
+  avs.forEach(({ wakeUtc, sleepUtc }) => {
+    const m = toMask(wakeUtc, sleepUtc);
+    for (let i = 0; i < 1440; i++) combined[i] &= m[i];
+  });
+
+  // extract intervals
+  const intervals = [];
+  let inInterval = false, start = 0;
+  for (let i = 0; i < 1440; i++) {
+    if (combined[i] && !inInterval) { inInterval = true; start = i; }
+    if (!combined[i] && inInterval) { inInterval = false; intervals.push({ start, end: i }); }
+  }
+  if (inInterval) intervals.push({ start, end: 1440 });
+  return intervals;
+}
+
+function ticksHtml() {
+  return [25, 50, 75].map(p => `<div class="tl-tick" style="left:${p}%"></div>`).join('');
+}
+
+// For a person with offsetMin, compute local hour label at each UTC tick
+function localAxisHtml(offsetMin, color) {
+  const labels = UTC_TICK_HOURS.map(utcH => {
+    const localMin = ((utcH * 60 + offsetMin) % 1440 + 1440) % 1440;
+    return `<span>${String(Math.floor(localMin / 60)).padStart(2, '0')}h</span>`;
+  }).join('');
+  return `<div class="tl-local-axis" style="color:${color}">${labels}</div>`;
+}
+
+function renderTimeline() {
+  const rowsEl        = document.getElementById('tl-rows');
+  const slotsSection  = document.getElementById('tl-slots-section');
+  const slotsEl       = document.getElementById('tl-slots');
+  const hint          = document.getElementById('meeting-hint');
+
+  if (people.length === 0) {
+    rowsEl.innerHTML      = '';
+    slotsSection.style.display = 'none';
+    hint.textContent      = '';
+    return;
+  }
+
+  const avs = people.map(p => getUtcAvailability(p));
+
+  // ── Availability rows: bars in UTC, axis labels in local time ──
+  rowsEl.innerHTML = people.map((p, i) => {
+    const { wakeUtc, sleepUtc } = avs[i];
+    const bars = toBars(wakeUtc, sleepUtc)
+      .map(b => `<div class="tl-bar" style="left:${b.left.toFixed(2)}%;width:${b.width.toFixed(2)}%;background:${p.color}"></div>`)
+      .join('');
+    return `
+      <div class="tl-row">
+        <div class="tl-label">${escHtml(p.name)}</div>
+        <div class="tl-person-col">
+          <div class="tl-track">${ticksHtml()}${bars}</div>
+          ${localAxisHtml(p.offsetMin, p.color)}
+        </div>
+      </div>`;
+  }).join('');
+
+  // ── Slot rows: one row per person, one bar per overlap interval ──
+  const overlaps = intersect(avs);
+  if (overlaps.length > 0) {
+    slotsSection.style.display = 'block';
+
+    slotsEl.innerHTML = people.map(p => {
+      const bars = overlaps.map(({ start, end }) => {
+        const l = (start / 1440 * 100).toFixed(2);
+        const w = ((end - start) / 1440 * 100).toFixed(2);
+        return `<div class="tl-bar" style="left:${l}%;width:${w}%;background:${p.color}"></div>`;
+      }).join('');
+
+      const labels = overlaps.map(({ start, end }) => {
+        const sl = ((start + p.offsetMin) % 1440 + 1440) % 1440;
+        const el = ((end   + p.offsetMin) % 1440 + 1440) % 1440;
+        const lp = (start / 1440 * 100).toFixed(2);
+        const rp = (end   / 1440 * 100).toFixed(2);
+        return `
+          <span class="tl-slot-time tl-slot-time-start" style="left:${lp}%;color:${p.color}">${minToHHMM(sl)}</span>
+          <span class="tl-slot-time tl-slot-time-end"   style="left:${rp}%;color:${p.color}">${minToHHMM(el)}</span>`;
+      }).join('');
+
+      return `
+        <div class="tl-row">
+          <div class="tl-label" style="color:${p.color}">${escHtml(p.name)}</div>
+          <div class="tl-person-col">
+            <div class="tl-track">${ticksHtml()}${bars}</div>
+            <div class="tl-slot-times">${labels}</div>
+          </div>
+        </div>`;
+    }).join('');
+
+    const best = overlaps.reduce((a, b) => (b.end - b.start > a.end - a.start ? b : a));
+    const dur  = best.end - best.start;
+    hint.innerHTML = `✅ ${overlaps.length > 1 ? overlaps.length + ' créneaux communs' : 'Un créneau commun'} — durée max <strong>${dur} min</strong>`;
+  } else {
+    slotsSection.style.display = 'none';
+    hint.innerHTML = people.length >= 2
+      ? '<span style="color:#f87171">❌ Aucun créneau commun — ajustez les horaires</span>'
+      : '';
+  }
+}
+
+// Initial render
+renderSidebar();
+renderTimeline();
+</script>
+</body>
+</html>
