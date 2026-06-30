@@ -75,12 +75,18 @@
       transition: border-color .15s;
     }
     .person-card.highlighted { border-color: var(--color); }
+    .person-card.excluded { opacity: .45; }
 
     .person-header {
       display: flex;
       align-items: center;
       gap: 8px;
       margin-bottom: 8px;
+    }
+    .person-include {
+      flex-shrink: 0;
+      cursor: pointer;
+      accent-color: var(--color);
     }
     .person-dot {
       width: 12px; height: 12px;
@@ -453,8 +459,9 @@ function renderSidebar() {
   }
 
   list.innerHTML = people.map(p => `
-    <div class="person-card" id="card-${p.id}" data-person-id="${p.id}" style="--color:${p.color}">
+    <div class="person-card${p.included ? '' : ' excluded'}" id="card-${p.id}" data-person-id="${p.id}" style="--color:${p.color}">
       <div class="person-header">
+        <input type="checkbox" class="person-include" name="person-include" title="Inclure dans le calcul des créneaux communs" ${p.included ? 'checked' : ''} />
         <div class="person-dot"></div>
         <input class="person-name" id="name-${p.id}" name="person-name" value="${escHtml(p.name)}" />
         <button class="remove-btn" title="Retirer">✕</button>
@@ -503,6 +510,15 @@ async function updateTime(id, field, val) {
   if (error) console.error('updateTime error', error);
 }
 
+// Filtre local (non synchronisé) : inclut/exclut une personne du calcul des créneaux communs
+function toggleIncluded(id, included) {
+  const p = people.find(x => x.id === id);
+  if (!p) return;
+  p.included = included;
+  document.getElementById(`card-${id}`)?.classList.toggle('excluded', !included);
+  renderTimeline();
+}
+
 // ─── Supabase real-time handlers ──────────────────────────────────────
 function rowToPerson(row) {
   return {
@@ -518,6 +534,7 @@ let initializing = true;
 function applyInsert(row) {
   if (people.some(p => p.id === row.id)) return false; // idempotent
   const p = rowToPerson(row);
+  p.included = true; // filtre local du calcul de créneaux, non synchronisé
   people.push(p);
   const marker = L.marker([p.lat, p.lng], { icon: makeIcon(p.color) }).addTo(map);
   marker.bindPopup(`<b style="color:${p.color}">${p.name}</b><br>${p.tz}`);
@@ -552,9 +569,10 @@ document.getElementById('people-list').addEventListener('change', e => {
   const card = e.target.closest('[data-person-id]');
   if (!card) return;
   const id = card.dataset.personId;
-  if (e.target.name === 'person-name') renamePerson(id, e.target.value);
-  if (e.target.name === 'wake')        updateTime(id, 'wake', e.target.value);
-  if (e.target.name === 'sleep')       updateTime(id, 'sleep', e.target.value);
+  if (e.target.name === 'person-name')    renamePerson(id, e.target.value);
+  if (e.target.name === 'wake')           updateTime(id, 'wake', e.target.value);
+  if (e.target.name === 'sleep')          updateTime(id, 'sleep', e.target.value);
+  if (e.target.name === 'person-include') toggleIncluded(id, e.target.checked);
 });
 
 document.getElementById('people-list').addEventListener('click', e => {
@@ -706,7 +724,7 @@ function renderTimeline() {
       .map(b => `<div class="tl-bar" style="left:${b.left.toFixed(2)}%;width:${b.width.toFixed(2)}%;background:${p.color}"></div>`)
       .join('');
     return `
-      <div class="tl-row">
+      <div class="tl-row"${p.included ? '' : ' style="opacity:.4"'}>
         <div class="tl-label">${escHtml(p.name)}</div>
         <div class="tl-person-col">
           <div class="tl-track">${ticksHtml()}${bars}</div>
@@ -715,12 +733,14 @@ function renderTimeline() {
       </div>`;
   }).join('');
 
-  // ── Slot rows: one row per person, one bar per overlap interval ──
-  const overlaps = intersect(avs);
+  // ── Slot rows: one row per included person, one bar per overlap interval ──
+  const includedPeople = people.filter(p => p.included);
+  const includedAvs    = includedPeople.map(p => getUtcAvailability(p));
+  const overlaps = intersect(includedAvs);
   if (overlaps.length > 0) {
     slotsSection.style.display = 'block';
 
-    slotsEl.innerHTML = people.map(p => {
+    slotsEl.innerHTML = includedPeople.map(p => {
       const bars = overlaps.map(({ start, end }) => {
         const l = (start / 1440 * 100).toFixed(2);
         const w = ((end - start) / 1440 * 100).toFixed(2);
@@ -752,7 +772,7 @@ function renderTimeline() {
     hint.innerHTML = `✅ ${overlaps.length > 1 ? overlaps.length + ' créneaux communs' : 'Un créneau commun'} — durée max <strong>${dur} min</strong>`;
   } else {
     slotsSection.style.display = 'none';
-    hint.innerHTML = people.length >= 2
+    hint.innerHTML = includedPeople.length >= 2
       ? '<span style="color:#f87171">❌ Aucun créneau commun — ajustez les horaires</span>'
       : '';
   }
