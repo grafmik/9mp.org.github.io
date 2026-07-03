@@ -536,9 +536,23 @@ function applyInsert(row) {
   const p = rowToPerson(row);
   p.included = true; // filtre local du calcul de créneaux, non synchronisé
   people.push(p);
-  const marker = L.marker([p.lat, p.lng], { icon: makeIcon(p.color) }).addTo(map);
+  const marker = L.marker([p.lat, p.lng], { icon: makeIcon(p.color), draggable: true }).addTo(map);
   marker.bindPopup(`<b style="color:${p.color}">${p.name}</b><br>${p.tz}`);
-  if (!initializing) marker.openPopup(); // popup uniquement pour les nouvelles insertions live
+  if (!initializing) marker.openPopup();
+  marker.on('dragend', async () => {
+    const { lat, lng } = marker.getLatLng();
+    marker.setOpacity(0.45);
+    const info = await getTzInfo(lat, lng);
+    // Mise à jour locale immédiate — n'attend pas le real-time
+    p.lat = lat; p.lng = lng; p.tz = info.tz; p.offsetMin = info.offsetMin;
+    const tzEl = document.getElementById(`tz-${p.id}`);
+    if (tzEl) tzEl.textContent = p.tz;
+    marker.getPopup()?.setContent(`<b style="color:${p.color}">${p.name}</b><br>${p.tz}`);
+    updateClocks();
+    renderTimeline();
+    marker.setOpacity(1);
+    await db.from('participants').update({ lat, lng, tz: info.tz, offset_min: info.offsetMin }).eq('id', p.id);
+  });
   markers[p.id] = marker;
   return true;
 }
@@ -547,6 +561,7 @@ function applyUpdate(row) {
   const p = people.find(x => x.id === row.id);
   if (!p) return;
   Object.assign(p, rowToPerson(row));
+  if (markers[p.id]) markers[p.id].setLatLng([p.lat, p.lng]);
   markers[p.id]?.getPopup()?.setContent(`<b style="color:${p.color}">${p.name}</b><br>${p.tz}`);
   const tzEl   = document.getElementById(`tz-${p.id}`);
   if (tzEl) tzEl.textContent = p.tz;
