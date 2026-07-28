@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Properties for Sale in Hua Hin — Apinya Estates</title>
+    <meta
+      name="description"
+      content="Browse beachfront condominiums, private pool villas and penthouses for sale in Hua Hin, Thailand. Each property personally vetted by Apinya Suwannarat."
+    />
+    <meta name="theme-color" content="#0e2438" />
+
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%230e2438'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' fill='%23c9a45c' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Flags that scripting is available; reveal animations depend on it. -->
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header site-header--solid">
+      <div class="container site-header__inner">
+        <a class="brand" href="index.html" aria-label="Apinya Estates — home">
+          <span class="brand__mark" aria-hidden="true">A</span>
+          <span class="brand__text">
+            <span class="brand__name">Apinya Estates</span>
+            <span class="brand__tag">Hua Hin Real Estate</span>
+          </span>
+        </a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="primary-nav"
+          aria-label="Open menu"
+        >
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+        </button>
+
+        <nav class="nav" id="primary-nav" aria-label="Primary">
+          <a class="nav__link" href="index.html">Home</a>
+          <a class="nav__link" href="properties.html" aria-current="page"
+            >Properties</a
+          >
+          <a class="nav__link" href="about.html">About Apinya</a>
+          <a class="nav__link" href="index.html#services">Services</a>
+          <a class="btn header__cta" href="contact.html">Book a viewing</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- ===================== PAGE HERO ===================== -->
+      <section class="page-hero">
+        <div class="page-hero__media">
+          <img
+            src="assets/images/hero-hua-hin-azure-aerial.webp"
+            alt=""
+            width="2000"
+            height="1091"
+          />
+        </div>
+        <div class="container">
+          <nav class="crumbs" aria-label="Breadcrumb">
+            <a href="index.html">Home</a>
+            <span aria-hidden="true">/</span>
+            <span>Properties</span>
+          </nav>
+          <span class="eyebrow">The portfolio</span>
+          <h1>Every home here has been walked in person</h1>
+          <p class="lede">
+            A short list, updated as things sell. Apinya does not publish a
+            property she has not visited, measured and title-checked — which is
+            why there are six of them and not six hundred.
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================== LISTINGS ===================== -->
+      <section class="section">
+        <div class="container">
+          <!-- Type filters -->
+          <div class="filters">
+            <button class="filter-btn" type="button" data-filter="all" aria-pressed="true">
+              All
+            </button>
+            <button class="filter-btn" type="button" data-filter="condo" aria-pressed="false">
+              Condominiums
+            </button>
+            <button class="filter-btn" type="button" data-filter="villa" aria-pressed="false">
+              Villas
+            </button>
+            <button class="filter-btn" type="button" data-filter="penthouse" aria-pressed="false">
+              Penthouses
+            </button>
+            <p class="filter-count" data-filter-count aria-live="polite">
+              6 properties
+            </p>
+          </div>
+
+          <!-- Secondary filters -->
+          <div class="search-bar" style="margin-top: 0; margin-bottom: 2.5rem;">
+            <div class="search-bar__inner" style="box-shadow: var(--shadow-sm); border: 1px solid var(--line);">
+              <div class="search-field">
+                <label for="f-location">Location</label>
+                <select id="f-location" data-filter-select="location">
+                  <option value="any">All of Hua Hin</option>
+                  <option value="beachfront">Hua Hin Beachfront</option>
+                  <option value="khao-takiab">Khao Takiab</option>
+                  <option value="pranburi">Pranburi</option>
+                  <option value="hillside">Hillside &amp; Golf</option>
+                </select>
+              </div>
+              <div class="search-field">
+                <label for="f-budget">Budget (THB)</label>
+                <select id="f-budget" data-filter-select="budget">
+                  <option value="any">Any budget</option>
+                  <option value="under-10">Under ฿10M</option>
+                  <option value="10-25">฿10M – ฿25M</option>
+                  <option value="25-50">฿25M – ฿50M</option>
+                  <option value="50-plus">฿50M +</option>
+                </select>
+              </div>
+              <div class="search-field">
+                <label for="f-beds">Bedrooms</label>
+                <select id="f-beds" data-filter-select="beds">
+                  <option value="any">Any</option>
+                  <option value="1">1+</option>
+                  <option value="2">2+</option>
+                  <option value="3">3+</option>
+                  <option value="4">4+</option>
+                </select>
+              </div>
+              <div class="search-field">
+                <label for="f-sort">Sort by</label>
+                <select id="f-sort" data-sort-select>
+                  <option value="featured">Featured</option>
+                  <option value="price-asc">Price: low to high</option>
+                  <option value="price-desc">Price: high to low</option>
+                  <option value="beds-desc">Most bedrooms</option>
+                </select>
+              </div>
+              <a class="btn" href="contact.html">Ask Apinya</a>
+            </div>
+          </div>
+
+          <div class="property-grid" data-property-grid>
+            <!-- 1 -->
+            <article
+              class="property"
+              data-property
+              data-type="condo"
+              data-location="beachfront"
+              data-price="12500000"
+              data-beds="2"
+            >
+              <div class="property__media">
+                <img
+                  src="assets/images/hero-hua-hin-azure-aerial.webp"
+                  alt="Hua Hin Azure beachfront condominium towers with pools and gardens beside the sea"
+                  width="2000"
+                  height="1091"
+                  loading="lazy"
+                />
+                <span class="badge badge--gold">New listing</span>
+                <span class="property__type">Condominium</span>
+              </div>
+              <div class="property__body">
+                <p class="property__location">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                  Hua Hin Beachfront
+                </p>
+                <h3 class="property__title">
+                  <a href="contact.html?ref=azure-residence">Hua Hin Azure Residence</a>
+                </h3>
+                <p class="property__desc">
+                  Eighth-floor corner unit with an uninterrupted sea view, direct
+                  beach access and a resort-managed rental programme.
+                </p>
+                <div class="property__specs">
+                  <span class="property__spec"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 9V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v3"/><path d="M2 11h20v7"/><path d="M4 18v2"/><path d="M20 18v2"/></svg>2 Beds</span>
+                  <span class="property__spec"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12V5a2 2 0 0 1 3.5-1.3"/><path d="M2 12h20v3a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4v-3Z"/><path d="M7 19l-1 2"/><path d="M17 19l1 2"/></svg>2 Baths</span>
+                  <span class="property__spec"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 3h18v18H3z"/><path d="M9 3v18"/><path d="M3 9h18"/></svg>96 m²</span>
+                </div>
+                <div class="property__footer">
+                  <p class="property__price">฿12,500,000<small>Freehold</small></p>
+                  <span class="link-arrow">Enquire <svg width="16" height="10" viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M1 5h13M10 1l4 4-4 4"/></svg></span>
+                </div>
+              </div>
+            </article>
+
+            <!-- 2 -->
+            <article
+              class="property"
+              data-property
+              data-type="villa"
+              data-location="pranburi"
+              data-price="48000000"
+              data-beds="4"
+            >
+              <div class="property__media">
+                <img
+                  src="assets/images/villa-coconut-paradise-luxe.jpg"
+                  alt="Coconut Paradise Luxe beachfront villa with infinity pool, timber terrace and private mooring"
+                  width="1024"
+                  height="559"
+                  loading="lazy"
+                />
+                <span class="badge badge--navy">Signature</span>
+                <span class="property__type">Pool villa</span>
+              </div>
+              <div class="property__body">
+                <p class="property__location">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                  Pranburi
+                </p>
+                <h3 class="property__title">
+                  <a href="contact.html?ref=coconut-paradise">Coconut Paradise Luxe</a>
+                </h3>
+                <p class="property__desc">
+                  Two pavilions of teak and glass on 1,400 m² of private
+                  shoreline, with an infinity pool that reads straight into the
+                  gulf.
+                </p>
+                <div class="property__specs">
+                  <span class="property__spec"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 9V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v3"/><path d="M2 11h20v7"/><path d="M4 18v2"/><path d="M20 18v2"/></svg>4 Beds</span>
+                  <span class="property__spec"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12V5a2 2 0 0 1 3.5-1.3"/><path d="M2 12h20v3a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4v-3Z"/><path d="M7 19l-1 2"/><path d="M17 19l1 2"/></svg>5 Baths</span>
+                  <span class="property__spec"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 3h18v18H3z"/><path d="M9 3v18"/><path d="M3 9h18"/></svg>620 m²</span>
+                </div>
+                <div class="property__footer">
+                  <p class="property__price">฿48,000,000<small>Company or lease</small></p>
+                  <span class="link-arrow">Enquire <svg width="16" height="10" viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M1 5h13M10 1l4 4-4 4"/></svg></span>
+                </div>
+              </div>
+            </article>
+
+            <!-- 3 -->
+            <article
+              class="property"
+              data-property
+              data-type="condo"
+              data-location="khao-takiab"
+              data-price="9800000"
+              data-beds="2"
+            >
+              <div class="property__media">
+                <img
+                  src="assets/images/condo-azure-sea-view-living.jpg"
+                  alt="Bright open-plan living room with sectional sofa opening onto a balcony with sea and beach views"
+                  width="1024"
+                  height="559"
+                  loading="lazy"
+                />
+                <span class="badge">Move-in ready</span>
+                <span class="property__type">Condominium</span>
+              </div>
+              <div class="property__body">
+                <p class="property__location">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                  Khao Takiab
+                </p>
+                <h3 class="property__title">
+                  <a href="contact.html?ref=sea-view-suite">Azure Sea View Suite</a>
+                </h3>
+                <p class="property__desc">
+                  Furnished in oak and linen by a Bangkok studio, with a
+                  wraparound balcony framing Monkey Mountain and the bay.
+                </p>
+                <div class="property__specs">
+                  <span class="property__spec"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 9V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v3"/><path d="M2 11h20v7"/><path d="M4 18v2"/><path d="M20 18v2"/></svg>2 Beds</span>
+                  <span class="property__spec"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12V5a2 2 0 0 1 3.5-1.3"/><path d="M2 12h20v3a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4v-3Z"/><path d="M7 19l-1 2"/><path d="M17 19l1 2"/></svg>2 Baths</span>
+                  <span class="property__spec"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 3h18v18H3z"/><path d="M9 3v18"/><path d="M3 9h18"/></svg>84 m²</span>
+                </div>
+                <div class="property__footer">
+                  <p class="property__price">฿9,800,000<small>Freehold · furnished</small></p>
+                  <span class="link-arrow">Enquire <svg width="16" height="10" viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M1 5h13M10 1l4 4-4 4"/></svg></span>
+                </div>
+              </div>
+            </article>
+
+            <!-- 4 -->
+            <article
+              class="property"
+              data-property
+              data-type="penthouse"
+              data-location="beachfront"
+              data-price="32000000"
+              data-beds="3"
+            >
+              <div class="property__media">
+                <img
+                  src="assets/images/hero-hua-hin-azure-aerial.webp"
+                  alt="Upper floors of the Hua Hin Azure towers with planted terraces above the beach"
+                  width="2000"
+                  height="1091"
+                  loading="lazy"
+                />
+                <span class="badge badge--navy">Top floor</span>
+                <span class="property__type">Penthouse</span>
+              </div>
+              <div class="property__body">
+                <p class="property__location">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                  Hua Hin Beachfront
+                </p>
+                <h3 class="property__title">
+                  <a href="contact.html?ref=azure-penthouse">Azure Sky Penthouse</a>
+                </h3>
+                <p class="property__desc">
+                  The full top floor of the north tower: a 40 m planted terrace,
+                  private plunge pool and a lift that opens into the apartment.
+                </p>
+                <div class="property__specs">
+                  <span class="property__spec"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 9V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v3"/><path d="M2 11h20v7"/><path d="M4 18v2"/><path d="M20 18v2"/></svg>3 Beds</span>
+                  <span class="property__spec"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12V5a2 2 0 0 1 3.5-1.3"/><path d="M2 12h20v3a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4v-3Z"/><path d="M7 19l-1 2"/><path d="M17 19l1 2"/></svg>4 Baths</span>
+                  <span class="property__spec"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 3h18v18H3z"/><path d="M9 3v18"/><path d="M3 9h18"/></svg>245 m²</span>
+                </div>
+                <div class="property__footer">
+                  <p class="property__price">฿32,000,000<small>Freehold</small></p>
+                  <span class="link-arrow">Enquire <svg width="16" height="10" viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M1 5h13M10 1l4 4-4 4"/></svg></span>
+                </div>
+              </div>
+            </article>
+
+            <!-- 5 -->
+            <article
+              class="property"
+              data-property
+              data-type="villa"
+              data-location="hillside"
+              data-price="18900000"
+              data-beds="3"
+            >
+              <div class="property__media">
+                <img
+                  src="assets/images/villa-coconut-paradise-luxe.jpg"
+                  alt="Contemporary villa with a long lap pool, timber deck and tropical planting"
+                  width="1024"
+                  height="559"
+                  loading="lazy"
+                />
+                <span class="badge">Golf estate</span>
+                <span class="property__type">Pool villa</span>
+              </div>
+              <div class="property__body">
+                <p class="property__location">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                  Hillside &amp; Golf
+                </p>
+                <h3 class="property__title">
+                  <a href="contact.html?ref=palm-grove">Palm Grove Garden Villa</a>
+                </h3>
+                <p class="property__desc">
+                  A single-storey family house on a quiet estate ten minutes
+                  inland, with mountain views and a 15 m lap pool.
+                </p>
+                <div class="property__specs">
+                  <span class="property__spec"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 9V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v3"/><path d="M2 11h20v7"/><path d="M4 18v2"/><path d="M20 18v2"/></svg>3 Beds</span>
+                  <span class="property__spec"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12V5a2 2 0 0 1 3.5-1.3"/><path d="M2 12h20v3a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4v-3Z"/><path d="M7 19l-1 2"/><path d="M17 19l1 2"/></svg>3 Baths</span>
+                  <span class="property__spec"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 3h18v18H3z"/><path d="M9 3v18"/><path d="M3 9h18"/></svg>310 m²</span>
+                </div>
+                <div class="property__footer">
+                  <p class="property__price">฿18,900,000<small>Company or lease</small></p>
+                  <span class="link-arrow">Enquire <svg width="16" height="10" viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M1 5h13M10 1l4 4-4 4"/></svg></span>
+                </div>
+              </div>
+            </article>
+
+            <!-- 6 -->
+            <article
+              class="property"
+              data-property
+              data-type="condo"
+              data-location="khao-takiab"
+              data-price="5400000"
+              data-beds="1"
+            >
+              <div class="property__media">
+                <img
+                  src="assets/images/condo-azure-sea-view-living.jpg"
+                  alt="Compact modern living space with pale timber joinery opening to a sea-facing balcony"
+                  width="1024"
+                  height="559"
+                  loading="lazy"
+                />
+                <span class="badge badge--gold">Best yield</span>
+                <span class="property__type">Condominium</span>
+              </div>
+              <div class="property__body">
+                <p class="property__location">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                  Khao Takiab
+                </p>
+                <h3 class="property__title">
+                  <a href="contact.html?ref=bayfront-studio">Bayfront One-Bedroom</a>
+                </h3>
+                <p class="property__desc">
+                  The entry point to the beachfront market — small, immaculate,
+                  and rented 71% of last year at an average of ฿3,400 a night.
+                </p>
+                <div class="property__specs">
+                  <span class="property__spec"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 9V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v3"/><path d="M2 11h20v7"/><path d="M4 18v2"/><path d="M20 18v2"/></svg>1 Bed</span>
+                  <span class="property__spec"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12V5a2 2 0 0 1 3.5-1.3"/><path d="M2 12h20v3a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4v-3Z"/><path d="M7 19l-1 2"/><path d="M17 19l1 2"/></svg>1 Bath</span>
+                  <span class="property__spec"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 3h18v18H3z"/><path d="M9 3v18"/><path d="M3 9h18"/></svg>46 m²</span>
+                </div>
+                <div class="property__footer">
+                  <p class="property__price">฿5,400,000<small>Freehold · furnished</small></p>
+                  <span class="link-arrow">Enquire <svg width="16" height="10" viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M1 5h13M10 1l4 4-4 4"/></svg></span>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <p class="empty-state" data-empty-state hidden>
+            Nothing in the portfolio matches those filters right now — but new
+            properties come in most weeks.
+            <a class="link-arrow" href="contact.html" style="margin-left: .5rem;"
+              >Tell Apinya what you want
+              <svg width="16" height="10" viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M1 5h13M10 1l4 4-4 4"/></svg>
+            </a>
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================== CTA ===================== -->
+      <section class="cta-band">
+        <div class="cta-band__media">
+          <img
+            src="assets/images/condo-azure-sea-view-living.jpg"
+            alt=""
+            width="1024"
+            height="559"
+            loading="lazy"
+          />
+        </div>
+        <div class="container cta-band__inner">
+          <div class="cta-band__text">
+            <span class="eyebrow">Off-market</span>
+            <h2>Not everything is listed here</h2>
+            <p>
+              Roughly a third of what Apinya sells never reaches the website —
+              owners who want discretion, or units released quietly before
+              launch. Tell her your brief and she will call when one fits.
+            </p>
+          </div>
+          <div class="btn-row">
+            <a class="btn" href="contact.html">Register your brief</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="site-footer__top">
+          <div>
+            <a class="brand" href="index.html">
+              <span class="brand__mark" aria-hidden="true">A</span>
+              <span class="brand__text">
+                <span class="brand__name">Apinya Estates</span>
+                <span class="brand__tag">Hua Hin Real Estate</span>
+              </span>
+            </a>
+            <p class="site-footer__about">
+              A boutique real estate advisory on the Gulf of Thailand.
+              Beachfront condominiums, private pool villas and investment
+              property — represented by someone who lives here.
+            </p>
+            <div class="socials">
+              <a href="#" aria-label="Apinya Estates on Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h3l1-3h-4v-2c0-.6.4-1 1-1Z"/></svg></a>
+              <a href="#" aria-label="Apinya Estates on Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1.2" fill="currentColor" stroke="none"/></svg></a>
+              <a href="#" aria-label="Apinya Estates on LINE"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 11c0-4.4-4-8-9-8s-9 3.6-9 8c0 4 3.3 7.3 7.7 7.9.3.1.7.2.8.5.1.3.1.7 0 1l-.1.8c0 .3-.2 1 .9.6 1.1-.5 5.9-3.5 8-6 1.1-1.3 1.7-2.8 1.7-4.8Z"/></svg></a>
+              <a href="#" aria-label="Apinya Estates on WhatsApp"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 21l1.6-4.4A8.5 8.5 0 1 1 8 20.2L3 21Z"/><path d="M8.8 9.2c.2 2.6 2.4 4.8 5 5 .5 0 1.2-.2 1.4-.8.1-.4-.1-.7-.4-.9l-1-.5c-.3-.2-.7-.1-.9.2l-.3.4a5.4 5.4 0 0 1-2.2-2.2l.4-.3c.3-.2.4-.6.2-.9l-.5-1c-.2-.3-.5-.5-.9-.4-.6.2-.8.9-.8 1.4Z"/></svg></a>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h4>Explore</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="properties.html">Properties</a></li>
+              <li><a href="about.html">About Apinya</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Services</h4>
+            <ul>
+              <li><a href="index.html#services">Buying</a></li>
+              <li><a href="index.html#services">Selling</a></li>
+              <li><a href="index.html#services">Investment</a></li>
+              <li><a href="index.html#services">Consulting</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Contact</h4>
+            <ul>
+              <li><a href="tel:+66812345678">+66 81 234 5678</a></li>
+              <li><a href="mailto:hello@apinyaestates.com">hello@apinyaestates.com</a></li>
+              <li>128/9 Phetkasem Road<br />Hua Hin 77110, Thailand</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="site-footer__bottom">
+          <p>© <span data-year>2026</span> Apinya Estates. All rights reserved.</p>
+          <div class="legal-links">
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Cookies</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="assets/js/main.js" defer></script>
+  </body>
+</html>

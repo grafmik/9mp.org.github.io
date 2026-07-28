@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact Apinya — Book a Viewing in Hua Hin</title>
+    <meta
+      name="description"
+      content="Send Apinya your brief and get a personal reply within one business day. Viewings, valuations and honest advice on buying property in Hua Hin, Thailand."
+    />
+    <meta name="theme-color" content="#0e2438" />
+
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%230e2438'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' fill='%23c9a45c' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Flags that scripting is available; reveal animations depend on it. -->
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header site-header--solid">
+      <div class="container site-header__inner">
+        <a class="brand" href="index.html" aria-label="Apinya Estates — home">
+          <span class="brand__mark" aria-hidden="true">A</span>
+          <span class="brand__text">
+            <span class="brand__name">Apinya Estates</span>
+            <span class="brand__tag">Hua Hin Real Estate</span>
+          </span>
+        </a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="primary-nav"
+          aria-label="Open menu"
+        >
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+        </button>
+
+        <nav class="nav" id="primary-nav" aria-label="Primary">
+          <a class="nav__link" href="index.html">Home</a>
+          <a class="nav__link" href="properties.html">Properties</a>
+          <a class="nav__link" href="about.html">About Apinya</a>
+          <a class="nav__link" href="index.html#services">Services</a>
+          <a class="btn header__cta" href="contact.html" aria-current="page"
+            >Book a viewing</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- ===================== PAGE HERO ===================== -->
+      <section class="page-hero">
+        <div class="page-hero__media">
+          <img
+            src="assets/images/condo-azure-sea-view-living.jpg"
+            alt=""
+            width="1024"
+            height="559"
+          />
+        </div>
+        <div class="container">
+          <nav class="crumbs" aria-label="Breadcrumb">
+            <a href="index.html">Home</a>
+            <span aria-hidden="true">/</span>
+            <span>Contact</span>
+          </nav>
+          <span class="eyebrow">Get in touch</span>
+          <h1>Tell Apinya what you are looking for</h1>
+          <p class="lede">
+            The more specific you are, the more useful the reply. Every message
+            is read and answered by Apinya personally — usually the same day,
+            always within one business day.
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================== CONTACT ===================== -->
+      <section class="section">
+        <div class="container">
+          <div class="contact-layout">
+            <!-- Form -->
+            <form class="form reveal" data-contact-form novalidate>
+              <div>
+                <span class="eyebrow">Enquiry</span>
+                <h2 style="font-size: clamp(1.6rem, 3vw, 2.1rem);">
+                  Send a message
+                </h2>
+              </div>
+
+              <div class="form__row">
+                <div class="field">
+                  <label for="c-first"
+                    >First name <span class="req" aria-hidden="true">*</span></label
+                  >
+                  <input
+                    id="c-first"
+                    name="firstName"
+                    type="text"
+                    autocomplete="given-name"
+                    required
+                  />
+                  <p class="field__error" aria-live="polite"></p>
+                </div>
+
+                <div class="field">
+                  <label for="c-last"
+                    >Last name <span class="req" aria-hidden="true">*</span></label
+                  >
+                  <input
+                    id="c-last"
+                    name="lastName"
+                    type="text"
+                    autocomplete="family-name"
+                    required
+                  />
+                  <p class="field__error" aria-live="polite"></p>
+                </div>
+              </div>
+
+              <div class="form__row">
+                <div class="field">
+                  <label for="c-email"
+                    >Email <span class="req" aria-hidden="true">*</span></label
+                  >
+                  <input
+                    id="c-email"
+                    name="email"
+                    type="email"
+                    autocomplete="email"
+                    required
+                  />
+                  <p class="field__error" aria-live="polite"></p>
+                </div>
+
+                <div class="field">
+                  <label for="c-phone">Phone or LINE ID</label>
+                  <input
+                    id="c-phone"
+                    name="phone"
+                    type="tel"
+                    autocomplete="tel"
+                  />
+                  <p class="field__error" aria-live="polite"></p>
+                </div>
+              </div>
+
+              <div class="form__row">
+                <div class="field">
+                  <label for="c-interest">I am interested in</label>
+                  <select id="c-interest" name="interest">
+                    <option value="buying">Buying a home</option>
+                    <option value="investment">An investment property</option>
+                    <option value="selling">Selling my property</option>
+                    <option value="valuation">A free valuation</option>
+                    <option value="advice">General advice</option>
+                  </select>
+                  <p class="field__error" aria-live="polite"></p>
+                </div>
+
+                <div class="field">
+                  <label for="c-budget">Budget (THB)</label>
+                  <select id="c-budget" name="budget">
+                    <option value="">Prefer not to say</option>
+                    <option value="under-10">Under ฿10M</option>
+                    <option value="10-25">฿10M – ฿25M</option>
+                    <option value="25-50">฿25M – ฿50M</option>
+                    <option value="50-plus">฿50M +</option>
+                  </select>
+                  <p class="field__error" aria-live="polite"></p>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="c-message"
+                  >Your message <span class="req" aria-hidden="true">*</span></label
+                >
+                <textarea
+                  id="c-message"
+                  name="message"
+                  required
+                  placeholder="What are you looking for, roughly when, and how will you use it? Anything you already know about the area is useful too."
+                ></textarea>
+                <p class="field__error" aria-live="polite"></p>
+              </div>
+
+              <div
+                class="form__status"
+                data-form-status
+                role="status"
+                tabindex="-1"
+                hidden
+              ></div>
+
+              <button class="btn btn--block" type="submit">Send enquiry</button>
+
+              <p class="form__note">
+                Your details are used to answer your enquiry and nothing else.
+                No lists, no resale, no drip campaigns.
+              </p>
+            </form>
+
+            <!-- Details -->
+            <div class="reveal">
+              <span class="eyebrow">Direct lines</span>
+              <hr class="rule" />
+              <h2 style="font-size: clamp(1.6rem, 3vw, 2.1rem);">
+                Or reach her directly
+              </h2>
+              <p>
+                For anything time-sensitive — a viewing this week, an offer
+                deadline — phone or LINE will always be faster than email.
+              </p>
+
+              <div class="contact-details" style="margin-top: 2.5rem;">
+                <div class="contact-item">
+                  <div class="contact-item__icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4.5 3h3l1.5 4.5-2 1.5a12 12 0 0 0 6 6l1.5-2L19 14.5v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 2.5 5.2 2 2 0 0 1 4.5 3Z"/></svg>
+                  </div>
+                  <div>
+                    <h3>Phone &amp; LINE</h3>
+                    <p><a href="tel:+66812345678">+66 81 234 5678</a></p>
+                    <p style="font-size: 0.8125rem; color: var(--muted);">
+                      Daily, 08:00 – 20:00 ICT
+                    </p>
+                  </div>
+                </div>
+
+                <div class="contact-item">
+                  <div class="contact-item__icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+                  </div>
+                  <div>
+                    <h3>Email</h3>
+                    <p>
+                      <a href="mailto:hello@apinyaestates.com"
+                        >hello@apinyaestates.com</a
+                      >
+                    </p>
+                    <p style="font-size: 0.8125rem; color: var(--muted);">
+                      Replies within one business day
+                    </p>
+                  </div>
+                </div>
+
+                <div class="contact-item">
+                  <div class="contact-item__icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                  </div>
+                  <div>
+                    <h3>Office</h3>
+                    <p>
+                      128/9 Phetkasem Road<br />
+                      Hua Hin, Prachuap Khiri Khan 77110<br />
+                      Thailand
+                    </p>
+                  </div>
+                </div>
+
+                <div class="contact-item">
+                  <div class="contact-item__icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+                  </div>
+                  <div>
+                    <h3>Viewings</h3>
+                    <p>
+                      Seven days a week by appointment, including evenings for
+                      clients in European time zones.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="office-card">
+                <h3>Coming from the airport?</h3>
+                <p>
+                  Hua Hin is roughly 2.5 hours by road from Suvarnabhumi, or 45
+                  minutes by direct flight to HHQ. Apinya arranges a car for
+                  clients travelling in for a viewing day — just say so in your
+                  message.
+                </p>
+                <p style="margin-bottom: 0;">
+                  <a class="link-arrow" href="properties.html" style="color: var(--gold-400);"
+                    >Browse before you fly
+                    <svg width="16" height="10" viewBox="0 0 16 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M1 5h13M10 1l4 4-4 4"/></svg>
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== CTA ===================== -->
+      <section class="cta-band">
+        <div class="cta-band__media">
+          <img
+            src="assets/images/villa-coconut-paradise-luxe.jpg"
+            alt=""
+            width="1024"
+            height="559"
+            loading="lazy"
+          />
+        </div>
+        <div class="container cta-band__inner">
+          <div class="cta-band__text">
+            <span class="eyebrow">Selling instead?</span>
+            <h2>Find out what your property is worth</h2>
+            <p>
+              A written valuation based on what has actually transacted in your
+              building or estate this year — not on what the neighbours are
+              asking. Free, and with no obligation to list.
+            </p>
+          </div>
+          <div class="btn-row">
+            <a class="btn" href="#main">Request a valuation</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="site-footer__top">
+          <div>
+            <a class="brand" href="index.html">
+              <span class="brand__mark" aria-hidden="true">A</span>
+              <span class="brand__text">
+                <span class="brand__name">Apinya Estates</span>
+                <span class="brand__tag">Hua Hin Real Estate</span>
+              </span>
+            </a>
+            <p class="site-footer__about">
+              A boutique real estate advisory on the Gulf of Thailand.
+              Beachfront condominiums, private pool villas and investment
+              property — represented by someone who lives here.
+            </p>
+            <div class="socials">
+              <a href="#" aria-label="Apinya Estates on Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h3l1-3h-4v-2c0-.6.4-1 1-1Z"/></svg></a>
+              <a href="#" aria-label="Apinya Estates on Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1.2" fill="currentColor" stroke="none"/></svg></a>
+              <a href="#" aria-label="Apinya Estates on LINE"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 11c0-4.4-4-8-9-8s-9 3.6-9 8c0 4 3.3 7.3 7.7 7.9.3.1.7.2.8.5.1.3.1.7 0 1l-.1.8c0 .3-.2 1 .9.6 1.1-.5 5.9-3.5 8-6 1.1-1.3 1.7-2.8 1.7-4.8Z"/></svg></a>
+              <a href="#" aria-label="Apinya Estates on WhatsApp"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 21l1.6-4.4A8.5 8.5 0 1 1 8 20.2L3 21Z"/><path d="M8.8 9.2c.2 2.6 2.4 4.8 5 5 .5 0 1.2-.2 1.4-.8.1-.4-.1-.7-.4-.9l-1-.5c-.3-.2-.7-.1-.9.2l-.3.4a5.4 5.4 0 0 1-2.2-2.2l.4-.3c.3-.2.4-.6.2-.9l-.5-1c-.2-.3-.5-.5-.9-.4-.6.2-.8.9-.8 1.4Z"/></svg></a>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h4>Explore</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="properties.html">Properties</a></li>
+              <li><a href="about.html">About Apinya</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Services</h4>
+            <ul>
+              <li><a href="index.html#services">Buying</a></li>
+              <li><a href="index.html#services">Selling</a></li>
+              <li><a href="index.html#services">Investment</a></li>
+              <li><a href="index.html#services">Consulting</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Contact</h4>
+            <ul>
+              <li><a href="tel:+66812345678">+66 81 234 5678</a></li>
+              <li><a href="mailto:hello@apinyaestates.com">hello@apinyaestates.com</a></li>
+              <li>128/9 Phetkasem Road<br />Hua Hin 77110, Thailand</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="site-footer__bottom">
+          <p>© <span data-year>2026</span> Apinya Estates. All rights reserved.</p>
+          <div class="legal-links">
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Cookies</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="assets/js/main.js" defer></script>
+  </body>
+</html>
