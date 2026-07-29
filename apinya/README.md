@@ -12,4 +12,4 @@ valide les champs mais n'envoie rien.
 
 **Contenu d'exemple** — prix, coordonnées et témoignages sont fictifs.
 
-Sources : dépôt [`aponya`](https://github.com/grafmik/aponya).
+Sources : dépôt [`apinya`](https://github.com/grafmik/apinya).
