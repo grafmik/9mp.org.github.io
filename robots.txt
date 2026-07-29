@@ -1,0 +1,10 @@
+# 9mp.org
+
+User-agent: *
+Allow: /
+
+# Maquette de démonstration : contenu d'exemple (tarifs, coordonnées et
+# témoignages fictifs) publié sous le nom d'une personne réelle.
+# Ne doit pas être référencé par les moteurs de recherche.
+# Les pages portent également une balise <meta name="robots" content="noindex">.
+Disallow: /apinya/
