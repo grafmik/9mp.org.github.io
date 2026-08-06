@@ -83,17 +83,19 @@ canvas.addEventListener('mouseup', () => mouseDown=false);
 canvas.addEventListener('contextmenu', e => e.preventDefault());
 
 // ---- ENTITIES ----
-let player, bullets, enemies, enemyBullets, particles = [], powerups, stars;
+let player, bullets, enemies, enemyBullets, particles = [], powerups, stars, damageNumbers = [];
 
 function initStars() {
   stars = [];
   for(let i=0;i<STAR_COUNT;i++){
+    const layer = Math.random();
     stars.push({ 
       x:Math.random()*W, 
       y:Math.random()*H, 
-      s:Math.random()*2+0.5, 
-      speed:Math.random()*2+0.5, 
-      brightness:Math.random() 
+      s: layer * 2 + 0.5, 
+      speed: layer * 3 + 0.2, 
+      brightness:Math.random(),
+      layer: layer
     });
   }
 }
@@ -107,6 +109,8 @@ function createPlayer(){
     fireTimer: 0,
     shieldActive: false, shieldTimer: 0,
     invincible: 0,
+    isBeaming: false,
+    beamTimer: 0,
     trail: []
   };
 }
@@ -119,25 +123,25 @@ const BOSS_DEFS = [
     points: 1000, easy: true
   },
   { 
-    name: 'BETA-CRUSHER', hp: 800, maxHp: 800, w:100, h:75,
+    name: 'BETA-CRUSHER', hp: 2000, maxHp: 2000, w:100, h:75,
     color: '#ffcc00', glowColor: 'rgba(255,204,0,',
     speed: 1.2, phase: 0, fireRate: 40, attackPattern: 'aimed',
     points: 2500, easy: false
   },
   { 
-    name: 'GAMMA-VOID', hp: 1500, maxHp: 1500, w:120, h:90,
+    name: 'GAMMA-VOID', hp: 5000, maxHp: 5000, w:120, h:90,
     color: '#ff00ff', glowColor: 'rgba(255,0,255,',
     speed: 1.0, phase: 0, fireRate: 30, attackPattern: 'circle',
     points: 5000, easy: false
   },
   { 
-    name: 'DELTA-STORM', hp: 2500, maxHp: 2500, w:140, h:100,
+    name: 'DELTA-STORM', hp: 10000, maxHp: 10000, w:140, h:100,
     color: '#ff4400', glowColor: 'rgba(255,68,0,',
     speed: 1.4, phase: 0, fireRate: 25, attackPattern: 'hybrid',
     points: 10000, easy: false
   },
   { 
-    name: 'OMEGA-ZENITH', hp: 4000, maxHp: 4000, w:160, h:120,
+    name: 'OMEGA-ZENITH', hp: 20000, maxHp: 20000, w:160, h:120,
     color: '#ffffff', glowColor: 'rgba(255,255,255,',
     speed: 1.6, phase: 0, fireRate: 20, attackPattern: 'chaos',
     points: 25000, easy: false
@@ -163,6 +167,7 @@ function spawnBoss(index){
     targetY: 100,
     vx: def.speed, vy: 1,
     alive: true,
+    invincible: true,
     fireTimer: 0,
     flashTimer: 0,
     angle: 0
@@ -207,6 +212,16 @@ function spawnExplosion(x, y, size){
       size: Math.random()*size*0.6+1
     });
   }
+}
+
+function spawnDamageNumber(x, y, amount){
+  damageNumbers.push({
+    x, y, amount,
+    vx: (Math.random()-0.5)*2,
+    vy: -Math.random()*2-1,
+    life: 60,
+    color: '#fff'
+  });
 }
 
 function drawGlow(x, y, radius, color){
@@ -448,6 +463,13 @@ function drawHUD(){
   ctx.fillStyle = '#fff';
   ctx.font = '10px monospace';
   ctx.fillText(`ÉNERGIE ${Math.ceil(p.energy)}/${p.maxEnergy}`, 16, H-17);
+  
+  if(p.energy > 20){
+    ctx.fillStyle = '#00ffff';
+    ctx.font = 'bold 10px monospace';
+    ctx.fillText(`[SHIFT] HYPER BEAM PRÊT`, 16, H-12);
+  }
+
   ctx.fillStyle = '#fff';
   ctx.font = 'bold 20px monospace';
   ctx.textAlign = 'right';
@@ -473,7 +495,13 @@ function drawMenu(){
   ctx.fillText('— NEON SHOOT\'EM UP —', W/2, H*0.3+35);
   ctx.fillStyle = '#aaa';
   ctx.font = '14px monospace';
-  const inst = ['🎮 ZQSD / Flèches — Déplacer', '🔫 ESPACE / Clic — Tirer', '⚡ Récupère les power-ups', '💀 Enchaîne les Boss !'];
+  const inst = [
+    '🎮 ZQSD / Flèches — Déplacer', 
+    '🔫 ESPACE / Clic — Tirer', 
+    '⚡ SHIFT — Hyper Beam (consomme énergie)', 
+    '💎 Récupère les power-ups', 
+    '💀 Enchaîne les Boss !'
+  ];
   inst.forEach((t,i) => ctx.fillText(t, W/2, H*0.55+i*28));
   const pulse = Math.sin(gameTime*0.08)*0.3+0.7;
   ctx.fillStyle = `rgba(255,255,100,${pulse})`;
@@ -556,8 +584,11 @@ function shadeColor(hex, amount){
 function updateStars(){
   stars.forEach(s => {
     s.y += s.speed;
-    if(s.y > H){ s.y = 0; s.x = Math.random()*W; }
-    s.brightness = 0.5 + Math.sin(gameTime*0.02+s.x)*0.3;
+    if(s.y > H){ 
+      s.y = -s.s; 
+      s.x = Math.random()*W; 
+    }
+    s.brightness = 0.4 + Math.sin(gameTime*0.01 + s.x)*0.3;
   });
 }
 
@@ -589,8 +620,19 @@ function updatePlayer(){
   p.y = Math.max(p.h/2, Math.min(H-p.h/2, p.y));
   p.trail.push({x:p.x, y:p.y+p.h/2, life:10});
   if(p.trail.length > 15) p.trail.shift();
+
+  // Hyper Beam
+  if((keys['ShiftLeft'] || keys['ShiftRight']) && p.energy > 20){
+    p.isBeaming = true;
+    p.energy -= 0.8;
+    p.beamTimer++;
+  } else {
+    p.isBeaming = false;
+    p.beamTimer = 0;
+  }
+
   p.fireTimer--;
-  if((keys['Space'] || mouseDown) && p.fireTimer <= 0){
+  if(!p.isBeaming && (keys['Space'] || mouseDown) && p.fireTimer <= 0){
     shoot();
     p.fireTimer = Math.max(4, p.fireRate - (p.weaponLevel-1)*2);
   }
@@ -639,8 +681,13 @@ function updateEnemies(){
     e.flashTimer = Math.max(0, e.flashTimer-1);
     e.angle += 0.02;
     if(e.w > 50){
-      if(e.y < e.targetY) e.y += e.vy;
-      else {
+      if(e.y < e.targetY) {
+        e.y += e.vy;
+      } else {
+        if(e.invincible) {
+          e.invincible = false;
+          spawnParticles(e.x + e.w/2, e.y + e.h/2, 30, e.color, 2, 40);
+        }
         const t = gameTime * 0.01;
         e.x += Math.sin(t + e.phase)*e.speed*2;
         if(e.x < e.w/2) { e.x = e.w/2; e.vx *= -1; }
@@ -745,18 +792,26 @@ function updateParticles(){
   });
 }
 
+function updateDamageNumbers(){
+  damageNumbers = damageNumbers.filter(dn => {
+    dn.x += dn.vx; dn.y += dn.vy; dn.life--;
+    return dn.life > 0;
+  });
+}
+
 function checkCollisions(){
   const p = player;
-  for (let i = bullets.length - 1; i >= 0; i--) {
-    const b = bullets[i];
-    for (let j = 0; j < enemies.length; j++) {
-      const e = enemies[j];
-      if(!e.alive) continue;
-      if(b.x > e.x && b.x < e.x+e.w && b.y > e.y && b.y < e.y+e.h){
-        e.hp -= (5 + p.weaponLevel*3);
-        e.flashTimer = 6;
-        bullets.splice(i, 1);
-        spawnParticles(b.x,b.y,3,'#00eeff',2,10);
+
+  // Hyper Beam Collision
+  if(p.isBeaming){
+    const beamW = 40;
+    enemies.forEach(e => {
+      if(!e.alive || e.invincible) return;
+      if(p.x + beamW/2 > e.x && p.x - beamW/2 < e.x + e.w){
+        const dmg = 10;
+        e.hp -= dmg;
+        e.flashTimer = 2;
+        if(gameTime % 5 === 0) spawnDamageNumber(e.x + e.w/2, e.y + e.h/2, dmg);
         if(e.hp <= 0){
           e.alive = false;
           score += e.points || 500;
@@ -768,7 +823,34 @@ function checkCollisions(){
           setTimeout(() => { if(state === 'playing') spawnBoss(nextBossIndex); }, 2000);
           bossIndex = -1;
         }
-        break; // Bullet is gone, stop checking other enemies for this bullet
+      }
+    });
+  }
+
+  for (let i = bullets.length - 1; i >= 0; i--) {
+    const b = bullets[i];
+    for (let j = 0; j < enemies.length; j++) {
+      const e = enemies[j];
+      if(!e.alive) continue;
+      if(b.x > e.x && b.x < e.x+e.w && b.y > e.y && b.y < e.y+e.h && !e.invincible){
+        const dmg = 5 + p.weaponLevel*3;
+        e.hp -= dmg;
+        e.flashTimer = 6;
+        bullets.splice(i, 1);
+        spawnParticles(b.x,b.y,3,'#00eeff',2,10);
+        spawnDamageNumber(b.x, b.y, dmg);
+        if(e.hp <= 0){
+          e.alive = false;
+          score += e.points || 500;
+          spawnExplosion(e.x+e.w/2, e.y+e.h/2, 15);
+          shakeAmount = 15;
+          for(let k=0;k<3+bossIndex;k++) spawnPowerup(e.x+Math.random()*e.w, e.y+e.h/2);
+          
+          const nextBossIndex = bossIndex + 1;
+          setTimeout(() => { if(state === 'playing') spawnBoss(nextBossIndex); }, 2000);
+          bossIndex = -1;
+        }
+        break; 
       }
     }
   }
@@ -806,6 +888,7 @@ function update(){
     if(bossIntroTimer <= 0) state = 'playing';
   }
   updateParticles();
+  updateDamageNumbers();
 }
 
 function draw(){
@@ -824,6 +907,14 @@ function draw(){
     bullets.forEach(b => drawBullet(b));
     enemyBullets.forEach(b => drawBullet(b));
     enemies.forEach(e => { if(e.alive) (e.w > 50 ? drawBoss(e) : drawMinion(e)); });
+    
+    damageNumbers.forEach(dn => {
+      ctx.fillStyle = dn.color;
+      ctx.font = 'bold 16px monospace';
+      ctx.textAlign = 'center';
+      ctx.fillText(dn.amount, dn.x, dn.y);
+    });
+
     if(state !== 'gameover') drawPlayerShip(player);
     if(state === 'playing' || state === 'bossintro') drawHUD();
     if(state === 'bossintro') drawBossIntro();
