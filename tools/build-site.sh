@@ -19,6 +19,12 @@ OUT="${1:-$ROOT/_site}"
 command -v jq >/dev/null    || { echo "jq est requis"    >&2; exit 1; }
 command -v rsync >/dev/null || { echo "rsync est requis" >&2; exit 1; }
 
+if [ -z "${SITES_TOKEN:-}" ] && [ -n "${GITHUB_ACTIONS:-}" ]; then
+  echo "SITES_TOKEN est vide : la CI ne pourra pas cloner les repos privés." >&2
+  echo "Pose le secret avec  SITES_TOKEN=<pat> tools/setup-sources.sh" >&2
+  exit 1
+fi
+
 WORK="$(mktemp -d)"
 trap 'rm -rf "$WORK"' EXIT
 
