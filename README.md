@@ -34,19 +34,21 @@ Trois lignes dans `sites.json` (`path`, `repo`, `ref` ; plus `build` / `output`
 / `as` / `exclude` si besoin), puis :
 
 ```sh
-SITES_TOKEN=github_pat_xxx tools/setup-sources.sh
+SITES_TOKEN=<pat_lecture> DISPATCH_TOKEN=<pat_ecriture> tools/setup-sources.sh
 ```
 
 `setup-sources.sh` est ré-exécutable sans risque : il (re)pose le secret
 `PAGES_DISPATCH_TOKEN` et le workflow de notification dans chaque repo source,
 et vérifie que Pages est bien en mode « GitHub Actions ».
 
-## Le token
+## Les tokens
 
-Un fine-grained PAT unique, stocké comme secret `SITES_TOKEN` ici (lecture des
-repos sources depuis la CI) et `PAGES_DISPATCH_TOKEN` dans chaque repo source
-(droit de déclencher un build ici).
+Deux PAT fine-grained, chacun au strict nécessaire :
 
-Permissions : **Contents = Read** sur les repos sources, **Contents = Read and
-write** sur `9mp.org.github.io`. À renouveler à son expiration en relançant
-`setup-sources.sh` avec le nouveau token.
+| PAT | Permission | Stocké comme | Sert à |
+|---|---|---|---|
+| lecture | Contents = Read sur les repos sources | secret `SITES_TOKEN` ici | cloner les projets en CI |
+| écriture | Contents = Read and write sur `9mp.org.github.io` | secret `PAGES_DISPATCH_TOKEN` dans chaque repo source | déclencher un build ici |
+
+À leur expiration, le site cesse simplement de se reconstruire (l'ancien reste
+servi) : régénérer les tokens et relancer `setup-sources.sh` suffit.

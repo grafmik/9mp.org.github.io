@@ -11,10 +11,14 @@
 #   - bascule GitHub Pages de « deploy from branch » vers « GitHub Actions »
 #
 # Usage :
-#   SITES_TOKEN=github_pat_xxx tools/setup-sources.sh
+#   SITES_TOKEN=github_pat_lecture DISPATCH_TOKEN=github_pat_ecriture tools/setup-sources.sh
 #
-# Le PAT doit avoir : Contents=Read sur les repos sources, Contents=Read+Write
-# sur 9mp.org.github.io (requis pour repository_dispatch).
+# Deux PAT fine-grained :
+#   SITES_TOKEN     Contents=Read sur les repos sources — sert à la CI pour les cloner
+#   DISPATCH_TOKEN  Contents=Read+Write sur 9mp.org.github.io — sert aux repos
+#                   sources pour déclencher un build (exigence de repository_dispatch)
+#
+# Un seul token cumulant les deux droits fonctionne aussi : laisse DISPATCH_TOKEN vide.
 
 set -euo pipefail
 
@@ -34,6 +38,9 @@ if [ -z "${SITES_TOKEN:-}" ]; then
   echo "  SITES_TOKEN=github_pat_xxx $0" >&2
   exit 1
 fi
+
+# Un seul token qui cumule lecture et écriture, c'est permis.
+DISPATCH_TOKEN="${DISPATCH_TOKEN:-$SITES_TOKEN}"
 
 if ! gh auth status >/dev/null 2>&1; then
   echo "gh n'est pas authentifié : gh auth login" >&2
@@ -61,7 +68,8 @@ for repo in $repos; do
 
   echo "── $repo  (branches publiées : $branch_list)"
 
-  gh secret set PAGES_DISPATCH_TOKEN --repo "$repo" --body "$SITES_TOKEN"
+  # Par stdin : le token n'apparaît pas dans la liste des processus.
+  printf '%s' "$DISPATCH_TOKEN" | gh secret set PAGES_DISPATCH_TOKEN --repo "$repo"
   echo "   secret PAGES_DISPATCH_TOKEN posé"
 
   # (heredoc vers un fichier : bash 3.2, celui de macOS, ne sait pas les imbriquer
@@ -110,7 +118,7 @@ done
 
 # ------------------------------------------------------------------ repo du site --
 echo "── $PAGES_REPO"
-gh secret set SITES_TOKEN --repo "$PAGES_REPO" --body "$SITES_TOKEN"
+printf '%s' "$SITES_TOKEN" | gh secret set SITES_TOKEN --repo "$PAGES_REPO"
 echo "   secret SITES_TOKEN posé"
 
 build_type="$(gh api "repos/$PAGES_REPO/pages" --jq .build_type 2>/dev/null || echo none)"
