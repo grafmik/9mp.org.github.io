@@ -1,0 +1,60 @@
+{
+  "_comment": [
+    "Carte du site : chaque entrée est un projet qui vit dans son propre repo et",
+    "qui est cloné/buildé au moment de la publication (voir tools/build-site.sh).",
+    "Rien de tout ça n'est versionné ici — publier un projet = pousser dans SON repo.",
+    "",
+    "  path    dossier servi sous https://9mp.org/<path>/",
+    "  repo    owner/nom sur GitHub",
+    "  ref     branche à publier",
+    "  build   commande à lancer dans le clone (optionnel)",
+    "  output  fichier ou dossier à publier (défaut : la racine du clone)",
+    "  as      nom de destination quand output est un fichier",
+    "  exclude chemins à ne pas publier, relatifs à output",
+    "",
+    "L'ordre compte : une entrée imbriquée (hellochat/expert-comments) doit venir",
+    "après celle qui la contient."
+  ],
+  "sites": [
+    {
+      "path": "apinya",
+      "repo": "grafmik/apinya",
+      "ref": "main",
+      "exclude": ["README.md", "dist"]
+    },
+    {
+      "path": "ds4shmup",
+      "repo": "grafmik/ds4shmup",
+      "ref": "main",
+      "exclude": ["test"]
+    },
+    {
+      "path": "motopeter",
+      "repo": "grafmik/motopeter",
+      "ref": "main",
+      "build": "node tools/build.js",
+      "output": "dist/motopeter.html",
+      "as": "index.html"
+    },
+    {
+      "path": "qwemup",
+      "repo": "grafmik/qwemup",
+      "ref": "main",
+      "exclude": ["README.md"]
+    },
+    {
+      "path": "hellochat",
+      "repo": "grafmik/hellochat",
+      "ref": "main",
+      "build": "flutter build web --release --base-href /hellochat/",
+      "output": "build/web"
+    },
+    {
+      "path": "hellochat/expert-comments",
+      "repo": "grafmik/hellochat",
+      "ref": "expert-comments",
+      "build": "flutter build web --release --base-href /hellochat/expert-comments/",
+      "output": "build/web"
+    }
+  ]
+}

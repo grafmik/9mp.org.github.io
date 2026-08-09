@@ -1,0 +1,62 @@
+name: Build & deploy 9mp.org
+
+on:
+  push:
+    branches: [main]
+  # Déclenché par les repos sources quand ils poussent (voir tools/setup-sources.sh)
+  repository_dispatch:
+    types: [source-updated]
+  workflow_dispatch:
+  # Filet de sécurité : republie une fois par semaine même si un dispatch se perd
+  schedule:
+    - cron: '0 4 * * 1'
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Origine du déclenchement
+        if: github.event_name == 'repository_dispatch'
+        run: echo "Déclenché par ${{ github.event.client_payload.repo }}"
+
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      # hellochat exige Dart >= 3.12.1. Version épinglée pour que le site ne
+      # change pas tout seul ; la bumper à la main quand hellochat évolue.
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.44.2'
+          channel: stable
+          cache: true
+
+      - name: Assembler le site
+        env:
+          SITES_TOKEN: ${{ secrets.SITES_TOKEN }}
+        run: tools/build-site.sh "$GITHUB_WORKSPACE/_site"
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

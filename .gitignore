@@ -1,2 +1,5 @@
 **/.DS_Store
 .DS_Store
+
+# Site assemblé par tools/build-site.sh
+_site/
