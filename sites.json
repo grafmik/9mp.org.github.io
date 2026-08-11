@@ -33,7 +33,8 @@
       "path": "ds4shmup",
       "repo": "grafmik/ds4shmup",
       "ref": "main",
-      "exclude": ["test"]
+      "build": "node tools/build.js",
+      "exclude": ["test", "tools"]
     },
     {
       "path": "motopeter",
