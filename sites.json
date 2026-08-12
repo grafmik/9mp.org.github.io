@@ -37,6 +37,14 @@
       "exclude": ["test", "tools"]
     },
     {
+      "path": "jobs",
+      "repo": "grafmik/jobs",
+      "ref": "main",
+      "build": "node build.mjs",
+      "output": "dist/atlas-des-metiers.html",
+      "as": "index.html"
+    },
+    {
       "path": "motopeter",
       "repo": "grafmik/motopeter",
       "ref": "main",
