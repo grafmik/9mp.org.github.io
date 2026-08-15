@@ -18,6 +18,7 @@ OUT="${1:-$ROOT/_site}"
 
 command -v jq >/dev/null    || { echo "jq est requis"    >&2; exit 1; }
 command -v rsync >/dev/null || { echo "rsync est requis" >&2; exit 1; }
+command -v node >/dev/null  || { echo "node est requis (page d'accueil)" >&2; exit 1; }
 
 if [ -z "${SITES_TOKEN:-}" ] && [ -n "${GITHUB_ACTIONS:-}" ]; then
   echo "SITES_TOKEN est vide : la CI ne pourra pas cloner les repos privés." >&2
@@ -100,5 +101,11 @@ while [ "$i" -lt "$nsites" ]; do
 
   i=$((i + 1))
 done
+
+# ---------------------------------------------------------- page d'accueil --
+# Le portfolio est régénéré à partir de ce qui vient d'être publié : un projet
+# ajouté à sites.json apparaît sans qu'on touche à index.html.
+echo "→ page d'accueil"
+node "$ROOT/tools/render-home.mjs" "$OUT"
 
 echo "✓ $OUT prêt ($(du -sh "$OUT" | cut -f1))"

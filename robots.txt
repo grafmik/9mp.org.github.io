@@ -8,3 +8,7 @@ Allow: /
 # Ne doit pas être référencé par les moteurs de recherche.
 # Les pages portent également une balise <meta name="robots" content="noindex">.
 Disallow: /apinya/
+
+# Livret d'accueil de l'appartement : destiné aux invités qui ont l'adresse,
+# pas au grand public. Même traitement que ci-dessus (robots.txt + meta).
+Disallow: /flat/
