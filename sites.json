@@ -23,6 +23,12 @@
       "exclude": ["README.md", "dist"]
     },
     {
+      "path": "athena",
+      "repo": "grafmik/athena",
+      "ref": "main",
+      "exclude": ["README.md"]
+    },
+    {
       "path": "benmath",
       "repo": "grafmik/benmath",
       "ref": "main",

@@ -116,6 +116,15 @@
       "texte": "Une déclinaison de HelloChat publiée depuis sa propre branche, pour comparer deux directions côte à côte.",
       "tags": ["Flutter Web", "Branche", "Prototype"]
     },
+    "athena": {
+      "titre": "Club Athéna",
+      "cat": "vitrine",
+      "badge": "Maquette",
+      "hue": 288,
+      "glyphe": "\u2767",
+      "texte": "Vitrine d'un club de gymnastique rythmique : le club, l'association loi 1901, l'équipe, et une page de soutien branchée sur HelloAsso. *Contenu d'exemple.*",
+      "tags": ["Vitrine", "HelloAsso"]
+    },
     "apinya": {
       "masque": true,
       "titre": "Apinya Estates",
