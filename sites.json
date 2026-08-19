@@ -23,17 +23,17 @@
       "exclude": ["README.md", "dist"]
     },
     {
-      "path": "athena",
-      "repo": "grafmik/athena",
-      "ref": "main",
-      "exclude": ["README.md"]
-    },
-    {
       "path": "benmath",
       "repo": "grafmik/benmath",
       "ref": "main",
       "build": "npm ci && npm run build:static",
       "output": "web/dist"
+    },
+    {
+      "path": "buf",
+      "repo": "grafmik/buf",
+      "ref": "main",
+      "exclude": ["README.md"]
     },
     {
       "path": "ds4shmup",

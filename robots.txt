@@ -16,4 +16,4 @@ Disallow: /flat/
 # Maquette de club de gymnastique rythmique : noms, tarifs, coordonnées et
 # module de don sont des exemples. Une page de soutien fictive n'a rien à
 # faire dans un index de moteur de recherche. Même traitement que ci-dessus.
-Disallow: /athena/
+Disallow: /buf/
