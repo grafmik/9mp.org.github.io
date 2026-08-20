@@ -12,8 +12,3 @@ Disallow: /apinya/
 # Livret d'accueil de l'appartement : destiné aux invités qui ont l'adresse,
 # pas au grand public. Même traitement que ci-dessus (robots.txt + meta).
 Disallow: /flat/
-
-# Maquette de club de gymnastique rythmique : noms, tarifs, coordonnées et
-# module de don sont des exemples. Une page de soutien fictive n'a rien à
-# faire dans un index de moteur de recherche. Même traitement que ci-dessus.
-Disallow: /buf/

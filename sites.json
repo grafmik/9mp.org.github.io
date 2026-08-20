@@ -30,12 +30,6 @@
       "output": "web/dist"
     },
     {
-      "path": "buf",
-      "repo": "grafmik/buf",
-      "ref": "main",
-      "exclude": ["README.md"]
-    },
-    {
       "path": "ds4shmup",
       "repo": "grafmik/ds4shmup",
       "ref": "main",
