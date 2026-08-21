@@ -62,7 +62,7 @@ body::after{
   mix-blend-mode:overlay;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.32'/%3E%3C/svg%3E");
 }
-main,header,footer{position:relative;z-index:2}
+main,footer{position:relative;z-index:2}
 a{color:inherit}
 h1,h2,h3{margin:0;font-weight:640;letter-spacing:-.03em;line-height:1.02}
 p{margin:0}
@@ -70,29 +70,6 @@ p{margin:0}
 :focus-visible{outline:2px solid var(--acid);outline-offset:3px;border-radius:6px}
 .wrap{max-width:1180px;margin:0 auto;padding-inline:var(--pad)}
 .mono{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase}
-
-/* ---------------------------------------------------------------- header -- */
-header{
-  position:sticky;top:0;z-index:40;
-  backdrop-filter:blur(14px) saturate(140%);
-  -webkit-backdrop-filter:blur(14px) saturate(140%);
-  background:color-mix(in srgb,var(--bg) 72%,transparent);
-  border-bottom:1px solid transparent;
-  transition:border-color .3s;
-}
-header.stuck{border-bottom-color:var(--line)}
-.bar{display:flex;align-items:center;justify-content:space-between;gap:24px;height:66px}
-.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;letter-spacing:-.04em;font-size:19px}
-.logo .dot{
-  width:11px;height:11px;border-radius:50%;
-  background:var(--acid);
-  box-shadow:0 0 0 0 rgba(216,255,69,.55);
-  animation:pulse 3.2s ease-out infinite;
-}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(216,255,69,.5)}70%,100%{box-shadow:0 0 0 12px rgba(216,255,69,0)}}
-nav{display:flex;align-items:center;gap:26px}
-nav a{color:var(--ink-dim);text-decoration:none;font-size:14px;transition:color .2s}
-nav a:hover{color:var(--ink)}
 
 /* ------------------------------------------------------------------ hero -- */
 /* padding-block seul : le padding latéral vient de .wrap */
@@ -121,6 +98,48 @@ nav a:hover{color:var(--ink)}
 .cue span{display:block;width:1px;height:34px;background:var(--acid);animation:cue 2.6s cubic-bezier(.6,0,.4,1) infinite}
 @keyframes cue{0%{transform:translateY(-100%)}60%,100%{transform:translateY(220%)}}
 
+/* ---------------------------------------------------------------- logo 3D -- */
+/* Un « 9MP » extrudé qui pivote au fil du défilement, puis cède la place. */
+.stage{
+  position:relative;
+  min-height:100svh;
+  display:flex;flex-direction:column;justify-content:flex-end;align-items:center;
+  gap:clamp(18px,3.5vh,40px);
+  /* le mot se pose vers le bas du premier écran, quelle que soit la hauteur */
+  padding-bottom:clamp(40px,8svh,110px);
+  perspective:clamp(800px,140vw,1600px);perspective-origin:50% 78%;
+}
+.word{
+  display:flex;justify-content:center;gap:clamp(4px,1.4vw,22px);
+  transform-style:preserve-3d;
+  transform:rotateY(var(--ry,-14deg)) rotateX(var(--rx,7deg));
+  will-change:transform;
+  font-size:clamp(78px,min(21vw,28vh),276px);font-weight:700;letter-spacing:-.05em;line-height:.84;
+  color:var(--acid);
+}
+.word.built{color:transparent}
+.ltr{position:relative;display:block;transform-style:preserve-3d}
+/* couches d'extrusion posées par le script — la dernière est la face */
+.ltr b{position:absolute;inset:0;font-weight:inherit;transform:translateZ(calc(var(--z) * 1px))}
+.stage .sub{color:var(--ink-faint);text-align:center}
+.stage .sub b{color:var(--acid);font-weight:500}
+/* petit indicateur « on peut défiler », au bas du premier écran */
+.scrollcue{
+  position:absolute;left:50%;bottom:clamp(14px,2.6svh,26px);transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:9px;
+  color:var(--ink-faint);pointer-events:none;transition:opacity .35s ease;
+}
+.scrollcue .lbl{font-family:var(--mono);font-size:9.5px;letter-spacing:.26em;text-transform:uppercase}
+.scrollcue .chev{
+  width:14px;height:14px;
+  border-right:2px solid var(--acid);border-bottom:2px solid var(--acid);
+  animation:cbob 1.6s ease-in-out infinite;
+}
+@keyframes cbob{
+  0%,100%{transform:rotate(45deg) translate(-3px,-3px);opacity:.3}
+  50%    {transform:rotate(45deg) translate(3px,3px);opacity:1}
+}
+
 /* -------------------------------------------------------------- sections -- */
 section{padding-block:clamp(64px,11vh,124px)}
 .eyebrow{color:var(--violet);margin-bottom:24px;display:block}
@@ -139,7 +158,7 @@ section{padding-block:clamp(64px,11vh,124px)}
 .filters .count{font-family:var(--mono);font-size:10px;opacity:.55;margin-left:7px}
 
 /* --------------------------------------------------------------- projets -- */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:18px}
 .card{
   --h:80;
   position:relative;
@@ -205,21 +224,29 @@ footer{border-top:1px solid var(--line);padding-block:44px;margin-top:clamp(40px
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .js .rv{opacity:1;transform:none;transition:none}
-  .logo .dot,.cue span{animation:none}
+  .cue span,.scrollcue .chev{animation:none}
+  .scrollcue .chev{transform:rotate(45deg)}
   *{transition-duration:.01ms!important}
 }
 </style>
 </head>
 <body>
 
-<header id="top">
-  <div class="wrap bar">
-    <a class="logo" href="#top"><span class="dot"></span>9mp<span style="color:var(--ink-faint);font-weight:400">.org</span></a>
-    <nav><a href="#travaux">Travaux</a></nav>
-  </div>
-</header>
+<main id="top">
 
-<main>
+  <!-- =========================================================== logo 3D -- -->
+  <section class="stage" aria-label="9mp">
+    <div class="word" id="word" role="img" aria-label="9MP">
+      <span class="ltr" data-c="9" aria-hidden="true">9</span>
+      <span class="ltr" data-c="M" aria-hidden="true">M</span>
+      <span class="ltr" data-c="P" aria-hidden="true">P</span>
+    </div>
+    <p class="sub mono">Studio internet — <b>jeux, outils, applications</b></p>
+    <div class="scrollcue" aria-hidden="true">
+      <span class="lbl">Défiler</span>
+      <span class="chev"></span>
+    </div>
+  </section>
 
   <!-- ============================================================== hero -- -->
   <div class="hero wrap">
@@ -363,11 +390,47 @@ footer{border-top:1px solid var(--line);padding-block:44px;margin-top:clamp(40px
 (function () {
   "use strict";
 
-  // Bordure du header dès qu'on quitte le haut de page
-  var head = document.querySelector("header");
-  var onScroll = function () { head.classList.toggle("stuck", window.scrollY > 8); };
-  onScroll();
-  addEventListener("scroll", onScroll, { passive: true });
+  var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Logo 3D : l'épaisseur est faite de copies empilées en profondeur, et le
+  // défilement de la section pilote la rotation. Sans JS, la lettre reste
+  // plate mais lisible.
+  var word = document.getElementById("word");
+  if (word) {
+    var N = 26;
+    Array.prototype.forEach.call(word.children, function (ltr) {
+      var frag = document.createDocumentFragment();
+      for (var i = N - 1; i >= 0; i--) {          // du fond vers la face
+        var t = i / (N - 1);                      // 1 = fond, 0 = face
+        var b = document.createElement("b");
+        b.textContent = ltr.dataset.c;
+        b.style.setProperty("--z", -i * 3);
+        b.style.color = "hsl(" + (72 + t * 186) + " " + (100 - t * 28) + "% " + (66 - t * 44) + "%)";
+        frag.appendChild(b);
+      }
+      ltr.appendChild(frag);
+    });
+    word.classList.add("built");
+
+    if (!reduce) {
+      // Le mot fait partie du flux normal : il défile avec la page, sans rien
+      // bloquer. Il tourne seulement sur lui-même au rythme du scroll — un
+      // pixel de défilement = 0,84° — et sort donc du champ en tournant.
+      var K = 0.84, spin = function () {
+        word.style.setProperty("--ry", (-14 + scrollY * K).toFixed(1) + "deg");
+      };
+      spin();
+      addEventListener("scroll", spin, { passive: true });
+    }
+  }
+
+  // L'indicateur de défilement s'efface dès les premiers pixels de scroll
+  var cue = document.querySelector(".scrollcue");
+  if (cue) {
+    var fade = function () { cue.style.opacity = Math.max(0, 1 - scrollY / 90).toFixed(2); };
+    fade();
+    addEventListener("scroll", fade, { passive: true });
+  }
 
   // Filtres du portfolio
   var cards = Array.prototype.slice.call(document.querySelectorAll("#grid .card"));
@@ -385,8 +448,7 @@ footer{border-top:1px solid var(--line);padding-block:44px;margin-top:clamp(40px
 
   // Apparition au défilement
   var items = document.querySelectorAll(".rv");
-  if (!window.IntersectionObserver ||
-      matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  if (!window.IntersectionObserver || reduce) {
     items.forEach(function (el) { el.classList.add("in"); });
   } else {
     var io = new IntersectionObserver(function (entries) {
