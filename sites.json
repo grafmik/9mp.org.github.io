@@ -59,6 +59,12 @@
       "exclude": ["README.md"]
     },
     {
+      "path": "wallet-compare",
+      "repo": "grafmik/wallet-compare",
+      "ref": "main",
+      "exclude": ["README.md", "BILAN.md", "build.py", "build_securite.py"]
+    },
+    {
       "path": "hellochat",
       "repo": "grafmik/hellochat",
       "ref": "main",

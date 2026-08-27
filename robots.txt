@@ -12,3 +12,8 @@ Disallow: /apinya/
 # Livret d'accueil de l'appartement : destiné aux invités qui ont l'adresse,
 # pas au grand public. Même traitement que ci-dessus (robots.txt + meta).
 Disallow: /flat/
+
+# Dossier documentaire sur l'auto-détention de crypto-actifs : publié pour être
+# lu par ceux à qui on donne le lien, pas pour être référencé. Même traitement
+# que ci-dessus (robots.txt + meta noindex sur chaque page).
+Disallow: /wallet-compare/

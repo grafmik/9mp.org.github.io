@@ -99,6 +99,16 @@
       "texte": "Petit atelier de mathématiques dans le navigateur, compilé en pages statiques à chaque publication.",
       "tags": ["Web app", "Build statique"]
     },
+    "wallet-compare": {
+      "masque": true,
+      "titre": "wallet-compare",
+      "cat": "outil",
+      "badge": "Dossier",
+      "hue": 34,
+      "glyphe": "⛨",
+      "texte": "État des lieux de l'auto-détention de crypto-actifs, et dossier sécurité des wallets matériels : 19 appareils notés, incidents documentés, sources en lien.",
+      "tags": ["Dossier", "Généré", "Privé"]
+    },
     "hellochat": {
       "titre": "HelloChat Live",
       "cat": "app",
