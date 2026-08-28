@@ -9,6 +9,10 @@ Allow: /
 # Les pages portent également une balise <meta name="robots" content="noindex">.
 Disallow: /apinya/
 
+# Atelier de mathématiques : publié pour être partagé par lien, pas pour
+# être trouvé depuis une recherche.
+Disallow: /benmath/
+
 # Livret d'accueil de l'appartement : destiné aux invités qui ont l'adresse,
 # pas au grand public. Même traitement que ci-dessus (robots.txt + meta).
 Disallow: /flat/
