@@ -45,6 +45,12 @@
       "as": "index.html"
     },
     {
+      "path": "magino",
+      "repo": "grafmik/magino",
+      "ref": "main",
+      "exclude": ["README.md"]
+    },
+    {
       "path": "motopeter",
       "repo": "grafmik/motopeter",
       "ref": "main",

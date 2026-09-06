@@ -146,6 +146,15 @@
       "texte": "Le livret d'accueil des invités, bilingue français / anglais : équipements, mode d'emploi, bonnes adresses du quartier.",
       "tags": ["FR / EN", "Privé"]
     },
+    "magino": {
+      "titre": "La Table à Huiles",
+      "cat": "divers",
+      "badge": "Atelier",
+      "hue": 292,
+      "glyphe": "\u25cc",
+      "texte": "Le dispositif r\u00e9el des light shows de 1966 rejou\u00e9 dans le navigateur : deux verres de montre, un fond d'huile color\u00e9e sur platine chaude. \u00c0 piloter en degr\u00e9s, newtons et nanom\u00e8tres.",
+      "tags": ["WebGL", "Light show", "Jouable"]
+    },
     "ai": {
       "titre": "It's over",
       "cat": "vitrine",
