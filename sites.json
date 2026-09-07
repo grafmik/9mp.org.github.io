@@ -37,6 +37,12 @@
       "exclude": ["test", "tools"]
     },
     {
+      "path": "flat",
+      "repo": "grafmik/flat",
+      "ref": "main",
+      "exclude": ["README.md"]
+    },
+    {
       "path": "jobs",
       "repo": "grafmik/jobs",
       "ref": "main",
