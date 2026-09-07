@@ -5,7 +5,7 @@ Site publié sur https://9mp.org via GitHub Pages.
 Le site est **assemblé en CI**, pas stocké tel quel. Ce repo contient :
 
 - le contenu dont il est la source : `index.html` (la vitrine du studio), `ai/`,
-  `flat/`, `guillaumesync/`, `tetris/`, `worldtimesync/`, `CNAME`, `robots.txt` ;
+  `guillaumesync/`, `tetris/`, `worldtimesync/`, `CNAME`, `robots.txt` ;
 - `sites.json` : la carte des projets qui vivent dans **leur propre repo** et
   sont clonés/buildés au moment de la publication ;
 - `portfolio.json` : ce que la page d'accueil raconte de chaque projet ;
@@ -23,7 +23,7 @@ apparaît quand même, avec le titre de sa page — et le build le signale.
 | Ce que tu modifies | Ce que tu fais |
 |---|---|
 | Un projet externe (`motopeter`, `hellochat`, …) | push dans **son** repo — le site se reconstruit tout seul |
-| Le contenu local (`index.html`, `flat/`, …) | push ici |
+| Le contenu local (`index.html`, `tetris/`, …) | push ici |
 | Rien ne bouge et tu veux forcer | `gh workflow run 'Build & deploy 9mp.org'` |
 
 Aucune copie manuelle : un projet n'existe qu'à un seul endroit.
