@@ -13,7 +13,6 @@
     "  glyphe  signe affiché dans la vignette",
     "  hue     teinte de la vignette, 0-360 (défaut : dérivée du nom)",
     "  texte   une à deux phrases ; *entre astérisques* pour l'italique",
-    "  tags    trois mots-clés maximum, sinon la carte s'allonge",
     "  variantes  plusieurs versions d'un même projet, montrées dans le même",
     "          encart : liste de { chemin, label } ; chemin est relatif au",
     "          dossier du projet (\"\" = sa racine)",
@@ -22,8 +21,8 @@
     "          suffit de repasser à false pour le remettre en vitrine)",
     "",
     "L'ordre des clés de \"projets\" est l'ordre d'affichage.",
-    "Les dossiers interdits dans robots.txt reçoivent automatiquement le tag",
-    "« non indexé » et un lien en rel=nofollow — rien à déclarer ici."
+    "Les dossiers interdits dans robots.txt reçoivent un lien en rel=nofollow",
+    "— rien à déclarer ici."
   ],
 
   "categories": [
@@ -40,8 +39,7 @@
       "cat": "jeu",
       "hue": 14,
       "glyphe": "▲",
-      "texte": "Trial 2D à moteur physique : inertie, suspensions, figures et nitro. Au clavier comme au doigt, sur plusieurs terrains.",
-      "tags": ["Canvas", "Physique", "Tactile"]
+      "texte": "Trial 2D à moteur physique : inertie, suspensions, figures et nitro. Au clavier comme au doigt, sur plusieurs terrains."
     },
     "qwemup": {
       "titre": "Neon Blaster",
@@ -49,7 +47,6 @@
       "hue": 320,
       "glyphe": "✦",
       "texte": "Shoot'em up vertical façon arcade, tenu dans un seul fichier HTML : graphismes, bruitages *et* musique sont générés à la volée. Trois versions du même jeu, écrites par trois modèles.",
-      "tags": ["WebAudio", "Zéro dépendance", "Overdrive"],
       "variantes": [
         { "chemin": "", "label": "Classique" },
         { "chemin": "clauded", "label": "Clauded" },
@@ -61,24 +58,21 @@
       "cat": "jeu",
       "hue": 195,
       "glyphe": "◈",
-      "texte": "L'autre shoot'em up de la maison : vagues d'ennemis, boss et score, jouable au clavier ou en glissant le doigt.",
-      "tags": ["Arcade", "Canvas", "Mobile"]
+      "texte": "L'autre shoot'em up de la maison : vagues d'ennemis, boss et score, jouable au clavier ou en glissant le doigt."
     },
     "tetris": {
       "titre": "Tetris adaptatif",
       "cat": "jeu",
       "hue": 265,
       "glyphe": "▩",
-      "texte": "Le classique, redimensionné à la taille de l'écran, avec des commandes tactiles pour jouer d'une main dans le métro.",
-      "tags": ["Canvas", "Responsive", "Tactile"]
+      "texte": "Le classique, redimensionné à la taille de l'écran, avec des commandes tactiles pour jouer d'une main dans le métro."
     },
     "martingale": {
       "titre": "Martingale",
       "cat": "jeu",
       "hue": 285,
       "glyphe": "⊚",
-      "texte": "Pile ou face en boucle : on double la mise après chaque perte jusqu'à se refaire… ou tout perdre. Courbe du capital en direct, pièce qui claque, faillite *garantie*.",
-      "tags": ["Canvas", "Aléa système", "Casino"]
+      "texte": "Pile ou face en boucle : on double la mise après chaque perte jusqu'à se refaire… ou tout perdre. Courbe du capital en direct, pièce qui claque, faillite *garantie*."
     },
     "worldtimesync": {
       "masque": true,
@@ -86,8 +80,7 @@
       "cat": "outil",
       "hue": 170,
       "glyphe": "◐",
-      "texte": "Planificateur de réunions internationales : on place les participants sur la carte, la timeline montre l'heure qu'il est pour chacun.",
-      "tags": ["Fuseaux", "Carte", "Timeline"]
+      "texte": "Planificateur de réunions internationales : on place les participants sur la carte, la timeline montre l'heure qu'il est pour chacun."
     },
     "guillaumesync": {
       "masque": true,
@@ -95,16 +88,14 @@
       "cat": "outil",
       "hue": 150,
       "glyphe": "◍",
-      "texte": "La même chose, en collaboratif : marqueurs déplaçables et participants partagés en temps réel entre tous les navigateurs ouverts.",
-      "tags": ["Temps réel", "Supabase", "Drag & drop"]
+      "texte": "La même chose, en collaboratif : marqueurs déplaçables et participants partagés en temps réel entre tous les navigateurs ouverts."
     },
     "jobs": {
       "titre": "Atlas des métiers",
       "cat": "outil",
       "hue": 48,
       "glyphe": "⬡",
-      "texte": "Une cartographie des métiers à parcourir, compilée en une seule page à partir de ses données sources.",
-      "tags": ["Atlas", "Page unique", "Généré"]
+      "texte": "Une cartographie des métiers à parcourir, compilée en une seule page à partir de ses données sources."
     },
     "wallet-compare": {
       "masque": true,
@@ -113,8 +104,7 @@
       "badge": "Dossier",
       "hue": 34,
       "glyphe": "⛨",
-      "texte": "État des lieux de l'auto-détention de crypto-actifs, et dossier sécurité des wallets matériels : 19 appareils notés, incidents documentés, sources en lien.",
-      "tags": ["Dossier", "Généré", "Privé"]
+      "texte": "État des lieux de l'auto-détention de crypto-actifs, et dossier sécurité des wallets matériels : 19 appareils notés, incidents documentés, sources en lien."
     },
     "hellochat": {
       "masque": true,
@@ -122,8 +112,7 @@
       "cat": "app",
       "hue": 340,
       "glyphe": "◉",
-      "texte": "Simulation d'application de live streaming : caméra frontale, chat en overlay, audience qui commente et compteur de viewers qui s'emballe.",
-      "tags": ["Flutter Web", "Caméra", "Live"]
+      "texte": "Simulation d'application de live streaming : caméra frontale, chat en overlay, audience qui commente et compteur de viewers qui s'emballe."
     },
     "hellochat/expert-comments": {
       "masque": true,
@@ -132,8 +121,7 @@
       "badge": "Variante",
       "hue": 355,
       "glyphe": "◎",
-      "texte": "Une déclinaison de HelloChat publiée depuis sa propre branche, pour comparer deux directions côte à côte.",
-      "tags": ["Flutter Web", "Branche", "Prototype"]
+      "texte": "Une déclinaison de HelloChat publiée depuis sa propre branche, pour comparer deux directions côte à côte."
     },
     "apinya": {
       "masque": true,
@@ -142,8 +130,7 @@
       "badge": "Maquette",
       "hue": 38,
       "glyphe": "❖",
-      "texte": "Vitrine d'agence immobilière de luxe à Hua Hin : biens, quartiers, prise de contact. Maquette de démonstration, contenu fictif.",
-      "tags": ["Vitrine", "Démo"]
+      "texte": "Vitrine d'agence immobilière de luxe à Hua Hin : biens, quartiers, prise de contact. Maquette de démonstration, contenu fictif."
     },
     "flat": {
       "masque": true,
@@ -152,8 +139,7 @@
       "badge": "Guide",
       "hue": 200,
       "glyphe": "⌂",
-      "texte": "Le livret d'accueil des invités, bilingue français / anglais : équipements, mode d'emploi, bonnes adresses du quartier.",
-      "tags": ["FR / EN", "Privé"]
+      "texte": "Le livret d'accueil des invités, bilingue français / anglais : équipements, mode d'emploi, bonnes adresses du quartier."
     },
     "ai": {
       "titre": "It's over",
@@ -161,8 +147,7 @@
       "badge": "Bricole",
       "hue": 60,
       "glyphe": "✶",
-      "texte": "Une page, une bannière qui défile, une androïde. Le petit tract du studio sur l'intelligence artificielle.",
-      "tags": ["Page unique", "Blague"]
+      "texte": "Une page, une bannière qui défile, une androïde. Le petit tract du studio sur l'intelligence artificielle."
     }
   }
 }

@@ -49,7 +49,7 @@ SITES_TOKEN=<pat_lecture> DISPATCH_TOKEN=<pat_ecriture> tools/setup-sources.sh
 et vérifie que Pages est bien en mode « GitHub Actions ».
 
 Sa carte sur la page d'accueil apparaîtra toute seule. Pour lui écrire une
-vraie présentation (titre, texte, tags, teinte, glyphe), ajoute une entrée à
+vraie présentation (titre, texte, teinte, glyphe), ajoute une entrée à
 `portfolio.json` — l'ordre des clés y est l'ordre d'affichage — puis :
 
 ```sh
@@ -61,8 +61,8 @@ ses variantes), déclare-les avec `"variantes": [{ "chemin": "", "label": "…" 
 dans sa fiche : elles s'affichent en pastilles dans le même encart, sans carte
 supplémentaire (`chemin: ""` = la racine du projet).
 
-Un dossier interdit dans `robots.txt` reçoit automatiquement le tag
-« non indexé » et un lien en `rel="nofollow"` : rien à déclarer ailleurs.
+Un dossier interdit dans `robots.txt` reçoit automatiquement un lien en
+`rel="nofollow"` : rien à déclarer ailleurs.
 
 Pour qu'un projet reste publié **sans** figurer au portfolio, mets `"masque":
 true` dans sa fiche : il garde son URL, il quitte simplement la vitrine.

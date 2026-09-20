@@ -107,7 +107,6 @@ const projets = paths.map((path, i) => {
     glyphe: meta?.glyphe ?? "✧",
     titre: meta?.titre ?? titleOf(path),
     texte: meta?.texte ?? "Tout juste publié sur 9mp.org — présentation à venir.",
-    tags: meta?.tags ?? [],
     variantes: (meta?.variantes ?? []).map((v) => ({
       href: `/${[path, v.chemin].filter(Boolean).join("/")}/`,
       label: v.label,
@@ -118,19 +117,13 @@ const projets = paths.map((path, i) => {
 
 // ------------------------------------------------------------------- rendu --
 
-const carte = (p) => {
-  const tags = [...p.tags, ...(p.prive ? ["Non indexé"] : [])];
-  return `      <article class="card rv" data-cat="${p.cat}" style="--h:${p.hue}">
+const carte = (p) => `      <article class="card rv" data-cat="${p.cat}" style="--h:${p.hue}">
         <a href="/${p.path}/"${p.prive ? ' rel="nofollow"' : ""}>
           <div class="sigil" aria-hidden="true">${esc(p.glyphe)}</div>
           <div>
             <div class="c-meta"><span class="mono num">${p.num}</span><span class="badge">${esc(p.badge)}</span></div>
             <h3>${esc(p.titre)}</h3>
-            <p>${rich(p.texte)}</p>${
-    tags.length
-      ? `\n            <ul class="tags">${tags.map((t) => `<li>${esc(t)}</li>`).join("")}</ul>`
-      : ""
-  }
+            <p>${rich(p.texte)}</p>
           </div>
           <span class="arrow" aria-hidden="true">↗</span>
         </a>${
@@ -141,7 +134,6 @@ const carte = (p) => {
       : ""
   }
       </article>`;
-};
 
 const bouton = (id, label, n, actif) =>
   `      <button type="button" data-filter="${id}" aria-pressed="${actif}">${esc(label)} <span class="count">${pad(n)}</span></button>`;
