@@ -38,6 +38,7 @@
   "projets": {
     "motopeter": {
       "titre": "Motopeter",
+      "modele": "Claude Fable 5.1",
       "cat": "jeu",
       "hue": 14,
       "glyphe": "▲",
@@ -52,8 +53,8 @@
       "versions": [
         { "chemin": "", "modele": "Qwen", "hue": 320, "glyphe": "✦",
           "texte": "Shoot'em up vertical façon arcade, tenu dans un seul fichier HTML : graphismes, bruitages *et* musique générés à la volée. La version d'origine, écrite par Qwen." },
-        { "chemin": "clauded", "modele": "Claude", "hue": 25, "glyphe": "✧",
-          "texte": "Le même cahier des charges, repris de zéro par Claude : un seul fichier HTML, zéro dépendance. À comparer avec les deux autres." },
+        { "chemin": "clauded", "modele": "Claude Fable 5.1", "hue": 25, "glyphe": "✧",
+          "texte": "Le même cahier des charges, repris de zéro par Claude Fable 5.1 : un seul fichier HTML, zéro dépendance. À comparer avec les deux autres." },
         { "chemin": "gemma", "modele": "Gemma", "hue": 210, "glyphe": "✷",
           "texte": "La troisième lecture du même énoncé, par Gemma. Trois modèles, trois shoot'em up, une seule page chacun." }
       ]
@@ -148,7 +149,7 @@
     },
     "ai": {
       "titre": "It's over",
-      "modele": "ChatGPT",
+      "modele": "GPT-3.5",
       "cat": "vitrine",
       "hue": 60,
       "glyphe": "✶",
