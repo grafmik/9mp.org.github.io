@@ -93,14 +93,14 @@ const cats = new Map(portfolio.categories.map((c) => [c.id, c]));
 const fallbackCat = portfolio.categories.at(-1).id;
 
 // Une fiche qui déclare des "versions" donne une carte par version : même
-// projet, plusieurs auteurs (Neon Blaster (Qwen), (Claude), (Gemma)…).
+// projet, un modèle par carte.
 const fiches = paths.flatMap((path) => {
   const meta = portfolio.projets[path];
   if (!meta?.versions?.length) return [{ path, meta }];
   return meta.versions.map((v) => ({
     path: [path, v.chemin].filter(Boolean).join("/"),
     racine: path,
-    meta: { ...meta, ...v, titre: `${meta.titre ?? path} (${v.modele})` },
+    meta: { ...meta, ...v },
   }));
 });
 
@@ -117,6 +117,7 @@ const projets = fiches.map(({ path, racine, meta }, i) => {
     glyphe: meta?.glyphe ?? "✧",
     titre: meta?.titre ?? titleOf(path),
     texte: meta?.texte ?? "Tout juste publié sur 9mp.org — présentation à venir.",
+    modele: meta?.modele ?? null,
     prive: blocked.has(racine ?? path),
   };
 });
@@ -128,7 +129,7 @@ const carte = (p) => `      <article class="card rv" data-cat="${p.cat}" style="
           <div class="sigil" aria-hidden="true">${esc(p.glyphe)}</div>
           <div>
             <div class="c-meta"><span class="mono num">${p.num}</span></div>
-            <h3>${esc(p.titre)}</h3>
+            <h3>${esc(p.titre)}${p.modele ? `<span class="modele mono">${esc(p.modele)}</span>` : ""}</h3>
             <p>${rich(p.texte)}</p>
           </div>
           <span class="arrow" aria-hidden="true">↗</span>

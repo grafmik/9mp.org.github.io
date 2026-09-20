@@ -12,9 +12,10 @@
     "  glyphe  signe affiché dans la vignette",
     "  hue     teinte de la vignette, 0-360 (défaut : dérivée du nom)",
     "  texte   une à deux phrases ; *entre astérisques* pour l'italique",
+    "  modele  le modèle qui a écrit le projet ; s'affiche en pastille à",
+    "          côté du titre (optionnel)",
     "  versions  un même projet écrit plusieurs fois : liste de",
-    "          { chemin, modele } — une carte par entrée, titrée",
-    "          « <titre> (<modele>) ». chemin est relatif au dossier du",
+    "          { chemin, modele } — une carte par entrée. chemin est relatif au dossier du",
     "          projet (\"\" = sa racine) ; cat/hue/glyphe/texte peuvent",
     "          y être redéclarés pour surcharger ceux de la fiche",
     "  masque  true : le projet reste publié et accessible, mais ne s'affiche",
@@ -59,6 +60,7 @@
     },
     "ds4shmup": {
       "titre": "Nebula Strike",
+      "modele": "Deepseek 4.0 local",
       "cat": "jeu",
       "hue": 195,
       "glyphe": "◈",
@@ -66,6 +68,7 @@
     },
     "tetris": {
       "titre": "Tetris adaptatif",
+      "modele": "GPT-4",
       "cat": "jeu",
       "hue": 265,
       "glyphe": "▩",
@@ -73,6 +76,7 @@
     },
     "martingale": {
       "titre": "Martingale",
+      "modele": "Claude Opus 5",
       "cat": "jeu",
       "hue": 285,
       "glyphe": "⊚",
@@ -96,6 +100,7 @@
     },
     "jobs": {
       "titre": "Atlas des métiers",
+      "modele": "Claude Opus 5",
       "cat": "outil",
       "hue": 48,
       "glyphe": "⬡",
@@ -143,6 +148,7 @@
     },
     "ai": {
       "titre": "It's over",
+      "modele": "ChatGPT",
       "cat": "vitrine",
       "hue": 60,
       "glyphe": "✶",

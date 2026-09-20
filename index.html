@@ -181,7 +181,12 @@ section{padding-block:clamp(64px,11vh,124px)}
 .c-meta{display:flex;align-items:center;gap:10px;color:var(--ink-faint);margin-bottom:9px}
 .c-meta .num{color:hsl(var(--h) 80% 65%)}
 }
-.card h3{font-size:20px;letter-spacing:-.035em}
+.card h3{font-size:20px;letter-spacing:-.035em;display:flex;flex-wrap:wrap;align-items:baseline;gap:8px}
+.modele{
+  font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:400;
+  color:hsl(var(--h) 75% 70%);border:1px solid hsl(var(--h) 60% 55% / .35);
+  padding:3px 8px;border-radius:999px;white-space:nowrap;
+}
 .card p{color:var(--ink-dim);font-size:14.3px;line-height:1.55;margin-top:8px}
 .arrow{
   position:absolute;top:18px;right:18px;
@@ -256,7 +261,7 @@ footer{border-top:1px solid var(--line);padding-block:44px;margin-top:clamp(40px
           <div class="sigil" aria-hidden="true">✦</div>
           <div>
             <div class="c-meta"><span class="mono num">02</span></div>
-            <h3>Neon Blaster (Qwen)</h3>
+            <h3>Neon Blaster<span class="modele mono">Qwen</span></h3>
             <p>Shoot'em up vertical façon arcade, tenu dans un seul fichier HTML : graphismes, bruitages <em>et</em> musique générés à la volée. La version d'origine, écrite par Qwen.</p>
           </div>
           <span class="arrow" aria-hidden="true">↗</span>
@@ -268,7 +273,7 @@ footer{border-top:1px solid var(--line);padding-block:44px;margin-top:clamp(40px
           <div class="sigil" aria-hidden="true">✧</div>
           <div>
             <div class="c-meta"><span class="mono num">03</span></div>
-            <h3>Neon Blaster (Claude)</h3>
+            <h3>Neon Blaster<span class="modele mono">Claude</span></h3>
             <p>Le même cahier des charges, repris de zéro par Claude : un seul fichier HTML, zéro dépendance. À comparer avec les deux autres.</p>
           </div>
           <span class="arrow" aria-hidden="true">↗</span>
@@ -280,7 +285,7 @@ footer{border-top:1px solid var(--line);padding-block:44px;margin-top:clamp(40px
           <div class="sigil" aria-hidden="true">✷</div>
           <div>
             <div class="c-meta"><span class="mono num">04</span></div>
-            <h3>Neon Blaster (Gemma)</h3>
+            <h3>Neon Blaster<span class="modele mono">Gemma</span></h3>
             <p>La troisième lecture du même énoncé, par Gemma. Trois modèles, trois shoot'em up, une seule page chacun.</p>
           </div>
           <span class="arrow" aria-hidden="true">↗</span>
@@ -292,7 +297,7 @@ footer{border-top:1px solid var(--line);padding-block:44px;margin-top:clamp(40px
           <div class="sigil" aria-hidden="true">◈</div>
           <div>
             <div class="c-meta"><span class="mono num">05</span></div>
-            <h3>Nebula Strike</h3>
+            <h3>Nebula Strike<span class="modele mono">Deepseek 4.0 local</span></h3>
             <p>L'autre shoot'em up de la maison : vagues d'ennemis, boss et score, jouable au clavier ou en glissant le doigt.</p>
           </div>
           <span class="arrow" aria-hidden="true">↗</span>
@@ -304,7 +309,7 @@ footer{border-top:1px solid var(--line);padding-block:44px;margin-top:clamp(40px
           <div class="sigil" aria-hidden="true">▩</div>
           <div>
             <div class="c-meta"><span class="mono num">06</span></div>
-            <h3>Tetris adaptatif</h3>
+            <h3>Tetris adaptatif<span class="modele mono">GPT-4</span></h3>
             <p>Le classique, redimensionné à la taille de l'écran, avec des commandes tactiles pour jouer d'une main dans le métro.</p>
           </div>
           <span class="arrow" aria-hidden="true">↗</span>
@@ -316,7 +321,7 @@ footer{border-top:1px solid var(--line);padding-block:44px;margin-top:clamp(40px
           <div class="sigil" aria-hidden="true">⊚</div>
           <div>
             <div class="c-meta"><span class="mono num">07</span></div>
-            <h3>Martingale</h3>
+            <h3>Martingale<span class="modele mono">Claude Opus 5</span></h3>
             <p>Pile ou face en boucle : on double la mise après chaque perte jusqu'à se refaire… ou tout perdre. Courbe du capital en direct, pièce qui claque, faillite <em>garantie</em>.</p>
           </div>
           <span class="arrow" aria-hidden="true">↗</span>
@@ -328,7 +333,7 @@ footer{border-top:1px solid var(--line);padding-block:44px;margin-top:clamp(40px
           <div class="sigil" aria-hidden="true">⬡</div>
           <div>
             <div class="c-meta"><span class="mono num">08</span></div>
-            <h3>Atlas des métiers</h3>
+            <h3>Atlas des métiers<span class="modele mono">Claude Opus 5</span></h3>
             <p>Une cartographie des métiers à parcourir, compilée en une seule page à partir de ses données sources.</p>
           </div>
           <span class="arrow" aria-hidden="true">↗</span>
@@ -340,7 +345,7 @@ footer{border-top:1px solid var(--line);padding-block:44px;margin-top:clamp(40px
           <div class="sigil" aria-hidden="true">✶</div>
           <div>
             <div class="c-meta"><span class="mono num">09</span></div>
-            <h3>It's over</h3>
+            <h3>It's over<span class="modele mono">ChatGPT</span></h3>
             <p>Une page, une bannière qui défile, une androïde. Le petit tract du studio sur l'intelligence artificielle.</p>
           </div>
           <span class="arrow" aria-hidden="true">↗</span>

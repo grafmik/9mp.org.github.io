@@ -59,7 +59,8 @@ tools/render-home.mjs        # met à jour l'index.html versionné
 Si un projet existe en plusieurs versions publiées dans des sous-dossiers
 (qwemup, écrit par trois modèles), déclare-les avec
 `"versions": [{ "chemin": "", "modele": "…" }]` dans sa fiche : chacune reçoit
-sa propre carte, titrée « Titre (Modèle) » (`chemin: ""` = la racine du projet).
+sa propre carte, avec le modèle en pastille à côté du titre (`chemin: ""` = la
+racine du projet). Pour un projet qui n'a qu'une version, `"modele": "…"` suffit.
 
 Un dossier interdit dans `robots.txt` reçoit automatiquement un lien en
 `rel="nofollow"` : rien à déclarer ailleurs.
