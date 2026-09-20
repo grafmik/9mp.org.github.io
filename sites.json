@@ -23,13 +23,6 @@
       "exclude": ["README.md", "dist"]
     },
     {
-      "path": "benmath",
-      "repo": "grafmik/benmath",
-      "ref": "main",
-      "build": "npm ci && npm run build:static",
-      "output": "web/dist"
-    },
-    {
       "path": "ds4shmup",
       "repo": "grafmik/ds4shmup",
       "ref": "main",
@@ -51,8 +44,8 @@
       "as": "index.html"
     },
     {
-      "path": "magino",
-      "repo": "grafmik/magino",
+      "path": "martingale",
+      "repo": "grafmik/Martingale",
       "ref": "main",
       "exclude": ["README.md"]
     },
