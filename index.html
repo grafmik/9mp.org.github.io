@@ -143,19 +143,6 @@ p{margin:0}
 section{padding-block:clamp(64px,11vh,124px)}
 .eyebrow{color:var(--violet);margin-bottom:24px;display:block}
 
-/* --------------------------------------------------------------- filtres -- */
-.filters{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:30px}
-.filters button{
-  font:inherit;font-size:13.5px;cursor:pointer;
-  padding:8px 17px;border-radius:999px;
-  background:transparent;color:var(--ink-dim);
-  border:1px solid var(--line);
-  transition:all .2s;
-}
-.filters button:hover{color:var(--ink);border-color:var(--ink-faint)}
-.filters button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-.filters .count{font-family:var(--mono);font-size:10px;opacity:.55;margin-left:7px}
-
 /* --------------------------------------------------------------- projets -- */
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:18px}
 .card{
@@ -167,7 +154,6 @@ section{padding-block:clamp(64px,11vh,124px)}
   transition:border-color .25s,transform .25s,box-shadow .25s;
 }
 .card:hover{transform:translateY(-4px);border-color:hsl(var(--h) 70% 60% / .5);box-shadow:0 22px 50px -28px hsl(var(--h) 80% 55% / .55)}
-.card.hidden{display:none}
 .card > a{
   display:grid;
   grid-template-columns:clamp(68px,20vw,104px) 1fr;
@@ -194,9 +180,6 @@ section{padding-block:clamp(64px,11vh,124px)}
 .card:hover .sigil::after{transform:translateX(120%);transition:transform .75s ease}
 .c-meta{display:flex;align-items:center;gap:10px;color:var(--ink-faint);margin-bottom:9px}
 .c-meta .num{color:hsl(var(--h) 80% 65%)}
-.badge{
-  font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;
-  padding:3px 8px;border-radius:999px;border:1px solid var(--line);color:var(--ink-faint);
 }
 .card h3{font-size:20px;letter-spacing:-.035em}
 .card p{color:var(--ink-dim);font-size:14.3px;line-height:1.55;margin-top:8px}
@@ -254,22 +237,13 @@ footer{border-top:1px solid var(--line);padding-block:44px;margin-top:clamp(40px
   <section id="travaux" class="wrap">
     <span class="eyebrow mono rv">Travaux</span>
 
-    <div class="filters rv" role="group" aria-label="Filtrer les projets">
-      <!-- auto:filtres -->
-      <button type="button" data-filter="all" aria-pressed="true">Tout <span class="count">09</span></button>
-      <button type="button" data-filter="jeu" aria-pressed="false">Jeux <span class="count">07</span></button>
-      <button type="button" data-filter="outil" aria-pressed="false">Outils <span class="count">01</span></button>
-      <button type="button" data-filter="vitrine" aria-pressed="false">Vitrines <span class="count">01</span></button>
-      <!-- /auto:filtres -->
-    </div>
-
     <div class="grid" id="grid">
       <!-- auto:projets -->
       <article class="card rv" data-cat="jeu" style="--h:14">
         <a href="/motopeter/">
           <div class="sigil" aria-hidden="true">▲</div>
           <div>
-            <div class="c-meta"><span class="mono num">01</span><span class="badge">Jeu</span></div>
+            <div class="c-meta"><span class="mono num">01</span></div>
             <h3>Motopeter</h3>
             <p>Trial 2D à moteur physique : inertie, suspensions, figures et nitro. Au clavier comme au doigt, sur plusieurs terrains.</p>
           </div>
@@ -281,7 +255,7 @@ footer{border-top:1px solid var(--line);padding-block:44px;margin-top:clamp(40px
         <a href="/qwemup/">
           <div class="sigil" aria-hidden="true">✦</div>
           <div>
-            <div class="c-meta"><span class="mono num">02</span><span class="badge">Jeu</span></div>
+            <div class="c-meta"><span class="mono num">02</span></div>
             <h3>Neon Blaster (Qwen)</h3>
             <p>Shoot'em up vertical façon arcade, tenu dans un seul fichier HTML : graphismes, bruitages <em>et</em> musique générés à la volée. La version d'origine, écrite par Qwen.</p>
           </div>
@@ -293,7 +267,7 @@ footer{border-top:1px solid var(--line);padding-block:44px;margin-top:clamp(40px
         <a href="/qwemup/clauded/">
           <div class="sigil" aria-hidden="true">✧</div>
           <div>
-            <div class="c-meta"><span class="mono num">03</span><span class="badge">Jeu</span></div>
+            <div class="c-meta"><span class="mono num">03</span></div>
             <h3>Neon Blaster (Claude)</h3>
             <p>Le même cahier des charges, repris de zéro par Claude : un seul fichier HTML, zéro dépendance. À comparer avec les deux autres.</p>
           </div>
@@ -305,7 +279,7 @@ footer{border-top:1px solid var(--line);padding-block:44px;margin-top:clamp(40px
         <a href="/qwemup/gemma/">
           <div class="sigil" aria-hidden="true">✷</div>
           <div>
-            <div class="c-meta"><span class="mono num">04</span><span class="badge">Jeu</span></div>
+            <div class="c-meta"><span class="mono num">04</span></div>
             <h3>Neon Blaster (Gemma)</h3>
             <p>La troisième lecture du même énoncé, par Gemma. Trois modèles, trois shoot'em up, une seule page chacun.</p>
           </div>
@@ -317,7 +291,7 @@ footer{border-top:1px solid var(--line);padding-block:44px;margin-top:clamp(40px
         <a href="/ds4shmup/">
           <div class="sigil" aria-hidden="true">◈</div>
           <div>
-            <div class="c-meta"><span class="mono num">05</span><span class="badge">Jeu</span></div>
+            <div class="c-meta"><span class="mono num">05</span></div>
             <h3>Nebula Strike</h3>
             <p>L'autre shoot'em up de la maison : vagues d'ennemis, boss et score, jouable au clavier ou en glissant le doigt.</p>
           </div>
@@ -329,7 +303,7 @@ footer{border-top:1px solid var(--line);padding-block:44px;margin-top:clamp(40px
         <a href="/tetris/">
           <div class="sigil" aria-hidden="true">▩</div>
           <div>
-            <div class="c-meta"><span class="mono num">06</span><span class="badge">Jeu</span></div>
+            <div class="c-meta"><span class="mono num">06</span></div>
             <h3>Tetris adaptatif</h3>
             <p>Le classique, redimensionné à la taille de l'écran, avec des commandes tactiles pour jouer d'une main dans le métro.</p>
           </div>
@@ -341,7 +315,7 @@ footer{border-top:1px solid var(--line);padding-block:44px;margin-top:clamp(40px
         <a href="/martingale/">
           <div class="sigil" aria-hidden="true">⊚</div>
           <div>
-            <div class="c-meta"><span class="mono num">07</span><span class="badge">Jeu</span></div>
+            <div class="c-meta"><span class="mono num">07</span></div>
             <h3>Martingale</h3>
             <p>Pile ou face en boucle : on double la mise après chaque perte jusqu'à se refaire… ou tout perdre. Courbe du capital en direct, pièce qui claque, faillite <em>garantie</em>.</p>
           </div>
@@ -353,7 +327,7 @@ footer{border-top:1px solid var(--line);padding-block:44px;margin-top:clamp(40px
         <a href="/jobs/">
           <div class="sigil" aria-hidden="true">⬡</div>
           <div>
-            <div class="c-meta"><span class="mono num">08</span><span class="badge">Outil</span></div>
+            <div class="c-meta"><span class="mono num">08</span></div>
             <h3>Atlas des métiers</h3>
             <p>Une cartographie des métiers à parcourir, compilée en une seule page à partir de ses données sources.</p>
           </div>
@@ -365,7 +339,7 @@ footer{border-top:1px solid var(--line);padding-block:44px;margin-top:clamp(40px
         <a href="/ai/">
           <div class="sigil" aria-hidden="true">✶</div>
           <div>
-            <div class="c-meta"><span class="mono num">09</span><span class="badge">Bricole</span></div>
+            <div class="c-meta"><span class="mono num">09</span></div>
             <h3>It's over</h3>
             <p>Une page, une bannière qui défile, une androïde. Le petit tract du studio sur l'intelligence artificielle.</p>
           </div>
@@ -430,20 +404,6 @@ footer{border-top:1px solid var(--line);padding-block:44px;margin-top:clamp(40px
     fade();
     addEventListener("scroll", fade, { passive: true });
   }
-
-  // Filtres du portfolio
-  var cards = Array.prototype.slice.call(document.querySelectorAll("#grid .card"));
-  document.querySelectorAll(".filters button").forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      var want = btn.dataset.filter;
-      document.querySelectorAll(".filters button").forEach(function (b) {
-        b.setAttribute("aria-pressed", String(b === btn));
-      });
-      cards.forEach(function (c) {
-        c.classList.toggle("hidden", want !== "all" && c.dataset.cat !== want);
-      });
-    });
-  });
 
   // Apparition au défilement
   var items = document.querySelectorAll(".rv");

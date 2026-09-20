@@ -113,7 +113,6 @@ const projets = fiches.map(({ path, racine, meta }, i) => {
     path,
     num: pad(i + 1),
     cat,
-    badge: meta?.badge ?? cats.get(cat).badge,
     hue: meta?.hue ?? hueOf(path),
     glyphe: meta?.glyphe ?? "✧",
     titre: meta?.titre ?? titleOf(path),
@@ -128,24 +127,13 @@ const carte = (p) => `      <article class="card rv" data-cat="${p.cat}" style="
         <a href="/${p.path}/"${p.prive ? ' rel="nofollow"' : ""}>
           <div class="sigil" aria-hidden="true">${esc(p.glyphe)}</div>
           <div>
-            <div class="c-meta"><span class="mono num">${p.num}</span><span class="badge">${esc(p.badge)}</span></div>
+            <div class="c-meta"><span class="mono num">${p.num}</span></div>
             <h3>${esc(p.titre)}</h3>
             <p>${rich(p.texte)}</p>
           </div>
           <span class="arrow" aria-hidden="true">↗</span>
         </a>
       </article>`;
-
-const bouton = (id, label, n, actif) =>
-  `      <button type="button" data-filter="${id}" aria-pressed="${actif}">${esc(label)} <span class="count">${pad(n)}</span></button>`;
-
-const filtres = [
-  bouton("all", "Tout", projets.length, true),
-  ...portfolio.categories
-    .map((c) => [c, projets.filter((p) => p.cat === c.id).length])
-    .filter(([, n]) => n > 0)
-    .map(([c, n]) => bouton(c.id, c.label, n, false)),
-].join("\n");
 
 // ----------------------------------------------------------- réécriture --
 
@@ -164,7 +152,6 @@ const remplace = (nom, contenu) => {
 };
 
 remplace("projets", projets.map(carte).join("\n\n"));
-remplace("filtres", filtres);
 html = html.replace(/(<b data-auto="total">)[^<]*(<\/b>)/, `$1${projets.length}$2`);
 
 writeFileSync(page, html);

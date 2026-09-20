@@ -9,14 +9,13 @@
     "hors de la vitrine, il faut le dire — \"masque\": true.",
     "",
     "  cat     catégorie, parmi celles listées dans \"categories\"",
-    "  badge   pastille de la carte (défaut : le libellé de la catégorie)",
     "  glyphe  signe affiché dans la vignette",
     "  hue     teinte de la vignette, 0-360 (défaut : dérivée du nom)",
     "  texte   une à deux phrases ; *entre astérisques* pour l'italique",
     "  versions  un même projet écrit plusieurs fois : liste de",
     "          { chemin, modele } — une carte par entrée, titrée",
     "          « <titre> (<modele>) ». chemin est relatif au dossier du",
-    "          projet (\"\" = sa racine) ; cat/hue/glyphe/texte/badge peuvent",
+    "          projet (\"\" = sa racine) ; cat/hue/glyphe/texte peuvent",
     "          y être redéclarés pour surcharger ceux de la fiche",
     "  masque  true : le projet reste publié et accessible, mais ne s'affiche",
     "          pas dans le portfolio (le reste de la fiche est conservé, il",
@@ -28,11 +27,11 @@
   ],
 
   "categories": [
-    { "id": "jeu",     "label": "Jeux",         "badge": "Jeu" },
-    { "id": "outil",   "label": "Outils",       "badge": "Outil" },
-    { "id": "app",     "label": "Applications", "badge": "Application" },
-    { "id": "vitrine", "label": "Vitrines",     "badge": "Vitrine" },
-    { "id": "divers",  "label": "Divers",       "badge": "Nouveau" }
+    { "id": "jeu",     "label": "Jeux" },
+    { "id": "outil",   "label": "Outils" },
+    { "id": "app",     "label": "Applications" },
+    { "id": "vitrine", "label": "Vitrines" },
+    { "id": "divers",  "label": "Divers" }
   ],
 
   "projets": {
@@ -106,7 +105,6 @@
       "masque": true,
       "titre": "wallet-compare",
       "cat": "outil",
-      "badge": "Dossier",
       "hue": 34,
       "glyphe": "⛨",
       "texte": "État des lieux de l'auto-détention de crypto-actifs, et dossier sécurité des wallets matériels : 19 appareils notés, incidents documentés, sources en lien."
@@ -123,7 +121,6 @@
       "masque": true,
       "titre": "HelloChat — Expert Comments",
       "cat": "app",
-      "badge": "Variante",
       "hue": 355,
       "glyphe": "◎",
       "texte": "Une déclinaison de HelloChat publiée depuis sa propre branche, pour comparer deux directions côte à côte."
@@ -132,7 +129,6 @@
       "masque": true,
       "titre": "Apinya Estates",
       "cat": "vitrine",
-      "badge": "Maquette",
       "hue": 38,
       "glyphe": "❖",
       "texte": "Vitrine d'agence immobilière de luxe à Hua Hin : biens, quartiers, prise de contact. Maquette de démonstration, contenu fictif."
@@ -141,7 +137,6 @@
       "masque": true,
       "titre": "Manuel de l'appartement",
       "cat": "vitrine",
-      "badge": "Guide",
       "hue": 200,
       "glyphe": "⌂",
       "texte": "Le livret d'accueil des invités, bilingue français / anglais : équipements, mode d'emploi, bonnes adresses du quartier."
@@ -149,7 +144,6 @@
     "ai": {
       "titre": "It's over",
       "cat": "vitrine",
-      "badge": "Bricole",
       "hue": 60,
       "glyphe": "✶",
       "texte": "Une page, une bannière qui défile, une androïde. Le petit tract du studio sur l'intelligence artificielle."
