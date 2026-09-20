@@ -45,7 +45,7 @@
     },
     {
       "path": "martingale",
-      "repo": "grafmik/Martingale",
+      "repo": "grafmik/martingale",
       "ref": "main",
       "exclude": ["README.md"]
     },
