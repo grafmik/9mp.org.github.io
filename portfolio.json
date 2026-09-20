@@ -13,9 +13,11 @@
     "  glyphe  signe affiché dans la vignette",
     "  hue     teinte de la vignette, 0-360 (défaut : dérivée du nom)",
     "  texte   une à deux phrases ; *entre astérisques* pour l'italique",
-    "  variantes  plusieurs versions d'un même projet, montrées dans le même",
-    "          encart : liste de { chemin, label } ; chemin est relatif au",
-    "          dossier du projet (\"\" = sa racine)",
+    "  versions  un même projet écrit plusieurs fois : liste de",
+    "          { chemin, modele } — une carte par entrée, titrée",
+    "          « <titre> (<modele>) ». chemin est relatif au dossier du",
+    "          projet (\"\" = sa racine) ; cat/hue/glyphe/texte/badge peuvent",
+    "          y être redéclarés pour surcharger ceux de la fiche",
     "  masque  true : le projet reste publié et accessible, mais ne s'affiche",
     "          pas dans le portfolio (le reste de la fiche est conservé, il",
     "          suffit de repasser à false pour le remettre en vitrine)",
@@ -46,11 +48,14 @@
       "cat": "jeu",
       "hue": 320,
       "glyphe": "✦",
-      "texte": "Shoot'em up vertical façon arcade, tenu dans un seul fichier HTML : graphismes, bruitages *et* musique sont générés à la volée. Trois versions du même jeu, écrites par trois modèles.",
-      "variantes": [
-        { "chemin": "", "label": "Classique" },
-        { "chemin": "clauded", "label": "Clauded" },
-        { "chemin": "gemma", "label": "Gemma" }
+      "texte": "Shoot'em up vertical façon arcade, tenu dans un seul fichier HTML : graphismes, bruitages *et* musique sont générés à la volée.",
+      "versions": [
+        { "chemin": "", "modele": "Qwen", "hue": 320, "glyphe": "✦",
+          "texte": "Shoot'em up vertical façon arcade, tenu dans un seul fichier HTML : graphismes, bruitages *et* musique générés à la volée. La version d'origine, écrite par Qwen." },
+        { "chemin": "clauded", "modele": "Claude", "hue": 25, "glyphe": "✧",
+          "texte": "Le même cahier des charges, repris de zéro par Claude : un seul fichier HTML, zéro dépendance. À comparer avec les deux autres." },
+        { "chemin": "gemma", "modele": "Gemma", "hue": 210, "glyphe": "✷",
+          "texte": "La troisième lecture du même énoncé, par Gemma. Trois modèles, trois shoot'em up, une seule page chacun." }
       ]
     },
     "ds4shmup": {

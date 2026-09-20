@@ -92,8 +92,19 @@ const titleOf = (path) => {
 const cats = new Map(portfolio.categories.map((c) => [c.id, c]));
 const fallbackCat = portfolio.categories.at(-1).id;
 
-const projets = paths.map((path, i) => {
+// Une fiche qui déclare des "versions" donne une carte par version : même
+// projet, plusieurs auteurs (Neon Blaster (Qwen), (Claude), (Gemma)…).
+const fiches = paths.flatMap((path) => {
   const meta = portfolio.projets[path];
+  if (!meta?.versions?.length) return [{ path, meta }];
+  return meta.versions.map((v) => ({
+    path: [path, v.chemin].filter(Boolean).join("/"),
+    racine: path,
+    meta: { ...meta, ...v, titre: `${meta.titre ?? path} (${v.modele})` },
+  }));
+});
+
+const projets = fiches.map(({ path, racine, meta }, i) => {
   if (!meta) {
     console.warn(`  ! ${path} n'a pas de fiche dans portfolio.json (carte par défaut)`);
   }
@@ -107,11 +118,7 @@ const projets = paths.map((path, i) => {
     glyphe: meta?.glyphe ?? "✧",
     titre: meta?.titre ?? titleOf(path),
     texte: meta?.texte ?? "Tout juste publié sur 9mp.org — présentation à venir.",
-    variantes: (meta?.variantes ?? []).map((v) => ({
-      href: `/${[path, v.chemin].filter(Boolean).join("/")}/`,
-      label: v.label,
-    })),
-    prive: blocked.has(path),
+    prive: blocked.has(racine ?? path),
   };
 });
 
@@ -126,13 +133,7 @@ const carte = (p) => `      <article class="card rv" data-cat="${p.cat}" style="
             <p>${rich(p.texte)}</p>
           </div>
           <span class="arrow" aria-hidden="true">↗</span>
-        </a>${
-    p.variantes.length
-      ? `\n        <nav class="variants" aria-label="Versions de ${esc(p.titre)}">${p.variantes
-          .map((v) => `<a href="${esc(v.href)}"${p.prive ? ' rel="nofollow"' : ""}>${esc(v.label)}</a>`)
-          .join("")}</nav>`
-      : ""
-  }
+        </a>
       </article>`;
 
 const bouton = (id, label, n, actif) =>
