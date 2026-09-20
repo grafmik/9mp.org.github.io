@@ -14,6 +14,9 @@
     "  hue     teinte de la vignette, 0-360 (défaut : dérivée du nom)",
     "  texte   une à deux phrases ; *entre astérisques* pour l'italique",
     "  tags    trois mots-clés maximum, sinon la carte s'allonge",
+    "  variantes  plusieurs versions d'un même projet, montrées dans le même",
+    "          encart : liste de { chemin, label } ; chemin est relatif au",
+    "          dossier du projet (\"\" = sa racine)",
     "  masque  true : le projet reste publié et accessible, mais ne s'affiche",
     "          pas dans le portfolio (le reste de la fiche est conservé, il",
     "          suffit de repasser à false pour le remettre en vitrine)",
@@ -45,8 +48,13 @@
       "cat": "jeu",
       "hue": 320,
       "glyphe": "✦",
-      "texte": "Shoot'em up vertical façon arcade, tenu dans un seul fichier HTML : graphismes, bruitages *et* musique sont générés à la volée.",
-      "tags": ["WebAudio", "Zéro dépendance", "Overdrive"]
+      "texte": "Shoot'em up vertical façon arcade, tenu dans un seul fichier HTML : graphismes, bruitages *et* musique sont générés à la volée. Trois versions du même jeu, écrites par trois modèles.",
+      "tags": ["WebAudio", "Zéro dépendance", "Overdrive"],
+      "variantes": [
+        { "chemin": "", "label": "Classique" },
+        { "chemin": "clauded", "label": "Clauded" },
+        { "chemin": "gemma", "label": "Gemma" }
+      ]
     },
     "ds4shmup": {
       "titre": "Nebula Strike",

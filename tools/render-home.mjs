@@ -108,6 +108,10 @@ const projets = paths.map((path, i) => {
     titre: meta?.titre ?? titleOf(path),
     texte: meta?.texte ?? "Tout juste publié sur 9mp.org — présentation à venir.",
     tags: meta?.tags ?? [],
+    variantes: (meta?.variantes ?? []).map((v) => ({
+      href: `/${[path, v.chemin].filter(Boolean).join("/")}/`,
+      label: v.label,
+    })),
     prive: blocked.has(path),
   };
 });
@@ -129,7 +133,13 @@ const carte = (p) => {
   }
           </div>
           <span class="arrow" aria-hidden="true">↗</span>
-        </a>
+        </a>${
+    p.variantes.length
+      ? `\n        <nav class="variants" aria-label="Versions de ${esc(p.titre)}">${p.variantes
+          .map((v) => `<a href="${esc(v.href)}"${p.prive ? ' rel="nofollow"' : ""}>${esc(v.label)}</a>`)
+          .join("")}</nav>`
+      : ""
+  }
       </article>`;
 };
 

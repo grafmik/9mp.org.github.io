@@ -56,6 +56,11 @@ vraie présentation (titre, texte, tags, teinte, glyphe), ajoute une entrée à
 tools/render-home.mjs        # met à jour l'index.html versionné
 ```
 
+Si un projet a plusieurs versions publiées dans des sous-dossiers (qwemup et
+ses variantes), déclare-les avec `"variantes": [{ "chemin": "", "label": "…" }]`
+dans sa fiche : elles s'affichent en pastilles dans le même encart, sans carte
+supplémentaire (`chemin: ""` = la racine du projet).
+
 Un dossier interdit dans `robots.txt` reçoit automatiquement le tag
 « non indexé » et un lien en `rel="nofollow"` : rien à déclarer ailleurs.
 

@@ -209,6 +209,14 @@ section{padding-block:clamp(64px,11vh,124px)}
   transition:all .25s;
 }
 .card:hover .arrow{background:hsl(var(--h) 85% 62%);color:#0b0b0c;border-color:transparent;transform:rotate(45deg)}
+.variants{display:flex;flex-wrap:wrap;gap:6px;padding:0 20px 18px;margin-top:-6px}
+.variants a{
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;
+  text-decoration:none;color:var(--ink-dim);
+  border:1px solid var(--line);padding:4px 9px;border-radius:999px;
+  transition:color .2s,border-color .2s,background .2s;
+}
+.variants a:hover{color:#0b0b0c;background:hsl(var(--h) 85% 62%);border-color:transparent}
 
 /* ---------------------------------------------------------------- footer -- */
 footer{border-top:1px solid var(--line);padding-block:44px;margin-top:clamp(40px,8vh,80px)}
@@ -259,11 +267,10 @@ footer{border-top:1px solid var(--line);padding-block:44px;margin-top:clamp(40px
     <div class="filters rv" role="group" aria-label="Filtrer les projets">
       <!-- auto:filtres -->
       <button type="button" data-filter="all" aria-pressed="true">Tout <span class="count">09</span></button>
-      <button type="button" data-filter="jeu" aria-pressed="false">Jeux <span class="count">04</span></button>
+      <button type="button" data-filter="jeu" aria-pressed="false">Jeux <span class="count">05</span></button>
       <button type="button" data-filter="outil" aria-pressed="false">Outils <span class="count">01</span></button>
       <button type="button" data-filter="app" aria-pressed="false">Applications <span class="count">02</span></button>
       <button type="button" data-filter="vitrine" aria-pressed="false">Vitrines <span class="count">01</span></button>
-      <button type="button" data-filter="divers" aria-pressed="false">Divers <span class="count">01</span></button>
       <!-- /auto:filtres -->
     </div>
 
@@ -288,11 +295,12 @@ footer{border-top:1px solid var(--line);padding-block:44px;margin-top:clamp(40px
           <div>
             <div class="c-meta"><span class="mono num">02</span><span class="badge">Jeu</span></div>
             <h3>Neon Blaster</h3>
-            <p>Shoot'em up vertical façon arcade, tenu dans un seul fichier HTML : graphismes, bruitages <em>et</em> musique sont générés à la volée.</p>
+            <p>Shoot'em up vertical façon arcade, tenu dans un seul fichier HTML : graphismes, bruitages <em>et</em> musique sont générés à la volée. Trois versions du même jeu, écrites par trois modèles.</p>
             <ul class="tags"><li>WebAudio</li><li>Zéro dépendance</li><li>Overdrive</li></ul>
           </div>
           <span class="arrow" aria-hidden="true">↗</span>
         </a>
+        <nav class="variants" aria-label="Versions de Neon Blaster"><a href="/qwemup/">Classique</a><a href="/qwemup/clauded/">Clauded</a><a href="/qwemup/gemma/">Gemma</a></nav>
       </article>
 
       <article class="card rv" data-cat="jeu" style="--h:195">
@@ -321,11 +329,24 @@ footer{border-top:1px solid var(--line);padding-block:44px;margin-top:clamp(40px
         </a>
       </article>
 
+      <article class="card rv" data-cat="jeu" style="--h:285">
+        <a href="/martingale/">
+          <div class="sigil" aria-hidden="true">⊚</div>
+          <div>
+            <div class="c-meta"><span class="mono num">05</span><span class="badge">Jeu</span></div>
+            <h3>Machine à Martingale</h3>
+            <p>Pile ou face en boucle : on double la mise après chaque perte jusqu'à se refaire… ou tout perdre. Courbe du capital en direct, pièce qui claque, faillite <em>garantie</em>.</p>
+            <ul class="tags"><li>Canvas</li><li>Aléa système</li><li>Casino</li></ul>
+          </div>
+          <span class="arrow" aria-hidden="true">↗</span>
+        </a>
+      </article>
+
       <article class="card rv" data-cat="outil" style="--h:48">
         <a href="/jobs/">
           <div class="sigil" aria-hidden="true">⬡</div>
           <div>
-            <div class="c-meta"><span class="mono num">05</span><span class="badge">Outil</span></div>
+            <div class="c-meta"><span class="mono num">06</span><span class="badge">Outil</span></div>
             <h3>Atlas des métiers</h3>
             <p>Une cartographie des métiers à parcourir, compilée en une seule page à partir de ses données sources.</p>
             <ul class="tags"><li>Atlas</li><li>Page unique</li><li>Généré</li></ul>
@@ -338,7 +359,7 @@ footer{border-top:1px solid var(--line);padding-block:44px;margin-top:clamp(40px
         <a href="/hellochat/">
           <div class="sigil" aria-hidden="true">◉</div>
           <div>
-            <div class="c-meta"><span class="mono num">06</span><span class="badge">Application</span></div>
+            <div class="c-meta"><span class="mono num">07</span><span class="badge">Application</span></div>
             <h3>HelloChat Live</h3>
             <p>Simulation d'application de live streaming : caméra frontale, chat en overlay, audience qui commente et compteur de viewers qui s'emballe.</p>
             <ul class="tags"><li>Flutter Web</li><li>Caméra</li><li>Live</li></ul>
@@ -351,23 +372,10 @@ footer{border-top:1px solid var(--line);padding-block:44px;margin-top:clamp(40px
         <a href="/hellochat/expert-comments/">
           <div class="sigil" aria-hidden="true">◎</div>
           <div>
-            <div class="c-meta"><span class="mono num">07</span><span class="badge">Variante</span></div>
+            <div class="c-meta"><span class="mono num">08</span><span class="badge">Variante</span></div>
             <h3>HelloChat — Expert Comments</h3>
             <p>Une déclinaison de HelloChat publiée depuis sa propre branche, pour comparer deux directions côte à côte.</p>
             <ul class="tags"><li>Flutter Web</li><li>Branche</li><li>Prototype</li></ul>
-          </div>
-          <span class="arrow" aria-hidden="true">↗</span>
-        </a>
-      </article>
-
-      <article class="card rv" data-cat="divers" style="--h:292">
-        <a href="/magino/">
-          <div class="sigil" aria-hidden="true">◌</div>
-          <div>
-            <div class="c-meta"><span class="mono num">08</span><span class="badge">Atelier</span></div>
-            <h3>La Table à Huiles</h3>
-            <p>Le dispositif réel des light shows de 1966 rejoué dans le navigateur : deux verres de montre, un fond d'huile colorée sur platine chaude. À piloter en degrés, newtons et nanomètres.</p>
-            <ul class="tags"><li>WebGL</li><li>Light show</li><li>Jouable</li></ul>
           </div>
           <span class="arrow" aria-hidden="true">↗</span>
         </a>
