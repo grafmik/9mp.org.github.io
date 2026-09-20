@@ -73,3 +73,7 @@ Deux PAT fine-grained, chacun au strict nécessaire :
 
 À leur expiration, le site cesse simplement de se reconstruire (l'ancien reste
 servi) : régénérer les tokens et relancer `setup-sources.sh` suffit.
+
+En cas d'expiration de tokens, proposer à l'utilisateur de passer le script suivant de son côté :
+
+`! print -n "9mp-read-write : "; read -rs TOKW; print; print -n "all-repo-read  : "; read -rs TOKR; print; if [ ${#TOKW} -lt 20 ] || [ ${#TOKR} -lt 20 ]; then print "⚠️  saisie vide (${#TOKW} / ${#TOKR} caractères) — rien n'a été posé"; else GH_TOKEN=$TOKW gh api repos/grafmik/9mp.org.github.io -q .full_name >/dev/null 2>&1 && print "9mp-read-write voit le repo du site" || print "⚠️  9mp-read-write ne voit pas le repo du site"; GH_TOKEN=$TOKR gh api repos/grafmik/apinya -q .full_name >/dev/null 2>&1 && print "all-repo-read voit les sources" || print "⚠️  all-repo-read ne voit pas grafmik/apinya"; printf %s "$TOKR" | gh secret set SITES_TOKEN --repo grafmik/9mp.org.github.io; for r in apinya ds4shmup flat jobs motopeter qwemup wallet-compare hellochat martingale; do printf %s "$TOKW" | gh secret set PAGES_DISPATCH_TOKEN --repo grafmik/$r; done; print "✅ posés (${#TOKW} / ${#TOKR} caractères)"; fi; unset TOKW TOKR`
