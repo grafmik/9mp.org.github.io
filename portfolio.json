@@ -117,6 +117,7 @@
       "tags": ["Dossier", "Généré", "Privé"]
     },
     "hellochat": {
+      "masque": true,
       "titre": "HelloChat Live",
       "cat": "app",
       "hue": 340,
@@ -125,6 +126,7 @@
       "tags": ["Flutter Web", "Caméra", "Live"]
     },
     "hellochat/expert-comments": {
+      "masque": true,
       "titre": "HelloChat — Expert Comments",
       "cat": "app",
       "badge": "Variante",
