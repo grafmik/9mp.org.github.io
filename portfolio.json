@@ -44,6 +44,14 @@
       "glyphe": "▲",
       "texte": "Trial 2D à moteur physique : inertie, suspensions, figures et nitro. Au clavier comme au doigt, sur plusieurs terrains."
     },
+    "berceuse": {
+      "titre": "Berceuse",
+      "modele": "Claude Opus 5.5",
+      "cat": "jeu",
+      "hue": 355,
+      "glyphe": "◉",
+      "texte": "Horreur en 3D à la première personne : retrouver les quatre cylindres d'une boîte à musique dans une maison où Madame Vey n'avance que quand on ne la regarde pas… ou quand on *cligne des yeux*."
+    },
     "qwemup": {
       "titre": "Neon Blaster",
       "cat": "jeu",
