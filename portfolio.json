@@ -52,6 +52,14 @@
       "glyphe": "◉",
       "texte": "Horreur en 3D à la première personne : retrouver les quatre cylindres d'une boîte à musique dans une maison où Madame Vey n'avance que quand on ne la regarde pas… ou quand on *cligne des yeux*."
     },
+    "rewind-raid": {
+      "titre": "Rewind Raid",
+      "modele": "Claude Opus 5.5",
+      "cat": "jeu",
+      "hue": 188,
+      "glyphe": "◀◀",
+      "texte": "Shoot'em up façon arcade 1996 : cinq niveaux, cinq boss, trois armes. Le twist : une cassette qui *rembobine le monde*, et les balles qui retournent blesser ceux qui les ont tirées."
+    },
     "qwemup": {
       "titre": "Neon Blaster",
       "cat": "jeu",

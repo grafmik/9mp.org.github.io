@@ -70,6 +70,12 @@
       "exclude": ["README.md"]
     },
     {
+      "path": "rewind-raid",
+      "repo": "grafmik/shmup-opus5.5-ultracode",
+      "ref": "main",
+      "exclude": ["README.md"]
+    },
+    {
       "path": "wallet-compare",
       "repo": "grafmik/wallet-compare",
       "ref": "main",
