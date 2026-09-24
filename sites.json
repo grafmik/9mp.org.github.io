@@ -23,6 +23,12 @@
       "exclude": ["README.md", "dist"]
     },
     {
+      "path": "baston",
+      "repo": "grafmik/baston",
+      "ref": "main",
+      "exclude": ["README.md"]
+    },
+    {
       "path": "berceuse",
       "repo": "grafmik/horror",
       "ref": "main",
