@@ -68,6 +68,14 @@
       "glyphe": "✹",
       "texte": "Beat'em up à défilement horizontal dans une ville rongée par le crime, 1989 : trois héros (catcheur, combattant de rue, ninja), prises, suplex, armes à ramasser, cinq niveaux dont un *métro en marche* et cinq boss. En solo ou à deux sur le même clavier."
     },
+    "clip-pc98": {
+      "titre": "反逆のアイ — clip PC-98",
+      "modele": "Claude Opus 5.5",
+      "cat": "divers",
+      "hue": 355,
+      "glyphe": "◉",
+      "texte": "Clip musical façon AMV dans le style des jeux *PC-98* : Hikari mène la révolte contre ORACLE, l'IA qui surveille Néo-Tokyo. Image en 16 couleurs, musique en synthèse FM, tout généré par du code."
+    },
     "rewind-raid": {
       "titre": "Rewind Raid",
       "modele": "Claude Opus 5.5",

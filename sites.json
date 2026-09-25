@@ -35,6 +35,12 @@
       "exclude": ["README.md", "package.json", "tests"]
     },
     {
+      "path": "clip-pc98",
+      "repo": "grafmik/clip-pc98",
+      "ref": "main",
+      "exclude": ["README.md", "*.py", "requirements.txt", "tools"]
+    },
+    {
       "path": "berceuse",
       "repo": "grafmik/horror",
       "ref": "main",
