@@ -29,6 +29,12 @@
       "exclude": ["README.md"]
     },
     {
+      "path": "beatemall",
+      "repo": "grafmik/beatemall",
+      "ref": "main",
+      "exclude": ["README.md", "package.json", "tests"]
+    },
+    {
       "path": "berceuse",
       "repo": "grafmik/horror",
       "ref": "main",
