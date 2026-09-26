@@ -144,8 +144,6 @@ button{font:inherit;color:inherit}
 /* « un onglet » dessiné comme un onglet de navigateur, croix comprise */
 .tab{display:inline-block;padding:.05em .28em .02em .24em;border:.055em solid currentColor;border-bottom:0;border-radius:.2em .2em 0 0;line-height:.9}
 .tab i{font-family:var(--mono);font-style:normal;font-weight:400;font-size:.26em;vertical-align:1em;margin-left:.55em;letter-spacing:0}
-.manif-n{display:flex;justify-content:flex-end;align-items:center;gap:12px;margin-top:clamp(28px,5vh,56px);color:var(--dim);text-align:right}
-.manif-n::after{content:"";flex:none;width:9px;height:9px;background:var(--red);clip-path:polygon(0 0,100% 0,50% 100%)}
 .js .wd{opacity:.13;transition:opacity .5s ease}
 .js .wd.lit{opacity:1}
 .js .tab{border-color:rgba(244,241,234,.13);transition:border-color .5s ease}
@@ -316,7 +314,6 @@ button{font:inherit;color:inherit}
   <!-- ========================================================== manifeste -- -->
   <section class="manif" aria-label="Le studio">
     <p class="manif-t">On fabrique des <em>objets web</em> qui tiennent dans <span class="tab">un onglet<i aria-hidden="true">×</i></span>.</p>
-    <p class="manif-n mono">Chaque projet porte le nom du modèle qui l'a écrit</p>
   </section>
 
   <!-- ============================================================ travaux -- -->
