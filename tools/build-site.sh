@@ -44,7 +44,7 @@ mkdir -p "$OUT"
 local_excludes=(
   --exclude '/.git' --exclude '/.github' --exclude '/.gitignore'
   --exclude '/tools' --exclude '/sites.json' --exclude '/README.md'
-  --exclude '/_site' --exclude '.DS_Store'
+  --exclude '/_site' --exclude '/node_modules' --exclude '.DS_Store'
 )
 # Les dossiers pilotés par sites.json viennent toujours de leur repo, jamais
 # d'ici — même s'il en traîne encore une copie dans l'arbre de travail.

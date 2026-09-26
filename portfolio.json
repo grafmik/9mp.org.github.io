@@ -10,7 +10,6 @@
     "",
     "  cat     catégorie, parmi celles listées dans \"categories\" (\"jeu\" : le",
     "          bouton de l'affiche dit « Jouer », sinon « Ouvrir »)",
-    "  glyphe  signe affiché sur l'affiche du projet",
     "  hue     teinte de l'affiche et de la ligne sélectionnée, 0-360",
     "          (défaut : dérivée du nom)",
     "  texte   une à deux phrases ; *entre astérisques* pour l'italique",
@@ -18,11 +17,16 @@
     "          et défile dans le bandeau « écrit par » (optionnel)",
     "  versions  un même projet écrit plusieurs fois : liste de",
     "          { chemin, modele } — une ligne par entrée. chemin est relatif au dossier du",
-    "          projet (\"\" = sa racine) ; cat/hue/glyphe/texte peuvent",
+    "          projet (\"\" = sa racine) ; cat/hue/texte peuvent",
     "          y être redéclarés pour surcharger ceux de la fiche",
     "  masque  true : le projet reste publié et accessible, mais ne s'affiche",
     "          pas dans le portfolio (le reste de la fiche est conservé, il",
     "          suffit de repasser à false pour le remettre en vitrine)",
+    "",
+    "La vignette (l'image de fond de la ligne et de l'affiche) ne se déclare",
+    "pas ici : c'est vignettes/<chemin>.webp, « / » remplacés par « - »",
+    "(qwemup/clauded → vignettes/qwemup-clauded.webp). tools/capture-vignettes.mjs",
+    "la photographie dans le projet publié.",
     "",
     "L'ordre des clés de \"projets\" est l'ordre d'affichage.",
     "Les dossiers interdits dans robots.txt reçoivent un lien en rel=nofollow",
@@ -43,7 +47,6 @@
       "modele": "Claude Fable 5.1",
       "cat": "jeu",
       "hue": 14,
-      "glyphe": "▲",
       "texte": "Trial 2D à moteur physique : inertie, suspensions, figures et nitro. Au clavier comme au doigt, sur plusieurs terrains."
     },
     "berceuse": {
@@ -51,7 +54,6 @@
       "modele": "Claude Opus 5.5",
       "cat": "jeu",
       "hue": 355,
-      "glyphe": "◉",
       "texte": "Horreur en 3D à la première personne : retrouver les quatre cylindres d'une boîte à musique dans une maison où Madame Vey n'avance que quand on ne la regarde pas… ou quand on *cligne des yeux*."
     },
     "baston": {
@@ -59,7 +61,6 @@
       "modele": "Claude Opus 5.5",
       "cat": "jeu",
       "hue": 18,
-      "glyphe": "✊",
       "texte": "Jeu de baston 2D façon arcade 1996 : dix combattants du monde entier et un boss, coups spéciaux et supers, campagne avec un avion qui survole la *mappemonde* entre chaque combat, duel à deux, mode entraînement, compatible manette."
     },
     "beatemall": {
@@ -67,7 +68,6 @@
       "modele": "Claude Opus 5.5",
       "cat": "jeu",
       "hue": 350,
-      "glyphe": "✹",
       "texte": "Beat'em up à défilement horizontal dans une ville rongée par le crime, 1989 : trois héros (catcheur, combattant de rue, ninja), prises, suplex, armes à ramasser, cinq niveaux dont un *métro en marche* et cinq boss. En solo ou à deux sur le même clavier."
     },
     "clip-pc98": {
@@ -75,7 +75,6 @@
       "modele": "Claude Opus 5.5",
       "cat": "divers",
       "hue": 355,
-      "glyphe": "◉",
       "texte": "Clip musical façon AMV dans le style des jeux *PC-98* : Hikari mène la révolte contre ORACLE, l'IA qui surveille Néo-Tokyo. Image en 16 couleurs, musique en synthèse FM, tout généré par du code."
     },
     "rewind-raid": {
@@ -83,21 +82,19 @@
       "modele": "Claude Opus 5.5",
       "cat": "jeu",
       "hue": 188,
-      "glyphe": "◀◀",
       "texte": "Shoot'em up façon arcade 1996 : cinq niveaux, cinq boss, trois armes. Le twist : une cassette qui *rembobine le monde*, et les balles qui retournent blesser ceux qui les ont tirées."
     },
     "qwemup": {
       "titre": "Neon Blaster",
       "cat": "jeu",
       "hue": 320,
-      "glyphe": "✦",
       "texte": "Shoot'em up vertical façon arcade, tenu dans un seul fichier HTML : graphismes, bruitages *et* musique sont générés à la volée.",
       "versions": [
-        { "chemin": "", "modele": "Qwen 3.6 local", "hue": 320, "glyphe": "✦",
+        { "chemin": "", "modele": "Qwen 3.6 local", "hue": 320,
           "texte": "Shoot'em up vertical façon arcade, tenu dans un seul fichier HTML : graphismes, bruitages *et* musique générés à la volée. La version d'origine, écrite par Qwen 3.6 en local." },
-        { "chemin": "clauded", "modele": "Claude Fable 5.1", "hue": 25, "glyphe": "✧",
+        { "chemin": "clauded", "modele": "Claude Fable 5.1", "hue": 25,
           "texte": "Le même cahier des charges, repris de zéro par Claude Fable 5.1 : un seul fichier HTML, zéro dépendance. À comparer avec les deux autres." },
-        { "chemin": "gemma", "modele": "Gemma local", "hue": 210, "glyphe": "✷",
+        { "chemin": "gemma", "modele": "Gemma local", "hue": 210,
           "texte": "La troisième lecture du même énoncé, par Gemma en local. Trois modèles, trois shoot'em up, une seule page chacun." }
       ]
     },
@@ -106,7 +103,6 @@
       "modele": "Deepseek 4.0 local",
       "cat": "jeu",
       "hue": 195,
-      "glyphe": "◈",
       "texte": "L'autre shoot'em up de la maison : vagues d'ennemis, boss et score, jouable au clavier ou en glissant le doigt."
     },
     "tetris": {
@@ -114,7 +110,6 @@
       "modele": "GPT-4",
       "cat": "jeu",
       "hue": 265,
-      "glyphe": "▩",
       "texte": "Le classique, redimensionné à la taille de l'écran, avec des commandes tactiles pour jouer d'une main dans le métro."
     },
     "martingale": {
@@ -122,7 +117,6 @@
       "modele": "Claude Opus 5",
       "cat": "jeu",
       "hue": 285,
-      "glyphe": "⊚",
       "texte": "Pile ou face en boucle : on double la mise après chaque perte jusqu'à se refaire… ou tout perdre. Courbe du capital en direct, pièce qui claque, faillite *garantie*."
     },
     "worldtimesync": {
@@ -130,7 +124,6 @@
       "titre": "World Time Sync",
       "cat": "outil",
       "hue": 170,
-      "glyphe": "◐",
       "texte": "Planificateur de réunions internationales : on place les participants sur la carte, la timeline montre l'heure qu'il est pour chacun."
     },
     "guillaumesync": {
@@ -138,7 +131,6 @@
       "titre": "World Time Sync — Live",
       "cat": "outil",
       "hue": 150,
-      "glyphe": "◍",
       "texte": "La même chose, en collaboratif : marqueurs déplaçables et participants partagés en temps réel entre tous les navigateurs ouverts."
     },
     "jobs": {
@@ -146,7 +138,6 @@
       "modele": "Claude Opus 5",
       "cat": "outil",
       "hue": 48,
-      "glyphe": "⬡",
       "texte": "Une cartographie des métiers à parcourir, compilée en une seule page à partir de ses données sources."
     },
     "wallet-compare": {
@@ -154,7 +145,6 @@
       "titre": "wallet-compare",
       "cat": "outil",
       "hue": 34,
-      "glyphe": "⛨",
       "texte": "État des lieux de l'auto-détention de crypto-actifs, et dossier sécurité des wallets matériels : 19 appareils notés, incidents documentés, sources en lien."
     },
     "hellochat": {
@@ -162,7 +152,6 @@
       "titre": "HelloChat Live",
       "cat": "app",
       "hue": 340,
-      "glyphe": "◉",
       "texte": "Simulation d'application de live streaming : caméra frontale, chat en overlay, audience qui commente et compteur de viewers qui s'emballe."
     },
     "hellochat/expert-comments": {
@@ -170,7 +159,6 @@
       "titre": "HelloChat — Expert Comments",
       "cat": "app",
       "hue": 355,
-      "glyphe": "◎",
       "texte": "Une déclinaison de HelloChat publiée depuis sa propre branche, pour comparer deux directions côte à côte."
     },
     "apinya": {
@@ -178,7 +166,6 @@
       "titre": "Apinya Estates",
       "cat": "vitrine",
       "hue": 38,
-      "glyphe": "❖",
       "texte": "Vitrine d'agence immobilière de luxe à Hua Hin : biens, quartiers, prise de contact. Maquette de démonstration, contenu fictif."
     },
     "flat": {
@@ -186,7 +173,6 @@
       "titre": "Manuel de l'appartement",
       "cat": "vitrine",
       "hue": 200,
-      "glyphe": "⌂",
       "texte": "Le livret d'accueil des invités, bilingue français / anglais : équipements, mode d'emploi, bonnes adresses du quartier."
     },
     "ai": {
@@ -194,7 +180,6 @@
       "modele": "GPT-3.5",
       "cat": "vitrine",
       "hue": 60,
-      "glyphe": "✶",
       "texte": "Une page, une bannière qui défile, une androïde. Le petit tract du studio sur l'intelligence artificielle."
     }
   }

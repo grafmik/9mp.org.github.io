@@ -90,6 +90,14 @@ const titleOf = (path) => {
 };
 
 const cats = new Map(portfolio.categories.map((c) => [c.id, c]));
+
+// Vignette : l'image vignettes/<chemin>.webp, si elle existe (les « / » du
+// chemin deviennent des « - »). tools/capture-vignettes.mjs la fabrique ;
+// une image posée à la main fait aussi bien l'affaire.
+const vignetteOf = (path) => {
+  const rel = `vignettes/${path.replace(/\//g, "-")}.webp`;
+  return existsSync(join(DIR, rel)) ? `/${rel}` : null;
+};
 const fallbackCat = portfolio.categories.at(-1).id;
 
 // Une fiche qui déclare des "versions" donne une carte par version : même
@@ -114,7 +122,7 @@ const projets = fiches.map(({ path, racine, meta }, i) => {
     num: pad(i + 1),
     cat,
     hue: meta?.hue ?? hueOf(path),
-    glyphe: meta?.glyphe ?? "✧",
+    vignette: vignetteOf(path),
     titre: meta?.titre ?? titleOf(path),
     texte: meta?.texte ?? "Tout juste publié sur 9mp.org — présentation à venir.",
     modele: meta?.modele ?? null,
@@ -124,15 +132,16 @@ const projets = fiches.map(({ path, racine, meta }, i) => {
 
 // ------------------------------------------------------------------- rendu --
 
-// Une ligne de l'écran de sélection. Le script de la page y lit aussi de quoi
-// construire l'affiche du projet (glyphe, teinte, modèle, texte).
-const carte = (p) => `        <li class="w" data-cat="${p.cat}" style="--h:${p.hue}">
-          <a href="/${p.path}/"${p.prive ? ' rel="nofollow"' : ""}>
+// Une ligne de l'écran de sélection, sa vignette en fond. Le script de la
+// page y lit aussi de quoi construire l'affiche du projet (image, teinte,
+// modèle, texte).
+const carte = (p) => `        <li class="w${p.vignette ? "" : " sans-image"}" data-cat="${p.cat}" style="--h:${p.hue}">
+          <a href="/${p.path}/"${p.prive ? ' rel="nofollow"' : ""}>${p.vignette ? `
+            <img class="w-img" src="${p.vignette}" alt="" width="1200" height="750" loading="lazy" decoding="async">` : ""}
             <span class="w-t"><span>${esc(p.titre)}</span></span>${p.modele ? `
             <span class="w-m">${esc(p.modele)}</span>` : ""}
             <span class="w-d">${rich(p.texte)}</span>
             <span class="w-n" aria-hidden="true">${p.num}</span>
-            <span class="w-g" aria-hidden="true">${esc(p.glyphe)}</span>
           </a>
         </li>`;
 
@@ -153,6 +162,8 @@ const remplace = (nom, contenu) => {
 };
 
 remplace("projets", projets.map(carte).join("\n"));
+const sans = projets.filter((p) => !p.vignette).map((p) => p.path);
+if (sans.length) console.warn(`  ! sans vignette : ${sans.join(", ")} (tools/capture-vignettes.mjs)`);
 html = html.replace(/(<b data-auto="total">)[^<]*(<\/b>)/g, `$1${projets.length}$2`);
 
 writeFileSync(page, html);

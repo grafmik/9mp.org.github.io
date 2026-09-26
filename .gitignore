@@ -3,3 +3,6 @@
 
 # Site assemblé par tools/build-site.sh
 _site/
+
+# Playwright, pour tools/capture-vignettes.mjs (npm i --no-save)
+node_modules/

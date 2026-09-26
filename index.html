@@ -42,7 +42,6 @@
   --display:"Science Gothic","Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","Noto Sans JP",system-ui,sans-serif;
   --mono:"Martian Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
   --serif:"Instrument Serif",Georgia,"Times New Roman",serif;
-  --sym:"Apple Symbols","Segoe UI Symbol","Noto Sans Symbols 2","Noto Sans Symbols","DejaVu Sans",sans-serif;
   --out:cubic-bezier(.16,1,.3,1);
   --io:cubic-bezier(.76,0,.24,1);
   --back:cubic-bezier(.34,1.56,.64,1);
@@ -130,9 +129,9 @@ button{font:inherit;color:inherit}
 .tape-track{display:flex;flex:none}
 .set{display:flex;flex:none;align-items:center}
 .set>*{flex:none;margin-right:.55em}
-.set i{font-family:var(--sym);font-style:normal;font-weight:400;font-size:.8em;color:transparent;text-shadow:0 0 0 var(--bg)}
 .set em{font-family:var(--serif);font-style:italic;font-weight:400;font-stretch:100%;font-size:1.3em;line-height:.7;text-transform:none}
 .set b{width:.3em;height:.3em;background:var(--red)}
+.tape-a .set b{background:var(--bg)}
 .js .tape{opacity:0;transition:opacity .8s ease,translate 1.4s var(--out)}
 .js .tape-a{translate:-18% 0}
 .js .tape-b{translate:18% 0}
@@ -155,42 +154,56 @@ button{font:inherit;color:inherit}
 .js .tab.lit i{opacity:.7}
 
 /* ---------------------------------------------------------------- travaux -- */
-/* Un écran de sélection : une ligne par projet, un curseur ▶ sur la ligne
-   choisie, et (sur grand écran) l'affiche du projet qui défile à côté. */
+/* Un écran de sélection : une carte par projet, sa vignette en fond (une
+   image prise dans le projet, sans texte), un curseur ▶ sur la carte
+   choisie et, sur grand écran, l'affiche du projet qui défile à côté. */
 .works{--tfs:clamp(30px,9.4vw,70px);position:relative;padding:clamp(30px,6vh,70px) var(--pad) clamp(90px,16vh,180px)}
 .works-h{position:relative;margin:0 0 clamp(16px,3vh,36px);font-weight:900;font-stretch:125%;line-height:.8;text-transform:uppercase;white-space:nowrap}
-.works-h .fit{display:inline-block;font-size:clamp(56px,14vw,240px);padding-top:.05em}
+.works-h .fit{display:inline-block;font-size:clamp(40px,12.5vw,240px);padding-top:.05em}
 .works-c{position:absolute;right:0;bottom:calc(100% + 8px);color:var(--red)}
-.list{position:relative;list-style:none;padding:0}
-.list::after{content:"";display:block;height:1px;background:var(--line)}
-.w{position:relative;transition:opacity .35s ease}
-.w a{position:relative;display:grid;grid-template-columns:auto minmax(0,1fr) auto;grid-template-areas:"n m g" "t t t" "d d d";align-items:center;column-gap:14px;row-gap:8px;padding:18px 0 20px}
+.list{position:relative;display:grid;gap:14px;list-style:none;padding:0}
+.w{--vis:.5;position:relative;transition:opacity .35s ease}
+.w.on{--vis:.95}
+.w a{
+  position:relative;isolation:isolate;overflow:hidden;
+  display:grid;grid-template-columns:auto minmax(0,1fr);grid-template-areas:"n m" ". ." "t t" "d d";grid-template-rows:auto 1fr auto auto;
+  align-items:center;column-gap:12px;row-gap:8px;
+  min-height:clamp(300px,88vw,520px);padding:16px 16px 18px;border-radius:12px;
+  background:#101012;box-shadow:inset 0 0 0 1px rgba(244,241,234,.07);
+}
+.sans-image a{background:radial-gradient(120% 90% at 85% 0%,hsl(var(--h) 90% 50% / .35),transparent 60%),#101012}
 .w a:focus-visible{outline-offset:-2px}
-.w a::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:var(--line);transform-origin:0 50%}
-.w a::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,hsl(var(--h) 95% 55% / .14),transparent 72%);opacity:0;transition:opacity .45s ease}
-.w-n{grid-area:n;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.1em;color:var(--faint);transition:color .35s}
-.w-m{grid-area:m;justify-self:start;font-family:var(--mono);font-size:10.5px;font-weight:500;font-stretch:87.5%;letter-spacing:.13em;text-transform:uppercase;color:var(--dim);transition:color .35s}
-.w-t{grid-area:t;position:relative;display:block;overflow:hidden;padding:.08em 0 .02em;font-size:calc(var(--tfs) * var(--k,1));font-weight:800;line-height:.9;text-transform:uppercase;white-space:nowrap}
+/* la vignette déborde un peu, pour la parallaxe au défilement */
+.w-img{position:absolute;left:0;top:-7%;z-index:-3;width:100%;height:114%;object-fit:cover;opacity:var(--vis);filter:saturate(.7) brightness(.85);transition:opacity .8s ease,filter .8s ease,scale 1.3s var(--out)}
+.w.on .w-img{filter:none;scale:1.06}
+/* lisibilité : sombre en haut (numéro, modèle) et en bas (titre, texte) */
+.w a::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(10,10,11,.72),rgba(10,10,11,.06) 22%,rgba(10,10,11,.3) 44%,rgba(10,10,11,.88) 66%,rgba(10,10,11,.96))}
+/* la teinte du projet monte du coin quand la carte est choisie */
+.w a::before{content:"";position:absolute;inset:0;z-index:-2;background:radial-gradient(130% 80% at 0% 100%,hsl(var(--h) 95% 50% / .5),transparent 62%);opacity:0;transition:opacity .6s ease}
+.w.on a::before{opacity:1}
+.w-n{grid-area:n;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.1em;color:var(--dim);transition:color .35s}
+.w-m{grid-area:m;justify-self:start;font-family:var(--mono);font-size:10.5px;font-weight:500;font-stretch:87.5%;letter-spacing:.13em;text-transform:uppercase;color:var(--ink);transition:color .35s}
+.w-t{grid-area:t;position:relative;display:block;overflow:hidden;padding:.08em 0 .02em;font-size:calc(var(--tfs) * var(--k,1));font-weight:800;line-height:.9;text-transform:uppercase;white-space:nowrap;text-shadow:0 .03em .3em rgba(0,0,0,.6)}
 .w-t span{display:inline-block;font-stretch:var(--ws,100%);transition:font-stretch .7s var(--out),font-weight .7s var(--out),transform .7s var(--out),color .35s,translate .9s var(--out)}
 .w-t::before{content:"";position:absolute;left:0;top:50%;width:.36em;height:.44em;margin-top:-.2em;background:hsl(var(--h) 95% 60%);clip-path:polygon(0 0,100% 50%,0 100%);scale:0;transition:scale .45s var(--back)}
-.w-d{grid-area:d;max-width:60ch;font-size:15px;line-height:1.5;color:var(--dim)}
+.w-d{grid-area:d;max-width:60ch;font-size:15px;line-height:1.5;color:#c9c5bd}
 .w-d em,.pdesc em{font-family:var(--serif);font-style:italic;font-weight:400;font-stretch:100%;font-size:1.2em;line-height:1;color:var(--ink)}
-.w-g{grid-area:g;display:grid;place-items:center;width:34px;height:34px;border-radius:9px;background:hsl(var(--h) 92% 58%);font-family:var(--sym);font-size:17px;line-height:1;color:transparent;text-shadow:0 0 0 var(--bg);transition:transform .6s var(--back)}
-/* la ligne sélectionnée */
-.w.on a::after{opacity:1}
+/* la carte choisie */
 .w.on .w-t::before{scale:1}
-.w.on .w-t span{font-stretch:var(--wa,130%);font-weight:900;transform:translateX(.62em);color:hsl(var(--h) 100% 72%)}
-.w.on .w-m{color:hsl(var(--h) 100% 72%)}
+.w.on .w-t span{font-stretch:var(--wa,130%);font-weight:900;transform:translateX(.62em);color:hsl(var(--h) 100% 74%)}
+.w.on .w-m{color:hsl(var(--h) 100% 74%)}
 .w.on .w-n{color:var(--ink)}
-.w.on .w-g{transform:rotate(-10deg) scale(1.12)}
 .list.hovering .w:not(.on){opacity:.38}
-/* entrée des lignes : le filet se trace, le titre monte dans sa fente */
-.io .w a::before{scale:0 1;transition:scale 1.1s var(--out)}
+/* entrée : la vignette se découvre de bas en haut en reculant, le titre
+   monte dans sa fente ; une image n'apparaît qu'une fois chargée */
+.js .w-img:not(.ld){opacity:0}
+.io .w .w-img{clip-path:inset(100% 0 0 0);scale:1.18;transition:opacity .8s ease,filter .8s ease,scale 1.6s var(--out),clip-path 1.1s var(--io)}
+.io .w.in .w-img{clip-path:inset(0 0 0 0);scale:1}
+.io .w.in.on .w-img{scale:1.06}
 .io .w .w-t span{translate:0 110%}
-.io .w :is(.w-n,.w-m,.w-d,.w-g){opacity:0}
-.io .w.in a::before{scale:1 1}
+.io .w :is(.w-n,.w-m,.w-d){opacity:0}
 .io .w.in .w-t span{translate:0 0}
-.io .w.in :is(.w-n,.w-m,.w-d,.w-g){opacity:1;transition:opacity .7s ease .2s,color .35s,transform .6s var(--back)}
+.io .w.in :is(.w-n,.w-m,.w-d){opacity:1;transition:opacity .7s ease .25s,color .35s}
 
 /* l'affiche : n'existe que sur grand écran, construite par le script */
 .panel{display:none}
@@ -198,25 +211,38 @@ button{font:inherit;color:inherit}
   .works{--tfs:clamp(34px,4vw,76px)}
   .paneled .works-grid{display:grid;grid-template-columns:minmax(0,1fr) min(31vw,480px);column-gap:clamp(32px,4.5vw,84px);align-items:start}
   .paneled .panel{position:sticky;top:96px;z-index:1;display:flex;flex-direction:column;gap:22px;transition:--hue .9s var(--out)}
-  .paneled .w a{grid-template-columns:3.4em minmax(0,1fr);grid-template-areas:"n m" "n t";row-gap:4px;padding:20px 0}
+  /* sur grand écran, des lignes : la vignette en bande à droite, fondue */
+  .paneled .list{gap:0}
+  .paneled .list::after{content:"";display:block;height:1px;background:var(--line)}
+  .paneled .w{--vis:.2}
+  .paneled .w.on{--vis:.7}
+  .paneled .w a{grid-template-columns:3.4em minmax(0,1fr);grid-template-areas:"n m" "n t";grid-template-rows:auto auto;row-gap:4px;min-height:0;padding:20px 0;border-radius:0;background:none;box-shadow:none}
+  .paneled .w-img{left:auto;right:0;top:-25%;width:64%;height:150%;-webkit-mask:linear-gradient(90deg,transparent,#000 55%);mask:linear-gradient(90deg,transparent,#000 55%)}
+  .paneled .w a::after{background:linear-gradient(90deg,rgba(10,10,11,.1),rgba(10,10,11,.25) 60%,rgba(10,10,11,.1))}
+  .paneled .w a::before{inset:0 0 auto;z-index:1;height:1px;background:var(--line);opacity:1;transform-origin:0 50%}
+  .io .paneled .w a::before{scale:0 1;transition:scale 1.1s var(--out)}
+  .io .paneled .w.in a::before{scale:1 1}
   .paneled .w-n{align-self:start;padding-top:1px}
+  .paneled .w-m{color:var(--dim)}
   .paneled .w-d{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
-  .paneled .w-g{display:none}
 }
 /* halo à la couleur du projet — ancré à droite pour ne jamais déborder */
 .panel::before{content:"";position:absolute;right:0;top:38%;z-index:-1;width:150%;aspect-ratio:1;translate:0 -50%;background:radial-gradient(closest-side,hsl(var(--hue) 95% 55% / .2),transparent);pointer-events:none}
 .pwin{position:relative;display:block;width:min(100%,calc((100vh - 290px) * .8));aspect-ratio:4/5;border-radius:12px;overflow:hidden;container-type:inline-size;background:var(--bg);box-shadow:0 40px 90px -40px hsl(var(--hue) 95% 55% / .8)}
 .ptrack{height:100%;display:flex;flex-direction:column;transition:transform .9s var(--out)}
-.poster{position:relative;flex:0 0 100%;display:grid;grid-template-rows:auto 1fr auto auto;padding:6cqw;overflow:hidden;color:var(--bg);background:radial-gradient(90% 70% at 28% 16%,hsl(var(--h) 100% 76%),transparent 70%),hsl(var(--h) 92% 55%)}
-.poster::before{content:"";position:absolute;inset:0;background:radial-gradient(rgba(10,10,11,.22) 26%,transparent 31%) 0 0/2.3cqw 2.3cqw;-webkit-mask:linear-gradient(to top,#000 5%,transparent 62%);mask:linear-gradient(to top,#000 5%,transparent 62%)}
-.poster::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(10,10,11,.08) 0 1px,transparent 1px 3px);pointer-events:none}
-.p-top,.p-m{position:relative;display:flex;justify-content:space-between;gap:4cqw;font-family:var(--mono);font-size:max(9px,2.9cqw);font-weight:600;font-stretch:87.5%;letter-spacing:.1em;text-transform:uppercase}
-.p-g{position:relative;display:grid;place-items:center;font-family:var(--sym);font-size:46cqw;line-height:1;color:transparent;text-shadow:0 0 0 var(--bg)}
-.p-g span{display:block}
-.poster.on .p-g span{animation:float 3.4s ease-in-out infinite}
-@keyframes float{50%{transform:translateY(-4%) rotate(-5deg)}}
-.p-t{position:relative;font-size:var(--pfs,10cqw);font-weight:900;font-stretch:150%;line-height:.86;text-transform:uppercase}
-.p-m{margin-top:3.4cqw}
+.poster{position:relative;flex:0 0 100%;display:grid;grid-template-rows:auto 1fr auto auto;padding:6cqw;overflow:hidden;color:var(--ink);background:radial-gradient(90% 70% at 28% 16%,hsl(var(--h) 90% 60% / .8),transparent 70%),hsl(var(--h) 70% 22%)}
+/* l'image du projet, qui dérive lentement tant que l'affiche est à l'écran */
+.p-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .7s ease;animation:drift 16s ease-in-out infinite alternate paused}
+.p-img.ld{opacity:1}
+.poster.on .p-img{animation-play-state:running}
+@keyframes drift{from{transform:scale(1.02)}to{transform:scale(1.1) translate(-1.5%,-1%)}}
+.p-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,11,.6),transparent 24%,transparent 44%,hsl(var(--h) 70% 9% / .72) 70%,hsl(var(--h) 60% 5% / .96))}
+.poster::before{content:"";position:absolute;inset:0;z-index:1;background:radial-gradient(rgba(10,10,11,.3) 26%,transparent 31%) 0 0/2.3cqw 2.3cqw;-webkit-mask:linear-gradient(to top,#000 5%,transparent 45%);mask:linear-gradient(to top,#000 5%,transparent 45%)}
+.poster::after{content:"";position:absolute;inset:0;z-index:1;background:repeating-linear-gradient(0deg,rgba(10,10,11,.1) 0 1px,transparent 1px 3px);pointer-events:none}
+.p-top,.p-m,.p-t{position:relative;z-index:2}
+.p-top,.p-m{display:flex;justify-content:space-between;gap:4cqw;font-family:var(--mono);font-size:max(9px,2.9cqw);font-weight:600;font-stretch:87.5%;letter-spacing:.1em;text-transform:uppercase}
+.p-t{grid-row:3;font-size:var(--pfs,10cqw);font-weight:900;font-stretch:150%;line-height:.86;text-transform:uppercase;text-shadow:0 .04em .3em rgba(0,0,0,.5)}
+.p-m{grid-row:4;margin-top:3.4cqw;color:hsl(var(--h) 100% 78%)}
 .pinfo{display:grid;gap:18px;width:min(100%,calc((100vh - 290px) * .8))}
 .pdesc{min-height:6em;font-size:15px;line-height:1.5;color:var(--dim)}
 .pgo{justify-self:start;display:inline-flex;align-items:center;gap:10px;padding:13px 20px 12px;border-radius:999px;background:hsl(var(--hue) 95% 58%);color:var(--bg);transition:scale .3s var(--back)}
@@ -240,10 +266,12 @@ button{font:inherit;color:inherit}
 .cont-l{position:absolute;left:var(--pad);right:var(--pad);bottom:22px;display:flex;justify-content:space-between;gap:16px;color:var(--faint)}
 
 /* ------------------------------------------------------- passage de rideau -- */
-.wipe{position:fixed;inset:0;z-index:100;display:grid;place-items:center;align-content:center;gap:3vh;padding:var(--pad);background:hsl(var(--wh,0) 92% 56%);color:var(--bg);text-align:center;visibility:hidden;clip-path:inset(100% 0 0 0)}
+.wipe{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:var(--pad);background:hsl(var(--wh,0) 92% 50%);color:var(--ink);text-align:center;visibility:hidden;clip-path:inset(100% 0 0 0);overflow:hidden}
 .wipe.go{visibility:visible}
-.wipe-g{font-family:var(--sym);font-size:clamp(64px,13vw,170px);line-height:1;color:transparent;text-shadow:0 0 0 var(--bg)}
-.wipe-t{font-size:clamp(34px,8.6vw,150px);font-weight:900;font-stretch:150%;line-height:.86;text-transform:uppercase}
+/* la vignette en bichromie : sa lumière, la couleur du projet */
+.wipe-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;mix-blend-mode:luminosity;opacity:.7}
+.wipe-img:not([src]){display:none}
+.wipe-t{position:relative;font-size:clamp(34px,8.6vw,150px);font-weight:900;font-stretch:150%;line-height:.86;text-transform:uppercase;text-shadow:0 .04em .4em rgba(0,0,0,.35)}
 
 /* sert à mesurer les titres sans toucher à ceux qu'on voit ; jamais animé,
    sinon on lirait la valeur d'avant */
@@ -300,128 +328,128 @@ button{font:inherit;color:inherit}
         <!-- auto:projets -->
         <li class="w" data-cat="jeu" style="--h:14">
           <a href="/motopeter/">
+            <img class="w-img" src="/vignettes/motopeter.webp" alt="" width="1200" height="750" loading="lazy" decoding="async">
             <span class="w-t"><span>Motopeter</span></span>
             <span class="w-m">Claude Fable 5.1</span>
             <span class="w-d">Trial 2D à moteur physique : inertie, suspensions, figures et nitro. Au clavier comme au doigt, sur plusieurs terrains.</span>
             <span class="w-n" aria-hidden="true">01</span>
-            <span class="w-g" aria-hidden="true">▲</span>
           </a>
         </li>
         <li class="w" data-cat="jeu" style="--h:355">
           <a href="/berceuse/">
+            <img class="w-img" src="/vignettes/berceuse.webp" alt="" width="1200" height="750" loading="lazy" decoding="async">
             <span class="w-t"><span>Berceuse</span></span>
             <span class="w-m">Claude Opus 5.5</span>
             <span class="w-d">Horreur en 3D à la première personne : retrouver les quatre cylindres d'une boîte à musique dans une maison où Madame Vey n'avance que quand on ne la regarde pas… ou quand on <em>cligne des yeux</em>.</span>
             <span class="w-n" aria-hidden="true">02</span>
-            <span class="w-g" aria-hidden="true">◉</span>
           </a>
         </li>
         <li class="w" data-cat="jeu" style="--h:18">
           <a href="/baston/">
+            <img class="w-img" src="/vignettes/baston.webp" alt="" width="1200" height="750" loading="lazy" decoding="async">
             <span class="w-t"><span>World Baston '96</span></span>
             <span class="w-m">Claude Opus 5.5</span>
             <span class="w-d">Jeu de baston 2D façon arcade 1996 : dix combattants du monde entier et un boss, coups spéciaux et supers, campagne avec un avion qui survole la <em>mappemonde</em> entre chaque combat, duel à deux, mode entraînement, compatible manette.</span>
             <span class="w-n" aria-hidden="true">03</span>
-            <span class="w-g" aria-hidden="true">✊</span>
           </a>
         </li>
         <li class="w" data-cat="jeu" style="--h:350">
           <a href="/beatemall/">
+            <img class="w-img" src="/vignettes/beatemall.webp" alt="" width="1200" height="750" loading="lazy" decoding="async">
             <span class="w-t"><span>Beat 'em All</span></span>
             <span class="w-m">Claude Opus 5.5</span>
             <span class="w-d">Beat'em up à défilement horizontal dans une ville rongée par le crime, 1989 : trois héros (catcheur, combattant de rue, ninja), prises, suplex, armes à ramasser, cinq niveaux dont un <em>métro en marche</em> et cinq boss. En solo ou à deux sur le même clavier.</span>
             <span class="w-n" aria-hidden="true">04</span>
-            <span class="w-g" aria-hidden="true">✹</span>
           </a>
         </li>
         <li class="w" data-cat="divers" style="--h:355">
           <a href="/clip-pc98/">
+            <img class="w-img" src="/vignettes/clip-pc98.webp" alt="" width="1200" height="750" loading="lazy" decoding="async">
             <span class="w-t"><span>反逆のアイ — clip PC-98</span></span>
             <span class="w-m">Claude Opus 5.5</span>
             <span class="w-d">Clip musical façon AMV dans le style des jeux <em>PC-98</em> : Hikari mène la révolte contre ORACLE, l'IA qui surveille Néo-Tokyo. Image en 16 couleurs, musique en synthèse FM, tout généré par du code.</span>
             <span class="w-n" aria-hidden="true">05</span>
-            <span class="w-g" aria-hidden="true">◉</span>
           </a>
         </li>
         <li class="w" data-cat="jeu" style="--h:188">
           <a href="/rewind-raid/">
+            <img class="w-img" src="/vignettes/rewind-raid.webp" alt="" width="1200" height="750" loading="lazy" decoding="async">
             <span class="w-t"><span>Rewind Raid</span></span>
             <span class="w-m">Claude Opus 5.5</span>
             <span class="w-d">Shoot'em up façon arcade 1996 : cinq niveaux, cinq boss, trois armes. Le twist : une cassette qui <em>rembobine le monde</em>, et les balles qui retournent blesser ceux qui les ont tirées.</span>
             <span class="w-n" aria-hidden="true">06</span>
-            <span class="w-g" aria-hidden="true">◀◀</span>
           </a>
         </li>
         <li class="w" data-cat="jeu" style="--h:320">
           <a href="/qwemup/">
+            <img class="w-img" src="/vignettes/qwemup.webp" alt="" width="1200" height="750" loading="lazy" decoding="async">
             <span class="w-t"><span>Neon Blaster</span></span>
             <span class="w-m">Qwen 3.6 local</span>
             <span class="w-d">Shoot'em up vertical façon arcade, tenu dans un seul fichier HTML : graphismes, bruitages <em>et</em> musique générés à la volée. La version d'origine, écrite par Qwen 3.6 en local.</span>
             <span class="w-n" aria-hidden="true">07</span>
-            <span class="w-g" aria-hidden="true">✦</span>
           </a>
         </li>
         <li class="w" data-cat="jeu" style="--h:25">
           <a href="/qwemup/clauded/">
+            <img class="w-img" src="/vignettes/qwemup-clauded.webp" alt="" width="1200" height="750" loading="lazy" decoding="async">
             <span class="w-t"><span>Neon Blaster</span></span>
             <span class="w-m">Claude Fable 5.1</span>
             <span class="w-d">Le même cahier des charges, repris de zéro par Claude Fable 5.1 : un seul fichier HTML, zéro dépendance. À comparer avec les deux autres.</span>
             <span class="w-n" aria-hidden="true">08</span>
-            <span class="w-g" aria-hidden="true">✧</span>
           </a>
         </li>
         <li class="w" data-cat="jeu" style="--h:210">
           <a href="/qwemup/gemma/">
+            <img class="w-img" src="/vignettes/qwemup-gemma.webp" alt="" width="1200" height="750" loading="lazy" decoding="async">
             <span class="w-t"><span>Neon Blaster</span></span>
             <span class="w-m">Gemma local</span>
             <span class="w-d">La troisième lecture du même énoncé, par Gemma en local. Trois modèles, trois shoot'em up, une seule page chacun.</span>
             <span class="w-n" aria-hidden="true">09</span>
-            <span class="w-g" aria-hidden="true">✷</span>
           </a>
         </li>
         <li class="w" data-cat="jeu" style="--h:195">
           <a href="/ds4shmup/">
+            <img class="w-img" src="/vignettes/ds4shmup.webp" alt="" width="1200" height="750" loading="lazy" decoding="async">
             <span class="w-t"><span>Nebula Strike</span></span>
             <span class="w-m">Deepseek 4.0 local</span>
             <span class="w-d">L'autre shoot'em up de la maison : vagues d'ennemis, boss et score, jouable au clavier ou en glissant le doigt.</span>
             <span class="w-n" aria-hidden="true">10</span>
-            <span class="w-g" aria-hidden="true">◈</span>
           </a>
         </li>
         <li class="w" data-cat="jeu" style="--h:265">
           <a href="/tetris/">
+            <img class="w-img" src="/vignettes/tetris.webp" alt="" width="1200" height="750" loading="lazy" decoding="async">
             <span class="w-t"><span>Tetris adaptatif</span></span>
             <span class="w-m">GPT-4</span>
             <span class="w-d">Le classique, redimensionné à la taille de l'écran, avec des commandes tactiles pour jouer d'une main dans le métro.</span>
             <span class="w-n" aria-hidden="true">11</span>
-            <span class="w-g" aria-hidden="true">▩</span>
           </a>
         </li>
         <li class="w" data-cat="jeu" style="--h:285">
           <a href="/martingale/">
+            <img class="w-img" src="/vignettes/martingale.webp" alt="" width="1200" height="750" loading="lazy" decoding="async">
             <span class="w-t"><span>Martingale</span></span>
             <span class="w-m">Claude Opus 5</span>
             <span class="w-d">Pile ou face en boucle : on double la mise après chaque perte jusqu'à se refaire… ou tout perdre. Courbe du capital en direct, pièce qui claque, faillite <em>garantie</em>.</span>
             <span class="w-n" aria-hidden="true">12</span>
-            <span class="w-g" aria-hidden="true">⊚</span>
           </a>
         </li>
         <li class="w" data-cat="outil" style="--h:48">
           <a href="/jobs/">
+            <img class="w-img" src="/vignettes/jobs.webp" alt="" width="1200" height="750" loading="lazy" decoding="async">
             <span class="w-t"><span>Atlas des métiers</span></span>
             <span class="w-m">Claude Opus 5</span>
             <span class="w-d">Une cartographie des métiers à parcourir, compilée en une seule page à partir de ses données sources.</span>
             <span class="w-n" aria-hidden="true">13</span>
-            <span class="w-g" aria-hidden="true">⬡</span>
           </a>
         </li>
         <li class="w" data-cat="vitrine" style="--h:60">
           <a href="/ai/">
+            <img class="w-img" src="/vignettes/ai.webp" alt="" width="1200" height="750" loading="lazy" decoding="async">
             <span class="w-t"><span>It's over</span></span>
             <span class="w-m">GPT-3.5</span>
             <span class="w-d">Une page, une bannière qui défile, une androïde. Le petit tract du studio sur l'intelligence artificielle.</span>
             <span class="w-n" aria-hidden="true">14</span>
-            <span class="w-g" aria-hidden="true">✶</span>
           </a>
         </li>
         <!-- /auto:projets -->
@@ -450,7 +478,7 @@ button{font:inherit;color:inherit}
   <p class="cont-l mono"><span>© <span id="y">2026</span> 9mp.org</span><span>Studio internet</span></p>
 </footer>
 
-<div class="wipe" aria-hidden="true"><span class="wipe-g"></span><span class="wipe-t"></span></div>
+<div class="wipe" aria-hidden="true"><img class="wipe-img" alt=""><span class="wipe-t"></span></div>
 
 <script>
 (() => {
@@ -491,7 +519,9 @@ button{font:inherit;color:inherit}
       href: q("a").getAttribute("href"),
       title: q(".w-t").textContent.trim(),
       model: q(".w-m") ? q(".w-m").textContent.trim() : "",
-      glyph: (q(".w-g") && q(".w-g").textContent.trim()) || "✦",
+      img: q(".w-img"),
+      src: q(".w-img") ? q(".w-img").getAttribute("src") : null,
+      top: 0, h: 1, par: null,
       num: q(".w-n") ? q(".w-n").textContent.trim() : String(i + 1).padStart(2, "0"),
       hue: parseFloat(li.style.getPropertyValue("--h")) || 0,
       game: li.dataset.cat === "jeu",
@@ -709,7 +739,7 @@ button{font:inherit;color:inherit}
     tapes.forEach((t) => {
       const set = make("div", "set");
       if (t.dir < 0) {
-        rows.forEach((r) => set.append(make("span", "", r.title), make("i", "", r.glyph)));
+        rows.forEach((r) => set.append(make("span", "", r.title), make("b")));
       } else {
         set.append(make("em", "", "écrit par"));
         models.forEach((m) => set.append(make("span", "", m), make("b")));
@@ -799,13 +829,19 @@ button{font:inherit;color:inherit}
       const p = make("div", "poster");
       p.style.setProperty("--h", r.hue);
       p.style.setProperty("--pfs", Math.min(15, 86 * titleScale(r.title, 150)).toFixed(2) + "cqw");
+      if (r.src) {
+        const img = make("img", "p-img");
+        img.alt = "";
+        img.decoding = "async";
+        img.dataset.src = r.src;                  // chargée quand l'affiche approche
+        img.addEventListener("load", () => img.classList.add("ld"), { once: true });
+        p.append(img);
+      }
       const top = make("span", "p-top");
       top.append(make("span", "", "N°" + r.num), make("span", "", "9MP"));
-      const g = make("span", "p-g");
-      g.append(make("span", "", r.glyph));
       const m = make("span", "p-m");
       m.append(make("span", "", r.model));
-      p.append(top, g, make("span", "p-t", r.title), m);
+      p.append(make("span", "p-shade"), top, make("span", "p-t", r.title), m);
       return p;
     });
     ptrack.replaceChildren(...posters);
@@ -840,6 +876,11 @@ button{font:inherit;color:inherit}
     ptrack.style.transitionDuration = reduce ? "0s" : (.7 + Math.min(dist, 10) * .05).toFixed(2) + "s";
     ptrack.style.transform = `translate3d(0,${-100 * i}%,0)`;
     posters.forEach((p, k) => p.classList.toggle("on", k === i));
+    // l'image de l'affiche et de ses voisines, seulement si l'affiche se voit
+    for (const k of matchMedia("(min-width: 960px)").matches ? [i, i + 1, i - 1] : []) {
+      const im = posters[k] && posters[k].querySelector(".p-img");
+      if (im && !im.src) im.src = im.dataset.src;
+    }
     pwin.href = pgo.href = r.href;
     pwin.rel = pgo.rel = r.a.rel;
     pgoLabel.textContent = r.game ? "Jouer" : "Ouvrir";
@@ -896,18 +937,18 @@ button{font:inherit;color:inherit}
 
   // ------------------------------------------------------ passage de rideau --
   // Un projet s'ouvre derrière un rideau à sa couleur, titre en grand.
-  const wipe = $(".wipe"), wipeT = $(".wipe-t"), wipeG = $(".wipe-g");
+  const wipe = $(".wipe"), wipeT = $(".wipe-t"), wipeI = $(".wipe-img");
 
   function paintWipe(r, land) {
     wipe.style.setProperty("--wh", r.hue);
     wipeT.style.fontSize = Math.min(150, .88 * root.clientWidth * titleScale(r.title, 150)).toFixed(1) + "px";
     wipeT.textContent = r.title;
-    wipeG.textContent = r.glyph;
+    if (r.src) wipeI.src = r.src; else wipeI.removeAttribute("src");
     if (!land) return;
     wipeT.animate([{ transform: "scale(1.14)", fontStretch: "70%" }, { transform: "none", fontStretch: "150%" }],
       { duration: 560, easing: "cubic-bezier(.2,.9,.3,1)" });
-    wipeG.animate([{ transform: "scale(.4) rotate(-40deg)" }, { transform: "none" }],
-      { duration: 640, easing: "cubic-bezier(.34,1.56,.64,1)" });
+    wipeI.animate([{ transform: "scale(1.3)" }, { transform: "scale(1.05)" }],
+      { duration: 900, easing: "cubic-bezier(.16,1,.3,1)", fill: "forwards" });
   }
   function openWipe(r) {
     paintWipe(r, false);
@@ -916,8 +957,8 @@ button{font:inherit;color:inherit}
       { duration: 560, easing: "cubic-bezier(.76,0,.24,1)", fill: "forwards" });
     wipeT.animate([{ opacity: 0, transform: "translateY(40%)", fontStretch: "50%" }, { opacity: 1, transform: "none", fontStretch: "150%" }],
       { duration: 720, delay: 200, easing: "cubic-bezier(.16,1,.3,1)", fill: "backwards" });
-    wipeG.animate([{ opacity: 0, transform: "scale(.3) rotate(-30deg)" }, { opacity: 1, transform: "none" }],
-      { duration: 720, delay: 150, easing: "cubic-bezier(.34,1.56,.64,1)", fill: "backwards" });
+    wipeI.animate([{ opacity: 0, transform: "scale(1.35)" }, { opacity: .7, transform: "scale(1.05)" }],
+      { duration: 1000, delay: 120, easing: "cubic-bezier(.16,1,.3,1)", fill: "both" });
   }
   function closeWipe() {
     wipe.getAnimations({ subtree: true }).forEach((a) => a.cancel());
@@ -942,6 +983,7 @@ button{font:inherit;color:inherit}
     if (!rows.length) return;
     const pick = rows[(Math.random() * rows.length) | 0];
     if (reduce) { location.href = pick.href; return; }
+    rows.forEach((r) => { if (r.src) new Image().src = r.src; });
     let idx = (Math.random() * rows.length) | 0, t = 160;
     openWipe(rows[idx]);
     for (let s = 0; s < 12; s++) {
@@ -978,6 +1020,27 @@ button{font:inherit;color:inherit}
   let replay = false;
   $(".replay").addEventListener("click", () => { replay = !reduce; });
 
+  // Parallaxe des vignettes : l'image glisse un peu moins vite que sa carte.
+  // Les positions sont relevées une fois (et à chaque mise en page), jamais
+  // pendant la boucle.
+  function measureRows() {
+    rows.forEach((r) => {
+      const b = r.li.getBoundingClientRect();
+      r.top = b.top + scrollY;
+      r.h = b.height;
+    });
+  }
+  function drawParallax(sy) {
+    if (reduce) return;
+    const vh = innerHeight, amp = works.classList.contains("paneled") && innerWidth >= 960 ? 9 : 6;
+    for (const r of rows) {
+      if (!r.img || r.top + r.h < sy - 50 || r.top > sy + vh + 50) continue;
+      const p = clamp((r.top + r.h / 2 - sy - vh / 2) / vh, -1, 1);
+      const t = Math.round(p * -amp * 20) / 20;
+      if (t !== r.par) { r.img.style.translate = `0 ${t}%`; r.par = t; }
+    }
+  }
+
   // ------------------------------------------------------------- une boucle --
   let lastT = 0, psy = scrollY, vel = 0, sdir = 1, scrim = -1;
   function frame(now) {
@@ -1001,6 +1064,7 @@ button{font:inherit;color:inherit}
     if (s !== scrim) { hud.style.setProperty("--scrim", s.toFixed(3)); scrim = s; }
     drawTapes(dt, vel, sdir);
     drawManif(sy);
+    drawParallax(sy);
     if (replay && sy < 2) { replay = false; intro(); }
     requestAnimationFrame(frame);
   }
@@ -1013,6 +1077,7 @@ button{font:inherit;color:inherit}
     fitTitles();
     fitHeads();
     measureManif();
+    measureRows();
   }
 
   // ------------------------------------------------------------- démarrage --
@@ -1043,6 +1108,12 @@ button{font:inherit;color:inherit}
     }
     fitHeads();
     measureManif();
+    measureRows();
+    rows.forEach((r) => {
+      if (!r.img) return;
+      if (r.img.complete && r.img.naturalWidth) r.img.classList.add("ld");
+      else r.img.addEventListener("load", () => r.img.classList.add("ld"), { once: true });
+    });
 
     if (!reduce && "IntersectionObserver" in window) {
       root.classList.add("io");

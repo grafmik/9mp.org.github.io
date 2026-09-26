@@ -8,11 +8,14 @@ Le site est **assemblé en CI**, pas stocké tel quel. Ce repo contient :
   `guillaumesync/`, `tetris/`, `worldtimesync/`, `CNAME`, `robots.txt` ;
 - `fonts/` : les polices de la page d'accueil, auto-hébergées (licences dans
   `fonts/OFL.txt`) ;
+- `vignettes/` : une image par projet, prise dans le projet lui-même, en fond
+  de sa carte sur la page d'accueil ;
 - `sites.json` : la carte des projets qui vivent dans **leur propre repo** et
   sont clonés/buildés au moment de la publication ;
 - `portfolio.json` : ce que la page d'accueil raconte de chaque projet ;
 - `tools/build-site.sh` : l'assemblage (utilisable en local) ;
 - `tools/render-home.mjs` : la liste du portfolio, régénérée à la fin du build ;
+- `tools/capture-vignettes.mjs` : les photos des projets pour `vignettes/` ;
 - `.github/workflows/build.yml` : build + déploiement Pages.
 
 La page d'accueil ne se tient pas à jour à la main : à la fin du build, le
@@ -51,12 +54,27 @@ SITES_TOKEN=<pat_lecture> DISPATCH_TOKEN=<pat_ecriture> tools/setup-sources.sh
 et vérifie que Pages est bien en mode « GitHub Actions ».
 
 Sa ligne sur la page d'accueil apparaîtra toute seule, avec son affiche. Pour
-lui écrire une vraie présentation (titre, texte, teinte, glyphe), ajoute une entrée à
+lui écrire une vraie présentation (titre, texte, teinte), ajoute une entrée à
 `portfolio.json` — l'ordre des clés y est l'ordre d'affichage — puis :
 
 ```sh
 tools/render-home.mjs        # met à jour l'index.html versionné
 ```
+
+Sa vignette est `vignettes/<chemin>.webp` (les `/` du chemin deviennent des
+`-`) : une image **sans texte**, puisque le titre est imprimé par-dessus. Le
+plus simple est de la photographier dans le projet publié :
+
+```sh
+npm i --no-save playwright           # une fois ; utilise le Chrome installé
+tools/capture-vignettes.mjs mon-projet
+tools/render-home.mjs
+```
+
+Chaque projet y a sa recette (passer l'écran titre, cacher le HUD, attendre
+l'action, cadrer) ; sans recette, le projet est photographié tel qu'il
+s'ouvre, texte masqué. Une image posée à la main fait aussi bien l'affaire.
+Sans vignette, la carte reste à la couleur du projet et le build le signale.
 
 Si un projet existe en plusieurs versions publiées dans des sous-dossiers
 (qwemup, écrit par trois modèles), déclare-les avec
