@@ -164,7 +164,7 @@ const RECETTES = {
     play: (h) => h.shmup(() => h.page.mouse.click(640, 400), () => enemies.some((e) => e.w > 50) && enemyBullets.length >= 10),
     element: "canvas", crop: [0, 0, 0.9, 0.5], focus: bossFocus,
   },
-  ds4shmup: {
+  "qwemup/deepseek4": {
     dpr: 2, viewport: { width: 1280, height: 800 },
     async play(h) {
       await h.shmup(async () => { await h.hold("Enter"); await h.page.mouse.click(640, 400); },

@@ -112,15 +112,6 @@ const fiches = paths.flatMap((path) => {
   }));
 });
 
-// Une fiche qui déclare "apres" se range juste après la carte de ce chemin
-// (utile pour intercaler une version entre deux projets distincts).
-for (const f of fiches.filter((f) => f.meta?.apres)) {
-  const cible = fiches.findIndex((g) => g.path === f.meta.apres);
-  if (cible === -1) { console.warn(`  ! ${f.path} : "apres" inconnu (${f.meta.apres})`); continue; }
-  fiches.splice(fiches.indexOf(f), 1);
-  fiches.splice(fiches.findIndex((g) => g.path === f.meta.apres) + 1, 0, f);
-}
-
 const projets = fiches.map(({ path, racine, meta }, i) => {
   if (!meta) {
     console.warn(`  ! ${path} n'a pas de fiche dans portfolio.json (carte par défaut)`);

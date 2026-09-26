@@ -47,13 +47,6 @@
       "exclude": ["README.md"]
     },
     {
-      "path": "ds4shmup",
-      "repo": "grafmik/ds4shmup",
-      "ref": "main",
-      "build": "node tools/build.js",
-      "exclude": ["test", "tools"]
-    },
-    {
       "path": "flat",
       "repo": "grafmik/flat",
       "ref": "main",
@@ -85,7 +78,8 @@
       "path": "qwemup",
       "repo": "grafmik/qwemup",
       "ref": "main",
-      "exclude": ["README.md"]
+      "build": "node deepseek4/tools/build.js",
+      "exclude": ["README.md", "deepseek4/test", "deepseek4/tools"]
     },
     {
       "path": "rewind-raid",
