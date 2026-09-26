@@ -19,6 +19,8 @@
     "          { chemin, modele } — une ligne par entrée. chemin est relatif au dossier du",
     "          projet (\"\" = sa racine) ; titre/cat/hue/texte peuvent",
     "          y être redéclarés pour surcharger ceux de la fiche",
+    "  apres   chemin d'une autre carte : celle-ci se range juste après",
+    "          (ex. intercaler une version entre deux projets)",
     "  masque  true : le projet reste publié et accessible, mais ne s'affiche",
     "          pas dans le portfolio (le reste de la fiche est conservé, il",
     "          suffit de repasser à false pour le remettre en vitrine)",
@@ -94,7 +96,7 @@
           "texte": "Shoot'em up vertical façon arcade, tenu dans un seul fichier HTML : graphismes, bruitages *et* musique générés à la volée. La version d'origine, écrite par Qwen 3.6 en local." },
         { "chemin": "gemma", "titre": "Nebula Strike 2", "modele": "Gemma local", "hue": 210,
           "texte": "La deuxième lecture du même énoncé, par Gemma en local. Quatre modèles, quatre shoot'em up, une seule page chacun." },
-        { "chemin": "clauded", "titre": "Nebula Strike 4", "modele": "Claude Fable 5.1", "hue": 25,
+        { "chemin": "clauded", "titre": "Nebula Strike 4", "apres": "ds4shmup", "modele": "Claude Fable 5.1", "hue": 25,
           "texte": "Le même cahier des charges, repris de zéro par Claude Fable 5.1 : un seul fichier HTML, zéro dépendance. À comparer avec les trois autres." }
       ]
     },
