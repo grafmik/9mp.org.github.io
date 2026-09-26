@@ -167,6 +167,13 @@
       "hue": 38,
       "texte": "Vitrine d'agence immobilière de luxe à Hua Hin : biens, quartiers, prise de contact. Maquette de démonstration, contenu fictif."
     },
+    "pizzeria105": {
+      "masque": true,
+      "titre": "Le 105 — Pizzas à emporter",
+      "cat": "vitrine",
+      "hue": 10,
+      "texte": "Site vitrine d'un kiosque-pizzeria du Sécheron, à Genève : carte des pizzas, épicerie de quartier, horaires, motion design."
+    },
     "flat": {
       "masque": true,
       "titre": "Manuel de l'appartement",

@@ -21,3 +21,7 @@ Disallow: /flat/
 # lu par ceux à qui on donne le lien, pas pour être référencé. Même traitement
 # que ci-dessus (robots.txt + meta noindex sur chaque page).
 Disallow: /wallet-compare/
+
+# Site vitrine d'un commerce en pré-production : pas encore référencé, il le
+# sera sur son propre domaine. Même traitement (robots.txt + meta noindex).
+Disallow: /pizzeria105/

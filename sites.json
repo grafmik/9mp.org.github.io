@@ -75,6 +75,12 @@
       "as": "index.html"
     },
     {
+      "path": "pizzeria105",
+      "repo": "grafmik/pizzeria105",
+      "ref": "main",
+      "exclude": ["README.md", "prompts"]
+    },
+    {
       "path": "qwemup",
       "repo": "grafmik/qwemup",
       "ref": "main",
