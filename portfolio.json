@@ -17,7 +17,7 @@
     "          et défile dans le bandeau « écrit par » (optionnel)",
     "  versions  un même projet écrit plusieurs fois : liste de",
     "          { chemin, modele } — une ligne par entrée. chemin est relatif au dossier du",
-    "          projet (\"\" = sa racine) ; cat/hue/texte peuvent",
+    "          projet (\"\" = sa racine) ; titre/cat/hue/texte peuvent",
     "          y être redéclarés pour surcharger ceux de la fiche",
     "  masque  true : le projet reste publié et accessible, mais ne s'affiche",
     "          pas dans le portfolio (le reste de la fiche est conservé, il",
@@ -85,25 +85,25 @@
       "texte": "Shoot'em up façon arcade 1996 : cinq niveaux, cinq boss, trois armes. Le twist : une cassette qui *rembobine le monde*, et les balles qui retournent blesser ceux qui les ont tirées."
     },
     "qwemup": {
-      "titre": "Neon Blaster",
+      "titre": "Nebula Strike",
       "cat": "jeu",
       "hue": 320,
       "texte": "Shoot'em up vertical façon arcade, tenu dans un seul fichier HTML : graphismes, bruitages *et* musique sont générés à la volée.",
       "versions": [
-        { "chemin": "", "modele": "Qwen 3.6 local", "hue": 320,
+        { "chemin": "", "titre": "Nebula Strike", "modele": "Qwen 3.6 local", "hue": 320,
           "texte": "Shoot'em up vertical façon arcade, tenu dans un seul fichier HTML : graphismes, bruitages *et* musique générés à la volée. La version d'origine, écrite par Qwen 3.6 en local." },
-        { "chemin": "clauded", "modele": "Claude Fable 5.1", "hue": 25,
-          "texte": "Le même cahier des charges, repris de zéro par Claude Fable 5.1 : un seul fichier HTML, zéro dépendance. À comparer avec les deux autres." },
-        { "chemin": "gemma", "modele": "Gemma local", "hue": 210,
-          "texte": "La troisième lecture du même énoncé, par Gemma en local. Trois modèles, trois shoot'em up, une seule page chacun." }
+        { "chemin": "gemma", "titre": "Nebula Strike 2", "modele": "Gemma local", "hue": 210,
+          "texte": "La deuxième lecture du même énoncé, par Gemma en local. Quatre modèles, quatre shoot'em up, une seule page chacun." },
+        { "chemin": "clauded", "titre": "Nebula Strike 4", "modele": "Claude Fable 5.1", "hue": 25,
+          "texte": "Le même cahier des charges, repris de zéro par Claude Fable 5.1 : un seul fichier HTML, zéro dépendance. À comparer avec les trois autres." }
       ]
     },
     "ds4shmup": {
-      "titre": "Nebula Strike",
+      "titre": "Nebula Strike 3",
       "modele": "Deepseek 4.0 local",
       "cat": "jeu",
       "hue": 195,
-      "texte": "L'autre shoot'em up de la maison : vagues d'ennemis, boss et score, jouable au clavier ou en glissant le doigt."
+      "texte": "Le même énoncé vu par Deepseek 4.0 en local : vagues d'ennemis, boss et score, jouable au clavier ou en glissant le doigt."
     },
     "tetris": {
       "titre": "Tetris adaptatif",

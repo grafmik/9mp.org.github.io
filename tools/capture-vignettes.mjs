@@ -51,7 +51,7 @@ const unlockMoto = () => localStorage.setItem("motopeter.save.v1", JSON.stringif
   lv: { l1: { done: true }, l2: { done: true }, l3: { done: true }, l4: { done: true }, l5: { done: true } }, mute: true,
 }));
 
-// Neon Blaster (Qwen, Gemma) : le boss est l'ennemi le plus large ; on le
+// Nebula Strike 1 et 2 (Qwen, Gemma) : le boss est l'ennemi le plus large ; on le
 // cadre en haut de l'image, ses tirs en dessous
 const bossFocus = () => {
   const c = document.querySelector("canvas");
