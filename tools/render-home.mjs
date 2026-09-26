@@ -124,17 +124,17 @@ const projets = fiches.map(({ path, racine, meta }, i) => {
 
 // ------------------------------------------------------------------- rendu --
 
-const carte = (p) => `      <article class="card rv" data-cat="${p.cat}" style="--h:${p.hue}">
-        <a href="/${p.path}/"${p.prive ? ' rel="nofollow"' : ""}>
-          <div class="sigil" aria-hidden="true">${esc(p.glyphe)}</div>
-          <div>
-            <div class="c-meta"><span class="mono num">${p.num}</span></div>
-            <h3>${esc(p.titre)}${p.modele ? `<span class="modele mono">${esc(p.modele)}</span>` : ""}</h3>
-            <p>${rich(p.texte)}</p>
-          </div>
-          <span class="arrow" aria-hidden="true">↗</span>
-        </a>
-      </article>`;
+// Une ligne de l'écran de sélection. Le script de la page y lit aussi de quoi
+// construire l'affiche du projet (glyphe, teinte, modèle, texte).
+const carte = (p) => `        <li class="w" data-cat="${p.cat}" style="--h:${p.hue}">
+          <a href="/${p.path}/"${p.prive ? ' rel="nofollow"' : ""}>
+            <span class="w-t"><span>${esc(p.titre)}</span></span>${p.modele ? `
+            <span class="w-m">${esc(p.modele)}</span>` : ""}
+            <span class="w-d">${rich(p.texte)}</span>
+            <span class="w-n" aria-hidden="true">${p.num}</span>
+            <span class="w-g" aria-hidden="true">${esc(p.glyphe)}</span>
+          </a>
+        </li>`;
 
 // ----------------------------------------------------------- réécriture --
 
@@ -152,8 +152,8 @@ const remplace = (nom, contenu) => {
     `${indent}${ouvrante}\n${contenu}\n${indent}<!-- /auto:${nom} -->`);
 };
 
-remplace("projets", projets.map(carte).join("\n\n"));
-html = html.replace(/(<b data-auto="total">)[^<]*(<\/b>)/, `$1${projets.length}$2`);
+remplace("projets", projets.map(carte).join("\n"));
+html = html.replace(/(<b data-auto="total">)[^<]*(<\/b>)/g, `$1${projets.length}$2`);
 
 writeFileSync(page, html);
 console.log(`✓ ${page} — ${projets.length} projets`);
