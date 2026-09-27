@@ -174,6 +174,13 @@
       "hue": 10,
       "texte": "Site vitrine d'un kiosque-pizzeria du Sécheron, à Genève : carte des pizzas, épicerie de quartier, horaires, motion design."
     },
+    "menage": {
+      "masque": true,
+      "titre": "Ménage de l'appartement",
+      "cat": "vitrine",
+      "hue": 150,
+      "texte": "Checklist et notice pour chaque séance de ménage de l'appartement : tâches à cocher, réglages des machines, récapitulatif des dépenses."
+    },
     "flat": {
       "masque": true,
       "titre": "Manuel de l'appartement",

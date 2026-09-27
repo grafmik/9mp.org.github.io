@@ -67,6 +67,12 @@
       "exclude": ["README.md"]
     },
     {
+      "path": "menage",
+      "repo": "grafmik/menage",
+      "ref": "main",
+      "exclude": ["README.md"]
+    },
+    {
       "path": "motopeter",
       "repo": "grafmik/motopeter",
       "ref": "main",

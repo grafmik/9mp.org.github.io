@@ -25,3 +25,7 @@ Disallow: /wallet-compare/
 # Site vitrine d'un commerce en pré-production : pas encore référencé, il le
 # sera sur son propre domaine. Même traitement (robots.txt + meta noindex).
 Disallow: /pizzeria105/
+
+# Checklist de ménage de l'appartement : destinée à la personne qui fait le
+# ménage, pas au grand public. Même traitement (robots.txt + meta noindex).
+Disallow: /menage/
