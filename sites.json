@@ -47,8 +47,8 @@
       "exclude": ["README.md"]
     },
     {
-      "path": "doubledette",
-      "repo": "grafmik/doubledette",
+      "path": "double-dette",
+      "repo": "grafmik/double-dette",
       "ref": "main",
       "exclude": ["README.md"]
     },
