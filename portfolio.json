@@ -100,10 +100,6 @@
           "texte": "Le même cahier des charges, repris de zéro par Claude Fable 5.1 : un seul fichier HTML, zéro dépendance. À comparer avec les trois autres." }
       ]
     },
-    "ds4shmup": {
-      "_comment": "Ancienne adresse de Nebula Strike 3, redirige vers qwemup/deepseek4.",
-      "masque": true
-    },
     "double-dette": {
       "titre": "Double Dette",
       "cat": "jeu",
