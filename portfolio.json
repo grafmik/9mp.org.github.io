@@ -104,6 +104,12 @@
       "_comment": "Ancienne adresse de Nebula Strike 3, redirige vers qwemup/deepseek4.",
       "masque": true
     },
+    "doubledette": {
+      "titre": "Double Dette",
+      "cat": "jeu",
+      "hue": 230,
+      "texte": "Jeu d'arcade en pixel art, satire de la dette publique française : affronter *La Dette* avant qu'elle ne se refinance."
+    },
     "tetris": {
       "titre": "Tetris adaptatif",
       "modele": "GPT-4",
