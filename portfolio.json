@@ -100,12 +100,6 @@
           "texte": "Le même cahier des charges, repris de zéro par Claude Fable 5.1 : un seul fichier HTML, zéro dépendance. À comparer avec les trois autres." }
       ]
     },
-    "double-dette": {
-      "titre": "Double Dette",
-      "cat": "jeu",
-      "hue": 230,
-      "texte": "Jeu d'arcade en pixel art, satire de la dette publique française : affronter *La Dette* avant qu'elle ne se refinance."
-    },
     "tetris": {
       "titre": "Tetris adaptatif",
       "modele": "GPT-4",

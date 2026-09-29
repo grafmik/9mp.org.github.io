@@ -47,12 +47,6 @@
       "exclude": ["README.md"]
     },
     {
-      "path": "double-dette",
-      "repo": "grafmik/double-dette",
-      "ref": "main",
-      "exclude": ["README.md"]
-    },
-    {
       "path": "flat",
       "repo": "grafmik/flat",
       "ref": "main",
