@@ -100,6 +100,12 @@
       "exclude": ["README.md"]
     },
     {
+      "path": "ultraroad",
+      "repo": "grafmik/ultraroad",
+      "ref": "main",
+      "exclude": ["README.md", "package.json", "tools"]
+    },
+    {
       "path": "wallet-compare",
       "repo": "grafmik/wallet-compare",
       "ref": "main",

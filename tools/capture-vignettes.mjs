@@ -118,6 +118,17 @@ const RECETTES = {
     crop: [0, 0.25, 1, 0.75],
   },
 
+  ultraroad: {
+    async play(h) {
+      // course de démonstration en pilote automatique, caméra poursuite dans le canyon
+      await h.page.goto(h.page.url().split("?")[0] + "?track=canyon&cam=chase&autopilot", { waitUntil: "load" });
+      await h.until(() => window.__ultra?.race?.state === "racing" && window.__ultra.race.time > 3, 120000, () => h.wait(500));
+      await h.onlyMedia();
+      await h.wait(150);
+    },
+    crop: [0.04, 0.12, 0.92, 0.8],
+  },
+
   "clip-pc98": {
     dpr: 2,
     async play(h) {

@@ -70,6 +70,13 @@
       "hue": 350,
       "texte": "Beat'em up à défilement horizontal dans une ville rongée par le crime, 1989 : trois héros (catcheur, combattant de rue, ninja), prises, suplex, armes à ramasser, cinq niveaux dont un *métro en marche* et cinq boss. En solo ou à deux sur le même clavier."
     },
+    "ultraroad": {
+      "titre": "UltraRoad",
+      "modele": "Claude Opus 5.5",
+      "cat": "jeu",
+      "hue": 24,
+      "texte": "Course tout-terrain arcade en 3D, hommage à *Super Off Road* : gros camions, sauts, boue et nitro, huit circuits et un championnat contre le Boss avec garage d'améliorations. Jusqu'à quatre joueurs sur le même écran, au clavier, à la manette ou au doigt."
+    },
     "clip-pc98": {
       "titre": "反逆のアイ — clip PC-98",
       "modele": "Claude Opus 5.5",
