@@ -88,7 +88,7 @@
     },
     {
       "path": "qwemup",
-      "repo": "grafmik/qwemup",
+      "repo": "grafmik/shmups",
       "ref": "main",
       "build": "node deepseek4/tools/build.js",
       "exclude": ["README.md", "deepseek4/test", "deepseek4/tools"]

@@ -170,6 +170,11 @@ const RECETTES = {
     play: (h) => h.shmup(() => h.hold("Space"), () => foes.length + eb.length >= 18),
     element: "canvas", crop: [0, 0.15, 1, 0.6],
   },
+  "qwemup/opus5.5": {
+    dpr: 2, viewport: { width: 1280, height: 800 },
+    play: (h) => h.shmup(() => h.hold("Space"), () => foes.length + eb.length >= 18),
+    element: "canvas", crop: [0, 0.15, 1, 0.6],
+  },
   "qwemup/gemma": {
     dpr: 2, viewport: { width: 1280, height: 800 },
     play: (h) => h.shmup(() => h.page.mouse.click(640, 400), () => enemies.some((e) => e.w > 50) && enemyBullets.length >= 10),

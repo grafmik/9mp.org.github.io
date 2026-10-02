@@ -108,11 +108,13 @@
         { "chemin": "", "titre": "Nebula Strike", "modele": "Qwen 3.6 local", "hue": 320,
           "texte": "Shoot'em up vertical façon arcade, tenu dans un seul fichier HTML : graphismes, bruitages *et* musique générés à la volée. La version d'origine, écrite par Qwen 3.6 en local." },
         { "chemin": "gemma", "titre": "Nebula Strike 2", "modele": "Gemma local", "hue": 210,
-          "texte": "La deuxième lecture du même énoncé, par Gemma en local. Quatre modèles, quatre shoot'em up, une seule page chacun." },
+          "texte": "La deuxième lecture du même énoncé, par Gemma en local. Cinq modèles, cinq shoot'em up, une seule page chacun." },
         { "chemin": "deepseek4", "titre": "Nebula Strike 3", "modele": "Deepseek 4.0 local", "hue": 195,
           "texte": "Le même énoncé vu par Deepseek 4.0 en local : vagues d'ennemis, boss et score, jouable au clavier ou en glissant le doigt." },
         { "chemin": "clauded", "titre": "Nebula Strike 4", "modele": "Claude Fable 5.1", "hue": 25,
-          "texte": "Le même cahier des charges, repris de zéro par Claude Fable 5.1 : un seul fichier HTML, zéro dépendance. À comparer avec les trois autres." }
+          "texte": "Le même cahier des charges, repris de zéro par Claude Fable 5.1 : un seul fichier HTML, zéro dépendance. À comparer avec les autres." },
+        { "chemin": "opus5.5", "titre": "Nebula Strike 5", "modele": "Claude Opus 5.5", "hue": 35,
+          "texte": "La suite du 4, par Claude Opus 5.5 : esquive invulnérable, foudre qui saute de cible en cible, cristaux à la chaîne, six boss — jusqu'à un trou noir qui *aspire le vaisseau*." }
       ]
     },
     "tetris": {
