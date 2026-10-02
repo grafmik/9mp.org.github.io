@@ -126,6 +126,7 @@ const projets = fiches.map(({ path, racine, meta }, i) => {
     titre: meta?.titre ?? titleOf(path),
     texte: meta?.texte ?? "Tout juste publié sur 9mp.org — présentation à venir.",
     modele: meta?.modele ?? null,
+    cadrage: meta?.cadrage ?? null,
     prive: blocked.has(racine ?? path),
   };
 });
@@ -137,7 +138,7 @@ const projets = fiches.map(({ path, racine, meta }, i) => {
 // modèle, texte).
 const carte = (p) => `        <li class="w${p.vignette ? "" : " sans-image"}" data-cat="${p.cat}" style="--h:${p.hue}">
           <a href="/${p.path}/"${p.prive ? ' rel="nofollow"' : ""}>${p.vignette ? `
-            <img class="w-img" src="${p.vignette}" alt="" width="1200" height="750" loading="lazy" decoding="async">` : ""}
+            <img class="w-img" src="${p.vignette}"${p.cadrage ? ` style="object-position:${esc(p.cadrage)}"` : ""} alt="" width="1200" height="750" loading="lazy" decoding="async">` : ""}
             <span class="w-t"><span>${esc(p.titre)}</span></span>${p.modele ? `
             <span class="w-m">${esc(p.modele)}</span>` : ""}
             <span class="w-d">${rich(p.texte)}</span>

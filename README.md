@@ -75,6 +75,9 @@ Chaque projet y a sa recette (passer l'écran titre, cacher le HUD, attendre
 l'action, cadrer) ; sans recette, le projet est photographié tel qu'il
 s'ouvre, texte masqué. Une image posée à la main fait aussi bien l'affaire.
 Sans vignette, la carte reste à la couleur du projet et le build le signale.
+Si l'image est mal recadrée (visages coupés), `"cadrage": "90% 0%"` dans la
+fiche choisit le point gardé visible (`object-position`), sur la ligne comme
+sur l'affiche.
 
 Si un projet existe en plusieurs versions publiées dans des sous-dossiers
 (qwemup, écrit par trois modèles), déclare-les avec
