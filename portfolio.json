@@ -113,8 +113,8 @@
           "texte": "Le même énoncé vu par Deepseek 4.0 en local : vagues d'ennemis, boss et score, jouable au clavier ou en glissant le doigt." },
         { "chemin": "clauded", "titre": "Nebula Strike 4", "modele": "Claude Fable 5.1", "hue": 25,
           "texte": "Le même cahier des charges, repris de zéro par Claude Fable 5.1 : un seul fichier HTML, zéro dépendance. À comparer avec les autres." },
-        { "chemin": "opus5.5", "titre": "Nebula Strike 5", "modele": "Claude Opus 5.5", "hue": 35,
-          "texte": "La suite du 4, par Claude Opus 5.5 : esquive invulnérable, foudre qui saute de cible en cible, cristaux à la chaîne, six boss — jusqu'à un trou noir qui *aspire le vaisseau*." }
+        { "chemin": "opus5.5", "titre": "Nebula Strike 5", "modele": "Claude Opus 5.5", "hue": 300,
+          "texte": "Une refonte complète, en 3D vectorielle : la musique, générée en temps réel, *est* l'horloge du jeu. Les ennemis tirent en mesure, les verrouillages jouent des notes, et le dernier boss éteint la musique." }
       ]
     },
     "tetris": {
