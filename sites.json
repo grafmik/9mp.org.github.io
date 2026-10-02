@@ -32,7 +32,7 @@
       "path": "beatemall",
       "repo": "grafmik/beatemall",
       "ref": "main",
-      "exclude": ["README.md", "package.json", "tests"]
+      "exclude": ["README.md", "package.json", "tests", "server", ".gitignore"]
     },
     {
       "path": "clip-pc98",
