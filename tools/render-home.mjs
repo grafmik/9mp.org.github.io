@@ -112,6 +112,11 @@ const fiches = paths.flatMap((path) => {
   }));
 });
 
+// Les lignes citées dans "ordre" passent en tête, versions comprises.
+const ordre = portfolio.ordre ?? [];
+const rang = (f) => { const i = ordre.indexOf(f.path); return i === -1 ? ordre.length : i; };
+fiches.sort((a, b) => rang(a) - rang(b));
+
 const projets = fiches.map(({ path, racine, meta }, i) => {
   if (!meta) {
     console.warn(`  ! ${path} n'a pas de fiche dans portfolio.json (carte par défaut)`);

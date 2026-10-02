@@ -55,7 +55,8 @@ et vérifie que Pages est bien en mode « GitHub Actions ».
 
 Sa ligne sur la page d'accueil apparaîtra toute seule, avec son affiche. Pour
 lui écrire une vraie présentation (titre, texte, teinte), ajoute une entrée à
-`portfolio.json` — l'ordre des clés y est l'ordre d'affichage — puis :
+`portfolio.json` — l'ordre des clés y est l'ordre d'affichage, sauf pour les
+lignes citées dans `"ordre"`, qui passent en tête — puis :
 
 ```sh
 tools/render-home.mjs        # met à jour l'index.html versionné

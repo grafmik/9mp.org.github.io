@@ -22,16 +22,23 @@
     "  masque  true : le projet reste publié et accessible, mais ne s'affiche",
     "          pas dans le portfolio (le reste de la fiche est conservé, il",
     "          suffit de repasser à false pour le remettre en vitrine)",
+    "  cadrage le point de la vignette gardé visible quand elle est rognée",
+    "          (object-position, ex. \"90% 0%\") ; défaut : le centre",
     "",
     "La vignette (l'image de fond de la ligne et de l'affiche) ne se déclare",
     "pas ici : c'est vignettes/<chemin>.webp, « / » remplacés par « - »",
     "(qwemup/clauded → vignettes/qwemup-clauded.webp). tools/capture-vignettes.mjs",
     "la photographie dans le projet publié.",
     "",
-    "L'ordre des clés de \"projets\" est l'ordre d'affichage.",
+    "L'ordre des clés de \"projets\" est l'ordre d'affichage, sauf pour les",
+    "lignes citées dans \"ordre\" (chemins publiés, versions comprises :",
+    "\"qwemup/clauded\") : elles passent en tête, dans cet ordre-là.",
     "Les dossiers interdits dans robots.txt reçoivent un lien en rel=nofollow",
     "— rien à déclarer ici."
   ],
+
+  "ordre": ["ultraroad", "rewind-raid", "beatemall", "qwemup/clauded", "baston",
+            "qwemup/deepseek4", "qwemup/gemma", "qwemup"],
 
   "categories": [
     { "id": "jeu",     "label": "Jeux" },

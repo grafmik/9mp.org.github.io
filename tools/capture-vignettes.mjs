@@ -70,7 +70,7 @@ const RECETTES = {
       await h.until(() => GAME.bike.body.x > window.x0 + 80, 30000, () => h.hold("ArrowUp", 700));
       await h.onlyMedia();
     },
-    crop: [0.02, 0.12, 0.68, 0.76],
+    crop: [0.1, 0.4, 0.52, 0.58],                // serré sur le motard
   },
 
   berceuse: {
