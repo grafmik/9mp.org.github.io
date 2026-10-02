@@ -27,18 +27,18 @@
     "",
     "La vignette (l'image de fond de la ligne et de l'affiche) ne se déclare",
     "pas ici : c'est vignettes/<chemin>.webp, « / » remplacés par « - »",
-    "(qwemup/clauded → vignettes/qwemup-clauded.webp). tools/capture-vignettes.mjs",
+    "(shmups/clauded → vignettes/shmups-clauded.webp). tools/capture-vignettes.mjs",
     "la photographie dans le projet publié.",
     "",
     "L'ordre des clés de \"projets\" est l'ordre d'affichage, sauf pour les",
     "lignes citées dans \"ordre\" (chemins publiés, versions comprises :",
-    "\"qwemup/clauded\") : elles passent en tête, dans cet ordre-là.",
+    "\"shmups/clauded\") : elles passent en tête, dans cet ordre-là.",
     "Les dossiers interdits dans robots.txt reçoivent un lien en rel=nofollow",
     "— rien à déclarer ici."
   ],
 
-  "ordre": ["ultraroad", "rewind-raid", "beatemall", "qwemup/clauded", "baston",
-            "qwemup/deepseek4", "qwemup/gemma", "qwemup"],
+  "ordre": ["ultraroad", "rewind-raid", "beatemall", "shmups/clauded", "baston",
+            "shmups/deepseek4", "shmups/gemma", "shmups"],
 
   "categories": [
     { "id": "jeu",     "label": "Jeux" },
@@ -99,7 +99,7 @@
       "hue": 188,
       "texte": "Shoot'em up façon arcade 1996 : cinq niveaux, cinq boss, trois armes. Le twist : une cassette qui *rembobine le monde*, et les balles qui retournent blesser ceux qui les ont tirées."
     },
-    "qwemup": {
+    "shmups": {
       "titre": "Nebula Strike",
       "cat": "jeu",
       "hue": 320,

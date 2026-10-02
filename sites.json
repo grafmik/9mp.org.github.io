@@ -87,7 +87,7 @@
       "exclude": ["README.md", "prompts"]
     },
     {
-      "path": "qwemup",
+      "path": "shmups",
       "repo": "grafmik/shmups",
       "ref": "main",
       "build": "node deepseek4/tools/build.js",

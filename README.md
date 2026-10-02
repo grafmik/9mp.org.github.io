@@ -81,7 +81,7 @@ fiche choisit le point gardé visible (`object-position`), sur la ligne comme
 sur l'affiche.
 
 Si un projet existe en plusieurs versions publiées dans des sous-dossiers
-(qwemup — dépôt grafmik/shmups —, écrit par plusieurs modèles), déclare-les avec
+(shmups, écrit par plusieurs modèles), déclare-les avec
 `"versions": [{ "chemin": "", "modele": "…" }]` dans sa fiche : chacune reçoit
 sa propre ligne, avec le modèle au-dessus du titre (`chemin: ""` = la racine du
 projet). Pour un projet qui n'a qu'une version, `"modele": "…"` suffit.
