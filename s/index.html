@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>9mp — hors vitrine</title>
+<!-- Page sans lien entrant : on y arrive en tapant 9mp.org/s. Pas d'entrée
+     dans robots.txt, qui est public et la signalerait. -->
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#0a0a0b">
+<meta name="color-scheme" content="dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230a0a0c'/%3E%3Ctext x='16' y='21.8' font-family='ui-sans-serif,system-ui,sans-serif' font-size='16' font-weight='700' fill='%23ff2f2f' text-anchor='middle' textLength='26' lengthAdjust='spacingAndGlyphs'%3E9MP%3C/text%3E%3C/svg%3E">
+<style>
+@font-face{font-family:"Science Gothic";src:url(/fonts/science-gothic.woff2) format("woff2");font-weight:100 900;font-stretch:50% 200%;font-display:swap}
+@font-face{font-family:"Martian Mono";src:url(/fonts/martian-mono.woff2) format("woff2");font-weight:100 800;font-stretch:75% 112.5%;font-display:swap}
+:root{--bg:#0a0a0b;--ink:#f4f1ea;--dim:#8d8980;--line:#272624;--red:#ff2f2f;--pad:clamp(16px,4vw,56px)}
+*{box-sizing:border-box;margin:0}
+body{min-height:100vh;padding:clamp(28px,6vw,72px) var(--pad) 64px;background:var(--bg);color:var(--ink);font:15px/1.5 "Martian Mono",ui-monospace,monospace;font-stretch:87.5%}
+a{color:inherit;text-decoration:none}
+header{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:clamp(28px,5vw,56px)}
+.logo{font:900 28px/1 "Science Gothic",system-ui,sans-serif;font-stretch:150%;letter-spacing:.02em}
+.logo b{color:var(--red)}
+h1{font:900 clamp(40px,9vw,120px)/.9 "Science Gothic",system-ui,sans-serif;font-stretch:130%;text-transform:uppercase;margin-bottom:clamp(20px,4vw,40px)}
+h2{display:flex;align-items:center;gap:12px;margin:clamp(36px,6vw,64px) 0 18px;font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+h2::after{content:"";flex:1;height:1px;background:var(--line)}
+h2 b{color:var(--red);font-weight:500}
+ul{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));gap:14px}
+.t{position:relative;isolation:isolate;display:flex;flex-direction:column;gap:6px;min-height:200px;height:100%;padding:20px;border-radius:12px;overflow:hidden;background:radial-gradient(120% 90% at 100% 0%,hsl(var(--h) 90% 50% / .3),transparent 60%),#121214;box-shadow:inset 0 0 0 1px rgba(244,241,234,.07);transition:transform .35s cubic-bezier(.2,.9,.3,1.2),box-shadow .3s}
+.t img{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;opacity:.35;transition:opacity .4s}
+.t::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,transparent 20%,rgba(10,10,11,.92) 75%)}
+.t:hover,.t:focus-visible{transform:translateY(-3px);box-shadow:inset 0 0 0 1px hsl(var(--h) 95% 60% / .7),0 18px 50px -24px hsl(var(--h) 95% 55% / .8);outline:none}
+.t:hover img{opacity:.6}
+.t-p{margin-top:auto;font-size:11px;letter-spacing:.08em;color:hsl(var(--h) 100% 74%);overflow-wrap:anywhere}
+.t-t{font:800 21px/1.05 "Science Gothic",system-ui,sans-serif;font-stretch:100%;text-transform:uppercase;overflow-wrap:break-word}
+.t-d{font-size:12px;color:var(--dim);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+</style>
+</head>
+<body>
+<header>
+  <a class="logo" href="/">9<b>M</b>P</a>
+</header>
+<h1>Hors vitrine</h1>
+
+<h2>9mp.org <b>·</b> projets masqués</h2>
+<ul>
+        <!-- auto:caches -->
+        <li><a class="t" href="/guillaumesync/" style="--h:150">
+          <span class="t-p">9mp.org/guillaumesync</span>
+          <span class="t-t">World Time Sync — Live</span>
+          <span class="t-d">La même chose, en collaboratif : marqueurs déplaçables et participants partagés en temps réel entre tous les navigateurs ouverts.</span>
+        </a></li>
+        <li><a class="t" href="/worldtimesync/" style="--h:170">
+          <span class="t-p">9mp.org/worldtimesync</span>
+          <span class="t-t">World Time Sync</span>
+          <span class="t-d">Planificateur de réunions internationales : on place les participants sur la carte, la timeline montre l'heure qu'il est pour chacun.</span>
+        </a></li>
+        <li><a class="t" href="/apinya/" style="--h:38">
+          <span class="t-p">9mp.org/apinya</span>
+          <span class="t-t">Apinya Estates</span>
+          <span class="t-d">Vitrine d'agence immobilière de luxe à Hua Hin : biens, quartiers, prise de contact. Maquette de démonstration, contenu fictif.</span>
+        </a></li>
+        <li><a class="t" href="/flat/" style="--h:200">
+          <span class="t-p">9mp.org/flat</span>
+          <span class="t-t">Manuel de l'appartement</span>
+          <span class="t-d">Le livret d'accueil des invités, bilingue français / anglais : équipements, mode d'emploi, bonnes adresses du quartier.</span>
+        </a></li>
+        <li><a class="t" href="/menage/" style="--h:150">
+          <span class="t-p">9mp.org/menage</span>
+          <span class="t-t">Ménage de l'appartement</span>
+          <span class="t-d">Checklist et notice pour chaque séance de ménage de l'appartement : tâches à cocher, réglages des machines, récapitulatif des dépenses.</span>
+        </a></li>
+        <li><a class="t" href="/pizzeria105/" style="--h:10">
+          <span class="t-p">9mp.org/pizzeria105</span>
+          <span class="t-t">Le 105 — Pizzas à emporter</span>
+          <span class="t-d">Site vitrine d'un kiosque-pizzeria du Sécheron, à Genève : carte des pizzas, épicerie de quartier, horaires, motion design.</span>
+        </a></li>
+        <li><a class="t" href="/wallet-compare/" style="--h:34">
+          <span class="t-p">9mp.org/wallet-compare</span>
+          <span class="t-t">wallet-compare</span>
+          <span class="t-d">État des lieux de l'auto-détention de crypto-actifs, et dossier sécurité des wallets matériels : 19 appareils notés, incidents documentés, sources en lien.</span>
+        </a></li>
+        <li><a class="t" href="/hellochat/" style="--h:340">
+          <span class="t-p">9mp.org/hellochat</span>
+          <span class="t-t">HelloChat Live</span>
+          <span class="t-d">Simulation d'application de live streaming : caméra frontale, chat en overlay, audience qui commente et compteur de viewers qui s'emballe.</span>
+        </a></li>
+        <li><a class="t" href="/hellochat/expert-comments/" style="--h:355">
+          <span class="t-p">9mp.org/hellochat/expert-comments</span>
+          <span class="t-t">HelloChat — Expert Comments</span>
+          <span class="t-d">Une déclinaison de HelloChat publiée depuis sa propre branche, pour comparer deux directions côte à côte.</span>
+        </a></li>
+        <!-- /auto:caches -->
+</ul>
+
+<!-- app.9mp.org vit sur le VPS, hors de ce dépôt : tuiles tenues à la main. -->
+<h2>app.9mp.org</h2>
+<ul>
+        <li><a class="t" href="https://app.9mp.org/podcastplayer/" style="--h:280">
+          <span class="t-p">app.9mp.org/podcastplayer</span>
+          <span class="t-t">Lecteur de podcast</span>
+          <span class="t-d">Lecteur HTML5 en une page : reprise de lecture, épisodes écoutés, flux marcbluersky par défaut ou n'importe quel RSS via ?feed=.</span>
+        </a></li>
+        <li><a class="t" href="https://app.9mp.org/fdroid/repo/" style="--h:120">
+          <span class="t-p">app.9mp.org/fdroid/repo</span>
+          <span class="t-t">F-Droid 9mp Apps</span>
+          <span class="t-d">Le dépôt F-Droid auto-hébergé des apps Android (Grosse Journée, HelloChat…), à ajouter dans le client F-Droid.</span>
+        </a></li>
+        <li><a class="t" href="https://app.9mp.org/marcbluersky/feed.xml" style="--h:200">
+          <span class="t-p">app.9mp.org/marcbluersky/feed.xml</span>
+          <span class="t-t">Flux marcbluersky</span>
+          <span class="t-d">L'archive des podcasts, synchronisée chaque jour : le flux RSS à coller dans une appli de podcast.</span>
+        </a></li>
+</ul>
+</body>
+</html>

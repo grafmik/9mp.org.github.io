@@ -92,6 +92,11 @@ Un dossier interdit dans `robots.txt` reçoit automatiquement un lien en
 Pour qu'un projet reste publié **sans** figurer au portfolio, mets `"masque":
 true` dans sa fiche : il garde son URL, il quitte simplement la vitrine.
 
+Les projets masqués ont leur tuile sur **9mp.org/s/**, une page sans lien
+entrant et en `noindex` (volontairement absente de `robots.txt`, qui est
+public). `tools/render-home.mjs` la remplit tout seul ; les tuiles
+d'app.9mp.org, hors de ce dépôt, s'y ajoutent à la main dans `s/index.html`.
+
 ## Les tokens
 
 Deux PAT fine-grained, chacun au strict nécessaire :

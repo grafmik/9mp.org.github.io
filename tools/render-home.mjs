@@ -19,8 +19,8 @@ import { fileURLToPath } from "node:url";
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const DIR = resolve(process.argv[2] ?? ROOT);
 
-// Dossiers de travail : jamais des projets.
-const IGNORE = new Set(["tools", "node_modules"]);
+// Dossiers de travail, et la page secrète /s/ : jamais des projets.
+const IGNORE = new Set(["tools", "node_modules", "s"]);
 
 const read = (p) => readFileSync(p, "utf8");
 const json = (p) => JSON.parse(read(p).replace(/^﻿/, ""));
@@ -53,9 +53,10 @@ const dirs = readdirSync(DIR, { withFileTypes: true })
   .filter((n) => !n.startsWith(".") && !n.startsWith("_") && !IGNORE.has(n))
   .filter((n) => existsSync(join(DIR, n, "index.html")));
 
-// Les projets masqués restent publiés : ils sortent seulement de la vitrine.
-const paths = [...new Set([...dirs, ...sites.sites.map((s) => s.path)])]
-  .filter((p) => !portfolio.projets[p]?.masque);
+// Les projets masqués restent publiés : ils sortent seulement de la vitrine
+// (et se retrouvent sur la page secrète /s/, voir plus bas).
+const publies = [...new Set([...dirs, ...sites.sites.map((s) => s.path)])];
+const paths = publies.filter((p) => !portfolio.projets[p]?.masque);
 
 // Ordre d'affichage : celui de portfolio.json, les inconnus à la suite.
 const known = Object.keys(portfolio.projets);
@@ -153,24 +154,52 @@ const carte = (p) => `        <li class="w${p.vignette ? "" : " sans-image"}" da
 
 // ----------------------------------------------------------- réécriture --
 
-const page = join(DIR, "index.html");
-let html = read(page);
-
-const remplace = (nom, contenu) => {
+const remplace = (html, fichier, nom, contenu) => {
   // L'indentation de la balise ouvrante est rendue à la fermante.
   const re = new RegExp(`( *)(<!-- auto:${nom} -->)[\\s\\S]*?<!-- /auto:${nom} -->`);
   if (!re.test(html)) {
-    console.error(`index.html : balises <!-- auto:${nom} --> introuvables`);
+    console.error(`${fichier} : balises <!-- auto:${nom} --> introuvables`);
     process.exit(1);
   }
-  html = html.replace(re, (_, indent, ouvrante) =>
+  return html.replace(re, (_, indent, ouvrante) =>
     `${indent}${ouvrante}\n${contenu}\n${indent}<!-- /auto:${nom} -->`);
 };
 
-remplace("projets", projets.map(carte).join("\n"));
+const page = join(DIR, "index.html");
+let html = read(page);
+html = remplace(html, "index.html", "projets", projets.map(carte).join("\n"));
 const sans = projets.filter((p) => !p.vignette).map((p) => p.path);
 if (sans.length) console.warn(`  ! sans vignette : ${sans.join(", ")} (tools/capture-vignettes.mjs)`);
 html = html.replace(/(<b data-auto="total">)[^<]*(<\/b>)/g, `$1${projets.length}$2`);
 
 writeFileSync(page, html);
 console.log(`✓ ${page} — ${projets.length} projets`);
+
+// ------------------------------------------------------- la page secrète --
+// s/index.html : une tuile par projet masqué, pour y accéder sans chercher
+// l'adresse. Aucun lien n'y mène et elle porte un meta noindex.
+
+const tuile = (p) => `        <li><a class="t" href="/${p.path}/" style="--h:${p.hue}">${p.vignette ? `
+          <img src="${p.vignette}" alt="" loading="lazy" decoding="async">` : ""}
+          <span class="t-p">9mp.org/${esc(p.path)}</span>
+          <span class="t-t">${esc(p.titre)}</span>
+          <span class="t-d">${rich(p.texte)}</span>
+        </a></li>`;
+
+const secrete = join(DIR, "s", "index.html");
+if (existsSync(secrete)) {
+  const caches = publies
+    .filter((path) => portfolio.projets[path]?.masque)
+    .map((path) => {
+      const meta = portfolio.projets[path];
+      return {
+        path,
+        hue: meta.hue ?? hueOf(path),
+        vignette: vignetteOf(path),
+        titre: meta.titre ?? titleOf(path),
+        texte: meta.texte ?? "",
+      };
+    });
+  writeFileSync(secrete, remplace(read(secrete), "s/index.html", "caches", caches.map(tuile).join("\n")));
+  console.log(`✓ ${secrete} — ${caches.length} projets cachés`);
+}
