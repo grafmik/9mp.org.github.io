@@ -100,6 +100,12 @@
       "exclude": ["README.md"]
     },
     {
+      "path": "rage-in-the-city-2",
+      "repo": "grafmik/rage-in-the-city-2",
+      "ref": "main",
+      "exclude": ["README.md", "package.json", "tools", "tests", "art/turnarounds", "art/reference", ".gitignore"]
+    },
+    {
       "path": "ultraroad",
       "repo": "grafmik/ultraroad",
       "ref": "main",

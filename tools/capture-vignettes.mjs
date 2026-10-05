@@ -118,6 +118,34 @@ const RECETTES = {
     crop: [0, 0.25, 1, 0.75],
   },
 
+  "rage-in-the-city-2": {
+    async play(h) {
+      await h.hold("Enter");                    // écran titre
+      await h.wait(900);
+      await h.hold("KeyD"); await h.wait(200);  // Ray
+      await h.hold("KeyJ");                     // choix du combattant
+      await h.wait(4500);                       // carton « STAGE 1 »
+      await h.js(() => { window.game.scene.world.players[0].hp = 1e6; }); // il ne doit pas tomber pendant la prise
+      // la bagarre : on frappe jusqu'à avoir deux voyous au contact
+      await h.until(() => {
+        const w = game.scene.world, p = w.players[0];
+        return w.enemies.filter((e) => e.hp > 0 && Math.abs(e.x - p.x) < 80 && e.state !== 'enter').length >= 2;
+      }, 20000, () => h.hold("KeyJ", 90));
+      await h.hold("KeyJ", 90);
+      await h.wait(120);
+      await h.js(async () => { const { CONFIG } = await import('./src/config.js'); CONFIG.CLEAN = true; }); // sans texte
+      await h.wait(100);
+    },
+    crop: [0.2, 0.15, 0.55, 0.55],
+    focus: () => {                              // la mêlée autour du joueur (image 384x216 agrandie x5)
+      const w = game.scene.world, p = w.players[0];
+      const near = w.enemies.filter((e) => Math.abs(e.x - p.x) < 90);
+      const xs = [p.x, ...near.map((e) => e.x)];
+      const cx = xs.reduce((a, b) => a + b, 0) / xs.length;
+      return { x: ((cx - w.camX) * 5) / innerWidth, y: (60 + (p.y - 50) * 5) / innerHeight };
+    },
+  },
+
   ultraroad: {
     async play(h) {
       // course de démonstration en pilote automatique, caméra poursuite dans le canyon

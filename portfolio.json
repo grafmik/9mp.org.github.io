@@ -37,7 +37,7 @@
     "— rien à déclarer ici."
   ],
 
-  "ordre": ["ultraroad", "rewind-raid", "beatemall", "shmups/opus5.5", "shmups/clauded", "baston",
+  "ordre": ["rage-in-the-city-2", "ultraroad", "rewind-raid", "beatemall", "shmups/opus5.5", "shmups/clauded", "baston",
             "shmups/deepseek4", "shmups/gemma", "shmups"],
 
   "categories": [
@@ -69,6 +69,13 @@
       "cat": "jeu",
       "hue": 18,
       "texte": "Jeu de baston 2D façon arcade 1996 : dix combattants du monde entier et un boss, coups spéciaux et supers, campagne avec un avion qui survole la *mappemonde* entre chaque combat, duel à deux, mode entraînement, compatible manette."
+    },
+    "rage-in-the-city-2": {
+      "titre": "Rage in the City 2",
+      "modele": "Claude Opus 5.5",
+      "cat": "jeu",
+      "hue": 330,
+      "texte": "La suite, version *1994* : beat'em up 16 bits aux sprites pré-rendus depuis des volumes 3D, néons sous la pluie puis docks au soleil couchant. Cinq héros (Hank, Ray et Kaze reviennent, Roxy et Dex arrivent), douze types d'ennemis et deux boss ; enchaînements, saisies, projections et spécial. Jusqu'à quatre joueurs, au clavier, à la manette ou au doigt."
     },
     "beatemall": {
       "titre": "Rage in the City",
