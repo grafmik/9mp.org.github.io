@@ -166,6 +166,14 @@
       "hue": 34,
       "texte": "État des lieux de l'auto-détention de crypto-actifs, et dossier sécurité des wallets matériels : 19 appareils notés, incidents documentés, sources en lien."
     },
+    "zero-latency": {
+      "masque": true,
+      "titre": "Atlas Zero Latency VR",
+      "modele": "Claude Opus 5.5",
+      "cat": "outil",
+      "hue": 212,
+      "texte": "Carte mondiale et inventaire des 143 salles de réalité virtuelle Zero Latency, dans 33 pays : adresse, coordonnées GPS, contact, horaires et jeux de chaque salle."
+    },
     "hellochat": {
       "masque": true,
       "titre": "HelloChat Live",

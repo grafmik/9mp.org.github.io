@@ -118,6 +118,13 @@
       "exclude": ["README.md", "BILAN.md", "build.py", "build_securite.py"]
     },
     {
+      "path": "zero-latency",
+      "repo": "grafmik/zero-latency",
+      "ref": "main",
+      "output": "index.html",
+      "as": "index.html"
+    },
+    {
       "path": "hellochat",
       "repo": "grafmik/hellochat",
       "ref": "main",
