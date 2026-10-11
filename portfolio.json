@@ -216,6 +216,14 @@
       "hue": 200,
       "texte": "Le livret d'accueil des invités, bilingue français / anglais : équipements, mode d'emploi, bonnes adresses du quartier."
     },
+    "immomap": {
+      "masque": true,
+      "titre": "Belles Endormies",
+      "modele": "Claude Opus 5.5",
+      "cat": "vitrine",
+      "hue": 44,
+      "texte": "La lettre des maisons à moins de 50 000 € au milieu de nulle part : ce qu'elles pourraient devenir, images avant / après et budget complet à l'appui."
+    },
     "ai": {
       "titre": "It's over",
       "modele": "GPT-3.5",
