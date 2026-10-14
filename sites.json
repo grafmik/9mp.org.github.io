@@ -47,6 +47,12 @@
       "exclude": ["README.md"]
     },
     {
+      "path": "damgod",
+      "repo": "grafmik/damgod",
+      "ref": "main",
+      "exclude": ["README.md", "package.json", "tools", "tests", "bible", "song"]
+    },
+    {
       "path": "flat",
       "repo": "grafmik/flat",
       "ref": "main",

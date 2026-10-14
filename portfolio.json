@@ -37,7 +37,7 @@
     "— rien à déclarer ici."
   ],
 
-  "ordre": ["rage-in-the-city-2", "ultraroad", "rewind-raid", "beatemall", "shmups/opus5.5", "shmups/clauded", "baston",
+  "ordre": ["damgod", "rage-in-the-city-2", "ultraroad", "rewind-raid", "beatemall", "shmups/opus5.5", "shmups/clauded", "baston",
             "shmups/deepseek4", "shmups/gemma", "shmups"],
 
   "categories": [
@@ -49,6 +49,13 @@
   ],
 
   "projets": {
+    "damgod": {
+      "titre": "DAMGOD",
+      "modele": "Claude Opus 5.5",
+      "cat": "jeu",
+      "hue": 222,
+      "texte": "Jeu de tir au pistolet optique en vidéo plein écran, en *2028* : la permanent underclass sonne au portail de la villa, et Claudia te tend un revolver. Cagoulés, développeurs, mathématiciens, créatifs, puis les politiciens ; ennemis photoréalistes, grenades et couteaux à abattre en vol, cinématiques où Claudia parle. Sous-titré en français et en anglais ; à la souris, à la manette ou au doigt."
+    },
     "motopeter": {
       "titre": "Motopeter",
       "modele": "Claude Fable 5.1",
