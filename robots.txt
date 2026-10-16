@@ -25,3 +25,7 @@ Disallow: /pizzeria105/
 # Checklist de ménage de l'appartement : destinée à la personne qui fait le
 # ménage, pas au grand public. Même traitement (robots.txt + meta noindex).
 Disallow: /menage/
+
+# Backtests d'une méthode d'investissement payante (Loïc Abadie) : à lire sur
+# lien, pas à référencer. Même traitement (robots.txt + meta noindex).
+Disallow: /abadie/

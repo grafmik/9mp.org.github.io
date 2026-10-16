@@ -17,6 +17,12 @@
   ],
   "sites": [
     {
+      "path": "abadie",
+      "repo": "grafmik/abadie",
+      "ref": "main",
+      "output": "public"
+    },
+    {
       "path": "apinya",
       "repo": "grafmik/apinya",
       "ref": "main",

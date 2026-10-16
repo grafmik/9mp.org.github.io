@@ -217,6 +217,13 @@
       "hue": 10,
       "texte": "Site vitrine d'un kiosque-pizzeria du Sécheron, à Genève : carte des pizzas, épicerie de quartier, horaires, motion design."
     },
+    "abadie": {
+      "masque": true,
+      "titre": "Méthode value à l'épreuve",
+      "cat": "outil",
+      "hue": 210,
+      "texte": "Backtests d'une méthode d'investissement value : portefeuilles rejoués depuis 2016 et signaux de cycle testés sur 49 ans de S&P 500."
+    },
     "menage": {
       "masque": true,
       "titre": "Ménage de l'appartement",
