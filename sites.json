@@ -113,6 +113,12 @@
       "exclude": ["README.md"]
     },
     {
+      "path": "killer-kombat",
+      "repo": "grafmik/killer-kombat",
+      "ref": "main",
+      "exclude": ["README.md", "package.json", "tools", "tests", ".gitignore", ".github"]
+    },
+    {
       "path": "rage-in-the-city-2",
       "repo": "grafmik/rage-in-the-city-2",
       "ref": "main",

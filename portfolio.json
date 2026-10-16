@@ -37,7 +37,7 @@
     "— rien à déclarer ici."
   ],
 
-  "ordre": ["damgod", "rage-in-the-city-2", "ultraroad", "rewind-raid", "beatemall", "shmups/opus5.5", "shmups/clauded", "baston",
+  "ordre": ["killer-kombat", "damgod", "rage-in-the-city-2", "ultraroad", "rewind-raid", "beatemall", "shmups/opus5.5", "shmups/clauded", "baston",
             "shmups/deepseek4", "shmups/gemma", "shmups"],
 
   "categories": [
@@ -49,6 +49,13 @@
   ],
 
   "projets": {
+    "killer-kombat": {
+      "titre": "Killer Kombat",
+      "modele": "Claude Opus 5.5",
+      "cat": "jeu",
+      "hue": 8,
+      "texte": "Jeu de combat façon borne d'arcade de 1993 : sept combattants *filmés sur fond vert* (un moine de Shaolin, un médecin de peste, un bûcheron, une maîtresse de l'urumi, un cyborg, une sorcière, un vagabond sans visage), coups spéciaux, combos, *FINISH HIM* et fatalités. Musique originale chantée. Seul contre la tour ou à deux, au clavier, à la manette ou au doigt."
+    },
     "damgod": {
       "titre": "DAMGOD",
       "modele": "Claude Opus 5.5",
