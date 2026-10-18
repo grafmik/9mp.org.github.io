@@ -50,6 +50,7 @@
 
   "projets": {
     "killer-kombat": {
+      "masque": true,
       "titre": "Killer Kombat",
       "modele": "Claude Opus 5.5",
       "cat": "jeu",
