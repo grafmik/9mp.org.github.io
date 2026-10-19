@@ -102,11 +102,12 @@ const vignetteOf = (path) => {
 const fallbackCat = portfolio.categories.at(-1).id;
 
 // Une fiche qui déclare des "versions" donne une carte par version : même
-// projet, un modèle par carte.
+// projet, un modèle par carte. Une version masquée n'a pas de carte (elle
+// va sur la page secrète, comme un projet masqué).
 const fiches = paths.flatMap((path) => {
   const meta = portfolio.projets[path];
   if (!meta?.versions?.length) return [{ path, meta }];
-  return meta.versions.map((v) => ({
+  return meta.versions.filter((v) => !v.masque).map((v) => ({
     path: [path, v.chemin].filter(Boolean).join("/"),
     racine: path,
     meta: { ...meta, ...v },
@@ -188,10 +189,17 @@ const tuile = (p) => `        <li><a class="t" href="/${p.path}/" style="--h:${p
 
 const secrete = join(DIR, "s", "index.html");
 if (existsSync(secrete)) {
+  // Projets masqués entiers, plus les versions masquées des projets en vitrine.
   const caches = publies
-    .filter((path) => portfolio.projets[path]?.masque)
-    .map((path) => {
+    .flatMap((path) => {
       const meta = portfolio.projets[path];
+      if (meta?.masque) return [{ path, meta }];
+      return (meta?.versions ?? []).filter((v) => v.masque).map((v) => ({
+        path: [path, v.chemin].filter(Boolean).join("/"),
+        meta: { ...meta, ...v },
+      }));
+    })
+    .map(({ path, meta }) => {
       return {
         path,
         hue: meta.hue ?? hueOf(path),
