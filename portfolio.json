@@ -225,6 +225,13 @@
       "hue": 210,
       "texte": "Backtests d'une méthode d'investissement value : portefeuilles rejoués depuis 2016 et signaux de cycle testés sur 49 ans de S&P 500."
     },
+    "bouffe": {
+      "masque": true,
+      "titre": "Bouffe",
+      "cat": "app",
+      "hue": 222,
+      "texte": "Journal alimentaire Android sans gamification : code-barres, repas déduit d'un texte ou d'une photo, jauge de rythme. Page d'accueil et confidentialité pour l'écran de consentement Google."
+    },
     "menage": {
       "masque": true,
       "titre": "Ménage de l'appartement",

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Confidentialité — Bouffe</title>
+<meta name="description" content="Politique de confidentialité de Bouffe : ce qui reste sur le téléphone, ce qui en sort et pourquoi.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0a0a0b">
+<meta name="color-scheme" content="dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232d4a8a'/%3E%3Cpath d='M7 15h18a9 9 0 0 1-18 0z' fill='%23f4f1ea'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <a class="logo" href="/">9<b>M</b>P</a>
+  <nav><a href="./">Bouffe</a><a href="confidentialite.html" aria-current="page">Confidentialité</a></nav>
+</header>
+<main>
+<h1 class="long">Confidentialité</h1>
+<p class="lead">Bouffe n'a ni compte, ni serveur, ni statistiques, ni publicité. Personne d'autre que toi ne reçoit ton journal, sauf les services que tu choisis d'utiliser, décrits ci-dessous.</p>
+<p class="maj">Politique de l'app Android Bouffe (<code>com.grafmik.bouffe</code>), mise à jour le 19 octobre 2026.</p>
+
+<h2>Ce qui reste sur le téléphone</h2>
+<p>Ton journal (aliments, quantités, heures), les fiches d'aliments, tes objectifs et tes réglages vivent dans la base de données de l'app, sur ton téléphone. La sauvegarde automatique d'Android est désactivée pour Bouffe : rien ne part dans une sauvegarde système.</p>
+<p>Avant de remplacer tes données par une sauvegarde, Bouffe garde sur le téléphone une copie de sécurité des données actuelles (les cinq dernières).</p>
+<p>Désinstaller l'app efface tout ce qu'elle a sur le téléphone.</p>
+
+<h2>Ce qui en sort, et seulement quand tu t'en sers</h2>
+<ul>
+<li><strong>Open Food Facts.</strong> Quand tu scannes ou saisis un code-barres, ce code est envoyé à <a href="https://world.openfoodfacts.org">Open Food Facts</a> pour récupérer la fiche du produit. La requête porte le nom et la version de l'app, rien d'autre.</li>
+<li><strong>L'IA de ton choix.</strong> Quand tu décris un repas ou que tu prends une photo (d'une assiette ou d'une étiquette), le texte ou la photo est envoyé au fournisseur réglé dans l'app : Google Gemini par défaut, Anthropic (Claude), OpenRouter ou une adresse que tu indiques. L'envoi se fait avec <strong>ta</strong> clé d'API, directement du téléphone vers ce fournisseur, et relève de ses propres conditions. La photo n'entre pas dans ton journal : seuls les aliments que tu valides y sont enregistrés.</li>
+<li><strong>Google Drive, si tu l'actives.</strong> Voir la section suivante.</li>
+</ul>
+<p>La lecture des codes-barres (ML Kit de Google) se fait sur le téléphone, et ses statistiques d'usage sont coupées. L'appareil photo ne sert qu'à scanner et à photographier un repas ou une étiquette, à ta demande.</p>
+
+<h2>Google Drive</h2>
+<p>La sauvegarde Drive est facultative et s'active dans Réglages › Sauvegarde. Bouffe demande alors l'autorisation <code>drive.file</code> : elle ne voit <strong>que les fichiers qu'elle a créés</strong>, jamais le reste de ton Drive.</p>
+<p>Elle y crée un dossier « Bouffe » contenant un fichier JSON (<code>bouffe-sauvegarde.json</code>) et une copie datée par mois. Ces fichiers contiennent ton journal, tes fiches d'aliments, tes objectifs et tes réglages. Ta clé d'API d'IA n'y figure jamais. L'adresse de ton compte Google est seulement affichée dans l'app, pour savoir où va la sauvegarde.</p>
+<p>Ces données ne servent qu'à sauvegarder et à restaurer ton journal. Elles ne sont ni transmises à quelqu'un d'autre, ni utilisées pour de la publicité, ni pour entraîner un modèle d'IA. L'usage que Bouffe fait des informations reçues des API Google respecte la <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, y compris ses exigences d'usage limité (<i lang="en">Limited Use</i>).</p>
+<p>Pour arrêter : Réglages › Sauvegarde › Déconnecter dans l'app, ou retire l'accès de Bouffe sur <a href="https://myaccount.google.com/connections">myaccount.google.com</a>. Les fichiers déjà envoyés restent dans ton Drive jusqu'à ce que tu supprimes le dossier « Bouffe ».</p>
+
+<h2>Export</h2>
+<p>« Exporter un fichier » produit le même JSON et te laisse choisir où l'envoyer, avec le menu de partage d'Android. Ce que devient ce fichier dépend de l'app que tu choisis.</p>
+
+<h2>Changements</h2>
+<p>Si l'app se met à traiter tes données autrement, cette page change avec elle, et sa date de mise à jour aussi.</p>
+</main>
+</body>
+</html>
