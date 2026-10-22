@@ -117,6 +117,14 @@
       "hue": 24,
       "texte": "Course tout-terrain arcade en 3D, hommage à *Super Off Road* : gros camions, sauts, boue et nitro, huit circuits et un championnat contre le Boss avec garage d'améliorations. Jusqu'à quatre joueurs sur le même écran, au clavier, à la manette ou au doigt."
     },
+    "croco-kata": {
+      "masque": true,
+      "titre": "Kata — du tigre au crocodile",
+      "modele": "Claude Opus 5.5",
+      "cat": "divers",
+      "hue": 225,
+      "texte": "Carnet de fabrication d'un clip 3D : un tigre en sphères fait un kata sous les cerisiers, puis on recommence avec un *crocodile en karatégi* sculpté par IA en local (Krea 2 → TRELLIS.2). Modèles ratés et réussis, visionneuse 3D, chiptunes."
+    },
     "clip-pc98": {
       "masque": true,
       "titre": "反逆のアイ — clip PC-98",

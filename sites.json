@@ -41,6 +41,12 @@
       "exclude": ["README.md", "package.json", "tests", "server", ".gitignore"]
     },
     {
+      "path": "croco-kata",
+      "repo": "grafmik/blender",
+      "ref": "main",
+      "output": "site"
+    },
+    {
       "path": "clip-pc98",
       "repo": "grafmik/clip-pc98",
       "ref": "main",
