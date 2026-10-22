@@ -23,12 +23,6 @@
       "output": "public"
     },
     {
-      "path": "apinya",
-      "repo": "grafmik/apinya",
-      "ref": "main",
-      "exclude": ["README.md", "dist"]
-    },
-    {
       "path": "baston",
       "repo": "grafmik/baston",
       "ref": "main",

@@ -3,14 +3,9 @@
 User-agent: *
 Allow: /
 
-# Maquette de démonstration : contenu d'exemple (tarifs, coordonnées et
-# témoignages fictifs) publié sous le nom d'une personne réelle.
-# Ne doit pas être référencé par les moteurs de recherche.
-# Les pages portent également une balise <meta name="robots" content="noindex">.
-Disallow: /apinya/
-
 # Livret d'accueil de l'appartement : destiné aux invités qui ont l'adresse,
-# pas au grand public. Même traitement que ci-dessus (robots.txt + meta).
+# pas au grand public. Ne doit pas être référencé par les moteurs de recherche ;
+# les pages portent également une balise <meta name="robots" content="noindex">.
 Disallow: /flat/
 
 # Dossier documentaire sur l'auto-détention de crypto-actifs : publié pour être
