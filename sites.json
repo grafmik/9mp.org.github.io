@@ -125,6 +125,12 @@
       "exclude": ["README.md", "package.json", "tools", "tests", ".gitignore", ".github"]
     },
     {
+      "path": "kombat17",
+      "repo": "grafmik/kombat17",
+      "ref": "main",
+      "exclude": ["README.md", "tools", ".gitignore", ".github"]
+    },
+    {
       "path": "rage-in-the-city-2",
       "repo": "grafmik/rage-in-the-city-2",
       "ref": "main",

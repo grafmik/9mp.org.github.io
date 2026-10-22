@@ -58,6 +58,14 @@
       "hue": 8,
       "texte": "Jeu de combat façon borne d'arcade de 1993 : sept combattants *filmés sur fond vert* (un moine de Shaolin, un médecin de peste, un bûcheron, une maîtresse de l'urumi, un cyborg, une sorcière, un vagabond sans visage), coups spéciaux, combos, *FINISH HIM* et fatalités. Musique originale chantée. Seul contre la tour ou à deux, au clavier, à la manette ou au doigt."
     },
+    "kombat17": {
+      "masque": true,
+      "titre": "KOMBAT 17",
+      "modele": "Claude Opus 5.5",
+      "cat": "jeu",
+      "hue": 24,
+      "texte": "Jeu de combat de rue tiré d'une vidéo de trente secondes : Samuel, le patron de GAMEZ, contre un casseur black bloc, dans une rue de Paris en *pleine émeute*. Acteurs filmés, supers en bande dessinée, et le joueur 2 en ligne, sans attendre le réseau."
+    },
     "damgod": {
       "titre": "DAMGOD",
       "modele": "Claude Opus 5.5",
