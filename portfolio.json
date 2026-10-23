@@ -236,6 +236,13 @@
       "hue": 210,
       "texte": "Backtests d'une méthode d'investissement value : portefeuilles rejoués depuis 2016 et signaux de cycle testés sur 49 ans de S&P 500."
     },
+    "mikgram": {
+      "masque": true,
+      "titre": "MikGram pour Mac",
+      "cat": "app",
+      "hue": 205,
+      "texte": "Telegram Desktop avec quelques ajouts (couleur de fond par conversation, bannissement local, auteur des posts dans les commentaires), à télécharger pour Mac. Lien dans le coin de la page d'accueil."
+    },
     "bouffe": {
       "masque": true,
       "titre": "Bouffe",

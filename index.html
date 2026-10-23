@@ -83,6 +83,7 @@ button{font:inherit;color:inherit}
 .hud::before{content:"";position:absolute;inset:0 0 -40px;background:linear-gradient(var(--bg) 35%,rgba(10,10,11,0));opacity:var(--scrim,0);pointer-events:none}
 .hud-r{position:relative;display:inline-flex;align-items:center;gap:.9em;padding:12px 0;pointer-events:auto}
 .hud-r b{color:var(--red);font-weight:600}
+.hud-mg{margin-right:clamp(18px,3vw,36px)}
 
 /* ------------------------------------------------------------------ 9MP -- */
 /* Sans JS : un grand mot en haut de page. Avec JS (.mk) : trois lettres
@@ -288,6 +289,7 @@ button{font:inherit;color:inherit}
 <a class="skip mono" href="#travaux">Aller aux travaux</a>
 
 <header class="hud">
+  <a class="hud-r hud-mg mono" href="/mikgram/">MikGram <b>Mac</b></a>
   <a class="hud-r mono" href="#travaux">Travaux <b data-auto="total">18</b></a>
 </header>
 

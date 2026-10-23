@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MikGram pour Mac</title>
+<meta name="description" content="MikGram : Telegram Desktop avec quelques ajouts, à télécharger pour Mac.">
+<meta name="theme-color" content="#0a0a0b">
+<meta name="color-scheme" content="dark">
+<link rel="icon" href="icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <a class="logo" href="/">9<b>M</b>P</a>
+  <nav><a href="./" aria-current="page">MikGram</a><a href="https://github.com/grafmik/MikGram">Code source</a></nav>
+</header>
+<main>
+<div class="app">
+  <img src="icon.png" alt="" width="112" height="112">
+  <h1>MikGram</h1>
+</div>
+<p class="lead">Telegram Desktop, l'officiel, avec quelques ajouts. Chaque nouvelle version de Telegram est reprise telle quelle, les ajouts posés par-dessus.</p>
+<p class="maj" id="version">Dernière version sur GitHub</p>
+
+<a class="dl" id="dl" href="https://github.com/grafmik/MikGram/releases/latest/download/MikGram-mac.zip">Télécharger pour Mac</a>
+<p class="maj">Mac Apple Silicon (M1 et suivants), macOS 12 ou plus récent<span id="taille"></span>.</p>
+
+<h2>Ce qu'elle ajoute</h2>
+<ul>
+<li><strong>Couleur de fond par conversation.</strong> Clic droit sur une discussion → Couleur de fond : la ligne se teinte dans la liste.</li>
+<li><strong>Bannissement local.</strong> Un canal ou un groupe banni disparaît de la liste, de la recherche et des notifications, sans le quitter. Ses messages transférés restent visibles, marqués « (banni) ».</li>
+<li><strong>Auteur dans les commentaires.</strong> Dans le groupe de discussion d'un canal, chaque post montre qui l'a écrit, comme dans le canal.</li>
+</ul>
+
+<h2>L'installer</h2>
+<ol>
+<li>Ouvre le zip et glisse <strong>MikGram</strong> dans le dossier Applications.</li>
+<li>Au premier lancement, macOS refuse de l'ouvrir : l'app n'est pas notarisée par Apple. Va dans Réglages Système → Confidentialité et sécurité, puis clique sur « Ouvrir quand même » en bas de la page. Ou, dans le Terminal : <code>xattr -dr com.apple.quarantine /Applications/MikGram.app</code></li>
+</ol>
+
+<h2>À savoir</h2>
+<ul>
+<li>MikGram range ses données au même endroit que Telegram Desktop : ne lance pas les deux en même temps.</li>
+<li>Pas de mise à jour automatique : reviens sur cette page pour la dernière version.</li>
+<li>Sur Android, MikGram est sur le dépôt F-Droid <a href="https://app.9mp.org/fdroid/repo/">app.9mp.org</a>.</li>
+</ul>
+</main>
+<script>
+// La version et la taille viennent de la dernière release : la page ne change pas quand on republie.
+fetch("https://api.github.com/repos/grafmik/MikGram/releases/latest")
+  .then((r) => r.ok ? r.json() : Promise.reject(r.status))
+  .then((release) => {
+    const asset = (release.assets || []).find((a) => a.name === "MikGram-mac.zip");
+    if (!asset) return;
+    const version = (release.name || "").replace(/^MikGram\s+|\s*\(Mac\)$/g, "");
+    const date = new Date(asset.updated_at).toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" });
+    document.getElementById("version").textContent = `Version ${version} · ${date}`;
+    document.getElementById("taille").textContent = ` · ${Math.round(asset.size / 1048576)} Mo`;
+  })
+  .catch(() => {});
+</script>
+</body>
+</html>
