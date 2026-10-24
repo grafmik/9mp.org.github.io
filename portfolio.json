@@ -117,6 +117,14 @@
       "hue": 24,
       "texte": "Course tout-terrain arcade en 3D, hommage à *Super Off Road* : gros camions, sauts, boue et nitro, huit circuits et un championnat contre le Boss avec garage d'améliorations. Jusqu'à quatre joueurs sur le même écran, au clavier, à la manette ou au doigt."
     },
+    "cyber-nepia": {
+      "masque": true,
+      "titre": "Cyber Nepia",
+      "modele": "Claude Opus 5.5",
+      "cat": "jeu",
+      "hue": 190,
+      "texte": "Zelda 1 refait en *cyberpunk* : HYRULE.NET, six donjons, boss, objets et easter eggs, éclairage néon dynamique sur des sprites à normal maps. La suite 16 bits façon Zelda 3 se prépare sur /cyber-nepia/slice.html."
+    },
     "croco-kata": {
       "masque": true,
       "titre": "Kata — du tigre au crocodile",

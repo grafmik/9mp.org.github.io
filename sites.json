@@ -41,6 +41,12 @@
       "output": "site"
     },
     {
+      "path": "cyber-nepia",
+      "repo": "grafmik/cyber-nepia",
+      "ref": "main",
+      "exclude": ["README.md", "art", "tools", ".gitignore"]
+    },
+    {
       "path": "clip-pc98",
       "repo": "grafmik/clip-pc98",
       "ref": "main",
