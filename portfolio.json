@@ -38,7 +38,7 @@
     "— rien à déclarer ici."
   ],
 
-  "ordre": ["killer-kombat", "damgod", "rage-in-the-city-2", "ultraroad", "rewind-raid", "beatemall", "shmups/opus5.5", "shmups/clauded", "baston",
+  "ordre": ["killer-kombat", "damgod", "devilcrunch", "rage-in-the-city-2", "ultraroad", "rewind-raid", "beatemall", "shmups/opus5.5", "shmups/clauded", "baston",
             "shmups/deepseek4", "shmups/gemma", "shmups"],
 
   "categories": [
@@ -51,7 +51,6 @@
 
   "projets": {
     "devilcrunch": {
-      "masque": true,
       "titre": "Devil Crunch",
       "modele": "Claude Opus 5.5",
       "cat": "jeu",
