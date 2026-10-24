@@ -47,6 +47,12 @@
       "exclude": ["README.md", "art", "tools", ".gitignore"]
     },
     {
+      "path": "cyber-nepia-2",
+      "repo": "grafmik/cyber-nepia-2",
+      "ref": "main",
+      "exclude": ["README.md", "art", "tools", ".gitignore"]
+    },
+    {
       "path": "clip-pc98",
       "repo": "grafmik/clip-pc98",
       "ref": "main",

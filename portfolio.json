@@ -123,7 +123,15 @@
       "modele": "Claude Opus 5.5",
       "cat": "jeu",
       "hue": 190,
-      "texte": "Zelda 1 refait en *cyberpunk* : HYRULE.NET, six donjons, boss, objets et easter eggs, éclairage néon dynamique sur des sprites à normal maps. La suite 16 bits façon Zelda 3 se prépare sur /cyber-nepia/slice.html."
+      "texte": "Zelda 1 refait en *cyberpunk* : HYRULE.NET, six donjons, boss, objets et easter eggs, éclairage néon dynamique sur des sprites à normal maps. La suite 16 bits, c'est Cyber Nepia 2."
+    },
+    "cyber-nepia-2": {
+      "masque": true,
+      "titre": "Cyber Nepia 2",
+      "modele": "Claude Opus 5.5",
+      "cat": "jeu",
+      "hue": 200,
+      "texte": "La suite en 16 bits, façon *Zelda 3* : pixel art à la Metal Slug généré puis nettoyé, lumières néon dynamiques, épée tournoyante, dash, objets à soulever. Le début du monde : Boot Plaza, le canal, la Server Vault et son boss, FIREWALL."
     },
     "croco-kata": {
       "masque": true,
