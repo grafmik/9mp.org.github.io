@@ -65,7 +65,7 @@
     <button onclick="playerMove(-1)">←</button>
     <button onclick="playerRotate(1)">↻</button>
     <button onclick="playerMove(1)">→</button>
-    <div></div>
+    <button onclick="togglePause()" aria-label="Pause">❙❙</button>
     <button onclick="playerDrop()">↓</button>
 </div>
 
@@ -90,7 +90,15 @@
         canvas.height = rows * BLOCK_SIZE;
         context.scale(BLOCK_SIZE, BLOCK_SIZE);
 
+        // Redimensionnement (plein écran compris) : on garde les blocs posés, calés en bas
+        const old = board;
         board = createMatrix(cols, rows);
+        old.forEach((row, y) => {
+            const ny = y + rows - old.length;
+            if (ny < 0) return;
+            row.forEach((v, x) => { if (x < cols) board[ny][x] = v; });
+        });
+        if (player && player.matrix) player.pos.x = Math.min(player.pos.x, cols - player.matrix[0].length);
     }
 
     function createMatrix(w, h) {
@@ -129,7 +137,52 @@
         context.fillRect(0, 0, canvas.width, canvas.height);
         drawMatrix(board, {x: 0, y: 0});
         drawMatrix(player.matrix, player.pos);
+        if (paused) drawPause();
     }
+
+    // Pause : rappel des commandes (clavier, ou boutons à l'écran sur mobile)
+    let paused = false;
+    const touchy = matchMedia('(pointer: coarse)').matches;
+    function togglePause() { paused = !paused; }
+    function drawPause() {
+        context.save();
+        context.setTransform(1, 0, 0, 1, 0, 0);
+        context.fillStyle = 'rgba(0,0,0,0.72)';
+        context.fillRect(0, 0, canvas.width, canvas.height);
+        context.fillStyle = '#fff';
+        context.textAlign = 'center';
+        context.font = 'bold 32px sans-serif';
+        const cx = canvas.width / 2, cy = canvas.height / 2;
+        context.fillText('PAUSE', cx, cy - 40);
+        context.font = '15px sans-serif';
+        const lines = touchy
+            ? ['← → : déplacer   ↻ : tourner   ↓ : descendre', '❙❙ : reprendre']
+            : ['← → : déplacer   ↑ / W : tourner   Q : tourner à gauche', '↓ : descendre', 'P : reprendre   F : plein écran'];
+        lines.forEach((l, i) => context.fillText(l, cx, cy + i * 24));
+        context.restore();
+    }
+
+    // Plein écran au premier geste ; au doigt, le navigateur ne l'accepte qu'au lever du doigt
+    function toggleFullscreen(force) {
+        const d = document, on = !!(d.fullscreenElement || d.webkitFullscreenElement);
+        try {
+            if (!on && force !== false) {
+                const el = d.documentElement, r = (el.requestFullscreen || el.webkitRequestFullscreen || (() => {})).call(el);
+                if (r && r.catch) r.catch(() => {});
+                return r;
+            }
+            if (on && force !== true) { const r = (d.exitFullscreen || d.webkitExitFullscreen).call(d); if (r && r.catch) r.catch(() => {}); }
+        } catch (e) { /* refusé */ }
+        return null;
+    }
+    let fullGranted = false;
+    function firstGesture(e) {
+        if (fullGranted) return;
+        if (e.code === 'KeyF' || document.fullscreenElement) { fullGranted = true; return; }
+        const r = toggleFullscreen(true);
+        if (r && r.then) r.then(() => { fullGranted = true; }, () => {}); else fullGranted = true;
+    }
+    for (const ev of ['keydown', 'pointerdown', 'pointerup']) addEventListener(ev, firstGesture, true);
 
     function drawMatrix(matrix, offset) {
         matrix.forEach((row, y) => {
@@ -186,6 +239,7 @@
     }
 
     function playerDrop() {
+        if (paused) return;
         player.pos.y++;
         if (collide(board, player)) {
             player.pos.y--;
@@ -197,6 +251,7 @@
     }
 
     function playerMove(dir) {
+        if (paused) return;
         player.pos.x += dir;
         if (collide(board, player)) {
             player.pos.x -= dir;
@@ -216,6 +271,7 @@
     }
 
     function playerRotate(dir) {
+        if (paused) return;
         const pos = player.pos.x;
         let offset = 1;
         rotate(player.matrix, dir);
@@ -247,7 +303,7 @@
     function update(time = 0) {
         const deltaTime = time - lastTime;
         lastTime = time;
-        dropCounter += deltaTime;
+        if (!paused) dropCounter += deltaTime;
         if (dropCounter > dropInterval) {
             playerDrop();
         }
@@ -255,13 +311,16 @@
         requestAnimationFrame(update);
     }
 
-    const player = {
+    var player = {
         pos: {x: 0, y: 0},
         matrix: null,
         score: 0,
     };
 
     document.addEventListener('keydown', event => {
+        if (event.code === 'KeyP' && !event.repeat) return togglePause();
+        if (event.code === 'KeyF' && !event.repeat) return toggleFullscreen();
+        if (paused) return;
         if (event.keyCode === 37) playerMove(-1);
         else if (event.keyCode === 39) playerMove(1);
         else if (event.keyCode === 40) playerDrop();
