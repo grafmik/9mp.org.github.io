@@ -202,12 +202,23 @@ if (existsSync(secrete)) {
     .map(({ path, meta }) => {
       return {
         path,
+        cat: cats.has(meta.cat) ? meta.cat : fallbackCat,
         hue: meta.hue ?? hueOf(path),
         vignette: vignetteOf(path),
         titre: meta.titre ?? titleOf(path),
         texte: meta.texte ?? "",
       };
     });
-  writeFileSync(secrete, remplace(read(secrete), "s/index.html", "caches", caches.map(tuile).join("\n")));
+  // Une section par catégorie, dans l'ordre de "categories" (les jeux
+  // d'abord) ; dans chaque section, l'ordre des fiches de portfolio.json.
+  const pos = (p) => { const i = known.indexOf(p.path.split("/")[0]); return i === -1 ? known.length : i; };
+  const sections = portfolio.categories
+    .map((c) => ({ c, items: caches.filter((p) => p.cat === c.id).sort((a, b) => pos(a) - pos(b)) }))
+    .filter((s) => s.items.length)
+    .map(({ c, items }) => `<h2>${esc(c.label)} <b>·</b> ${items.length}</h2>
+<ul>
+${items.map(tuile).join("\n")}
+</ul>`);
+  writeFileSync(secrete, remplace(read(secrete), "s/index.html", "caches", sections.join("\n\n")));
   console.log(`✓ ${secrete} — ${caches.length} projets cachés`);
 }
