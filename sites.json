@@ -71,6 +71,12 @@
       "exclude": ["README.md", "package.json", "tools", "tests", "bible", "song"]
     },
     {
+      "path": "devilcrunch",
+      "repo": "grafmik/devilcrunch",
+      "ref": "main",
+      "exclude": ["README.md", "package.json", "tools", "tests", ".gitignore"]
+    },
+    {
       "path": "flat",
       "repo": "grafmik/flat",
       "ref": "main",

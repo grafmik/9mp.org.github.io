@@ -50,6 +50,14 @@
   ],
 
   "projets": {
+    "devilcrunch": {
+      "masque": true,
+      "titre": "Devil Crunch",
+      "modele": "Claude Opus 5.5",
+      "cat": "jeu",
+      "hue": 14,
+      "texte": "Flipper vidéo façon *Devil Crash* en borne 1996 : une tour à trois étages (cimetière, labo, usine) où l'on monte et redescend entre les palettes, des hordes de zombies, de mutants et de robots précalculés, un démon mécanique à faire céder, trois bonus stages et un annonceur démoniaque."
+    },
     "killer-kombat": {
       "masque": true,
       "titre": "Killer Kombat",
