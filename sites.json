@@ -86,8 +86,15 @@
       "path": "migration-chaussettes",
       "repo": "grafmik/2d-animation",
       "ref": "main",
-      "build": "python3 tools/build_9mp.py",
-      "output": "site"
+      "build": "python3 tools/build_9mp.py migration-chaussettes",
+      "output": "site/migration-chaussettes"
+    },
+    {
+      "path": "bateau-thesee",
+      "repo": "grafmik/2d-animation",
+      "ref": "main",
+      "build": "python3 tools/build_9mp.py bateau-thesee",
+      "output": "site/bateau-thesee"
     },
     {
       "path": "flat",

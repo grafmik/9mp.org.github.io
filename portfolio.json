@@ -38,7 +38,7 @@
     "— rien à déclarer ici."
   ],
 
-  "ordre": ["killer-kombat", "damgod", "devilcrunch", "migration-chaussettes", "rage-in-the-city-2", "ultraroad", "rewind-raid", "beatemall", "shmups/opus5.5", "shmups/clauded", "baston",
+  "ordre": ["killer-kombat", "damgod", "devilcrunch", "bateau-thesee", "migration-chaussettes", "rage-in-the-city-2", "ultraroad", "rewind-raid", "beatemall", "shmups/opus5.5", "shmups/clauded", "baston",
             "shmups/deepseek4", "shmups/gemma", "shmups"],
 
   "categories": [
@@ -50,6 +50,13 @@
   ],
 
   "projets": {
+    "bateau-thesee": {
+      "titre": "Le Bateau de Thésée",
+      "modele": "Claude Opus 5.5",
+      "cat": "divers",
+      "hue": 28,
+      "texte": "Un paradoxe philosophique expliqué en une minute : si l'on remplace une à une toutes les planches d'un navire, est-ce encore le même ? Plutarque, Hobbes et ses vieilles planches, trois réponses, le corps humain et *le couteau de Janot*. Dessiné en code, narré par une voix de synthèse locale."
+    },
     "conventions-fiscales": {
       "masque": true,
       "titre": "Atlas des conventions fiscales",
