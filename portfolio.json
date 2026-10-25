@@ -50,6 +50,14 @@
   ],
 
   "projets": {
+    "conventions-fiscales": {
+      "masque": true,
+      "titre": "Atlas des conventions fiscales",
+      "modele": "Claude Opus 5.5",
+      "cat": "outil",
+      "hue": 222,
+      "texte": "Les 125 conventions fiscales de la France sur une carte, et un simulateur qui suit la logique de la convention : jours passés dans chaque pays, famille, revenus, puis où l'on est résident et quel pays impose quoi."
+    },
     "migration-chaussettes": {
       "titre": "La Migration des chaussettes",
       "modele": "Claude Opus 5.5",

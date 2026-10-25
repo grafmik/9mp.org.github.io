@@ -41,6 +41,12 @@
       "output": "site"
     },
     {
+      "path": "conventions-fiscales",
+      "repo": "grafmik/convention-fiscale-map",
+      "ref": "main",
+      "exclude": ["README.md"]
+    },
+    {
       "path": "cyber-nepia",
       "repo": "grafmik/cyber-nepia",
       "ref": "main",
