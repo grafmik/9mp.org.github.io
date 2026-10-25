@@ -38,7 +38,7 @@
     "— rien à déclarer ici."
   ],
 
-  "ordre": ["killer-kombat", "damgod", "devilcrunch", "rage-in-the-city-2", "ultraroad", "rewind-raid", "beatemall", "shmups/opus5.5", "shmups/clauded", "baston",
+  "ordre": ["killer-kombat", "damgod", "devilcrunch", "migration-chaussettes", "rage-in-the-city-2", "ultraroad", "rewind-raid", "beatemall", "shmups/opus5.5", "shmups/clauded", "baston",
             "shmups/deepseek4", "shmups/gemma", "shmups"],
 
   "categories": [
@@ -50,6 +50,13 @@
   ],
 
   "projets": {
+    "migration-chaussettes": {
+      "titre": "La Migration des chaussettes",
+      "modele": "Claude Opus 5.5",
+      "cat": "divers",
+      "hue": 34,
+      "texte": "Faux documentaire animalier de 38 secondes : chaque automne, à 3 h 14, une chaussette par paire s'échappe de la machine, migre en V au-dessus de la ville et rejoint *l'île des Célibataires*. Dessiné entièrement en code, narré par une voix de synthèse locale."
+    },
     "devilcrunch": {
       "titre": "Devil Crunch",
       "modele": "Claude Opus 5.5",

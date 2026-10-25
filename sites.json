@@ -77,6 +77,13 @@
       "exclude": ["README.md", "package.json", "tools", "tests", ".gitignore"]
     },
     {
+      "path": "migration-chaussettes",
+      "repo": "grafmik/2d-animation",
+      "ref": "main",
+      "build": "python3 tools/build_9mp.py",
+      "output": "site"
+    },
+    {
       "path": "flat",
       "repo": "grafmik/flat",
       "ref": "main",
