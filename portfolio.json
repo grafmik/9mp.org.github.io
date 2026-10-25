@@ -38,7 +38,7 @@
     "— rien à déclarer ici."
   ],
 
-  "ordre": ["killer-kombat", "damgod", "devilcrunch", "bateau-thesee", "migration-chaussettes", "rage-in-the-city-2", "ultraroad", "rewind-raid", "beatemall", "shmups/opus5.5", "shmups/clauded", "baston",
+  "ordre": ["killer-kombat", "damgod", "devilcrunch", "animations-2d", "rage-in-the-city-2", "ultraroad", "rewind-raid", "beatemall", "shmups/opus5.5", "shmups/clauded", "baston",
             "shmups/deepseek4", "shmups/gemma", "shmups"],
 
   "categories": [
@@ -50,12 +50,12 @@
   ],
 
   "projets": {
-    "bateau-thesee": {
-      "titre": "Le Bateau de Thésée",
+    "animations-2d": {
+      "titre": "Animations 2D",
       "modele": "Claude Opus 5.5",
       "cat": "divers",
-      "hue": 28,
-      "texte": "Un paradoxe philosophique expliqué en une minute : si l'on remplace une à une toutes les planches d'un navire, est-ce encore le même ? Plutarque, Hobbes et ses vieilles planches, trois réponses, le corps humain et *le couteau de Janot*. Dessiné en code, narré par une voix de synthèse locale."
+      "hue": 30,
+      "texte": "De petits films dessinés entièrement en code, narrés par une voix de synthèse locale : *Le Bateau de Thésée*, un paradoxe philosophique expliqué en une minute, et *La Migration des chaussettes*, un faux documentaire animalier."
     },
     "conventions-fiscales": {
       "masque": true,
@@ -64,13 +64,6 @@
       "cat": "outil",
       "hue": 222,
       "texte": "Les 125 conventions fiscales de la France sur une carte, et un simulateur qui suit la logique de la convention : jours passés dans chaque pays, famille, revenus, puis où l'on est résident et quel pays impose quoi."
-    },
-    "migration-chaussettes": {
-      "titre": "La Migration des chaussettes",
-      "modele": "Claude Opus 5.5",
-      "cat": "divers",
-      "hue": 34,
-      "texte": "Faux documentaire animalier de 38 secondes : chaque automne, à 3 h 14, une chaussette par paire s'échappe de la machine, migre en V au-dessus de la ville et rejoint *l'île des Célibataires*. Dessiné entièrement en code, narré par une voix de synthèse locale."
     },
     "devilcrunch": {
       "titre": "Devil Crunch",
