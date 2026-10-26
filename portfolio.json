@@ -55,7 +55,7 @@
       "modele": "Claude Opus 5.5",
       "cat": "divers",
       "hue": 30,
-      "texte": "De petits films dessinés entièrement en code, narrés par une voix de synthèse locale : *Le Bateau de Thésée*, un paradoxe philosophique expliqué en une minute, et *La Migration des chaussettes*, un faux documentaire animalier."
+      "texte": "De petits films dessinés entièrement en code, narrés par une voix de synthèse locale : *Philo en chaussettes*, cinq idées de philosophie expliquées en une minute (le bateau de Thésée, la caverne de Platon, l'âne de Buridan, Achille et la tortue, le dilemme du tramway), et *La Migration des chaussettes*, un faux documentaire animalier."
     },
     "conventions-fiscales": {
       "masque": true,
