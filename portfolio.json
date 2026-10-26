@@ -23,6 +23,9 @@
     "  masque  true : le projet reste publié et accessible, mais ne s'affiche",
     "          pas dans le portfolio (le reste de la fiche est conservé, il",
     "          suffit de repasser à false pour le remettre en vitrine)",
+    "  tiroir  true (avec masque) : sur /s/, la tuile quitte sa catégorie pour",
+    "          le tiroir « Secret lol », qui s'ouvre en cliquant 5 fois sur",
+    "          le © en bas de page",
     "  cadrage le point de la vignette gardé visible quand elle est rognée",
     "          (object-position, ex. \"90% 0%\") ; défaut : le centre",
     "",
@@ -298,6 +301,7 @@
     },
     "menage": {
       "masque": true,
+      "tiroir": true,
       "titre": "Ménage de l'appartement",
       "cat": "vitrine",
       "hue": 150,
@@ -305,6 +309,7 @@
     },
     "flat": {
       "masque": true,
+      "tiroir": true,
       "titre": "Manuel de l'appartement",
       "cat": "vitrine",
       "hue": 200,

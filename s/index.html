@@ -33,6 +33,10 @@ ul{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fill
 .t:hover img{opacity:.6}
 .t-p{margin-top:auto;font-size:11px;letter-spacing:.08em;color:hsl(var(--h) 100% 74%);overflow-wrap:anywhere}
 .t-t{font:800 21px/1.05 "Science Gothic",system-ui,sans-serif;font-stretch:100%;text-transform:uppercase;overflow-wrap:break-word}
+footer{margin-top:clamp(48px,8vw,96px);font-size:11px;letter-spacing:.14em;color:var(--dim)}
+footer .c{cursor:default;user-select:none;-webkit-user-select:none;-webkit-tap-highlight-color:transparent}
+#tiroir:not([hidden]){animation:tiroir .6s cubic-bezier(.2,.9,.3,1.2)}
+@keyframes tiroir{from{opacity:0;transform:translateY(24px)}}
 .t-d{font-size:12px;color:var(--dim);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 </style>
 </head>
@@ -43,7 +47,7 @@ ul{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fill
 <h1>Hors vitrine</h1>
 
 <!-- auto:caches -->
-<h2>Jeux <b>·</b> 6</h2>
+<h2>Jeux <b>·</b> 7</h2>
 <ul>
         <li><a class="t" href="/killer-kombat/" style="--h:8">
           <img src="/vignettes/killer-kombat.webp" alt="" loading="lazy" decoding="async">
@@ -61,7 +65,13 @@ ul{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fill
           <img src="/vignettes/cyber-nepia.webp" alt="" loading="lazy" decoding="async">
           <span class="t-p">9mp.org/cyber-nepia</span>
           <span class="t-t">Cyber Nepia</span>
-          <span class="t-d">Zelda 1 refait en <em>cyberpunk</em> : HYRULE.NET, six donjons, boss, objets et easter eggs, éclairage néon dynamique sur des sprites à normal maps. La suite 16 bits façon Zelda 3 se prépare sur /cyber-nepia/slice.html.</span>
+          <span class="t-d">Zelda 1 refait en <em>cyberpunk</em> : HYRULE.NET, six donjons, boss, objets et easter eggs, éclairage néon dynamique sur des sprites à normal maps. La suite 16 bits, c'est Cyber Nepia 2.</span>
+        </a></li>
+        <li><a class="t" href="/cyber-nepia-2/" style="--h:200">
+          <img src="/vignettes/cyber-nepia-2.webp" alt="" loading="lazy" decoding="async">
+          <span class="t-p">9mp.org/cyber-nepia-2</span>
+          <span class="t-t">Cyber Nepia 2</span>
+          <span class="t-d">La suite en 16 bits, façon <em>Zelda 3</em> : pixel art à la Metal Slug généré puis nettoyé, lumières néon dynamiques, épée tournoyante, dash, objets à soulever. Le début du monde : Boot Plaza, le canal, la Server Vault et son boss, FIREWALL.</span>
         </a></li>
         <li><a class="t" href="/shmups/" style="--h:320">
           <img src="/vignettes/shmups.webp" alt="" loading="lazy" decoding="async">
@@ -83,8 +93,20 @@ ul{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fill
         </a></li>
 </ul>
 
-<h2>Outils <b>·</b> 5</h2>
+<h2>Outils <b>·</b> 7</h2>
 <ul>
+        <li><a class="t" href="/joypad-test/" style="--h:0">
+          <img src="/vignettes/joypad-test.webp" alt="" loading="lazy" decoding="async">
+          <span class="t-p">9mp.org/joypad-test</span>
+          <span class="t-t">Test de la manette</span>
+          <span class="t-d">Le schéma de la manette s'allume en direct : boutons, gâchettes, sticks. En mode Clavier, il suit les touches qu'envoie Joypad Mapping ; en mode Manette, il lit la manette elle-même, vibration comprise.</span>
+        </a></li>
+        <li><a class="t" href="/conventions-fiscales/" style="--h:222">
+          <img src="/vignettes/conventions-fiscales.webp" alt="" loading="lazy" decoding="async">
+          <span class="t-p">9mp.org/conventions-fiscales</span>
+          <span class="t-t">Atlas des conventions fiscales</span>
+          <span class="t-d">Les 125 conventions fiscales de la France sur une carte, et un simulateur qui suit la logique de la convention : jours passés dans chaque pays, famille, revenus, puis où l'on est résident et quel pays impose quoi.</span>
+        </a></li>
         <li><a class="t" href="/worldtimesync/" style="--h:170">
           <span class="t-p">9mp.org/worldtimesync</span>
           <span class="t-t">World Time Sync</span>
@@ -136,22 +158,12 @@ ul{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fill
         </a></li>
 </ul>
 
-<h2>Vitrines <b>·</b> 4</h2>
+<h2>Vitrines <b>·</b> 2</h2>
 <ul>
         <li><a class="t" href="/pizzeria105/" style="--h:10">
           <span class="t-p">9mp.org/pizzeria105</span>
           <span class="t-t">Le 105 — Pizzas à emporter</span>
           <span class="t-d">Site vitrine d'un kiosque-pizzeria du Sécheron, à Genève : carte des pizzas, épicerie de quartier, horaires, motion design.</span>
-        </a></li>
-        <li><a class="t" href="/menage/" style="--h:150">
-          <span class="t-p">9mp.org/menage</span>
-          <span class="t-t">Ménage de l'appartement</span>
-          <span class="t-d">Checklist et notice pour chaque séance de ménage de l'appartement : tâches à cocher, réglages des machines, récapitulatif des dépenses.</span>
-        </a></li>
-        <li><a class="t" href="/flat/" style="--h:200">
-          <span class="t-p">9mp.org/flat</span>
-          <span class="t-t">Manuel de l'appartement</span>
-          <span class="t-d">Le livret d'accueil des invités, bilingue français / anglais : équipements, mode d'emploi, bonnes adresses du quartier.</span>
         </a></li>
         <li><a class="t" href="/immomap/" style="--h:44">
           <img src="/vignettes/immomap.webp" alt="" loading="lazy" decoding="async">
@@ -191,11 +203,47 @@ ul{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fill
           <span class="t-t">F-Droid 9mp Apps</span>
           <span class="t-d">Le dépôt F-Droid auto-hébergé des apps Android (Grosse Journée, HelloChat…), à ajouter dans le client F-Droid.</span>
         </a></li>
+</ul>
+
+<!-- Tiroir caché : 5 clics sur le © du pied de page. Les tuiles marquées
+     "tiroir" dans portfolio.json sont générées ; celles d'app.9mp.org, à la main. -->
+<section id="tiroir" hidden>
+<h2>Secret lol <b>·</b> <span class="n"></span></h2>
+<ul>
+<!-- auto:tiroir -->
+        <li><a class="t" href="/menage/" style="--h:150">
+          <span class="t-p">9mp.org/menage</span>
+          <span class="t-t">Ménage de l'appartement</span>
+          <span class="t-d">Checklist et notice pour chaque séance de ménage de l'appartement : tâches à cocher, réglages des machines, récapitulatif des dépenses.</span>
+        </a></li>
+        <li><a class="t" href="/flat/" style="--h:200">
+          <span class="t-p">9mp.org/flat</span>
+          <span class="t-t">Manuel de l'appartement</span>
+          <span class="t-d">Le livret d'accueil des invités, bilingue français / anglais : équipements, mode d'emploi, bonnes adresses du quartier.</span>
+        </a></li>
+<!-- /auto:tiroir -->
         <li><a class="t" href="https://app.9mp.org/marcbluersky/feed.xml" style="--h:200">
           <span class="t-p">app.9mp.org/marcbluersky/feed.xml</span>
           <span class="t-t">Flux marcbluersky</span>
           <span class="t-d">L'archive des podcasts, synchronisée chaque jour : le flux RSS à coller dans une appli de podcast.</span>
         </a></li>
 </ul>
+</section>
+
+<footer><span class="c">© 9MP.ORG</span></footer>
+<script>
+(() => {
+  const c = document.querySelector("footer .c"), t = document.getElementById("tiroir");
+  let n = 0, timer;
+  c.addEventListener("click", () => {
+    clearTimeout(timer);
+    timer = setTimeout(() => (n = 0), 1500);
+    if (++n < 5 || !t.hidden) return;
+    t.querySelector(".n").textContent = t.querySelectorAll("li").length;
+    t.hidden = false;
+    t.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+})();
+</script>
 </body>
 </html>
