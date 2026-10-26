@@ -103,6 +103,12 @@
       "output": "public"
     },
     {
+      "path": "joypad-test",
+      "repo": "grafmik/joypad-test",
+      "ref": "main",
+      "exclude": ["README.md"]
+    },
+    {
       "path": "jobs",
       "repo": "grafmik/jobs",
       "ref": "main",

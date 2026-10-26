@@ -50,6 +50,14 @@
   ],
 
   "projets": {
+    "joypad-test": {
+      "masque": true,
+      "titre": "Test de la manette",
+      "modele": "Claude Opus 5.5",
+      "cat": "outil",
+      "hue": 0,
+      "texte": "Le schéma de la manette s'allume en direct : boutons, gâchettes, sticks. En mode Clavier, il suit les touches qu'envoie Joypad Mapping ; en mode Manette, il lit la manette elle-même, vibration comprise."
+    },
     "animations-2d": {
       "titre": "Animations 2D",
       "modele": "Claude Opus 5.5",
