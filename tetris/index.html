@@ -144,6 +144,8 @@
     let paused = false;
     const touchy = matchMedia('(pointer: coarse)').matches;
     function togglePause() { paused = !paused; }
+    // changer d'onglet met la partie en pause
+    document.addEventListener('visibilitychange', () => { if (document.hidden && !paused) togglePause(); });
     function drawPause() {
         context.save();
         context.setTransform(1, 0, 0, 1, 0, 0);
