@@ -8,7 +8,8 @@ Le site est **assemblé en CI**, pas stocké tel quel. Ce repo contient :
   `guillaumesync/`, `tetris/`, `worldtimesync/`, `CNAME`, `robots.txt` ;
 - `fonts/` : les polices de la page d'accueil, auto-hébergées (licences dans
   `fonts/OFL.txt`) ;
-- `marque/` : le logo 9MP (le même que l'icône de la page d'accueil), servi
+- `marque/` : le logo 9MP (le même que l'icône de la page d'accueil ;
+  `9mp-large.svg` = la même tuile centrée dans un cadre large), servi
   à d'autres services, comme la page de connexion d'auth.9mp.org ;
 - `vignettes/` : une image par projet, prise dans le projet lui-même, en fond
   de sa carte sur la page d'accueil ;
