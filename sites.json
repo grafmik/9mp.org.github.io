@@ -23,6 +23,12 @@
       "output": "public"
     },
     {
+      "path": "adx",
+      "repo": "grafmik/adx",
+      "ref": "main",
+      "exclude": ["README.md", "CLAUDE.md", "build.py", "scripts", "data/*.json"]
+    },
+    {
       "path": "baston",
       "repo": "grafmik/baston",
       "ref": "main",

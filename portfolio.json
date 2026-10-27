@@ -53,6 +53,14 @@
   ],
 
   "projets": {
+    "adx": {
+      "masque": true,
+      "titre": "Vendre avec l'IA",
+      "modele": "Claude Opus 5.5",
+      "cat": "outil",
+      "hue": 28,
+      "texte": "Une veille triée sur la pub, la créa et l'affiliation faites avec l'IA : pour chaque vidéo ou post, l'idée, les gestes à faire aujourd'hui et ce que la source a à vendre. Avec des recettes pas à pas et un atelier pour écrire un post affilié."
+    },
     "joypad-test": {
       "masque": true,
       "titre": "Test de la manette",
