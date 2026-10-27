@@ -9,7 +9,8 @@ Le site est **assemblé en CI**, pas stocké tel quel. Ce repo contient :
 - `fonts/` : les polices de la page d'accueil, auto-hébergées (licences dans
   `fonts/OFL.txt`) ;
 - `marque/` : le logo 9MP (le même que l'icône de la page d'accueil ;
-  `9mp-large.svg` = la même tuile centrée dans un cadre large), servi
+  `9mp-large.svg` = la même tuile centrée dans un cadre large ; `fond-connexion.jpg` =
+  la néo-ville Midjourney avec son enseigne 9MP), servis
   à d'autres services, comme la page de connexion d'auth.9mp.org ;
 - `vignettes/` : une image par projet, prise dans le projet lui-même, en fond
   de sa carte sur la page d'accueil ;
