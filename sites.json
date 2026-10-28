@@ -105,7 +105,7 @@
       "path": "immomap",
       "repo": "grafmik/immomap",
       "ref": "main",
-      "build": "URL_SITE=https://9mp.org/immomap GUICHET=aucun NOINDEX=1 node site/build.mjs",
+      "build": "URL_SITE=https://9mp.org/immomap GUICHET=aucun node site/build.mjs",
       "output": "public"
     },
     {

@@ -54,7 +54,6 @@
 
   "projets": {
     "adx": {
-      "masque": true,
       "titre": "Vendre avec l'IA",
       "modele": "Claude Opus 5.5",
       "cat": "outil",
@@ -77,7 +76,6 @@
       "texte": "De petits films dessinés entièrement en code, narrés par une voix de synthèse locale : *Philo en chaussettes*, sept idées de philosophie expliquées en une minute (le bateau de Thésée, la caverne de Platon, l'âne de Buridan, Achille et la tortue, le dilemme du tramway, la chambre chinoise, le paradoxe du tas), et *La Migration des chaussettes*, un faux documentaire animalier."
     },
     "conventions-fiscales": {
-      "masque": true,
       "titre": "Atlas des conventions fiscales",
       "modele": "Claude Opus 5.5",
       "cat": "outil",
@@ -259,7 +257,6 @@
       "texte": "État des lieux de l'auto-détention de crypto-actifs, et dossier sécurité des wallets matériels : 19 appareils notés, incidents documentés, sources en lien."
     },
     "zero-latency": {
-      "masque": true,
       "titre": "Atlas Zero Latency VR",
       "modele": "Claude Opus 5.5",
       "cat": "outil",
@@ -325,7 +322,6 @@
       "texte": "Le livret d'accueil des invités, bilingue français / anglais : équipements, mode d'emploi, bonnes adresses du quartier."
     },
     "immomap": {
-      "masque": true,
       "titre": "Belles Endormies",
       "modele": "Claude Opus 5.5",
       "cat": "vitrine",
