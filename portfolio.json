@@ -113,6 +113,7 @@
       "texte": "Jeu de tir au pistolet optique en vidéo plein écran, en *2028* : la permanent underclass sonne au portail de la villa, et Claudia te tend un revolver. Cagoulés, développeurs, mathématiciens, créatifs, puis les politiciens ; ennemis photoréalistes, grenades et couteaux à abattre en vol, cinématiques où Claudia parle. Sous-titré en français et en anglais ; à la souris, à la manette ou au doigt."
     },
     "motopeter": {
+      "masque": true,
       "titre": "Motopeter",
       "modele": "Claude Fable 5.1",
       "cat": "jeu",
@@ -120,6 +121,7 @@
       "texte": "Trial 2D à moteur physique : inertie, suspensions, figures et nitro. Au clavier comme au doigt, sur plusieurs terrains."
     },
     "berceuse": {
+      "masque": true,
       "titre": "Berceuse",
       "modele": "Claude Opus 5.5",
       "cat": "jeu",
@@ -127,6 +129,7 @@
       "texte": "Horreur en 3D à la première personne : retrouver les quatre cylindres d'une boîte à musique dans une maison où Madame Vey n'avance que quand on ne la regarde pas… ou quand on *cligne des yeux*."
     },
     "baston": {
+      "masque": true,
       "titre": "World Baston '96",
       "modele": "Claude Opus 5.5",
       "cat": "jeu",
