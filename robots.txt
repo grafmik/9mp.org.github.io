@@ -29,3 +29,7 @@ Disallow: /abadie/
 # exigées par l'écran de consentement Google (sauvegarde Drive), pas faites
 # pour être référencées. Même traitement (robots.txt + meta noindex).
 Disallow: /bouffe/
+
+# Veille personnelle sur la pub et la vente avec l'IA : à lire sur lien, pas à
+# référencer. Même traitement (robots.txt + meta noindex).
+Disallow: /adx/

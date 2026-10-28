@@ -54,6 +54,7 @@
 
   "projets": {
     "adx": {
+      "masque": true,
       "titre": "Vendre avec l'IA",
       "modele": "Claude Opus 5.5",
       "cat": "outil",
