@@ -71,6 +71,12 @@
       "exclude": ["README.md", "*.py", "requirements.txt", "tools"]
     },
     {
+      "path": "ulysse31",
+      "repo": "grafmik/ulysse31",
+      "ref": "main",
+      "exclude": ["README.md"]
+    },
+    {
       "path": "berceuse",
       "repo": "grafmik/horror",
       "ref": "main",

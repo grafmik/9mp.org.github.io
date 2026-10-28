@@ -191,6 +191,14 @@
       "hue": 355,
       "texte": "Clip musical façon AMV dans le style des jeux *PC-98* : Hikari mène la révolte contre ORACLE, l'IA qui surveille Néo-Tokyo. Image en 16 couleurs, musique en synthèse FM, tout généré par du code."
     },
+    "ulysse31": {
+      "masque": true,
+      "titre": "Ulysse 31 — La Toile",
+      "modele": "Claude Opus 5.5",
+      "cat": "divers",
+      "hue": 358,
+      "texte": "Clip musical : Shyrka, l'IA de bord, a pris le visage de Pénélope. Le jour elle tisse la route, la nuit elle la défait, parce que le voyage, c'est le produit. Chanson Suno, plans animés Wan, typographie calée sur le beat."
+    },
     "rewind-raid": {
       "titre": "Rewind Raid",
       "modele": "Claude Opus 5.5",
