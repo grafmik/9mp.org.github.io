@@ -12,6 +12,9 @@ Le site est **assemblé en CI**, pas stocké tel quel. Ce repo contient :
   `9mp-large.svg` = la même tuile centrée dans un cadre large ; `fond-connexion.jpg` =
   la néo-ville Midjourney avec son enseigne 9MP), servis
   à d'autres services, comme la page de connexion d'auth.9mp.org ;
+- `favicon.ico` : le logo 9MP (rendu par Chrome depuis `marque/9mp.svg`, 16, 32 et 48 px). Une page
+  qui ne déclare pas d'icône prend celle-ci : le navigateur demande `/favicon.ico` à la racine du domaine.
+  Une app qui a sa propre icône la garde ;
 - `vignettes/` : une image par projet, prise dans le projet lui-même, en fond
   de sa carte sur la page d'accueil ;
 - `sites.json` : la carte des projets qui vivent dans **leur propre repo** et
