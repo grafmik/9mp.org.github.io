@@ -347,6 +347,22 @@
       "cat": "vitrine",
       "hue": 60,
       "texte": "Une page, une bannière qui défile, une androïde. Le petit tract du studio sur l'intelligence artificielle."
+    },
+    "podcastplayer": {
+      "masque": true,
+      "url": "https://app.9mp.org/podcastplayer/",
+      "titre": "Lecteur de podcast",
+      "cat": "app",
+      "hue": 280,
+      "texte": "Lecteur HTML5 en une page : reprise de lecture, épisodes écoutés, flux marcbluersky par défaut ou n'importe quel RSS via ?feed=."
+    },
+    "fdroid": {
+      "masque": true,
+      "url": "https://app.9mp.org/fdroid/repo/",
+      "titre": "F-Droid 9mp Apps",
+      "cat": "app",
+      "hue": 120,
+      "texte": "Le dépôt F-Droid auto-hébergé des apps Android (Grosse Journée, HelloChat…), à ajouter dans le client F-Droid."
     }
   }
 }

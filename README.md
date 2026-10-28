@@ -98,8 +98,10 @@ true` dans sa fiche : il garde son URL, il quitte simplement la vitrine.
 
 Les projets masqués ont leur tuile sur **9mp.org/s/**, une page sans lien
 entrant et en `noindex` (volontairement absente de `robots.txt`, qui est
-public). `tools/render-home.mjs` la remplit tout seul ; les tuiles
-d'app.9mp.org, hors de ce dépôt, s'y ajoutent à la main dans `s/index.html`.
+public). `tools/render-home.mjs` la remplit tout seul, une section par
+catégorie. Un projet servi hors de ce dépôt (sur app.9mp.org, par exemple) y
+entre par une fiche `"masque": true` avec son adresse complète dans `"url"` :
+sa tuile va dans sa catégorie, comme les autres.
 
 ## Les tokens
 

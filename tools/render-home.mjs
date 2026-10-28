@@ -180,16 +180,21 @@ console.log(`✓ ${page} — ${projets.length} projets`);
 // s/index.html : une tuile par projet masqué, pour y accéder sans chercher
 // l'adresse. Aucun lien n'y mène et elle porte un meta noindex.
 
-const tuile = (p) => `        <li><a class="t" href="/${p.path}/" style="--h:${p.hue}">${p.vignette ? `
+const tuile = (p) => `        <li><a class="t" href="${esc(p.href)}" style="--h:${p.hue}">${p.vignette ? `
           <img src="${p.vignette}" alt="" loading="lazy" decoding="async">` : ""}
-          <span class="t-p">9mp.org/${esc(p.path)}</span>
+          <span class="t-p">${esc(p.adresse)}</span>
           <span class="t-t">${esc(p.titre)}</span>
           <span class="t-d">${rich(p.texte)}</span>
         </a></li>`;
 
 const secrete = join(DIR, "s", "index.html");
 if (existsSync(secrete)) {
-  // Projets masqués entiers, plus les versions masquées des projets en vitrine.
+  // Projets masqués entiers, plus les versions masquées des projets en vitrine,
+  // plus les fiches "url" : projets servis hors de ce dépôt (app.9mp.org…),
+  // rangés dans leur catégorie comme les autres.
+  const externes = Object.entries(portfolio.projets)
+    .filter(([, meta]) => meta.url && meta.masque)
+    .map(([path, meta]) => ({ path, meta }));
   const caches = publies
     .flatMap((path) => {
       const meta = portfolio.projets[path];
@@ -199,9 +204,12 @@ if (existsSync(secrete)) {
         meta: { ...meta, ...v },
       }));
     })
+    .concat(externes)
     .map(({ path, meta }) => {
       return {
         path,
+        href: meta.url ?? `/${path}/`,
+        adresse: meta.url ? meta.url.replace(/^https?:\/\//, "").replace(/\/$/, "") : `9mp.org/${path}`,
         cat: cats.has(meta.cat) ? meta.cat : fallbackCat,
         hue: meta.hue ?? hueOf(path),
         vignette: vignetteOf(path),
