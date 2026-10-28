@@ -216,6 +216,7 @@
       ]
     },
     "tetris": {
+      "masque": true,
       "titre": "Tetris adaptatif",
       "modele": "GPT-4",
       "cat": "jeu",
@@ -332,6 +333,7 @@
       "texte": "La lettre des maisons à moins de 50 000 € au milieu de nulle part : ce qu'elles pourraient devenir, images avant / après et budget complet à l'appui."
     },
     "ai": {
+      "masque": true,
       "titre": "It's over",
       "modele": "GPT-3.5",
       "cat": "vitrine",
