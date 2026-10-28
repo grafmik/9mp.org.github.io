@@ -41,7 +41,7 @@
     "— rien à déclarer ici."
   ],
 
-  "ordre": ["killer-kombat", "damgod", "devilcrunch", "animations-2d", "rage-in-the-city-2", "ultraroad", "rewind-raid", "beatemall", "shmups/opus5.5", "shmups/clauded", "baston",
+  "ordre": ["damgod", "devilcrunch", "animations-2d", "killer-kombat", "rage-in-the-city-2", "ultraroad", "rewind-raid", "beatemall", "shmups/opus5.5", "shmups/clauded", "baston",
             "shmups/deepseek4", "shmups/gemma", "shmups"],
 
   "categories": [
@@ -90,7 +90,6 @@
       "texte": "Flipper vidéo façon *Devil Crash* en borne 1996 : une tour à trois étages (cimetière, labo, usine) où l'on monte et redescend entre les palettes, des hordes de zombies, de mutants et de robots précalculés, un démon mécanique à faire céder, trois bonus stages et un annonceur démoniaque."
     },
     "killer-kombat": {
-      "masque": true,
       "titre": "Killer Kombat",
       "modele": "Claude Opus 5.5",
       "cat": "jeu",
