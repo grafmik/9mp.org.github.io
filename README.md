@@ -9,7 +9,9 @@ Le site est **assemblé en CI**, pas stocké tel quel. Ce repo contient :
 - `fonts/` : les polices de la page d'accueil, auto-hébergées (licences dans
   `fonts/OFL.txt`) ;
 - `marque/` : le logo 9MP (le même que l'icône de la page d'accueil ;
-  `9mp-large.svg` = la même tuile centrée dans un cadre large ; `fond-connexion.jpg` =
+  `9mp-large.svg` = la même tuile centrée dans un cadre large ; `9mp-science.svg` = « 9MP »
+  en Science Gothic (900, largeur 150 %), lettres vectorisées pour s'afficher sans la police,
+  et `9mp-science-large.svg` la même tuile dans un cadre 8:1 (logo de la page de connexion) ; `fond-connexion.jpg` =
   la néo-ville Midjourney avec son enseigne 9MP ; `mail-entete.png` = l'en-tête « 9MP »
   en Science Gothic des mails d'auth.9mp.org, en image parce que Gmail ignore les polices web), servis
   à d'autres services, comme la page de connexion d'auth.9mp.org ;
