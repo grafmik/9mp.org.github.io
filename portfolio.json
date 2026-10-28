@@ -200,6 +200,14 @@
       "hue": 358,
       "texte": "Clip musical : Shyrka, l'IA de bord, a pris le visage de Pénélope. Le jour elle tisse la route, la nuit elle la défait, parce que le voyage, c'est le produit. Chanson Suno, plans animés Wan, typographie calée sur le beat."
     },
+    "soi-6-starship": {
+      "masque": true,
+      "titre": "SOI 6 STARSHIP",
+      "modele": "Claude Opus 5.5",
+      "cat": "jeu",
+      "hue": 320,
+      "texte": "Shmup vertical beauf d'après le jeu de Marc Bluersky : Marc, un rat radin, vole tout seul de la Thaïlande au Cantal. Des *liasses* pour les Gourgandines, des *boules de pétanque* pour les Michelines, et une aura à polarité façon Ikaruga qui avale les tirs de sa couleur. Acteurs digitalisés, cinq boss, dont la Micheline Pachydermique du Cantal."
+    },
     "rewind-raid": {
       "titre": "Rewind Raid",
       "modele": "Claude Opus 5.5",

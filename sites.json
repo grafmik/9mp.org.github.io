@@ -77,6 +77,18 @@
       "exclude": ["README.md"]
     },
     {
+      "path": "soi-6-starship",
+      "repo": "grafmik/soi-6-starship",
+      "ref": "main",
+      "exclude": [
+        "README.md",
+        "tools",
+        "tests",
+        ".gitignore",
+        ".claude"
+      ]
+    },
+    {
       "path": "berceuse",
       "repo": "grafmik/horror",
       "ref": "main",
