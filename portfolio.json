@@ -53,6 +53,14 @@
   ],
 
   "projets": {
+    "sceptre-noir": {
+      "masque": true,
+      "titre": "Le Sceptre Noir",
+      "modele": "Claude Opus 4.8",
+      "cat": "jeu",
+      "hue": 150,
+      "texte": "Un livre-jeu dont *vous* êtes le héros : feuille d'aventure (habileté, endurance, chance), jets de dés, combats au tour par tour et sections numérotées à travers les Marais de Silure. Arrache le Sceptre Noir au sorcier Malgar — plusieurs fins t'attendent."
+    },
     "adx": {
       "masque": true,
       "titre": "Vendre avec l'IA",

@@ -229,6 +229,13 @@
       "ref": "expert-comments",
       "build": "flutter build web --release --base-href /hellochat/expert-comments/",
       "output": "build/web"
+    },
+    {
+      "path": "sceptre-noir",
+      "repo": "grafmik/sceptre-noir",
+      "ref": "main",
+      "output": "sceptre-noir.html",
+      "as": "index.html"
     }
   ]
 }
