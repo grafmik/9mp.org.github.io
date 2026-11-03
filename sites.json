@@ -236,6 +236,12 @@
       "ref": "main",
       "output": "sceptre-noir.html",
       "as": "index.html"
+    },
+    {
+      "path": "concord",
+      "repo": "grafmik/concord",
+      "ref": "main",
+      "output": "site"
     }
   ]
 }
