@@ -37,7 +37,7 @@ apparaît quand même, avec le titre de sa page — et le build le signale.
 
 | Ce que tu modifies | Ce que tu fais |
 |---|---|
-| Un projet externe (`motopeter`, `hellochat`, …) | push dans **son** repo — le site se reconstruit tout seul |
+| Un projet externe (`damgod`, `hellochat`, …) | push dans **son** repo — le site se reconstruit tout seul |
 | Le contenu local (`index.html`, `tetris/`, …) | push ici |
 | Rien ne bouge et tu veux forcer | `gh workflow run 'Build & deploy 9mp.org'` |
 

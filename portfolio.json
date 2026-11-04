@@ -122,14 +122,6 @@
       "cadrage": "92% 17%",
       "texte": "Jeu de tir au pistolet optique en vidéo plein écran, en *2028* : la permanent underclass sonne au portail de la villa, et Claudia te tend un revolver. Cagoulés, développeurs, mathématiciens, créatifs, puis les politiciens ; ennemis photoréalistes, grenades et couteaux à abattre en vol, cinématiques où Claudia parle. Sous-titré en français et en anglais ; à la souris, à la manette ou au doigt."
     },
-    "motopeter": {
-      "masque": true,
-      "titre": "Motopeter",
-      "modele": "Claude Fable 5.1",
-      "cat": "jeu",
-      "hue": 14,
-      "texte": "Trial 2D à moteur physique : inertie, suspensions, figures et nitro. Au clavier comme au doigt, sur plusieurs terrains."
-    },
     "berceuse": {
       "masque": true,
       "titre": "Berceuse",
@@ -174,15 +166,7 @@
       "modele": "Claude Opus 5.5",
       "cat": "jeu",
       "hue": 190,
-      "texte": "Zelda 1 refait en *cyberpunk* : HYRULE.NET, six donjons, boss, objets et easter eggs, éclairage néon dynamique sur des sprites à normal maps. La suite 16 bits, c'est Cyber Nepia 2."
-    },
-    "cyber-nepia-2": {
-      "masque": true,
-      "titre": "Cyber Nepia 2",
-      "modele": "Claude Opus 5.5",
-      "cat": "jeu",
-      "hue": 200,
-      "texte": "La suite en 16 bits, façon *Zelda 3* : pixel art à la Metal Slug généré puis nettoyé, lumières néon dynamiques, épée tournoyante, dash, objets à soulever. Le début du monde : Boot Plaza, le canal, la Server Vault et son boss, FIREWALL."
+      "texte": "Zelda 1 refait en *cyberpunk* : HYRULE.NET, six donjons, boss, objets et easter eggs, éclairage néon dynamique sur des sprites à normal maps."
     },
     "croco-kata": {
       "masque": true,
@@ -199,14 +183,6 @@
       "cat": "divers",
       "hue": 358,
       "texte": "Clip musical : Shyrka, l'IA de bord, a pris le visage de Pénélope. Le jour elle tisse la route, la nuit elle la défait, parce que le voyage, c'est le produit. Chanson Suno, plans animés Wan, typographie calée sur le beat."
-    },
-    "concord": {
-      "masque": true,
-      "titre": "Concord — refaire le casting",
-      "modele": "Claude Opus 5.5",
-      "cat": "divers",
-      "hue": 280,
-      "texte": "Les 16 personnages de l'écran de sélection de *Concord*, le hero shooter qui a coulé son studio : captures, répliques, et pour chacun une refonte Midjourney qui garde la tenue et le style mais donne enfin envie de jouer. Base d'un futur clip."
     },
     "soi-6-starship": {
       "masque": true,

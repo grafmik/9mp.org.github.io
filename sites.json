@@ -59,12 +59,6 @@
       "exclude": ["README.md", "art", "tools", ".gitignore"]
     },
     {
-      "path": "cyber-nepia-2",
-      "repo": "grafmik/cyber-nepia-2",
-      "ref": "main",
-      "exclude": ["README.md", "art", "tools", ".gitignore"]
-    },
-    {
       "path": "ulysse31",
       "repo": "grafmik/ulysse31",
       "ref": "main",
@@ -147,14 +141,6 @@
       "exclude": ["README.md"]
     },
     {
-      "path": "motopeter",
-      "repo": "grafmik/motopeter",
-      "ref": "main",
-      "build": "node tools/build.js",
-      "output": "dist/motopeter.html",
-      "as": "index.html"
-    },
-    {
       "path": "pizzeria105",
       "repo": "grafmik/pizzeria105",
       "ref": "main",
@@ -230,12 +216,6 @@
       "ref": "main",
       "output": "sceptre-noir.html",
       "as": "index.html"
-    },
-    {
-      "path": "concord",
-      "repo": "grafmik/concord",
-      "ref": "main",
-      "output": "site"
     }
   ]
 }
