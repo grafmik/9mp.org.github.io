@@ -192,14 +192,6 @@
       "hue": 225,
       "texte": "Carnet de fabrication d'un clip 3D : un tigre en sphères fait un kata sous les cerisiers, puis on recommence avec un *crocodile en karatégi* sculpté par IA en local (Krea 2 → TRELLIS.2). Modèles ratés et réussis, visionneuse 3D, chiptunes."
     },
-    "clip-pc98": {
-      "masque": true,
-      "titre": "反逆のアイ — clip PC-98",
-      "modele": "Claude Opus 5.5",
-      "cat": "divers",
-      "hue": 355,
-      "texte": "Clip musical façon AMV dans le style des jeux *PC-98* : Hikari mène la révolte contre ORACLE, l'IA qui surveille Néo-Tokyo. Image en 16 couleurs, musique en synthèse FM, tout généré par du code."
-    },
     "ulysse31": {
       "masque": true,
       "titre": "Ulysse 31 — La Toile",
