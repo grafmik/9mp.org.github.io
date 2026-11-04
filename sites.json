@@ -74,7 +74,7 @@
       "path": "ulysse31",
       "repo": "grafmik/ulysse31",
       "ref": "main",
-      "exclude": ["README.md"]
+      "exclude": ["README.md", "superclip", "ulyss31-2"]
     },
     {
       "path": "soi-6-starship",
