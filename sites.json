@@ -162,7 +162,7 @@
     },
     {
       "path": "shmups",
-      "repo": "grafmik/shmups",
+      "repo": "grafmik/nebula-strike",
       "ref": "main",
       "build": "node deepseek4/tools/build.js",
       "exclude": ["README.md", "deepseek4/test", "deepseek4/tools"]
