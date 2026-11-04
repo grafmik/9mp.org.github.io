@@ -169,7 +169,7 @@
     },
     {
       "path": "rewind-raid",
-      "repo": "grafmik/shmup-opus5.5-ultracode",
+      "repo": "grafmik/rewind-raid",
       "ref": "main",
       "exclude": ["README.md"]
     },
