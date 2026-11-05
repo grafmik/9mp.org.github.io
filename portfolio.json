@@ -77,6 +77,14 @@
       "hue": 0,
       "texte": "Le schéma de la manette s'allume en direct : boutons, gâchettes, sticks. En mode Clavier, il suit les touches qu'envoie Joypad Mapping ; en mode Manette, il lit la manette elle-même, vibration comprise."
     },
+    "vigie": {
+      "masque": true,
+      "titre": "Vigie",
+      "modele": "Claude Opus 5.5",
+      "cat": "outil",
+      "hue": 200,
+      "texte": "La carte de tous mes dépôts GitHub, rangés par catégorie : ce qui est en ligne, ce qui bouge, ce qui dort. En cartes ou en tableau, filtrable."
+    },
     "animations-2d": {
       "titre": "Animations 2D",
       "modele": "Claude Opus 5.5",

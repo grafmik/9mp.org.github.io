@@ -216,6 +216,12 @@
       "ref": "main",
       "output": "sceptre-noir.html",
       "as": "index.html"
+    },
+    {
+      "path": "vigie",
+      "repo": "grafmik/vigie",
+      "ref": "main",
+      "exclude": ["README.md", "vigie.py", "classement.json", "template.html", "data", ".gitignore"]
     }
   ]
 }
