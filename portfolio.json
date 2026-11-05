@@ -310,13 +310,6 @@
       "hue": 205,
       "texte": "Telegram Desktop avec quelques ajouts (couleur de fond par conversation, bannissement local, auteur des posts dans les commentaires), à télécharger pour Mac. Page sur lien seulement (noindex)."
     },
-    "bouffe": {
-      "masque": true,
-      "titre": "Bouffe",
-      "cat": "app",
-      "hue": 222,
-      "texte": "Journal alimentaire Android sans gamification : code-barres, repas déduit d'un texte ou d'une photo, jauge de rythme. Page d'accueil et confidentialité pour l'écran de consentement Google."
-    },
     "menage": {
       "masque": true,
       "tiroir": true,
@@ -362,7 +355,7 @@
       "titre": "F-Droid 9mp Apps",
       "cat": "app",
       "hue": 120,
-      "texte": "Le dépôt F-Droid auto-hébergé des apps Android (Grosse Journée, HelloChat…), à ajouter dans le client F-Droid."
+      "texte": "Le dépôt F-Droid auto-hébergé des apps Android (HelloChat, Humanpet, MikGram…), à ajouter dans le client F-Droid."
     }
   }
 }
