@@ -47,8 +47,8 @@
       "output": "site"
     },
     {
-      "path": "conventions-fiscales",
-      "repo": "grafmik/convention-fiscale-map",
+      "path": "fisc",
+      "repo": "grafmik/fisc",
       "ref": "main",
       "exclude": ["README.md"]
     },
