@@ -41,12 +41,6 @@
       "exclude": ["README.md", "package.json", "tests", "server", ".gitignore"]
     },
     {
-      "path": "croco-kata",
-      "repo": "grafmik/blender",
-      "ref": "main",
-      "output": "site"
-    },
-    {
       "path": "fisc",
       "repo": "grafmik/fisc",
       "ref": "main",
