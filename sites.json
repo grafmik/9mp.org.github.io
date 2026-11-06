@@ -224,12 +224,6 @@
       "exclude": ["README.md", "vigie.py", "classement.json", "template.html", "data", ".gitignore"]
     },
     {
-      "path": "bd",
-      "repo": "grafmik/bd",
-      "ref": "main",
-      "output": "site"
-    },
-    {
       "path": "affiliation",
       "repo": "grafmik/affiliation",
       "ref": "main",
