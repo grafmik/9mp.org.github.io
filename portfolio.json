@@ -361,7 +361,7 @@
     },
     "podcastplayer": {
       "masque": true,
-      "url": "https://app.9mp.org/podcastplayer/",
+      "url": "https://podcasts.9mp.org/podcastplayer/",
       "titre": "Lecteur de podcast",
       "cat": "app",
       "hue": 280,
@@ -369,11 +369,27 @@
     },
     "fdroid": {
       "masque": true,
-      "url": "https://app.9mp.org/fdroid/repo/",
+      "url": "https://fdroid.9mp.org/fdroid/repo/",
       "titre": "F-Droid 9mp Apps",
       "cat": "app",
       "hue": 120,
       "texte": "Le dépôt F-Droid auto-hébergé des apps Android (HelloChat, Humanpet, MikGram…), à ajouter dans le client F-Droid."
+    },
+    "restorider": {
+      "masque": true,
+      "url": "https://resto.9mp.org/",
+      "titre": "Restorider",
+      "cat": "app",
+      "hue": 25,
+      "texte": "On ne réserve pas une table, on s'invite à une tablée : ouvrir un créneau dans un resto, laisser d'autres s'inscrire, et dîner ensemble. Avis, équipes et comptes compris."
+    },
+    "iq-diy-clone": {
+      "masque": true,
+      "url": "https://iq-diy.9mp.org/",
+      "titre": "myIQ",
+      "cat": "app",
+      "hue": 210,
+      "texte": "Un test de QI en ligne multilingue, cloné depuis un site existant avec le gabarit AI Website Cloner : questions chronométrées, puis score et page de résultat."
     }
   }
 }
