@@ -85,13 +85,13 @@
       "hue": 200,
       "texte": "La carte de tous mes dépôts GitHub, rangés par catégorie : ce qui est en ligne, ce qui bouge, ce qui dort. En cartes ou en tableau, filtrable."
     },
-    "image-style": {
+    "marilyn": {
       "masque": true,
       "titre": "Marilyn × 100 styles",
       "modele": "Claude Opus 5.5",
       "cat": "divers",
       "hue": 330,
-      "texte": "La Marilyn de Warhol redessinée *cent fois* : estampe, marbre, pixel art, vitrail, caméra thermique… Le visage ne bouge pas d'un pixel, seul le style change. Retouches faites en local sur mik-pc ; la série Midjourney arrive."
+      "texte": "La Marilyn de Warhol redessinée *cent fois* : estampe, marbre, pixel art, vitrail, caméra thermique… Le visage ne bouge pas d'un pixel, seul le style change. Retouches faites en local sur mik-pc."
     },
     "animations-2d": {
       "titre": "Animations 2D",

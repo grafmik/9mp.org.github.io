@@ -218,8 +218,8 @@
       "exclude": ["README.md", "vigie.py", "classement.json", "template.html", "data", ".gitignore"]
     },
     {
-      "path": "image-style",
-      "repo": "grafmik/image-style",
+      "path": "marilyn",
+      "repo": "grafmik/marilyn",
       "ref": "main",
       "output": "site"
     },
