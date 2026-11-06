@@ -246,7 +246,7 @@
       "path": "iq-by-claude",
       "repo": "grafmik/iq-by-claude",
       "ref": "main",
-      "build": "npm ci && npm run build",
+      "build": "npm ci && npm run build -- --base /iq-by-claude --site https://9mp.org",
       "output": "dist"
     }
   ]
