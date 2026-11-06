@@ -228,6 +228,26 @@
       "repo": "grafmik/bd",
       "ref": "main",
       "output": "site"
+    },
+    {
+      "path": "affiliation",
+      "repo": "grafmik/affiliation",
+      "ref": "main",
+      "exclude": ["README.md"]
+    },
+    {
+      "path": "auto",
+      "repo": "grafmik/auto",
+      "ref": "main",
+      "build": "SITE_URL=https://9mp.org/auto node src/build.mjs",
+      "output": "dist"
+    },
+    {
+      "path": "iq-by-claude",
+      "repo": "grafmik/iq-by-claude",
+      "ref": "main",
+      "build": "npm ci && npm run build",
+      "output": "dist"
     }
   ]
 }

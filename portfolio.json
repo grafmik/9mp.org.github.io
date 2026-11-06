@@ -100,13 +100,31 @@
       "hue": 30,
       "texte": "De petits films dessinés entièrement en code, narrés par une voix de synthèse locale : *Philo en chaussettes*, sept idées de philosophie expliquées en une minute (le bateau de Thésée, la caverne de Platon, l'âne de Buridan, Achille et la tortue, le dilemme du tramway, la chambre chinoise, le paradoxe du tas), et *La Migration des chaussettes*, un faux documentaire animalier."
     },
-    "conventions-fiscales": {
+    "fisc": {
       "masque": true,
       "titre": "Atlas des conventions fiscales",
       "modele": "Claude Opus 5.5",
       "cat": "outil",
       "hue": 222,
-      "texte": "Les 125 conventions fiscales de la France sur une carte, et un simulateur qui suit la logique de la convention : jours passés dans chaque pays, famille, revenus, puis où l'on est résident et quel pays impose quoi."
+      "texte": "Les 125 conventions fiscales de la France sur une carte, et un simulateur qui suit la logique de la convention : jours passés dans chaque pays, famille, revenus, puis où l'on est résident et quel pays impose quoi. Et *Passeport Remote*, la stratégie fiscale du dev full remote."
+    },
+    "affiliation": {
+      "masque": true,
+      "cat": "outil",
+      "hue": 45,
+      "texte": "L'affiliation expliquée aux débutants : comment ça marche, les réseaux, les premières campagnes et les pièges à éviter, pas à pas."
+    },
+    "auto": {
+      "masque": true,
+      "cat": "outil",
+      "hue": 265,
+      "texte": "Un annuaire de cas d'usage réels d'agents IA, en français : chacun avec sa source et le prompt pour le refaire. Une lettre gratuite chaque lundi."
+    },
+    "iq-by-claude": {
+      "masque": true,
+      "cat": "app",
+      "hue": 190,
+      "texte": "Un test de QI en ligne, multilingue, avec paiement : questions chronométrées, puis score et profil détaillé."
     },
     "devilcrunch": {
       "titre": "Devil Crunch",
