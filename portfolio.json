@@ -85,6 +85,14 @@
       "hue": 200,
       "texte": "La carte de tous mes dépôts GitHub, rangés par catégorie : ce qui est en ligne, ce qui bouge, ce qui dort. En cartes ou en tableau, filtrable."
     },
+    "bd": {
+      "masque": true,
+      "titre": "BD & humour noir",
+      "modele": "Claude Opus 5.5",
+      "cat": "divers",
+      "hue": 330,
+      "texte": "Deux BD de six cases et une galerie d'*humour noir* : un gag par style de dessin (estampe, pixel art, enluminure, fusain, tatouage, pâte à modeler…), chaque prompt dessiné par Midjourney et par Z-Image en local, classés par modèle."
+    },
     "animations-2d": {
       "titre": "Animations 2D",
       "modele": "Claude Opus 5.5",

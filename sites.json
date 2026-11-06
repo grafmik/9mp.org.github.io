@@ -222,6 +222,12 @@
       "repo": "grafmik/vigie",
       "ref": "main",
       "exclude": ["README.md", "vigie.py", "classement.json", "template.html", "data", ".gitignore"]
+    },
+    {
+      "path": "bd",
+      "repo": "grafmik/bd",
+      "ref": "main",
+      "output": "site"
     }
   ]
 }
