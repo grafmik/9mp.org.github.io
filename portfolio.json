@@ -87,11 +87,11 @@
     },
     "marilyn": {
       "masque": true,
-      "titre": "Marilyn × 100 styles",
+      "titre": "Marilyn × 500 styles",
       "modele": "Claude Opus 5.5",
       "cat": "divers",
       "hue": 330,
-      "texte": "La Marilyn de Warhol redessinée *cent fois* : estampe, marbre, pixel art, vitrail, caméra thermique… Le visage ne bouge pas d'un pixel, seul le style change. Retouches faites en local sur mik-pc."
+      "texte": "La Marilyn de Warhol redessinée *cinq cents fois* : estampe, marbre, sashiko, cuivre repoussé, pixel art, vitrail, caméra thermique… Le visage ne bouge pas d'un pixel, seul le style change. Retouches faites en local sur mik-pc."
     },
     "animations-2d": {
       "titre": "Animations 2D",
