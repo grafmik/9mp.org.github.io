@@ -242,6 +242,12 @@
       "ref": "main",
       "build": "npm ci && npm run build -- --base /iq-by-claude --site https://9mp.org && sed -i 's#/en/#/iq-by-claude/en/#g' dist/index.html",
       "output": "dist"
+    },
+    {
+      "path": "polysearch",
+      "repo": "grafmik/polysearch",
+      "ref": "main",
+      "output": "public"
     }
   ]
 }

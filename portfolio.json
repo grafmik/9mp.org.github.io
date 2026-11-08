@@ -390,6 +390,14 @@
       "cat": "app",
       "hue": 210,
       "texte": "Un test de QI en ligne multilingue, cloné depuis un site existant avec le gabarit AI Website Cloner : questions chronométrées, puis score et page de résultat."
+    },
+    "polysearch": {
+      "masque": true,
+      "titre": "PolySearch",
+      "modele": "Claude Opus 5.5",
+      "cat": "outil",
+      "hue": 24,
+      "texte": "Une bubble map des marchés Polymarket : les plus gros holders en bulles, reliés quand leurs wallets se sont échangé des fonds sur Polygon. Les clusters trahissent les wallets tenus par une même main."
     }
   }
 }
