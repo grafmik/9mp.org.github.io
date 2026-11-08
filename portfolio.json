@@ -398,6 +398,13 @@
       "cat": "outil",
       "hue": 24,
       "texte": "Une bubble map des marchés Polymarket : les plus gros holders en bulles, reliés quand leurs wallets se sont échangé des fonds sur Polygon. Les clusters trahissent les wallets tenus par une même main."
+    },
+    "chimera": {
+      "masque": true,
+      "titre": "CHIMERA",
+      "cat": "outil",
+      "hue": 45,
+      "texte": "Un synthétiseur vocal par modélisation physique, écrit par jamesondh : il parle, chante, fait du beatbox et prête sa voix à un phoque ou à un éléphant. Moteur Rust en WebAssembly."
     }
   }
 }
