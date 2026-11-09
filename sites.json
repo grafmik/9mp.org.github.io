@@ -126,7 +126,7 @@
       "path": "martingale",
       "repo": "grafmik/martingale",
       "ref": "main",
-      "exclude": ["README.md"]
+      "exclude": ["README.md", "contracts"]
     },
     {
       "path": "menage",
