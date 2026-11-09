@@ -60,3 +60,6 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          # 10 min by default: on 2026-11-10 the 826 MB site went past it three times in a row (files synced, never live)
+          timeout: 1800000
