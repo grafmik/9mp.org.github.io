@@ -251,13 +251,6 @@
       "output": "public"
     },
     {
-      "path": "chimera",
-      "repo": "grafmik/chimera-vocal-synth",
-      "ref": "main",
-      "build": "rustup target add wasm32-unknown-unknown && npm install -g bun@1.4.4 && bun install --frozen-lockfile && bun run wasm && bun x vite build --base /chimera/ && sed -i 's#<head>#<head><meta name=\"robots\" content=\"noindex\">#' dist/index.html",
-      "output": "dist"
-    },
-    {
       "path": "prana",
       "repo": "grafmik/prana",
       "ref": "main",
