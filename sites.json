@@ -99,7 +99,8 @@
       "path": "flat",
       "repo": "grafmik/flat",
       "ref": "main",
-      "exclude": ["README.md"]
+      "build": "python3 tools/build.py",
+      "exclude": ["README.md", "src", "tools"]
     },
     {
       "path": "immomap",
