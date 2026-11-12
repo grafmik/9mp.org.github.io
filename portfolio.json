@@ -41,7 +41,7 @@
     "— rien à déclarer ici."
   ],
 
-  "ordre": ["jobs", "zero-latency", "immomap", "damgod", "devilcrunch", "animations-2d", "killer-kombat", "rage-in-the-city-2", "ultraroad", "rewind-raid", "beatemall", "shmups/opus5.5", "shmups/clauded", "baston",
+  "ordre": ["jobs", "zero-latency", "immomap", "damgod", "devilcrunch", "animations-2d", "marilyn", "killer-kombat", "rage-in-the-city-2", "ultraroad", "rewind-raid", "beatemall", "shmups/opus5.5", "shmups/clauded", "baston",
             "shmups/deepseek4", "shmups/gemma", "shmups"],
 
   "categories": [
@@ -86,12 +86,11 @@
       "texte": "La carte de tous mes dépôts GitHub, rangés par catégorie : ce qui est en ligne, ce qui bouge, ce qui dort. En cartes ou en tableau, filtrable."
     },
     "marilyn": {
-      "masque": true,
       "titre": "Marilyn",
       "modele": "Claude Opus 5.5",
       "cat": "divers",
       "hue": 330,
-      "texte": "La Marilyn de Warhol redessinée *mille fois* : estampe, marbre, sashiko, cuivre repoussé, pixel art, vitrail, caméra thermique… Le visage ne bouge pas d'un pixel, seul le style change. Les cent dernières se lâchent : lunettes de soleil, banane, robot, zombie. Retouches faites en local sur mik-pc."
+      "texte": "La Marilyn de Warhol redessinée *mille fois* : estampe, marbre, sashiko, cuivre repoussé, pixel art, vitrail, caméra thermique… Le visage ne bouge pas d'un pixel, seul le style change. Retouches faites en local sur mik-pc."
     },
     "animations-2d": {
       "titre": "Animations 2D",
