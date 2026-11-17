@@ -13,10 +13,8 @@
     "  hue     teinte de l'affiche et de la ligne sélectionnée, 0-360",
     "          (défaut : dérivée du nom)",
     "  texte   une à deux phrases ; *entre astérisques* pour l'italique",
-    "  modele  le modèle qui a écrit le projet ; s'affiche au-dessus du titre",
-    "          et défile dans le bandeau « écrit par » (optionnel)",
     "  versions  un même projet écrit plusieurs fois : liste de",
-    "          { chemin, modele } — une ligne par entrée. chemin est relatif au dossier du",
+    "          { chemin } — une ligne par entrée. chemin est relatif au dossier du",
     "          projet (\"\" = sa racine) ; titre/cat/hue/texte peuvent",
     "          y être redéclarés pour surcharger ceux de la fiche ; \"masque\":",
     "          true sur une version la retire seule de la vitrine",
@@ -56,7 +54,6 @@
     "sceptre-noir": {
       "masque": true,
       "titre": "Le Sceptre Noir",
-      "modele": "Claude Opus 4.8",
       "cat": "jeu",
       "hue": 150,
       "texte": "Un livre-jeu dont *vous* êtes le héros : feuille d'aventure (habileté, endurance, chance), jets de dés, combats au tour par tour et sections numérotées à travers les Marais de Silure. Arrache le Sceptre Noir au sorcier Malgar — plusieurs fins t'attendent."
@@ -64,7 +61,6 @@
     "adx": {
       "masque": true,
       "titre": "Vendre avec l'IA",
-      "modele": "Claude Opus 5.5",
       "cat": "outil",
       "hue": 28,
       "texte": "Une veille triée sur la pub, la créa et l'affiliation faites avec l'IA : pour chaque vidéo ou post, l'idée, les gestes à faire aujourd'hui et ce que la source a à vendre. Avec des recettes pas à pas et un atelier pour écrire un post affilié."
@@ -72,7 +68,6 @@
     "joypad-test": {
       "masque": true,
       "titre": "Test de la manette",
-      "modele": "Claude Opus 5.5",
       "cat": "outil",
       "hue": 0,
       "texte": "Le schéma de la manette s'allume en direct : boutons, gâchettes, sticks. En mode Clavier, il suit les touches qu'envoie Joypad Mapping ; en mode Manette, il lit la manette elle-même, vibration comprise."
@@ -80,21 +75,18 @@
     "vigie": {
       "masque": true,
       "titre": "Vigie",
-      "modele": "Claude Opus 5.5",
       "cat": "outil",
       "hue": 200,
       "texte": "La carte de tous mes dépôts GitHub, rangés par catégorie : ce qui est en ligne, ce qui bouge, ce qui dort. En cartes ou en tableau, filtrable."
     },
     "marilyn": {
       "titre": "Marilyn",
-      "modele": "Claude Opus 5.5",
       "cat": "divers",
       "hue": 330,
       "texte": "La Marilyn de Warhol redessinée *mille fois* : estampe, marbre, sashiko, cuivre repoussé, pixel art, vitrail, caméra thermique… Le visage ne bouge pas d'un pixel, seul le style change. Retouches faites en local sur mik-pc."
     },
     "animations-2d": {
       "titre": "Animations 2D",
-      "modele": "Claude Opus 5.5",
       "cat": "divers",
       "hue": 30,
       "texte": "De petits films dessinés entièrement en code, narrés par une voix de synthèse locale : *Philo en chaussettes*, sept idées de philosophie expliquées en une minute (le bateau de Thésée, la caverne de Platon, l'âne de Buridan, Achille et la tortue, le dilemme du tramway, la chambre chinoise, le paradoxe du tas), et *La Migration des chaussettes*, un faux documentaire animalier."
@@ -102,7 +94,6 @@
     "fisc": {
       "masque": true,
       "titre": "Atlas des conventions fiscales",
-      "modele": "Claude Opus 5.5",
       "cat": "outil",
       "hue": 222,
       "texte": "Les 125 conventions fiscales de la France sur une carte, et un simulateur qui suit la logique de la convention : jours passés dans chaque pays, famille, revenus, puis où l'on est résident et quel pays impose quoi. Et *Passeport Remote*, la stratégie fiscale du dev full remote."
@@ -121,20 +112,19 @@
     },
     "iq-by-claude": {
       "masque": true,
+      "titre": "Test de QI",
       "cat": "app",
       "hue": 190,
       "texte": "Un test de QI en ligne, multilingue, avec paiement : questions chronométrées, puis score et profil détaillé."
     },
     "devilcrunch": {
       "titre": "Devil Crunch",
-      "modele": "Claude Opus 5.5",
       "cat": "jeu",
       "hue": 14,
       "texte": "Flipper vidéo façon *Devil Crash* en borne 1996 : une tour à trois étages (cimetière, labo, usine) où l'on monte et redescend entre les palettes, des hordes de zombies, de mutants et de robots précalculés, un démon mécanique à faire céder, trois bonus stages et un annonceur démoniaque."
     },
     "killer-kombat": {
       "titre": "Killer Kombat",
-      "modele": "Claude Opus 5.5",
       "cat": "jeu",
       "hue": 8,
       "texte": "Jeu de combat façon borne d'arcade de 1993 : sept combattants *filmés sur fond vert* (un moine de Shaolin, un médecin de peste, un bûcheron, une maîtresse de l'urumi, un cyborg, une sorcière, un vagabond sans visage), coups spéciaux, combos, *FINISH HIM* et fatalités. Musique originale chantée. Seul contre la tour ou à deux, au clavier, à la manette ou au doigt."
@@ -142,14 +132,12 @@
     "kombat17": {
       "masque": true,
       "titre": "KOMBAT 17",
-      "modele": "Claude Opus 5.5",
       "cat": "jeu",
       "hue": 24,
       "texte": "Jeu de combat de rue tiré d'une vidéo de trente secondes : Pierre, le patron de GAMEZ, contre un casseur black bloc, dans une rue de Paris en *pleine émeute*. Acteurs filmés, supers en bande dessinée, et le joueur 2 en ligne, sans attendre le réseau."
     },
     "damgod": {
       "titre": "DAMGOD",
-      "modele": "Claude Opus 5.5",
       "cat": "jeu",
       "hue": 222,
       "cadrage": "92% 17%",
@@ -157,7 +145,6 @@
     },
     "prana": {
       "titre": "PRANA",
-      "modele": "Claude Opus 5.5",
       "cat": "jeu",
       "hue": 45,
       "texte": "Voyage fractal en transe, en 3D temps réel : une étincelle de souffle traverse des royaumes fractals sur une psytrance mixée en direct par un *DJ automatique*. Chaque partie est un trip différent, qui s'étire tant qu'on reste dans le flux. À télécharger pour Mac et Android."
@@ -165,7 +152,6 @@
     "berceuse": {
       "masque": true,
       "titre": "Berceuse",
-      "modele": "Claude Opus 5.5",
       "cat": "jeu",
       "hue": 355,
       "texte": "Horreur en 3D à la première personne : retrouver les quatre cylindres d'une boîte à musique dans une maison où Madame Vey n'avance que quand on ne la regarde pas… ou quand on *cligne des yeux*."
@@ -173,21 +159,18 @@
     "baston": {
       "masque": true,
       "titre": "World Baston '96",
-      "modele": "Claude Opus 5.5",
       "cat": "jeu",
       "hue": 18,
       "texte": "Jeu de baston 2D façon arcade 1996 : dix combattants du monde entier et un boss, coups spéciaux et supers, campagne avec un avion qui survole la *mappemonde* entre chaque combat, duel à deux, mode entraînement, compatible manette."
     },
     "rage-in-the-city-2": {
       "titre": "Rage in the City 2",
-      "modele": "Claude Opus 5.5",
       "cat": "jeu",
       "hue": 330,
       "texte": "La suite, version *1994* : beat'em up 16 bits aux sprites pré-rendus depuis des volumes 3D, néons sous la pluie puis docks au soleil couchant. Cinq héros (Hank, Ray et Kaze reviennent, Roxy et Dex arrivent), douze types d'ennemis et deux boss ; enchaînements, saisies, projections et spécial. Jusqu'à quatre joueurs, au clavier, à la manette ou au doigt."
     },
     "beatemall": {
       "titre": "Rage in the City",
-      "modele": "Claude Opus 5.5",
       "cat": "jeu",
       "hue": 350,
       "cadrage": "90% 0%",
@@ -195,7 +178,6 @@
     },
     "ultraroad": {
       "titre": "UltraRoad",
-      "modele": "Claude Opus 5.5",
       "cat": "jeu",
       "hue": 24,
       "texte": "Course tout-terrain arcade en 3D, hommage à *Super Off Road* : gros camions, sauts, boue et nitro, huit circuits et un championnat contre le Boss avec garage d'améliorations. Jusqu'à quatre joueurs sur le même écran, au clavier, à la manette ou au doigt."
@@ -203,7 +185,6 @@
     "cyber-nepia": {
       "masque": true,
       "titre": "Cyber Nepia",
-      "modele": "Claude Opus 5.5",
       "cat": "jeu",
       "hue": 190,
       "texte": "Zelda 1 refait en *cyberpunk* : HYRULE.NET, six donjons, boss, objets et easter eggs, éclairage néon dynamique sur des sprites à normal maps."
@@ -211,7 +192,6 @@
     "ulysse31": {
       "masque": true,
       "titre": "Ulysse 31 — La Toile",
-      "modele": "Claude Opus 5.5",
       "cat": "divers",
       "hue": 358,
       "texte": "Clip musical : Shyrka, l'IA de bord, a pris le visage de Pénélope. Le jour elle tisse la route, la nuit elle la défait, parce que le voyage, c'est le produit. Chanson Suno, plans animés Wan, typographie calée sur le beat."
@@ -219,14 +199,12 @@
     "soi-6-starship": {
       "masque": true,
       "titre": "SOI 6 STARSHIP",
-      "modele": "Claude Opus 5.5",
       "cat": "jeu",
       "hue": 320,
       "texte": "Shmup vertical beauf d'après le jeu de Marc Bluersky : Marc, un rat radin, vole tout seul de la Thaïlande au Cantal. Des *liasses* pour les Gourgandines, des *boules de pétanque* pour les Michelines, et une aura à polarité façon Ikaruga qui avale les tirs de sa couleur. Acteurs digitalisés, cinq boss, dont la Micheline Pachydermique du Cantal."
     },
     "rewind-raid": {
       "titre": "Rewind Raid",
-      "modele": "Claude Opus 5.5",
       "cat": "jeu",
       "hue": 188,
       "texte": "Shoot'em up façon arcade 1996 : cinq niveaux, cinq boss, trois armes. Le twist : une cassette qui *rembobine le monde*, et les balles qui retournent blesser ceux qui les ont tirées."
@@ -237,29 +215,27 @@
       "hue": 320,
       "texte": "Shoot'em up vertical façon arcade, tenu dans un seul fichier HTML : graphismes, bruitages *et* musique sont générés à la volée.",
       "versions": [
-        { "chemin": "", "masque": true, "titre": "Nebula Strike", "modele": "Qwen 3.6 local", "hue": 320,
-          "texte": "Shoot'em up vertical façon arcade, tenu dans un seul fichier HTML : graphismes, bruitages *et* musique générés à la volée. La version d'origine, écrite par Qwen 3.6 en local." },
-        { "chemin": "gemma", "masque": true, "titre": "Nebula Strike 2", "modele": "Gemma local", "hue": 210,
-          "texte": "La deuxième lecture du même énoncé, par Gemma en local. Cinq modèles, cinq shoot'em up, une seule page chacun." },
-        { "chemin": "deepseek4", "masque": true, "titre": "Nebula Strike 3", "modele": "Deepseek 4.0 local", "hue": 195,
-          "texte": "Le même énoncé vu par Deepseek 4.0 en local : vagues d'ennemis, boss et score, jouable au clavier ou en glissant le doigt." },
-        { "chemin": "clauded", "titre": "Nebula Strike 4", "modele": "Claude Fable 5.1", "hue": 25,
-          "texte": "Le même cahier des charges, repris de zéro par Claude Fable 5.1 : un seul fichier HTML, zéro dépendance. À comparer avec les autres." },
-        { "chemin": "opus5.5", "titre": "Nebula Strike 5", "modele": "Claude Opus 5.5", "hue": 300,
+        { "chemin": "", "masque": true, "titre": "Nebula Strike", "hue": 320,
+          "texte": "Shoot'em up vertical façon arcade, tenu dans un seul fichier HTML : graphismes, bruitages *et* musique générés à la volée. La version d'origine." },
+        { "chemin": "gemma", "masque": true, "titre": "Nebula Strike 2", "hue": 210,
+          "texte": "La deuxième lecture du même énoncé. Cinq versions, cinq shoot'em up, une seule page chacun." },
+        { "chemin": "deepseek4", "masque": true, "titre": "Nebula Strike 3", "hue": 195,
+          "texte": "Le même énoncé, troisième lecture : vagues d'ennemis, boss et score, jouable au clavier ou en glissant le doigt." },
+        { "chemin": "clauded", "titre": "Nebula Strike 4", "hue": 25,
+          "texte": "Le même cahier des charges, repris de zéro : un seul fichier HTML, zéro dépendance. À comparer avec les autres." },
+        { "chemin": "opus5.5", "titre": "Nebula Strike 5", "hue": 300,
           "texte": "Une refonte complète, en 3D vectorielle : la musique, générée en temps réel, *est* l'horloge du jeu. Les ennemis tirent en mesure, les verrouillages jouent des notes, et le dernier boss éteint la musique." }
       ]
     },
     "tetris": {
       "masque": true,
       "titre": "Tetris adaptatif",
-      "modele": "GPT-4",
       "cat": "jeu",
       "hue": 265,
       "texte": "Le classique, redimensionné à la taille de l'écran, avec des commandes tactiles pour jouer d'une main dans le métro."
     },
     "martingale": {
       "titre": "Martingale",
-      "modele": "Claude Opus 5",
       "cat": "jeu",
       "hue": 285,
       "texte": "Pile ou face en boucle : on double la mise après chaque perte jusqu'à se refaire… ou tout perdre. Courbe du capital en direct, pièce qui claque, faillite *garantie*."
@@ -280,7 +256,6 @@
     },
     "jobs": {
       "titre": "Atlas des métiers",
-      "modele": "Claude Opus 5",
       "cat": "outil",
       "hue": 48,
       "texte": "Une cartographie des métiers à parcourir, compilée en une seule page à partir de ses données sources."
@@ -294,7 +269,6 @@
     },
     "zero-latency": {
       "titre": "Atlas Zero Latency VR",
-      "modele": "Claude Opus 5.5",
       "cat": "outil",
       "hue": 212,
       "texte": "Carte mondiale et inventaire des 143 salles de réalité virtuelle Zero Latency, dans 33 pays : adresse, coordonnées GPS, contact, horaires et jeux de chaque salle."
@@ -352,7 +326,6 @@
     },
     "immomap": {
       "titre": "Belles Endormies",
-      "modele": "Claude Opus 5.5",
       "cat": "vitrine",
       "hue": 44,
       "texte": "La lettre des maisons à moins de 50 000 € au milieu de nulle part : ce qu'elles pourraient devenir, images avant / après et budget complet à l'appui."
@@ -360,7 +333,6 @@
     "ai": {
       "masque": true,
       "titre": "It's over",
-      "modele": "GPT-3.5",
       "cat": "vitrine",
       "hue": 60,
       "texte": "Une page, une bannière qui défile, une androïde. Le petit tract du studio sur l'intelligence artificielle."
@@ -400,7 +372,6 @@
     "polysearch": {
       "masque": true,
       "titre": "PolySearch",
-      "modele": "Claude Opus 5.5",
       "cat": "outil",
       "hue": 24,
       "texte": "Une bubble map des marchés Polymarket : les plus gros holders en bulles, reliés quand leurs wallets se sont échangé des fonds sur Polygon. Les clusters trahissent les wallets tenus par une même main."

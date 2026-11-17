@@ -132,7 +132,6 @@ const projets = fiches.map(({ path, racine, meta }, i) => {
     vignette: vignetteOf(path),
     titre: meta?.titre ?? titleOf(path),
     texte: meta?.texte ?? "Tout juste publié sur 9mp.org — présentation à venir.",
-    modele: meta?.modele ?? null,
     cadrage: meta?.cadrage ?? null,
     prive: blocked.has(racine ?? path),
   };
@@ -142,12 +141,11 @@ const projets = fiches.map(({ path, racine, meta }, i) => {
 
 // Une ligne de l'écran de sélection, sa vignette en fond. Le script de la
 // page y lit aussi de quoi construire l'affiche du projet (image, teinte,
-// modèle, texte).
+// texte).
 const carte = (p) => `        <li class="w${p.vignette ? "" : " sans-image"}" data-cat="${p.cat}" style="--h:${p.hue}">
           <a href="/${p.path}/"${p.prive ? ' rel="nofollow"' : ""}>${p.vignette ? `
             <img class="w-img" src="${p.vignette}"${p.cadrage ? ` style="object-position:${esc(p.cadrage)}"` : ""} alt="" width="1200" height="750" loading="lazy" decoding="async">` : ""}
-            <span class="w-t"><span>${esc(p.titre)}</span></span>${p.modele ? `
-            <span class="w-m">${esc(p.modele)}</span>` : ""}
+            <span class="w-t"><span>${esc(p.titre)}</span></span>
             <span class="w-d">${rich(p.texte)}</span>
             <span class="w-n" aria-hidden="true">${p.num}</span>
           </a>
