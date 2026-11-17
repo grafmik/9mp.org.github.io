@@ -91,10 +91,9 @@ fiche choisit le point gardé visible (`object-position`), sur la ligne comme
 sur l'affiche.
 
 Si un projet existe en plusieurs versions publiées dans des sous-dossiers
-(shmups, écrit par plusieurs modèles), déclare-les avec
-`"versions": [{ "chemin": "", "modele": "…" }]` dans sa fiche : chacune reçoit
-sa propre ligne, avec le modèle au-dessus du titre (`chemin: ""` = la racine du
-projet). Pour un projet qui n'a qu'une version, `"modele": "…"` suffit.
+(shmups), déclare-les avec `"versions": [{ "chemin": "", "titre": "…" }]` dans
+sa fiche : chacune reçoit sa propre ligne (`chemin: ""` = la racine du projet).
+Le site n'affiche aucun nom de modèle d'IA : pas de champ `modele`.
 
 Un dossier interdit dans `robots.txt` reçoit automatiquement un lien en
 `rel="nofollow"` : rien à déclarer ailleurs.
