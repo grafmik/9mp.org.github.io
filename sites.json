@@ -255,6 +255,12 @@
       "repo": "grafmik/prana",
       "ref": "main",
       "output": "page"
+    },
+    {
+      "path": "fortunes",
+      "repo": "grafmik/fortunes",
+      "ref": "main",
+      "output": "public"
     }
   ]
 }
