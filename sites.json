@@ -254,6 +254,13 @@
       "repo": "grafmik/prana2",
       "ref": "main",
       "output": "page"
+    },
+    {
+      "path": "clipanime",
+      "repo": "grafmik/clipanime",
+      "ref": "main",
+      "build": "python3 -c \"p='site/index.html'; s=open(p).read(); open(p,'w').write('<!doctype html>\\n<html lang=fr>\\n' + s)\"",
+      "output": "site"
     }
   ]
 }
