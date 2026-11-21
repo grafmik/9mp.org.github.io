@@ -248,6 +248,12 @@
       "repo": "grafmik/prana",
       "ref": "main",
       "output": "page"
+    },
+    {
+      "path": "prana2",
+      "repo": "grafmik/prana2",
+      "ref": "main",
+      "output": "page"
     }
   ]
 }

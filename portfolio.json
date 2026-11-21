@@ -151,6 +151,13 @@
       "hue": 45,
       "texte": "Voyage fractal en transe, en 3D temps réel : une étincelle de souffle traverse des royaumes fractals sur une psytrance mixée en direct par un *DJ automatique*. Chaque partie est un trip différent, qui s'étire tant qu'on reste dans le flux. À télécharger pour Mac et Android."
     },
+    "prana2": {
+      "titre": "PRANA 2",
+      "modele": "Claude Opus 5.5",
+      "cat": "jeu",
+      "hue": 25,
+      "texte": "La suite de PRANA, réécrite de zéro en WebGL2 : une étincelle de souffle file dans des tunnels fractals calés à la battue sur six voyages psytrance, entre graines, voiles à ouvrir en soufflant et épines à briser. À jouer dans le navigateur, ou à télécharger pour Mac et Android."
+    },
     "berceuse": {
       "masque": true,
       "titre": "Berceuse",
