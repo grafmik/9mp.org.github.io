@@ -375,13 +375,6 @@
       "cat": "outil",
       "hue": 24,
       "texte": "Une bubble map des marchés Polymarket : les plus gros holders en bulles, reliés quand leurs wallets se sont échangé des fonds sur Polygon. Les clusters trahissent les wallets tenus par une même main."
-    },
-    "fortunes": {
-      "masque": true,
-      "titre": "500 fortunes et inflation",
-      "cat": "outil",
-      "hue": 214,
-      "texte": "Le patrimoine des 500 plus grandes fortunes de France depuis 1996, avec et sans inflation selon six sources, face à l'évolution des niveaux de vie."
     }
   }
 }
