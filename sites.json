@@ -188,7 +188,7 @@
       "path": "backtests",
       "repo": "grafmik/backtests",
       "ref": "main",
-      "exclude": ["README.md", "btc_range.py", "pyproject.toml", "uv.lock", "tests"]
+      "exclude": ["README.md", "backtest.py", "actifs.py", "build.py", "page.html", "pyproject.toml", "uv.lock", "tests"]
     },
     {
       "path": "zero-latency",

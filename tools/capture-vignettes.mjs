@@ -293,6 +293,8 @@ const RECETTES = {
   backtests: {
     dpr: 2,
     async play(h) {
+      // l'accueil n'a que des cartes : on prend le graphique de la page Bitcoin
+      await h.page.goto(h.page.url().split("#")[0] + "btc/", { waitUntil: "load" });
       await h.wait(2000);                       // données chargées, courbes tracées
       await h.css("#chart-value svg text{visibility:hidden!important}");
     },
