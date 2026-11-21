@@ -289,6 +289,16 @@ const RECETTES = {
   },
 
   ai: { image: "/ai/julia-androide.png", crop: [0, 0.06, 1, 0.42] },
+
+  backtests: {
+    dpr: 2,
+    async play(h) {
+      await h.wait(2000);                       // données chargées, courbes tracées
+      await h.css("#chart-value svg text{visibility:hidden!important}");
+    },
+    element: "#chart-value",
+    crop: [0.06, 0, 0.94, 0.92],                // sans les graduations ni les années
+  },
 };
 
 // -------------------------------------------------------------- outils --
