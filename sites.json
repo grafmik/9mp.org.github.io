@@ -185,6 +185,12 @@
       "exclude": ["README.md", "BILAN.md", "build.py", "build_securite.py"]
     },
     {
+      "path": "backtests",
+      "repo": "grafmik/backtests",
+      "ref": "main",
+      "exclude": ["README.md", "btc_range.py", "pyproject.toml", "uv.lock", "tests"]
+    },
+    {
       "path": "zero-latency",
       "repo": "grafmik/zero-latency",
       "ref": "main",

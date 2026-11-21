@@ -283,6 +283,13 @@
       "hue": 34,
       "texte": "État des lieux de l'auto-détention de crypto-actifs, et dossier sécurité des wallets matériels : 19 appareils notés, incidents documentés, sources en lien."
     },
+    "backtests": {
+      "masque": true,
+      "titre": "HODL vs RANGE",
+      "cat": "outil",
+      "hue": 205,
+      "texte": "Une somme placée en Bitcoin à la date de ton choix : la garder, ou la répartir entre BTC et dollars selon un range bas / haut réajusté à chaque période. Gains, pire baisse et frais comparés jour par jour, tous les paramètres réglables."
+    },
     "zero-latency": {
       "titre": "Atlas Zero Latency VR",
       "cat": "outil",
