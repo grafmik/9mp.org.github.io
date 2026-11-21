@@ -106,6 +106,8 @@
     },
     "auto": {
       "masque": true,
+      "url": "https://ia.9mp.org/",
+      "titre": "Cas d'usage IA",
       "cat": "outil",
       "hue": 265,
       "texte": "Un annuaire de cas d'usage réels d'agents IA, en français : chacun avec sa source et le prompt pour le refaire. Une lettre gratuite chaque lundi."
