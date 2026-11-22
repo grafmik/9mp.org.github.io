@@ -191,6 +191,13 @@
       "exclude": ["README.md", "backtest.py", "actifs.py", "build.py", "page.html", "pyproject.toml", "uv.lock", "tests"]
     },
     {
+      "path": "roaming",
+      "repo": "grafmik/roaming",
+      "ref": "main",
+      "build": "python3 build_9mp.py",
+      "output": "site"
+    },
+    {
       "path": "zero-latency",
       "repo": "grafmik/zero-latency",
       "ref": "main",

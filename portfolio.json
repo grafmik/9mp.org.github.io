@@ -290,6 +290,13 @@
       "hue": 205,
       "texte": "30 actifs (crypto, indices, actions, métaux, matières premières) : 10 000 $ placés début 2020, gardés ou répartis avec des dollars selon un range fixé ce jour-là. Une page par actif, tous les paramètres réglables."
     },
+    "roaming": {
+      "masque": true,
+      "titre": "Roaming Free et Salt",
+      "cat": "outil",
+      "hue": 16,
+      "texte": "Ce que coûtent internet, appels et SMS à l'étranger, pays par pays, avec un forfait Free Mobile ou un abonnement Salt : carte du monde zoomable, fiche par destination, tarifs relevés en novembre 2026."
+    },
     "zero-latency": {
       "titre": "Atlas Zero Latency VR",
       "cat": "outil",
