@@ -301,6 +301,16 @@ const RECETTES = {
     element: "#chart-value",
     crop: [0.06, 0, 0.94, 0.92],                // sans les graduations ni les années
   },
+
+  roaming: {
+    dpr: 2,
+    async play(h) {
+      await h.wait(2500);                       // fond de carte et tarifs chargés
+      await h.css(".hint,.zoom-ctl,.wheel-hint{visibility:hidden!important}");
+    },
+    element: "#map",
+    crop: [0.02, 0, 0.96, 0.95],                // le monde, recadré en 16:10 au centre
+  },
 };
 
 // -------------------------------------------------------------- outils --
