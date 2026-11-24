@@ -414,6 +414,7 @@
       "texte": "Une bubble map des marchés Polymarket : les plus gros holders en bulles, reliés quand leurs wallets se sont échangé des fonds sur Polygon. Les clusters trahissent les wallets tenus par une même main."
     },
     "esp32": {
+      "masque": true,
       "titre": "La radio cachée de l'ESP32",
       "cat": "divers",
       "hue": 42,
