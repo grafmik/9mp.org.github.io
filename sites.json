@@ -276,7 +276,7 @@
       "output": "site"
     },
     {
-      "path": "esp32-sdr",
+      "path": "esp32",
       "repo": "grafmik/esp32",
       "ref": "main",
       "build": "python3 tools/build-9mp.py",

@@ -313,7 +313,7 @@ const RECETTES = {
   },
 
   // la cascade 2,4 GHz simulée, micro-ondes allumé, sans graduations (?clean)
-  "esp32-sdr": {
+  "esp32": {
     dpr: 2, viewport: { width: 560, height: 900 },  // sous 560 px, le scope est presque en 16:10
     async play(h) {
       await h.page.goto(h.page.url().split("?")[0] + "?clean", { waitUntil: "load" });
