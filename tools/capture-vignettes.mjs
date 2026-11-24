@@ -311,6 +311,18 @@ const RECETTES = {
     element: "#map",
     crop: [0.02, 0, 0.96, 0.95],                // le monde, recadré en 16:10 au centre
   },
+
+  // la cascade 2,4 GHz simulée, micro-ondes allumé, sans graduations (?clean)
+  "esp32-sdr": {
+    dpr: 2, viewport: { width: 560, height: 900 },  // sous 560 px, le scope est presque en 16:10
+    async play(h) {
+      await h.page.goto(h.page.url().split("?")[0] + "?clean", { waitUntil: "load" });
+      await h.js(() => { document.getElementById("scope").scrollIntoView({ block: "center" }); document.getElementById("sig-oven").click(); });
+      await h.wait(7500);                       // 170 lignes à ~25 par seconde : la cascade est pleine
+    },
+    element: "#scope",
+    crop: [0, 0, 1, 1],
+  },
 };
 
 // -------------------------------------------------------------- outils --

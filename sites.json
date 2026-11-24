@@ -274,6 +274,13 @@
       "ref": "main",
       "build": "python3 -c \"p='site/index.html'; s=open(p).read(); open(p,'w').write('<!doctype html>\\n<html lang=fr>\\n' + s)\"",
       "output": "site"
+    },
+    {
+      "path": "esp32-sdr",
+      "repo": "grafmik/esp32",
+      "ref": "main",
+      "build": "python3 tools/build-9mp.py",
+      "output": "dist"
     }
   ]
 }

@@ -405,6 +405,12 @@
       "cat": "outil",
       "hue": 24,
       "texte": "Une bubble map des marchés Polymarket : les plus gros holders en bulles, reliés quand leurs wallets se sont échangé des fonds sur Polygon. Les clusters trahissent les wallets tenus par une même main."
+    },
+    "esp32-sdr": {
+      "titre": "La radio cachée de l'ESP32",
+      "cat": "divers",
+      "hue": 42,
+      "texte": "Une carte ESP32 à 15 € cache une radio logicielle : 80 MHz de la bande 2,4 GHz d'un coup. Mode d'emploi depuis le navigateur, lexique du débutant, et ce que les bidouilleurs en ont fait en huit semaines, de la vidéo de drone à la télé numérique."
     }
   }
 }
