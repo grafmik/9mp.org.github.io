@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Userscripts 9MP</title>
+<meta name="description" content="Petits scripts pour le navigateur : TROP, un fil X sans politique, des contrôles vidéo sur Instagram, Uber Eats sans doublons… À installer en un clic dans Violentmonkey.">
+<!-- Hors vitrine : pour ceux qui ont le lien, pas pour être référencée. -->
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0a0a0b">
+<meta name="color-scheme" content="dark">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <a class="logo" href="/">9<b>M</b>P</a>
+  <nav><a href="./" aria-current="page">Userscripts</a><a href="#avant">Installer</a><a href="#maj">Mises à jour</a></nav>
+</header>
+<main>
+<h1 class="us">Userscripts</h1>
+<p class="lead">De petits scripts qui corrigent des sites qu'on utilise tous les jours : ils s'installent dans le navigateur, en un clic, et se mettent à jour tout seuls.</p>
+<p class="maj">Il faut d'abord une extension de scripts : <a href="#avant">voir plus bas</a>.</p>
+
+<h2>Les scripts</h2>
+
+<section class="s" data-f="trop/trop.user.js">
+  <h3>TROP</h3>
+  <p class="ou"><span>x.com</span><span class="v"></span></p>
+  <p>Une pause forcée, à la Gaspar Noé. Après <strong>12 minutes</strong> sur X (défiler compte double), tous les onglets X sont bloqués <strong>une heure</strong> : le mot TROP, blanc sur noir, bat comme un cœur, puis se brise lettre par lettre. Un compteur en haut à droite dit où on en est. Une heure d'affilée loin de X rend les 12 minutes, et lire un article X ne compte pas.</p>
+  <a class="dl" href="https://github.com/grafmik/monkeyscripts/raw/refs/heads/main/trop/trop.user.js">Installer</a><a class="doc" href="https://github.com/grafmik/monkeyscripts/tree/main/trop">Mode d'emploi</a>
+</section>
+
+<section class="s" data-f="x-feed-filter/x-feed-filter.user.js">
+  <h3>X : fil sans politique ni religion</h3>
+  <p class="ou"><span>x.com, fil Accueil</span><span class="v"></span></p>
+  <p>Replie les posts qui parlent de politique, de religion ou d'immigration, en lisant aussi les sous-titres automatiques des vidéos, là où les mots masqués de X ne voient rien. Puis il clique « Ce post ne m'intéresse pas », lentement, pour que l'algorithme en propose moins. Un post replié se rouvre d'un clic.</p>
+  <a class="dl" href="https://github.com/grafmik/monkeyscripts/raw/refs/heads/main/x-feed-filter/x-feed-filter.user.js">Installer</a><a class="doc" href="https://github.com/grafmik/monkeyscripts/tree/main/x-feed-filter">Mode d'emploi</a>
+</section>
+
+<section class="s" data-f="instagram-video-controls/instagram-video-controls.user.js">
+  <h3>Instagram : contrôle vidéo</h3>
+  <p class="ou"><span>instagram.com</span><span class="v"></span></p>
+  <p>Une barre sous les vidéos du fil et des reels : progression cliquable, lecture/pause, temps écoulé. Au clavier, <kbd>←</kbd> et <kbd>→</kbd> reculent et avancent de 5 secondes, <kbd>Espace</kbd> met en pause.</p>
+  <a class="dl" href="https://github.com/grafmik/monkeyscripts/raw/refs/heads/main/instagram-video-controls/instagram-video-controls.user.js">Installer</a><a class="doc" href="https://github.com/grafmik/monkeyscripts/tree/main/instagram-video-controls">Mode d'emploi</a>
+</section>
+
+<section class="s" data-f="ubereats-dedup/ubereats-dedup.user.js">
+  <h3>Uber Eats sans doublons</h3>
+  <p class="ou"><span>ubereats.com, pages restaurant</span><span class="v"></span></p>
+  <p>Le même plat revient trois ou quatre fois sur une carte : en vedette, en promo, dans sa catégorie. Le script n'en garde qu'un, masque les catégories devenues vides et les retire du sommaire.</p>
+  <a class="dl" href="https://github.com/grafmik/monkeyscripts/raw/refs/heads/main/ubereats-dedup/ubereats-dedup.user.js">Installer</a><a class="doc" href="https://github.com/grafmik/monkeyscripts/tree/main/ubereats-dedup">Mode d'emploi</a>
+</section>
+
+<section class="s" data-f="gemini-delete-chat-keyb-shortcut/gemini-delete-chat-keyb-shortcut.user.js">
+  <h3>Gemini : supprimer et passer au suivant</h3>
+  <p class="ou"><span>gemini.google.com</span><span class="v"></span></p>
+  <p>Pour faire le ménage dans ses conversations : <kbd>Alt</kbd> + <kbd>Maj</kbd> + <kbd>D</kbd> supprime la conversation ouverte, confirme, et ouvre la suivante.</p>
+  <a class="dl" href="https://github.com/grafmik/monkeyscripts/raw/refs/heads/main/gemini-delete-chat-keyb-shortcut/gemini-delete-chat-keyb-shortcut.user.js">Installer</a><a class="doc" href="https://github.com/grafmik/monkeyscripts/tree/main/gemini-delete-chat-keyb-shortcut">Mode d'emploi</a>
+</section>
+
+<section class="s" data-f="video-speed-controller-bigger-font/video-speed-controller-bigger-font.user.js">
+  <h3>Video Speed Controller en grand</h3>
+  <p class="ou"><span>tous les sites</span><span class="v"></span></p>
+  <p>Agrandit le compteur de l'extension <a href="https://github.com/igrigorik/videospeed">Video Speed Controller</a>, qu'il faut avoir installée. Deux boutons et les touches <kbd>É</kbd> / <kbd>À</kbd> (clavier AZERTY) changent sa taille, gardée d'une visite à l'autre.</p>
+  <a class="dl" href="https://github.com/grafmik/monkeyscripts/raw/refs/heads/main/video-speed-controller-bigger-font/video-speed-controller-bigger-font.user.js">Installer</a><a class="doc" href="https://github.com/grafmik/monkeyscripts/tree/main/video-speed-controller-bigger-font">Mode d'emploi</a>
+</section>
+
+<h2 id="avant">Avant d'installer</h2>
+<ol>
+<li>Installer l'extension <strong>Violentmonkey</strong> : <a href="https://chromewebstore.google.com/detail/violentmonkey/jinjaccalgkegednnccohejagnlnfdag">Chrome</a>, <a href="https://addons.mozilla.org/fr/firefox/addon/violentmonkey/">Firefox</a>, <a href="https://microsoftedge.microsoft.com/addons/detail/violentmonkey/eeagobfjdenkkddmbclomhiblgggliao">Edge</a>. Tampermonkey marche aussi.</li>
+<li>Sur Chrome et Edge, autoriser les scripts : <code>chrome://extensions</code> → Violentmonkey → Détails → « Autoriser les scripts utilisateur » (ou le mode développeur, selon la version).</li>
+<li>Cliquer sur <strong>Installer</strong> sous un script : Violentmonkey ouvre sa page d'installation, confirmer. Recharger ensuite les onglets du site concerné.</li>
+</ol>
+
+<h2 id="maj">Mises à jour</h2>
+<ul>
+<li>Installé depuis cette page, un script se met à jour <strong>tout seul</strong> : Violentmonkey revérifie son lien chaque jour.</li>
+<li>Pour ne pas attendre : tableau de bord de Violentmonkey → « Vérifier les mises à jour ». Puis recharger les onglets déjà ouverts, qui gardent l'ancienne version jusque-là.</li>
+<li>Un script collé à la main ou chargé depuis un fichier, lui, ne se met jamais à jour : le supprimer et le réinstaller d'ici.</li>
+</ul>
+
+<h2>Code source</h2>
+<p>Tout est sur <a href="https://github.com/grafmik/monkeyscripts">github.com/grafmik/monkeyscripts</a>, un dossier et un mode d'emploi par script.</p>
+</main>
+<script>
+// La version affichée est lue dans chaque script publié : la page n'a pas à changer à chaque mise à jour.
+for (const s of document.querySelectorAll(".s[data-f]")) {
+  fetch("https://raw.githubusercontent.com/grafmik/monkeyscripts/main/" + s.dataset.f)
+    .then((r) => r.ok ? r.text() : Promise.reject(r.status))
+    .then((t) => {
+      const m = t.match(/^\/\/ @version\s+(\S+)/m);
+      if (m) s.querySelector(".v").textContent = "version " + m[1];
+    })
+    .catch(() => {});
+}
+</script>
+</body>
+</html>

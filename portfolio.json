@@ -290,6 +290,13 @@
       "hue": 205,
       "texte": "30 actifs (crypto, indices, actions, métaux, matières premières) : 10 000 $ placés début 2020, gardés ou répartis avec des dollars selon un range fixé ce jour-là. Une page par actif, tous les paramètres réglables."
     },
+    "userscripts": {
+      "masque": true,
+      "titre": "Userscripts",
+      "cat": "outil",
+      "hue": 0,
+      "texte": "De petits scripts pour le navigateur, à installer en un clic dans Violentmonkey : TROP, un fil X sans politique, des contrôles vidéo sur Instagram, Uber Eats sans doublons… Mis à jour tout seuls."
+    },
     "roaming": {
       "masque": true,
       "titre": "Roaming Free et Salt",
