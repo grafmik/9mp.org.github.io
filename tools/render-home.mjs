@@ -188,7 +188,7 @@ const tuile = (p) => `        <li><a class="t" href="${esc(p.href)}" style="--h:
 const secrete = join(DIR, "s", "index.html");
 if (existsSync(secrete)) {
   // Projets masqués entiers, plus les versions masquées des projets en vitrine,
-  // plus les fiches "url" : projets servis hors de ce dépôt (app.9mp.org…),
+  // plus les fiches "url" : projets servis hors de ce dépôt (fdroid.9mp.org, polybot.9mp.org…),
   // rangés dans leur catégorie comme les autres.
   const externes = Object.entries(portfolio.projets)
     .filter(([, meta]) => meta.url && meta.masque)
